@@ -1,4 +1,4 @@
 master_cours
 ============
 
-cours master 2013/2014
+Cours Master Informatique 2013/2014
