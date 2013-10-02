@@ -1,3 +1,0 @@
-<!ELEMENT id     (nom,prenom) >
-<!ELEMENT nom    (#PCDATA)    >
-<!ELEMENT prenom (#PCDATA)    >
