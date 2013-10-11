@@ -1,0 +1,18 @@
+package tp16;
+
+public class Fabrication {
+	
+	public int tires;
+	public int motors;
+	public int bodies;
+	
+	
+	public Fabrication(){
+		tires = 0;
+		motors = 0;
+		bodies = 0;
+	}
+
+	
+	
+}

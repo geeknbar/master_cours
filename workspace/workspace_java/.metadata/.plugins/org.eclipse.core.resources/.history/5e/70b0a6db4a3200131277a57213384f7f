@@ -1,0 +1,26 @@
+package tp16;
+
+public class Fabrication extends Thread{
+	
+	public int tires;
+	public int motors;
+	public int bodies;
+	public int cars;
+	
+	
+	public Fabrication(){
+		tires = 0;
+		motors = 0;
+		bodies = 0;
+		cars = 0;
+	}
+
+	public void run {
+		Fabrication f = new Fabrication();
+		Tire t = new Tire();
+		Body b = new Body();
+		Motor m = new Motor();
+	}
+	
+	
+}

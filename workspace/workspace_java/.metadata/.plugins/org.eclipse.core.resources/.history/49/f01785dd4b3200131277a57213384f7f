@@ -1,0 +1,40 @@
+package tp16;
+
+public class Fabrication extends Thread{
+
+	public int tires;
+	public int motors;
+	public int bodies;
+	public int cars;
+
+
+	public Fabrication(){
+		tires = 0;
+		motors = 0;
+		bodies = 0;
+		cars = 0;
+	}
+
+	public void run() {
+		int times = 0;
+		while(true){
+			try {
+				Thread.sleep(1000);
+			}catch(Exception e){
+
+			}
+			if ((tires >=4) && (motors >=1) && (bodies >=1)){
+				tires -= 4;
+				motors -= 1;
+				bodies -= 1;
+				cars += 1;
+			}
+			++times;
+			System.out.println(times + " : " + tires + " " + motors + " " + bodies + " " + cars);
+			
+		}
+
+	}
+
+
+}

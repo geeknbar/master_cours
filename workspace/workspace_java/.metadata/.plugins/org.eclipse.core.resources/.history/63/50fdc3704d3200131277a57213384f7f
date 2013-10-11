@@ -1,0 +1,26 @@
+package tp16;
+
+public class Main {
+	
+	public final static int NBR_TIRE_FACTORIES = 3;
+	public final static int NBR_MOTOR_FACTORIES = 3;
+	public final static int NBR_BODY_FACTORIES = 1;
+	
+	public final static int TIME_TIRE_FACTORIES = 1; /* min */
+	public final static int TIME_MOTOR_FACTORIES = 5;
+	public final static int TIME_BODY__FACTORIES = 4;
+
+	public static void main(String[] args) {
+				Tire tf[] = new Tire[NBR_TIRE_FACTORIES];
+				Body bf[] = new Body[NBR_BODY_FACTORIES];
+				Motor mf[] = new Motor[NBR_MOTOR_FACTORIES];
+				Fabrication f = new Fabrication();
+				
+				f.start();
+				
+				for( Tire t : tf ) t.start();
+				for( Motor m : mf ) m.start();
+				for( Body b : bf ) b.start();
+	}
+
+}

@@ -1,0 +1,8 @@
+package tp16;
+
+public class Body extends Thread{
+	
+	public Body(){
+		
+	}
+}

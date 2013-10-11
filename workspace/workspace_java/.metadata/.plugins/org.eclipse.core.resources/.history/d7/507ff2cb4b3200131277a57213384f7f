@@ -1,0 +1,12 @@
+package tp16;
+
+public class Main {
+
+	public static void main(String[] args) {
+				Fabrication f = new Fabrication();
+				Tire t = new Tire();
+				Body b = new Body();
+				Motor m = new Motor();
+	}
+
+}

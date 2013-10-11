@@ -1,0 +1,13 @@
+package tp16;
+
+public class Tire extends Thread {
+	
+	public Tire(){
+		
+	}
+	
+	public void run(){
+		
+	}
+
+}

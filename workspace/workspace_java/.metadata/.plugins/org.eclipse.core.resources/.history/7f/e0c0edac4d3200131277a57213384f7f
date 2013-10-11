@@ -1,0 +1,13 @@
+package tp16;
+
+public class Motor extends Thread {
+	
+	public Motor(){
+		
+	}
+	
+	public void run(){
+		
+	}
+
+}
