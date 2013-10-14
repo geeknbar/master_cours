@@ -1,0 +1,14 @@
+/*
+ * TD2prof.h
+ *
+ *  Created on: 14 oct. 2013
+ *      Author: dorian
+ */
+
+#ifndef TD2PROF_H_
+#define TD2PROF_H_
+
+class TD2_prof {
+};
+
+#endif /* TD2PROF_H_ */

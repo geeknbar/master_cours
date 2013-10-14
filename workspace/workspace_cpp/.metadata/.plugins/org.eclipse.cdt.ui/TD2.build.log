@@ -10,3 +10,6 @@ Invoking: GCC C++ Linker
 g++  -o "TD2"  ./src/TD2.o ./src/TD2prof.o   
 Finished building target: TD2
  
+
+09:04:29 Build Finished (took 107ms)
+
