@@ -3,6 +3,9 @@
  */
 package algorithme;
 
+import gestionFichier.FileWR;
+
+import java.io.IOException;
 import java.util.ArrayList;
 
 /**
@@ -20,12 +23,15 @@ public class ChainageAvant
 	private boolean inf;
 	private boolean dec;
 	private int nbinf = 0;
+	private FileWR f = new FileWR();
 
 
 
 	public ChainageAvant()
 	{
 		// TODO Auto-generated constructor stub
+		chargerBF();
+		chargerBR();
 	}
 
 	public void verifiationChainageAvant()
@@ -54,13 +60,33 @@ public class ChainageAvant
 				if (dec){
 					
 				}
+				
 			}
 		}
 	}
+	
+	public void chargerBF(){
+		try {
+			BF = f.realLines("BF.txt");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 
+	public void chargerBR(){
+		try {
+			BF = f.realLines("BR.txt");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	
 	
-
+	
+	
+	
 	public ArrayList<String> getVF() {
 		return VF;
 	}
