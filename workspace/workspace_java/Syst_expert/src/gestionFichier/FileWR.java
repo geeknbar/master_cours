@@ -16,11 +16,16 @@ public class FileWR {
 
 	}
 
-	public void realLines(String pathS) throws IOException{
+	public ArrayList<String> realLines(String pathS) throws IOException{
 		setPathSource(pathS);
+		ArrayList<String> array = new ArrayList<String>();
+		
 		List<String> lignes =  Files.readAllLines(pathSource, StandardCharsets.UTF_8);  
-		for (String ligne : lignes)
-			System.out.println(ligne);
+		for (String ligne : lignes){
+			array.add(ligne);
+		}
+			
+		return array;
 	}
 
 	public void writeLine(String s, String pathC) throws IOException{
