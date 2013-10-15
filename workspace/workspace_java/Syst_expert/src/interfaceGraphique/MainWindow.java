@@ -7,16 +7,22 @@ import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
+
+import java.awt.FileDialog;
 import java.awt.Font;
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JTextPane;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JRadioButton;
 
-public class MainWindow {
+public class MainWindow extends JFrame implements ActionListener{
 
+	private static final long serialVersionUID = 2340508479302991507L;
 	private JFrame frame;
 
 	/**
@@ -92,43 +98,44 @@ public class MainWindow {
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
-					.addGap(18)
-					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-						.addComponent(lblBf, GroupLayout.PREFERRED_SIZE, 54, GroupLayout.PREFERRED_SIZE)
-						.addComponent(lblChainage, GroupLayout.PREFERRED_SIZE, 135, GroupLayout.PREFERRED_SIZE)
-						.addComponent(lblBr))
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-						.addComponent(textBF, Alignment.TRAILING, GroupLayout.PREFERRED_SIZE, 209, GroupLayout.PREFERRED_SIZE)
-						.addGroup(Alignment.TRAILING, groupLayout.createParallelGroup(Alignment.TRAILING, false)
-							.addComponent(choixChainage, 0, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-							.addComponent(textBR, GroupLayout.DEFAULT_SIZE, 209, Short.MAX_VALUE)))
-					.addGap(18)
-					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+					.addGap(107)
+					.addComponent(lblNewLabel)
+					.addContainerGap(705, Short.MAX_VALUE))
+				.addGroup(groupLayout.createSequentialGroup()
+					.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
 						.addGroup(groupLayout.createSequentialGroup()
+							.addContainerGap()
+							.addComponent(btnQuitter, GroupLayout.PREFERRED_SIZE, 228, GroupLayout.PREFERRED_SIZE))
+						.addGroup(Alignment.LEADING, groupLayout.createSequentialGroup()
+							.addGap(18)
+							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+								.addComponent(lblBf, GroupLayout.PREFERRED_SIZE, 54, GroupLayout.PREFERRED_SIZE)
+								.addComponent(lblChainage, GroupLayout.PREFERRED_SIZE, 135, GroupLayout.PREFERRED_SIZE)
+								.addComponent(lblBr))
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+								.addComponent(textBF, Alignment.TRAILING, GroupLayout.PREFERRED_SIZE, 209, GroupLayout.PREFERRED_SIZE)
+								.addGroup(Alignment.TRAILING, groupLayout.createParallelGroup(Alignment.TRAILING, false)
+									.addComponent(choixChainage, 0, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+									.addComponent(textBR, GroupLayout.DEFAULT_SIZE, 209, Short.MAX_VALUE)))
+							.addGap(18)
 							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 								.addGroup(groupLayout.createSequentialGroup()
 									.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 										.addComponent(rdbtnSaturation)
 										.addComponent(rdbtnProfondeur))
-									.addGap(18))
-								.addGroup(Alignment.TRAILING, groupLayout.createSequentialGroup()
-									.addComponent(btnValider)
-									.addPreferredGap(ComponentPlacement.RELATED)))
-							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-								.addComponent(rdbtnLargeur)
-								.addGroup(groupLayout.createSequentialGroup()
-									.addGap(31)
-									.addComponent(btnQuitter))
-								.addComponent(rdbtnBut)))
-						.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING, false)
-							.addComponent(btnExplorerBF, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-							.addComponent(btnExplorerBR, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-					.addGap(331))
-				.addGroup(groupLayout.createSequentialGroup()
-					.addGap(107)
-					.addComponent(lblNewLabel)
-					.addContainerGap(705, Short.MAX_VALUE))
+									.addGap(18)
+									.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+										.addComponent(rdbtnLargeur)
+										.addComponent(rdbtnBut)))
+								.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING, false)
+									.addComponent(btnExplorerBF, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+									.addComponent(btnExplorerBR, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+						.addGroup(groupLayout.createSequentialGroup()
+							.addContainerGap()
+							.addComponent(btnValider, GroupLayout.PREFERRED_SIZE, 225, GroupLayout.PREFERRED_SIZE)
+							.addGap(258)))
+					.addGap(33))
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
@@ -160,12 +167,40 @@ public class MainWindow {
 					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
 						.addComponent(rdbtnProfondeur)
 						.addComponent(rdbtnLargeur))
-					.addPreferredGap(ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+					.addGap(28)
 					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
 						.addComponent(btnValider)
 						.addComponent(btnQuitter))
-					.addContainerGap())
+					.addGap(30))
 		);
 		frame.getContentPane().setLayout(groupLayout);
 	}
+	
+	
+	public void LoadFromFile(JFrame frame, String titre, String dossierOuverture,String extention)
+	{
+		FileDialog fileDialog=new FileDialog(frame, titre, FileDialog.LOAD);
+		fileDialog.setFile(extention);
+		fileDialog.setDirectory(dossierOuverture);
+		fileDialog.setLocation(50, 50);
+		fileDialog.setDirectory(dossierOuverture);
+		fileDialog.setVisible(true);
+		
+		//fichier=fileDialog.getDirectory()+fileDialog.getFile();
+	}
+	
+	@Override
+	public void actionPerformed(ActionEvent e) 
+	{
+
+		//chargement fichier
+			LoadFromFile(frame,"Ouvrir","~","*.txt");
+			frame.dispose();
+
+	}
+	
+	
+	
+	
+	
 }

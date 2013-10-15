@@ -4,7 +4,6 @@
 package algorithme;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * @author Mickael
@@ -12,30 +11,42 @@ import java.util.List;
  */
 public class ChainageAvant 
 {
+	private ArrayList<String> BR;
+	private ArrayList<String> Demandable;
+	private ArrayList<String> BF;
+	private ArrayList<String> VF;
+	private ArrayList<String> VA;
+	private ArrayList<String> VC;
+	private boolean inf;
+	private boolean dec;
+	private int nbinf = 0;
+
+
 
 	public ChainageAvant()
 	{
 		// TODO Auto-generated constructor stub
 	}
 
-	public void verifiationChainageAvant(){
-		List BR = null;
-		List Demandable;
-		List BF;
-		ArrayList<String> VF;
-		ArrayList<String> VA = null;
-		ArrayList<String> VC;
-		boolean inf = true;
-		boolean dec = true;
-		int nbinf = 0;
+	public void verifiationChainageAvant()
+	{
+		//TODO M C'est quoi??!!
 		
-		while (inf){
+		String m = new String("");
+		String r = new String("");
+		
+		while (inf)
+		{
 			inf = false;
-			for (int r = 0; r < BR.size(); r++) {
+			for (int i = 0; i < BR.size(); i++)
+			{
 				dec = true;
-				for (int m = 0; m < VA.size(); m++) {
-					while (dec){
-//						if(r && (VF.contains(m) != VA.contains(m)) || m){
+				for (int j = 0; j < VA.size(); j++)
+				{
+					while (dec)
+					{
+					if(BF.contains(m));
+//						{
 //							dec = false;
 //						}
 					}
@@ -46,5 +57,79 @@ public class ChainageAvant
 			}
 		}
 	}
+
 	
+	
+
+	public ArrayList<String> getVF() {
+		return VF;
+	}
+
+	public void setVF(ArrayList<String> vF) {
+		VF = vF;
+	}
+
+	public ArrayList<String> getVA() {
+		return VA;
+	}
+
+	public void setVA(ArrayList<String> vA) {
+		VA = vA;
+	}
+
+	public ArrayList<String> getVC() {
+		return VC;
+	}
+
+	public void setVC(ArrayList<String> vC) {
+		VC = vC;
+	}
+
+	public boolean isInf() {
+		return inf;
+	}
+
+	public void setInf(boolean inf) {
+		this.inf = inf;
+	}
+
+	public boolean isDec() {
+		return dec;
+	}
+
+	public void setDec(boolean dec) {
+		this.dec = dec;
+	}
+
+	public int getNbinf() {
+		return nbinf;
+	}
+
+	public void setNbinf(int nbinf) {
+		this.nbinf = nbinf;
+	}
+
+	public ArrayList<String> getBR() {
+		return BR;
+	}
+
+	public void setBR(ArrayList<String> bR) {
+		BR = bR;
+	}
+
+	public ArrayList<String> getDemandable() {
+		return Demandable;
+	}
+
+	public void setDemandable(ArrayList<String> demandable) {
+		Demandable = demandable;
+	}
+
+	public ArrayList<String> getBF() {
+		return BF;
+	}
+
+	public void setBF(ArrayList<String> bF) {
+		BF = bF;
+	}	
 }
