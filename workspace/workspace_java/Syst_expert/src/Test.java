@@ -8,8 +8,10 @@ public class Test {
 
 		FileWR f = new FileWR();
 		
-		f.writeLine("Bonjour", "test.txt");
-		f.realLines("test.txt");
+//		f.writeLine("Bonjour", "BF.txt");
+//		f.writeLine("Bonjour", "BR.txt");
+		f.realLines("BR.txt");
+		f.realLines("BF.txt");
 		
 	}
 }
