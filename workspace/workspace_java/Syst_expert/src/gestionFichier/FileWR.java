@@ -10,7 +10,7 @@ public class FileWR {
 
 	private Path pathSource;
 	private Path pathCible;
-	private List<String> lignes = new ArrayList<>();
+	private List<String> lignes = new ArrayList<String>();
 
 	public FileWR(){
 
