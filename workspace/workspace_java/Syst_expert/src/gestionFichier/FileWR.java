@@ -22,10 +22,18 @@ public class FileWR {
 			System.out.println(ligne);
 	}
 
-	public void writeLine(String s) throws IOException{
-		pathCible = Paths.get("c:/java/cible.bin");
+	public void writeLine(String s, String pathC) throws IOException{
+		setPathCible(pathC);
 		lignes.add(s);
 		Files.write(pathCible, lignes, Charset.defaultCharset());
 
+	}
+	
+	public void setPathCible(String pathC){
+		pathCible = Paths.get(pathC);
+	}
+	
+	public void setPathSource(String pathS){
+		pathSource = Paths.get(pathS);
 	}
 }
