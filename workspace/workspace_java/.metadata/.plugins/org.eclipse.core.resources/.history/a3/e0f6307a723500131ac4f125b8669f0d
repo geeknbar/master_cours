@@ -1,0 +1,27 @@
+package gestionFichier;
+
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.*;
+import java.util.List;
+public class FileWR {
+
+
+	public FileWR(){
+
+	}
+
+	public void realLines() throws IOException{
+		List<String> lignes =  Files.readAllLines(  
+				FileSystems.getDefault().getPath("monfichier.txt"), StandardCharsets.UTF_8);  
+		for (String ligne : lignes)
+			System.out.println(ligne);
+	}
+
+	public void writeLine(String s){
+		final Path pathSource = Paths.get("c:/java/source.bin");
+		final Path pathCible = Paths.get("c:/java/cible.bin");
+		Files.write(pathCible, s);
+
+	}
+}
