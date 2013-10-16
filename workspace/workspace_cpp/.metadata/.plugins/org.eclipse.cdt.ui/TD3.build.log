@@ -1,11 +1,6 @@
-09:44:10 **** Incremental Build of configuration Debug for project TD3 ****
+10:46:09 **** Incremental Build of configuration Debug for project TD3 ****
 make all 
-Building file: ../src/TD3.cpp
-Invoking: GCC C++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/TD3.d" -MT"src/TD3.d" -o "src/TD3.o" "../src/TD3.cpp"
-../src/TD3.cpp:6:2: erreur: ‘String’ does not name a type
-../src/TD3.cpp:11:16: erreur: expected ‘)’ before ‘n’
-make: *** [src/TD3.o] Erreur 1
+make: Rien à faire pour « all ».
 
-09:44:10 Build Finished (took 58ms)
+10:46:09 Build Finished (took 64ms)
 

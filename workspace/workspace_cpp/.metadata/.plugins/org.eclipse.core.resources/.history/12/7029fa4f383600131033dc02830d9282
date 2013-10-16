@@ -1,0 +1,22 @@
+#include <string>
+using namespace std;
+
+class Person {
+
+public:
+	string name;
+	int age;
+	Person(){
+
+	};
+	Person(string n, int a);
+	string getName();
+	int getAge();
+};
+
+
+
+Person(string n, int a){
+	name = n;
+	age = a;
+};

@@ -1,21 +1,25 @@
-using namespace std;
+#include "person.h"
 
-class Person {
+int main() {
+	const int MAX_PERSONS = 5;
+	Person *persons = new Person[MAX_PERSONS];
 
-public:
-	String name;
-	int age;
+	persons[0].set_nom("riri");
+	persons[0].set_age(10);
+	persons[1].set_nom("fifi");
+	persons[1].set_age(12);
+	persons[2].set_nom("loulou");
+	persons[2].set_age(11);
+	persons[3].set_nom("donald");
+	persons[3].set_age(40);
+	/*persons[4].set_nom("tata");
+	persons[4].set_age(50);*/
 
-	Person();
+	vector<Person> v(&persons[0], &persons[MAX_PERSONS]);
+	// tri suivantnom
+	sort(v.begin(), v.end());
+	cout << "TRI suivant nom : " << endl;
+	copy(v.begin(), v.end(), ostream_iterator<Person&>(cout, "\n"));
 
-	Person(String n, int a);
-
-	String getName();
-	int getAge();
-};
-
-
-Person(String n, int a){
-	name = n;
-	age = a;
-};
+	return 0;
+}

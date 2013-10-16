@@ -1,0 +1,14 @@
+#include <string>
+using namespace std;
+
+class Person {
+
+public:
+
+};
+
+
+Person(String n, int a){
+	name = n;
+	age = a;
+};

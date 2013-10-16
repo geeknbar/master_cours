@@ -4,13 +4,16 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 CPP_SRCS += \
-../src/TD3.cpp 
+../src/TD3.cpp \
+../src/person.cpp 
 
 OBJS += \
-./src/TD3.o 
+./src/TD3.o \
+./src/person.o 
 
 CPP_DEPS += \
-./src/TD3.d 
+./src/TD3.d \
+./src/person.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes
