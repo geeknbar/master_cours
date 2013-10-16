@@ -26,6 +26,7 @@ public class ChainageArriere
 	private ArrayList<String> regleSplitArray;
 	private ArrayList<String> antecedents;
 	private String regle;
+	private boolean fin = false;
 
 
 
@@ -38,12 +39,11 @@ public class ChainageArriere
 		antecedents = new ArrayList<String>();
 		inf = true;
 		nbinf = 0;
-
-		//charge but
-		But.add("usure freins");
+		
 		//charge les fichiers BR et BF
 		chargerBR();
 		chargerBF();
+		
 
 	}
 	
@@ -51,11 +51,14 @@ public class ChainageArriere
 
 	public boolean demo(String b, ArrayList<String> BF){
 		boolean dem = false;
+		
 		if(BF.contains(b)){
 			dem = true;
-			System.out.println("youououo");
+			fin = true;
 		}
 		for (int i = 0; i < BR.size(); i++) {
+			chargerRegle(i);
+			chargeAntecedent();
 			if (b.equals(regle)){
 				while (!dem){
 					dem = verif(antecedents,BF);
@@ -68,16 +71,25 @@ public class ChainageArriere
 	public boolean verif(ArrayList<String> But, ArrayList<String> BF){
 		boolean ver =true;
 		for (int i = 0; i < But.size(); i++) {
-			while(ver){
+			while(ver && !fin){
 				ver = demo(But.get(i),BF);
 			}
 		}
 		return ver;
 	}
+	
+	public void butTrouve(){
+		if (fin){
+			System.out.println("But trouve avec chainage arriere");
+		}else{
+			System.out.println("But non trouve avec chainage arriere");
+		}
+	}
 
 	public void chainage(){
-		But.add("usure freins");
+		But.add("usure ");
 		verif(But,BF);
+		butTrouve();
 	}
 	public void chargerRegle(int i){
 		//on charge la regle en la splitant dans un tableau
