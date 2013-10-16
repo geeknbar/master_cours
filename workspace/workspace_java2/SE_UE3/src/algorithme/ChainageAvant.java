@@ -12,17 +12,24 @@ import java.util.Arrays;
  */
 public class ChainageAvant 
 {
-	private ArrayList<String> BR = new ArrayList<String>();
-	private ArrayList<String> BF=  new ArrayList<String>();
-	private boolean inf = true;
+	private ArrayList<String> BR;
+	private ArrayList<String> BF;
+	private boolean inf;
 	private String[] regleSplitTab;
-	ArrayList<String> regleSplitArray;
-	ArrayList<String> antecedents = new ArrayList<String>();
-	String regle;
-	FileWR fileRW = new FileWR();
+	private ArrayList<String> regleSplitArray;
+	private ArrayList<String> antecedents;
+	private String regle;
+	private FileWR fileRW;
 
 	public ChainageAvant()
 	{
+		//initialisation des variables globales
+		BR = new ArrayList<String>();
+		BF =  new ArrayList<String>();
+		inf = true;
+		antecedents = new ArrayList<String>();
+		fileRW=new FileWR();
+		
 		//charge les fichiers BR et BF
 		chargerBR();
 		chargerBF();
@@ -50,7 +57,7 @@ public class ChainageAvant
 				}
 
 				if(verif){
-					System.out.println("Regle : " + regle + " validÃ©e");
+					System.out.println("Regle : " + regle + " validée");
 				}
 			}
 		}
@@ -61,7 +68,7 @@ public class ChainageAvant
 		try {
 			BF = fileRW.readLines("./src/doc/BF.txt");
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+			System.err.println("ERREUR : chargement du fichier BF");
 			e.printStackTrace();
 		}
 	}
@@ -70,7 +77,7 @@ public class ChainageAvant
 		try {
 			BR = fileRW.readLines("./src/doc/BR.txt");
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+			System.err.println("ERREUR : chargement du fichier BR");
 			e.printStackTrace();
 		}
 	}
@@ -110,5 +117,69 @@ public class ChainageAvant
 			System.out.print(s + " ,");
 		}
 		System.out.println("");
+	}
+
+	public ArrayList<String> getBR() {
+		return BR;
+	}
+
+	public void setBR(ArrayList<String> bR) {
+		BR = bR;
+	}
+
+	public ArrayList<String> getBF() {
+		return BF;
+	}
+
+	public void setBF(ArrayList<String> bF) {
+		BF = bF;
+	}
+
+	public boolean isInf() {
+		return inf;
+	}
+
+	public void setInf(boolean inf) {
+		this.inf = inf;
+	}
+
+	public String[] getRegleSplitTab() {
+		return regleSplitTab;
+	}
+
+	public void setRegleSplitTab(String[] regleSplitTab) {
+		this.regleSplitTab = regleSplitTab;
+	}
+
+	public ArrayList<String> getRegleSplitArray() {
+		return regleSplitArray;
+	}
+
+	public void setRegleSplitArray(ArrayList<String> regleSplitArray) {
+		this.regleSplitArray = regleSplitArray;
+	}
+
+	public ArrayList<String> getAntecedents() {
+		return antecedents;
+	}
+
+	public void setAntecedents(ArrayList<String> antecedents) {
+		this.antecedents = antecedents;
+	}
+
+	public String getRegle() {
+		return regle;
+	}
+
+	public void setRegle(String regle) {
+		this.regle = regle;
+	}
+
+	public FileWR getFileRW() {
+		return fileRW;
+	}
+
+	public void setFileRW(FileWR fileRW) {
+		this.fileRW = fileRW;
 	}
 }

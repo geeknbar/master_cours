@@ -1,14 +1,12 @@
 import java.io.IOException;
-import java.util.ArrayList;
 
 import algorithme.ChainageAvant;
-import gestionFichier.FileWR;
 
 
 public class Test {
 	public static void main (String[] args) throws IOException{
 
-		FileWR f = new FileWR();
+//		FileWR f = new FileWR();
 		
 //		f.writeLine("Bonjour", "BF.txt");
 //		f.writeLine("Bonjour", "BR.txt");

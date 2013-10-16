@@ -7,7 +7,6 @@ import gestionFichier.FileWR;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 /**
  * @author Mickael
@@ -15,18 +14,24 @@ import java.util.Arrays;
  */
 public class ChainageArriere 
 {
-	private ArrayList<String> BR = new ArrayList<String>();
+	private ArrayList<String> BR;
 	private ArrayList<String> Demandable;
-	private ArrayList<String> BF=  new ArrayList<String>();
-	private boolean inf = true;
+	private ArrayList<String> BF;
+	private boolean inf;
 	private boolean dec;
-	private int nbinf = 0;
+	private int nbinf;
 
 
 
 	public ChainageArriere()
 	{
-		// TODO Auto-generated constructor stub
+		//initialisation des variables globales
+		BR = new ArrayList<String>();
+		BF=  new ArrayList<String>();
+		inf = true;
+		nbinf = 0;
+
+		//charge les fichiers BR et BF
 		chargerBR();
 		chargerBF();
 
@@ -45,7 +50,7 @@ public class ChainageArriere
 			FileWR fBF = new FileWR();
 			BF = fBF.readLines("BF.txt");
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+			System.err.println("ERREUR : chargement du fichier BF");
 			e.printStackTrace();
 		}
 	}
@@ -55,7 +60,7 @@ public class ChainageArriere
 			FileWR fBR = new FileWR();
 			BF = fBR.readLines("BR.txt");
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+			System.err.println("ERREUR : chargement du fichier BR");
 			e.printStackTrace();
 		}
 	}
