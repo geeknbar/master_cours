@@ -1,5 +1,6 @@
 import java.io.IOException;
 
+import algorithme.ChainageArriere;
 import algorithme.ChainageAvant;
 
 
@@ -16,8 +17,10 @@ public class Test {
 //		a = f.readLines("BR.txt");
 		
 		
-		ChainageAvant cav = new ChainageAvant(); 
-		cav.verifiationChainageAvant();
+//		ChainageAvant cav = new ChainageAvant(); 
+//		cav.verifiationChainageAvant();
+		ChainageArriere car = new ChainageArriere();
+		car.demontrerBut("usure freins");
 //		for(String s : a){
 //			System.out.println(s);
 //		}

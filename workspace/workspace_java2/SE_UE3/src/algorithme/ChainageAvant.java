@@ -40,7 +40,7 @@ public class ChainageAvant
 	{
 		System.out.println("START");
 		while (inf)	{
-			inf = false;			
+			inf = false;
 			for (int i = 0; i < BR.size(); i++){
 
 				chargerRegle(i);	
@@ -57,7 +57,7 @@ public class ChainageAvant
 				}
 
 				if(verif){
-					System.out.println("Regle : " + regle + " validée");
+					System.out.println("Regle : " + regle + " validï¿½e");
 				}
 			}
 		}

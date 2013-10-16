@@ -7,6 +7,7 @@ import gestionFichier.FileWR;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * @author Mickael
@@ -17,9 +18,14 @@ public class ChainageArriere
 	private ArrayList<String> BR;
 	private ArrayList<String> Demandable;
 	private ArrayList<String> BF;
+	private ArrayList<String> But;
 	private boolean inf;
 	private boolean dec;
 	private int nbinf;
+	private String[] regleSplitTab;
+	private ArrayList<String> regleSplitArray;
+	private ArrayList<String> antecedents;
+	private String regle;
 
 
 
@@ -27,28 +33,88 @@ public class ChainageArriere
 	{
 		//initialisation des variables globales
 		BR = new ArrayList<String>();
-		BF=  new ArrayList<String>();
+		BF = new ArrayList<String>();
+		But = new ArrayList<String>();
+		antecedents = new ArrayList<String>();
 		inf = true;
 		nbinf = 0;
 
+		//charge but
+		But.add("usure freins");
 		//charge les fichiers BR et BF
 		chargerBR();
 		chargerBF();
 
 	}
+	
+	
 
 	//chainage avant en saturation
-	public void verifiationChainageArriere()
-	{
-		System.out.println("START");
+	public boolean verifiationChainageArriere(String but){
+		boolean res;
+		if(But.isEmpty()){
+			res = true;
+		}else{
+			int i = 0;
+			if(demontrerBut(But.get(i))){
+				i++;
+				res = verifiationChainageArriere(But.get(i));				
+			}else{
+				res = false;
+			}
+				
+		}
+		System.out.println("vCA : " + res);
+		return res;
+	}
+	
+	public boolean demontrerBut(String but){
+		boolean res = true;
+		
+		if (BF.contains(but)){
+			res = true;
+		}else{
+			res = false;
+			ArrayList<String> regles = BR;
+			int i = 0;
+			while(!regles.isEmpty() && res == false && i<BR.size()){
+				
+				chargerRegle(i);
+				regles.remove(i);
+				i++;
+				if (BF.contains(regle) ){
+					res = verifiationChainageArriere(but);
+				}		
+			}
+			
+		}
+		System.out.println("dB : " + res);
+		return res;
+	}
+	
+	public void chargerRegle(int i){
+		//on charge la regle en la splitant dans un tableau
+		regleSplitTab = BR.get(i).split(",");
 
-		System.out.println("END");
+		//on converti la regle en arraylist
+		regleSplitArray = new ArrayList<String>(Arrays.asList(regleSplitTab));
+
+		//on sort le resulat de la règle, ex: A,B => C , ici on prend C
+		regle = regleSplitArray.get(regleSplitArray.size()-1).toString();
+
+	}
+	
+	public void chargeAntecedent(){
+		//on fait l'array des antecedents
+		antecedents = regleSplitArray;
+		antecedents.remove(0);
+		antecedents.remove(regleSplitArray.size()-1);
 	}
 
 	public void chargerBF(){
 		try {
 			FileWR fBF = new FileWR();
-			BF = fBF.readLines("BF.txt");
+			BF = fBF.readLines("./src/doc/BF.txt");
 		} catch (IOException e) {
 			System.err.println("ERREUR : chargement du fichier BF");
 			e.printStackTrace();
@@ -58,7 +124,7 @@ public class ChainageArriere
 	public void chargerBR(){
 		try {
 			FileWR fBR = new FileWR();
-			BF = fBR.readLines("BR.txt");
+			BR = fBR.readLines("./src/doc/BR.txt");
 		} catch (IOException e) {
 			System.err.println("ERREUR : chargement du fichier BR");
 			e.printStackTrace();
