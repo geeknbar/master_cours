@@ -54,3 +54,135 @@ Binding(CTRL+D,
 		,,true),null),
 	org.eclipse.ui.defaultAcceleratorConfiguration,
 	org.eclipse.ui.textEditorScope,,,system)
+!SESSION 2013-10-15 10:00:13.152 -----------------------------------------------
+eclipse.buildId=4.3.0.M20130911-1000
+java.version=1.7.0_25
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=fr_FR
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.jface 2 0 2013-10-15 10:38:43.470
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2013-10-15 10:38:43.470
+!MESSAGE A conflict occurred for CTRL+D:
+Binding(CTRL+D,
+	ParameterizedCommand(Command(org.eclipse.debug.ui.commands.eof,EOF,
+		Send end of file,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@5416558d,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.debug.ui.console,,,system)
+Binding(CTRL+D,
+	ParameterizedCommand(Command(org.eclipse.ui.edit.text.delete.line,Delete Line,
+		Delete a line of text,
+		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@64ac71c,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.textEditorScope,,,system)
+
+!ENTRY org.eclipse.team.core 4 -6 2013-10-15 10:57:15.389
+!MESSAGE Some conflicting changes cannot be merged automatically. These changes will have to be merged manually.
+!STACK 1
+org.eclipse.core.runtime.CoreException: Some conflicting changes cannot be merged automatically. These changes will have to be merged manually.
+	at org.eclipse.team.internal.ui.mapping.ResourceMergeHandler$1.execute(ResourceMergeHandler.java:60)
+	at org.eclipse.team.ui.mapping.SynchronizationOperation.run(SynchronizationOperation.java:121)
+	at org.eclipse.team.internal.ui.actions.JobRunnableContext.run(JobRunnableContext.java:144)
+	at org.eclipse.team.internal.ui.actions.JobRunnableContext$ResourceJob.runInWorkspace(JobRunnableContext.java:72)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:38)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+!SUBENTRY 1 org.eclipse.team.core 4 1 2013-10-15 10:57:15.391
+!MESSAGE Some conflicting changes cannot be merged automatically. These changes will have to be merged manually.
+
+!ENTRY org.eclipse.team.core 4 -6 2013-10-15 11:01:05.118
+!MESSAGE Some conflicting changes cannot be merged automatically. These changes will have to be merged manually.
+!STACK 1
+org.eclipse.core.runtime.CoreException: Some conflicting changes cannot be merged automatically. These changes will have to be merged manually.
+	at org.eclipse.team.internal.ui.mapping.ResourceMergeHandler$1.execute(ResourceMergeHandler.java:60)
+	at org.eclipse.team.ui.mapping.SynchronizationOperation.run(SynchronizationOperation.java:121)
+	at org.eclipse.team.internal.ui.actions.JobRunnableContext.run(JobRunnableContext.java:144)
+	at org.eclipse.team.internal.ui.actions.JobRunnableContext$ResourceJob.runInWorkspace(JobRunnableContext.java:72)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:38)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+!SUBENTRY 1 org.eclipse.team.core 4 1 2013-10-15 11:01:05.118
+!MESSAGE Some conflicting changes cannot be merged automatically. These changes will have to be merged manually.
+
+!ENTRY org.eclipse.team.core 4 -6 2013-10-15 11:01:26.256
+!MESSAGE Some conflicting changes cannot be merged automatically. These changes will have to be merged manually.
+!STACK 1
+org.eclipse.core.runtime.CoreException: Some conflicting changes cannot be merged automatically. These changes will have to be merged manually.
+	at org.eclipse.team.internal.ui.mapping.ResourceMergeHandler$1.execute(ResourceMergeHandler.java:60)
+	at org.eclipse.team.ui.mapping.SynchronizationOperation.run(SynchronizationOperation.java:121)
+	at org.eclipse.team.internal.ui.actions.JobRunnableContext.run(JobRunnableContext.java:144)
+	at org.eclipse.team.internal.ui.actions.JobRunnableContext$ResourceJob.runInWorkspace(JobRunnableContext.java:72)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:38)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+!SUBENTRY 1 org.eclipse.team.core 4 1 2013-10-15 11:01:26.257
+!MESSAGE Some conflicting changes cannot be merged automatically. These changes will have to be merged manually.
+
+!ENTRY org.eclipse.team.core 4 -6 2013-10-15 11:01:32.695
+!MESSAGE Some conflicting changes cannot be merged automatically. These changes will have to be merged manually.
+!STACK 1
+org.eclipse.core.runtime.CoreException: Some conflicting changes cannot be merged automatically. These changes will have to be merged manually.
+	at org.eclipse.team.internal.ui.mapping.ResourceMergeHandler$1.execute(ResourceMergeHandler.java:60)
+	at org.eclipse.team.ui.mapping.SynchronizationOperation.run(SynchronizationOperation.java:121)
+	at org.eclipse.team.internal.ui.actions.JobRunnableContext.run(JobRunnableContext.java:144)
+	at org.eclipse.team.internal.ui.actions.JobRunnableContext$ResourceJob.runInWorkspace(JobRunnableContext.java:72)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:38)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+!SUBENTRY 1 org.eclipse.team.core 4 1 2013-10-15 11:01:32.696
+!MESSAGE Some conflicting changes cannot be merged automatically. These changes will have to be merged manually.
+
+!ENTRY org.eclipse.team.core 4 -6 2013-10-15 11:02:03.797
+!MESSAGE Some conflicting changes cannot be merged automatically. These changes will have to be merged manually.
+!STACK 1
+org.eclipse.core.runtime.CoreException: Some conflicting changes cannot be merged automatically. These changes will have to be merged manually.
+	at org.eclipse.team.internal.ui.mapping.ResourceMergeHandler$1.execute(ResourceMergeHandler.java:60)
+	at org.eclipse.team.ui.mapping.SynchronizationOperation.run(SynchronizationOperation.java:121)
+	at org.eclipse.team.internal.ui.actions.JobRunnableContext.run(JobRunnableContext.java:144)
+	at org.eclipse.team.internal.ui.actions.JobRunnableContext$ResourceJob.runInWorkspace(JobRunnableContext.java:72)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:38)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+!SUBENTRY 1 org.eclipse.team.core 4 1 2013-10-15 11:02:03.797
+!MESSAGE Some conflicting changes cannot be merged automatically. These changes will have to be merged manually.
+
+!ENTRY org.eclipse.team.core 4 -6 2013-10-15 11:02:35.386
+!MESSAGE Some conflicting changes cannot be merged automatically. These changes will have to be merged manually.
+!STACK 1
+org.eclipse.core.runtime.CoreException: Some conflicting changes cannot be merged automatically. These changes will have to be merged manually.
+	at org.eclipse.team.internal.ui.mapping.ResourceMergeHandler$1.execute(ResourceMergeHandler.java:60)
+	at org.eclipse.team.ui.mapping.SynchronizationOperation.run(SynchronizationOperation.java:121)
+	at org.eclipse.team.internal.ui.actions.JobRunnableContext.run(JobRunnableContext.java:144)
+	at org.eclipse.team.internal.ui.actions.JobRunnableContext$ResourceJob.runInWorkspace(JobRunnableContext.java:72)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:38)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+!SUBENTRY 1 org.eclipse.team.core 4 1 2013-10-15 11:02:35.386
+!MESSAGE Some conflicting changes cannot be merged automatically. These changes will have to be merged manually.
+
+!ENTRY org.eclipse.team.core 4 -6 2013-10-15 11:09:43.412
+!MESSAGE Some conflicting changes cannot be merged automatically. These changes will have to be merged manually.
+!STACK 1
+org.eclipse.core.runtime.CoreException: Some conflicting changes cannot be merged automatically. These changes will have to be merged manually.
+	at org.eclipse.team.internal.ui.mapping.ResourceMergeHandler$1.execute(ResourceMergeHandler.java:60)
+	at org.eclipse.team.ui.mapping.SynchronizationOperation.run(SynchronizationOperation.java:121)
+	at org.eclipse.team.internal.ui.actions.JobRunnableContext.run(JobRunnableContext.java:144)
+	at org.eclipse.team.internal.ui.actions.JobRunnableContext$ResourceJob.runInWorkspace(JobRunnableContext.java:72)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:38)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+!SUBENTRY 1 org.eclipse.team.core 4 1 2013-10-15 11:09:43.413
+!MESSAGE Some conflicting changes cannot be merged automatically. These changes will have to be merged manually.
+
+!ENTRY org.eclipse.team.core 4 -6 2013-10-15 11:10:42.255
+!MESSAGE Some conflicting changes cannot be merged automatically. These changes will have to be merged manually.
+!STACK 1
+org.eclipse.core.runtime.CoreException: Some conflicting changes cannot be merged automatically. These changes will have to be merged manually.
+	at org.eclipse.team.internal.ui.mapping.ResourceMergeHandler$1.execute(ResourceMergeHandler.java:60)
+	at org.eclipse.team.ui.mapping.SynchronizationOperation.run(SynchronizationOperation.java:121)
+	at org.eclipse.team.internal.ui.actions.JobRunnableContext.run(JobRunnableContext.java:144)
+	at org.eclipse.team.internal.ui.actions.JobRunnableContext$ResourceJob.runInWorkspace(JobRunnableContext.java:72)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:38)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+!SUBENTRY 1 org.eclipse.team.core 4 1 2013-10-15 11:10:42.255
+!MESSAGE Some conflicting changes cannot be merged automatically. These changes will have to be merged manually.

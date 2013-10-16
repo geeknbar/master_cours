@@ -1,0 +1,22 @@
+using namespace std;
+
+class Person {
+
+public:
+	String name;
+	int age;
+
+	Person();
+
+	Person(String n, int a);
+
+	getName(){
+
+	}
+};
+
+
+Person(String n, int a){
+	name = n;
+	age = a;
+};

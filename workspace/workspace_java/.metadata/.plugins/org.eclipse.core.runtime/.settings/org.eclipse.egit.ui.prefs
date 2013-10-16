@@ -1,2 +1,2 @@
-commit_dialog_history_messages=<?xml version\="1.0" encoding\="UTF-8"?>\n<messages>\n<message>classe de test pour Egit</message>\n</messages>
+commit_dialog_history_messages=<?xml version\="1.0" encoding\="UTF-8"?>\n<messages>\n<message>add test for files writer and reader</message>\n<message>test write aand read methods</message>\n<message>add methods for path Cible and Source</message>\n<message>add class files</message>\n<message>classe de test pour Egit</message>\n</messages>
 eclipse.preferences.version=1

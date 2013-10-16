@@ -1,7 +1,21 @@
-/*
- * TD3.cpp
- *
- *  Created on: 14 oct. 2013
- *      Author: dorian
- */
+using namespace std;
 
+class Person {
+
+public:
+	String name;
+	int age;
+
+	Person();
+
+	Person(String n, int a);
+
+	String getName();
+	int getAge();
+};
+
+
+Person(String n, int a){
+	name = n;
+	age = a;
+};
