@@ -26,7 +26,7 @@ public class ChainageAvant
 	public ChainageAvant()
 	{
 		//charge les fichiers BR et BF
-
+		chargerBR();
 		chargerBF();
 	}
 
@@ -37,12 +37,12 @@ public class ChainageAvant
 		while (inf)	{
 			inf = false;
 			//pour le moment ajout a la main, le chargement du fichier ne se fait pas
-//			BR.add("R1,demarre,passage vitesse impossible,boite casse");
-//			BR.add("R2,passage vitesse impossible,roule pas");
-//			BR.add("R3,demarre,roule,nuit,feux grille");
-//			BR.add("R4,acceleration,passage vitesse,roule");
-//			BR.add("R5,nuit,non vision route");
-//			BR.add("R6,demarre,roule,bruit suspect,usure freins");
+			BR.add("R1,demarre,passage vitesse impossible,boite casse");
+			BR.add("R2,passage vitesse impossible,roule pas");
+			BR.add("R3,demarre,roule,nuit,feux grille");
+			BR.add("R4,acceleration,passage vitesse,roule");
+			BR.add("R5,nuit,non vision route");
+			BR.add("R6,demarre,roule,bruit suspect,usure freins");
 			
 			for (int i = 0; i < BR.size(); i++){
 
