@@ -21,7 +21,8 @@ public class Test {
 //		cav.verifiationChainageAvant();
 		ChainageArriere car = new ChainageArriere();
 //		car.verifiationChainageArriere("usure freins");
-		car.demontrerBut("usure freins");
+//		car.demontrerBut("usure freins");
+		car.chainage();
 //		for(String s : a){
 //			System.out.println(s);
 //		}

@@ -49,47 +49,36 @@ public class ChainageArriere
 	
 	
 
-	//chainage avant en saturation
-	public boolean verifiationChainageArriere(String but){
-		boolean res;
-		if(But.isEmpty()){
-			res = true;
-		}else{
-			int i = 0;
-			if(demontrerBut(But.get(i))){
-				i++;
-				res = verifiationChainageArriere(But.get(i));				
-			}else{
-				res = false;
-			}
-				
+	public boolean demo(String b, ArrayList<String> BF){
+		boolean dem = false;
+		if(BF.contains(b)){
+			dem = true;
+			System.out.println("youououo");
 		}
-		System.out.println("vCA : " + res);
-		return res;
+		for (int i = 0; i < BR.size(); i++) {
+			if (b.equals(regle)){
+				while (!dem){
+					dem = verif(antecedents,BF);
+				}
+			}
+		}
+		return dem;
 	}
 	
-	public boolean demontrerBut(String but){
-		boolean res = true;
-		
-		if (BF.contains(but)){
-			res = true;
-		}else{
-			res = false;
-			ArrayList<String> regles = BR;
-			while(!regles.isEmpty() && res == false ){
-				
-				chargerRegle(0);
-				regles.remove(0);
-				if (regle.equals(but)){
-					res = verifiationChainageArriere(but);
-				}		
+	public boolean verif(ArrayList<String> But, ArrayList<String> BF){
+		boolean ver =true;
+		for (int i = 0; i < But.size(); i++) {
+			while(ver){
+				ver = demo(But.get(i),BF);
 			}
-			
 		}
-		System.out.println("dB : " + res);
-		return res;
+		return ver;
 	}
-	
+
+	public void chainage(){
+		But.add("usure freins");
+		verif(But,BF);
+	}
 	public void chargerRegle(int i){
 		//on charge la regle en la splitant dans un tableau
 		regleSplitTab = BR.get(i).split(",");
