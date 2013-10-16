@@ -59,7 +59,7 @@ public class ChainageAvant
 	
 	public void chargerBF(){
 		try {
-			BF = fileRW.readLines("BF.txt");
+			BF = fileRW.readLines("./src/doc/BF.txt");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -68,7 +68,7 @@ public class ChainageAvant
 
 	public void chargerBR(){
 		try {
-			BR = fileRW.readLines("BR.txt");
+			BR = fileRW.readLines("./src/doc/BR.txt");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
