@@ -22,7 +22,7 @@ int main() {
 	persons[4].set_age(50);*/
 
 	vector<Person> v(&persons[0], &persons[MAX_PERSONS]);
-	// tri suivant nom
+	// tri suivantnom
 	sort(v.begin(), v.end());
 	cout << "TRI suivant nom : " << endl;
 	copy(v.begin(), v.end(), ostream_iterator<Person&>(cout, "\n"));
@@ -32,6 +32,4 @@ int main() {
 	cout << "TRI suivant nom : " << endl;
 	copy(v.begin(), v.end(), ostream_iterator<Person&>(cout, "\n"));
 	return 0;
-
-	//i
 }
