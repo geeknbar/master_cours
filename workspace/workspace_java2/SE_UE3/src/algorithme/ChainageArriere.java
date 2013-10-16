@@ -76,13 +76,11 @@ public class ChainageArriere
 		}else{
 			res = false;
 			ArrayList<String> regles = BR;
-			int i = 0;
-			while(!regles.isEmpty() && res == false && i<BR.size()){
+			while(!regles.isEmpty() && res == false ){
 				
-				chargerRegle(i);
-				regles.remove(i);
-				i++;
-				if (BF.contains(regle) ){
+				chargerRegle(0);
+				regles.remove(0);
+				if (regle.equals(but)){
 					res = verifiationChainageArriere(but);
 				}		
 			}

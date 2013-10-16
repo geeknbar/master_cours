@@ -20,6 +20,7 @@ public class Test {
 //		ChainageAvant cav = new ChainageAvant(); 
 //		cav.verifiationChainageAvant();
 		ChainageArriere car = new ChainageArriere();
+//		car.verifiationChainageArriere("usure freins");
 		car.demontrerBut("usure freins");
 //		for(String s : a){
 //			System.out.println(s);
