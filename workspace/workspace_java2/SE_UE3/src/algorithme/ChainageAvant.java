@@ -67,22 +67,24 @@ public class ChainageAvant
 		System.out.println("END");
 	}
 	
-	public void affichageBF(){
-		//on parcours la base de fait pour voir si les antecedents sont presents
-		System.out.print("BF :");
-		for(String s : BF){
-			System.out.print(s + " ,");
+	public void chargerBF(){
+		try {
+			FileWR fBF = new FileWR();
+			BF = fBF.readLines("BF.txt");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
-		System.out.println("");
 	}
-	
-	public void affichageRegle(){
-		//affichage de la regles et des antecedents
-		System.out.print("regle:" + regle + "antecedent ");
-		for(String s : antecedents){
-			System.out.print(s + " ,");
+
+	public void chargerBR(){
+		try {
+			FileWR fBR = new FileWR();
+			BF = fBR.readLines("BR.txt");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
-		System.out.println("");
 	}
 	
 	public void chargerRegle(int i){
@@ -103,24 +105,22 @@ public class ChainageAvant
 		antecedents.remove(0);
 		antecedents.remove(definitionRegle.size()-1);
 	}
-
-	public void chargerBF(){
-		try {
-			FileWR fBF = new FileWR();
-			BF = fBF.readLines("BF.txt");
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+	
+	public void affichageRegle(){
+		//affichage de la regles et des antecedents
+		System.out.print("regle:" + regle + "antecedent ");
+		for(String s : antecedents){
+			System.out.print(s + " ,");
 		}
+		System.out.println("");
 	}
-
-	public void chargerBR(){
-		try {
-			FileWR fBR = new FileWR();
-			BF = fBR.readLines("BR.txt");
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+	
+	public void affichageBF(){
+		//on parcours la base de fait pour voir si les antecedents sont presents
+		System.out.print("BF :");
+		for(String s : BF){
+			System.out.print(s + " ,");
 		}
+		System.out.println("");
 	}
 }
