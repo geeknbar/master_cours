@@ -1,6 +1,3 @@
-/**
- * 
- */
 package algorithme;
 
 import gestionFichier.FileWR;
@@ -10,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 /**
- * @author Mickael
+ * @author Dorian C., Mickael F.
  *
  */
 public class ChainageAvant 
