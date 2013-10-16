@@ -22,6 +22,7 @@ public class ChainageAvant
 	ArrayList<String> definitionRegle;
 	ArrayList<String> antecedents = new ArrayList<String>();
 	String regle;
+	FileWR fileRW = new FileWR();
 
 	public ChainageAvant()
 	{
@@ -35,15 +36,7 @@ public class ChainageAvant
 	{
 		System.out.println("START");
 		while (inf)	{
-			inf = false;
-			//pour le moment ajout a la main, le chargement du fichier ne se fait pas
-			BR.add("R1,demarre,passage vitesse impossible,boite casse");
-			BR.add("R2,passage vitesse impossible,roule pas");
-			BR.add("R3,demarre,roule,nuit,feux grille");
-			BR.add("R4,acceleration,passage vitesse,roule");
-			BR.add("R5,nuit,non vision route");
-			BR.add("R6,demarre,roule,bruit suspect,usure freins");
-			
+			inf = false;			
 			for (int i = 0; i < BR.size(); i++){
 
 				chargerRegle(i);	
@@ -69,8 +62,7 @@ public class ChainageAvant
 	
 	public void chargerBF(){
 		try {
-			FileWR fBF = new FileWR();
-			BF = fBF.readLines("BF.txt");
+			BF = fileRW.readLines("BF.txt");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -79,8 +71,7 @@ public class ChainageAvant
 
 	public void chargerBR(){
 		try {
-			FileWR fBR = new FileWR();
-			BF = fBR.readLines("BR.txt");
+			BR = fileRW.readLines("BR.txt");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
