@@ -18,8 +18,8 @@ public class ChainageAvant
 	private ArrayList<String> BR = new ArrayList<String>();
 	private ArrayList<String> BF=  new ArrayList<String>();
 	private boolean inf = true;
-	private String[] defRegle;
-	ArrayList<String> definitionRegle;
+	private String[] regleSplitTab;
+	ArrayList<String> regleSplitArray;
 	ArrayList<String> antecedents = new ArrayList<String>();
 	String regle;
 	FileWR fileRW = new FileWR();
@@ -80,21 +80,21 @@ public class ChainageAvant
 	
 	public void chargerRegle(int i){
 		//on charge la regle en la splitant dans un tableau
-		defRegle = BR.get(i).split(",");
+		regleSplitTab = BR.get(i).split(",");
 
 		//on converti la regle en arraylist
-		definitionRegle = new ArrayList<String>(Arrays.asList(defRegle));
+		regleSplitArray = new ArrayList<String>(Arrays.asList(regleSplitTab));
 
 		//on sort le resulat de la règle, ex: A,B => C , ici on prend C
-		regle = definitionRegle.get(definitionRegle.size()-1).toString();
+		regle = regleSplitArray.get(regleSplitArray.size()-1).toString();
 
 	}
 	
 	public void chargeAntecedent(){
 		//on fait l'array des antecedents
-		antecedents = definitionRegle;
+		antecedents = regleSplitArray;
 		antecedents.remove(0);
-		antecedents.remove(definitionRegle.size()-1);
+		antecedents.remove(regleSplitArray.size()-1);
 	}
 	
 	public void affichageRegle(){
