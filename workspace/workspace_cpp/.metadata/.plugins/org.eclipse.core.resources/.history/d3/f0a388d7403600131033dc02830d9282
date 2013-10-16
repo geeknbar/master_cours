@@ -1,6 +1,6 @@
 #include "person.h"
 
-bool person_compare_age(const Person&p, const Person& q){
+bool person_compmare_age(const Person&p, const Person& q){
 	return const_cast<Person &>(p).get_age() <
 			const_cast<Person &>(q).get_age();
 	//return p.get_age() < q.get_age();
@@ -27,9 +27,5 @@ int main() {
 	cout << "TRI suivant nom : " << endl;
 	copy(v.begin(), v.end(), ostream_iterator<Person&>(cout, "\n"));
 
-	//tri suivant age
-	sort(v.begin(), v.end(), person_compare_age);
-	cout << "TRI suivant nom : " << endl;
-	copy(v.begin(), v.end(), ostream_iterator<Person&>(cout, "\n"));
 	return 0;
 }
