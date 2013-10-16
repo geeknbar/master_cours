@@ -33,5 +33,4 @@ int main() {
 	copy(v.begin(), v.end(), ostream_iterator<Person&>(cout, "\n"));
 	return 0;
 
-	//i
 }
