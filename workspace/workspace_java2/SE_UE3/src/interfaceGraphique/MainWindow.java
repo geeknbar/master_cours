@@ -22,8 +22,12 @@ import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 import javax.swing.JTextArea;
 import javax.swing.JPanel;
+
+import algorithme.ChainageAvant;
+
 import java.awt.BorderLayout;
 import java.awt.Dimension;
+import javax.swing.JScrollPane;
 
 public class MainWindow
 {
@@ -90,7 +94,6 @@ public class MainWindow
 		JButton btnValider = new JButton("Valider");
 		
 		JPanel panelJtextField = new JPanel();
-		JPanel panelArea = new JPanel();
 
 		fichierBF="";
 		fichierBR="";
@@ -166,11 +169,13 @@ public class MainWindow
 				{
 					if("Chainage Avant".equals(choixChainage.getSelectedItem().toString()))
 					{
+						ChainageAvant ca= new ChainageAvant();
 						if(rdbtnProfondeur.isSelected() && rdbtnSaturation.isSelected())
 						{
 							//TODO chainage avant profondeur/saturation
 							System.out.println("chainage avant profondeur/saturation");
-							textArea.setText("chainage avant profondeur/saturation");
+							ca.verifiationChainageAvant();
+							textArea.setText("chainage avant profondeur/saturation \n" + ca.getResult());
 						}
 						if(rdbtnLargeur.isSelected() && rdbtnSaturation.isSelected())
 						{
@@ -224,34 +229,35 @@ public class MainWindow
 			}
 		});
 		
+		JScrollPane scrollPane = new JScrollPane();
+		
 		
 		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
 		groupLayout.setHorizontalGroup(
-			groupLayout.createParallelGroup(Alignment.LEADING)
+			groupLayout.createParallelGroup(Alignment.TRAILING)
 				.addGroup(groupLayout.createSequentialGroup()
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 						.addGroup(groupLayout.createSequentialGroup()
 							.addContainerGap()
-							.addComponent(btnQuitter, GroupLayout.PREFERRED_SIZE, 413, GroupLayout.PREFERRED_SIZE)
-							.addGap(18)
-							.addComponent(btnValider, GroupLayout.DEFAULT_SIZE, 393, Short.MAX_VALUE))
+							.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
+								.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 824, Short.MAX_VALUE)
+								.addGroup(groupLayout.createSequentialGroup()
+									.addComponent(btnQuitter, GroupLayout.PREFERRED_SIZE, 413, GroupLayout.PREFERRED_SIZE)
+									.addGap(18)
+									.addComponent(btnValider, GroupLayout.DEFAULT_SIZE, 393, Short.MAX_VALUE))))
 						.addGroup(groupLayout.createSequentialGroup()
 							.addContainerGap()
-							.addComponent(panelArea, GroupLayout.DEFAULT_SIZE, 824, Short.MAX_VALUE))
-						.addGroup(groupLayout.createSequentialGroup()
-							.addGap(18)
 							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 								.addComponent(lblBr)
 								.addComponent(lblBf, GroupLayout.PREFERRED_SIZE, 54, GroupLayout.PREFERRED_SIZE)
 								.addComponent(lblChainage, GroupLayout.PREFERRED_SIZE, 135, GroupLayout.PREFERRED_SIZE))
-							.addGap(66)
+							.addGap(49)
 							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-								.addComponent(lblNewLabel)
 								.addGroup(groupLayout.createSequentialGroup()
 									.addGroup(groupLayout.createParallelGroup(Alignment.LEADING, false)
 										.addComponent(choixChainage, 0, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
 										.addComponent(panelJtextField, GroupLayout.PREFERRED_SIZE, 287, GroupLayout.PREFERRED_SIZE))
-									.addGap(18)
+									.addGap(81)
 									.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 										.addGroup(groupLayout.createSequentialGroup()
 											.addGroup(groupLayout.createParallelGroup(Alignment.LEADING, false)
@@ -263,7 +269,8 @@ public class MainWindow
 												.addComponent(rdbtnBut)))
 										.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING, false)
 											.addComponent(btnExplorerBR, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-											.addComponent(btnExplorerBF, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)))))))
+											.addComponent(btnExplorerBF, Alignment.LEADING, GroupLayout.PREFERRED_SIZE, 115, GroupLayout.PREFERRED_SIZE))))
+								.addComponent(lblNewLabel))))
 					.addContainerGap())
 		);
 		groupLayout.setVerticalGroup(
@@ -271,43 +278,41 @@ public class MainWindow
 				.addGroup(groupLayout.createSequentialGroup()
 					.addContainerGap()
 					.addComponent(lblNewLabel)
-					.addGap(31)
-					.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
-						.addGroup(groupLayout.createSequentialGroup()
-							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-								.addComponent(lblBf, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE)
-								.addComponent(btnExplorerBF, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE))
-							.addGap(18)
-							.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
-								.addComponent(lblBr, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE)
-								.addComponent(btnExplorerBR, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE)))
-						.addComponent(panelJtextField, GroupLayout.PREFERRED_SIZE, 59, GroupLayout.PREFERRED_SIZE))
-					.addGap(16)
+					.addGap(50)
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-						.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-							.addComponent(lblChainage, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE)
-							.addComponent(choixChainage, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE))
 						.addGroup(groupLayout.createSequentialGroup()
+							.addComponent(btnExplorerBF, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE)
+							.addGap(18)
+							.addComponent(btnExplorerBR, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE)
+							.addGap(16)
 							.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
 								.addComponent(rdbtnSaturation)
 								.addComponent(rdbtnBut))
 							.addPreferredGap(ComponentPlacement.UNRELATED)
 							.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
 								.addComponent(rdbtnProfondeur)
-								.addComponent(rdbtnLargeur))))
-					.addGap(18)
-					.addComponent(panelArea, GroupLayout.PREFERRED_SIZE, 398, GroupLayout.PREFERRED_SIZE)
+								.addComponent(rdbtnLargeur)))
+						.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
+							.addGroup(groupLayout.createSequentialGroup()
+								.addComponent(panelJtextField, GroupLayout.PREFERRED_SIZE, 59, GroupLayout.PREFERRED_SIZE)
+								.addGap(16)
+								.addComponent(choixChainage, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE))
+							.addGroup(groupLayout.createSequentialGroup()
+								.addComponent(lblBf, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE)
+								.addGap(19)
+								.addComponent(lblBr, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE)
+								.addGap(16)
+								.addComponent(lblChainage, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE))))
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 386, GroupLayout.PREFERRED_SIZE)
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
 						.addComponent(btnValider)
 						.addComponent(btnQuitter))
-					.addGap(23))
+					.addGap(404))
 		);
-		panelArea.setLayout(new BorderLayout(0, 0));
-		
-		panelArea.add(textArea, BorderLayout.CENTER);
-		
 
+		scrollPane.setViewportView(textArea);
 		textArea.setEditable(false);
 		panelJtextField.setLayout(new BorderLayout(0, 0));
 		//deblaration / initialisation des objets de la fenetre
@@ -358,6 +363,4 @@ public class MainWindow
 	public static void setFichierBR(String fichierBR) {
 		MainWindow.fichierBR = fichierBR;
 	}
-
-
 }

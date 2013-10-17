@@ -1,6 +1,7 @@
 package algorithme;
 
 import gestionFichier.FileWR;
+import interfaceGraphique.MainWindow;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -20,10 +21,12 @@ public class ChainageAvant
 	private ArrayList<String> antecedents;
 	private String regle;
 	private FileWR fileRW;
+	private String result;
 
 	public ChainageAvant()
 	{
 		//initialisation des variables globales
+		result="";
 		BR = new ArrayList<String>();
 		BF =  new ArrayList<String>();
 		inf = true;
@@ -35,7 +38,7 @@ public class ChainageAvant
 		chargerBF();
 	}
 
-	//chainage avant en saturation
+	//chainage avant en saturation / profondeur
 	public void verifiationChainageAvant()
 	{
 		System.out.println("START");
@@ -57,7 +60,8 @@ public class ChainageAvant
 				}
 
 				if(verif){
-					System.out.println("Regle : " + regle + " validï¿½e");
+					result+="Regle : " + regle + " validée\n";
+					System.out.println("Regle : " + regle + " validée");
 				}
 			}
 		}
@@ -66,8 +70,10 @@ public class ChainageAvant
 	
 	public void chargerBF(){
 		try {
-			BF = fileRW.readLines("./src/doc/BF.txt");
+			//"./src/doc/BF.txt"
+			BF = fileRW.readLines(MainWindow.getFichierBF());
 		} catch (IOException e) {
+			result="ERREUR : chargement du fichier BF\n";
 			System.err.println("ERREUR : chargement du fichier BF");
 			e.printStackTrace();
 		}
@@ -75,8 +81,10 @@ public class ChainageAvant
 
 	public void chargerBR(){
 		try {
-			BR = fileRW.readLines("./src/doc/BR.txt");
+			//"./src/doc/BR.txt"
+			BR = fileRW.readLines(MainWindow.getFichierBR());
 		} catch (IOException e) {
+			result="ERREUR : chargement du fichier BR\n";
 			System.err.println("ERREUR : chargement du fichier BR");
 			e.printStackTrace();
 		}
@@ -104,19 +112,25 @@ public class ChainageAvant
 	public void affichageRegle(){
 		//affichage de la regles et des antecedents
 		System.out.print("regle:" + regle + "antecedent ");
+		result+="regle:" + regle + "antecedent \n";
 		for(String s : antecedents){
+			result+=s + "\n";
 			System.out.print(s + " ,");
 		}
+		result+="\n";
 		System.out.println("");
 	}
 	
 	public void affichageBF(){
 		//on parcours la base de fait pour voir si les antecedents sont presents
 		System.out.print("BF :");
+		result+="BF :\n";
 		for(String s : BF){
 			System.out.print(s + " ,");
+			result+=s + "\n";
 		}
 		System.out.println("");
+		result+="\n";
 	}
 
 	public ArrayList<String> getBR() {
@@ -181,5 +195,13 @@ public class ChainageAvant
 
 	public void setFileRW(FileWR fileRW) {
 		this.fileRW = fileRW;
+	}
+
+	public String getResult() {
+		return result;
+	}
+
+	public void setResult(String result) {
+		this.result = result;
 	}
 }
