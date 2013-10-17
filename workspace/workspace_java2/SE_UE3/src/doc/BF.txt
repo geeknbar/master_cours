@@ -1,4 +1,8 @@
-nuit
-demarre
-roule
-feux grille
+G
+A
+H
+B
+C
+F
+D
+I

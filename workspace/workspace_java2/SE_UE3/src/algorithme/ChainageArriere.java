@@ -97,7 +97,7 @@ public class ChainageArriere
 	}
 
 	public void chainage(){
-		But.add("feux grille");
+		But.add("E");
 		verif(But,BF);
 		butTrouve();
 	}
