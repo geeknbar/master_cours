@@ -1,7 +1,5 @@
 import java.io.IOException;
 
-import algorithme.ChainageArriere;
-import algorithme.ChainageAvant;
 
 
 public class Test {
@@ -19,10 +17,10 @@ public class Test {
 		
 //		ChainageAvant cav = new ChainageAvant(); 
 //		cav.verifiationChainageAvant();
-		ChainageArriere car = new ChainageArriere();
+		//ChainageArriere car = new ChainageArriere();
 //		car.verifiationChainageArriere("usure freins");
 //		car.demontrerBut("usure freins");
-		car.chainage();
+//		car.chainage();
 //		for(String s : a){
 //			System.out.println(s);
 //		}

@@ -197,27 +197,26 @@ public class MainWindow
 						if(rdbtnProfondeur.isSelected() && rdbtnSaturation.isSelected())
 						{
 							//TODO chainage avant profondeur/saturation
-							System.out.println("chainage avant profondeur/saturation");
 							ca.verifiationChainageAvant();
-							textArea.setText("chainage avant profondeur/saturation \n\n" + ca.getResult());
+							textArea.setText("Chainage avant en profondeur avec saturation de la BF\n\n" + ca.getResult());
 						}
 						if(rdbtnLargeur.isSelected() && rdbtnSaturation.isSelected())
 						{
 							//TODO chainage avant largeur/saturation
-							System.out.println("chainage avant largeur/saturation");
-							textArea.setText("chainage avant largeur/saturation");
+							System.out.println("Chainage avant en largeur avec saturation de la BF\n\n");
+							textArea.setText("Chainage avant en largeur avec saturation de la BF\n\n");
 						}
 						if(rdbtnProfondeur.isSelected() && rdbtnBut.isSelected())
 						{
 							//TODO chainage avant profondeur/but
-							System.out.println("chainage avant profondeur/but");
-							textArea.setText("chainage avant profondeur/but");
+							System.out.println("Chainage avant en profondeur sans saturation de la BF\n\n");
+							textArea.setText("Chainage avant en profondeur sans saturation de la BF\n\n");
 						}
 						if(rdbtnLargeur.isSelected() && rdbtnBut.isSelected())
 						{
 							//TODO chainage avant largeur/but
-							System.out.println("chainage avant largeur/but");
-							textArea.setText("chainage avant largeur/but");
+							System.out.println("Chainage avant en largeur sans saturation de la BF\n\n");
+							textArea.setText("Chainage avant en largeur sans saturation de la BF\n\n");
 						}
 
 					}
@@ -228,16 +227,14 @@ public class MainWindow
 						
 						if(rdbtnProfondeur.isSelected())
 						{
-							//TODO chainage arrière profondeur
-							
-							System.out.println("chainage arrière profondeur");
-							textArea.setText("chainage arrière profondeur\n\n");
+							ca.chainage(but);
+							textArea.setText("Chainage arrière en profondeur\n\n" +ca.getResult());
 						}
 						else 
 						{
 							//TODO chainage arrière largeur
 							System.out.println("chainage arrière largeur");
-							textArea.setText("chainage arrière largeur");
+							textArea.setText("Chainage arrière en largeur");
 						}
 					}
 				}

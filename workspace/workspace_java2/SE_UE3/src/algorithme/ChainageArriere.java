@@ -27,6 +27,7 @@ public class ChainageArriere
 	private ArrayList<String> antecedents;
 	private String regle;
 	private boolean fin = false;
+	private String result;
 
 
 
@@ -39,6 +40,7 @@ public class ChainageArriere
 		antecedents = new ArrayList<String>();
 		inf = true;
 		nbinf = 0;
+		result="";
 		
 		//charge les fichiers BR et BF
 		chargerBR();
@@ -91,13 +93,15 @@ public class ChainageArriere
 	public void butTrouve(){
 		if (fin){
 			System.out.println("But trouve avec chainage arriere");
+			result+="But trouve avec chainage arriere\n";
 		}else{
 			System.out.println("But non trouve avec chainage arriere");
+			result+="But non trouve avec chainage arriere\n";
 		}
 	}
 
-	public void chainage(){
-		But.add("E");
+	public void chainage(String but){
+		But.add(but);
 		verif(But,BF);
 		butTrouve();
 	}
@@ -126,6 +130,7 @@ public class ChainageArriere
 			BF = fBF.readLines("./src/doc/BF.txt");
 		} catch (IOException e) {
 			System.err.println("ERREUR : chargement du fichier BF");
+			result="ERREUR : chargement du fichier BF";
 			e.printStackTrace();
 		}
 	}
@@ -136,6 +141,7 @@ public class ChainageArriere
 			BR = fBR.readLines("./src/doc/BR.txt");
 		} catch (IOException e) {
 			System.err.println("ERREUR : chargement du fichier BR");
+			result="ERREUR : chargement du fichier BR";
 			e.printStackTrace();
 		}
 	}
@@ -146,6 +152,7 @@ public class ChainageArriere
 			fBR.writeLine(but,"./src/doc/BF.txt");
 		} catch (IOException e) {
 			System.err.println("ERREUR : dans l'ecriture du fichier BF");
+			result="ERREUR : dans l'ecriture du fichier BF";
 			e.printStackTrace();
 		}
 	}
@@ -196,6 +203,18 @@ public class ChainageArriere
 
 	public void setBF(ArrayList<String> bF) {
 		BF = bF;
+	}
+
+
+
+	public String getResult() {
+		return result;
+	}
+
+
+
+	public void setResult(String result) {
+		this.result = result;
 	}	
 }
 
