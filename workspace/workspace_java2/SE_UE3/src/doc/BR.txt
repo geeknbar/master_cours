@@ -1,6 +1,8 @@
-R1,demarre,passage vitesse impossible,boite casse
-R2,passage vitesse impossible,roule pas
-R3,demarre,roule,nuit,feux grille
-R4,acceleration,passage vitesse,roule
-R5,nuit,non vision route
-R6,demarre,roule,bruit suspect,usure freins
+R1,A,B,C,D
+R2,B,E,F
+R3,G,D,F
+R4,A,H
+R5,B,C
+R6,F,H,I
+R7,G,B
+R8,H,G,F

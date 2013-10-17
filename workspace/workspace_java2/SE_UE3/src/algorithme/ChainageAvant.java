@@ -39,7 +39,7 @@ public class ChainageAvant
 		chargerBF();
 	}
 
-	//chainage avant en saturation / profondeur
+	//chainage avant profondeur
 	public void verifiationChainageAvant()
 	{
 		System.out.println("START");
@@ -72,15 +72,34 @@ public class ChainageAvant
 		System.out.println("END");
 	}
 
-	//chainage avant saturation
+	//chainage avant profondeur saturation
 	public void saturation(){
 		int iter = 0;
 		while(!chainageFin){
-			System.out.println("Tour : "+ iter);
+			System.out.println("Tour : "+ (iter+1));
 			verifiationChainageAvant();
 			chargerBF();
 			inf=true;
 			iter++;
+		}
+		affichageBF();
+	}
+	
+	//chainage avant profondeur but
+	public void but(String but){
+		int iter = 0;
+		
+		while(!chainageFin && !BF.contains(but)){
+			System.out.println("Tour : "+ (iter+1));
+			verifiationChainageAvant();
+			chargerBF();
+			inf=true;
+			iter++;
+		}
+		if(BF.contains(but)){
+			System.out.println("But : " + but + " trouve");
+		}else{
+			System.out.println("But : " + but + " non trouve");
 		}
 		affichageBF();
 	}
