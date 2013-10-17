@@ -22,6 +22,7 @@ public class ChainageAvant
 	private String regle;
 	private FileWR fileRW;
 	private String result;
+	private boolean chainageFin;
 
 	public ChainageAvant()
 	{
@@ -32,7 +33,7 @@ public class ChainageAvant
 		inf = true;
 		antecedents = new ArrayList<String>();
 		fileRW=new FileWR();
-		
+
 		//charge les fichiers BR et BF
 		chargerBR();
 		chargerBF();
@@ -58,20 +59,46 @@ public class ChainageAvant
 						verif = false;
 					}
 				}
-
+				chainageFin = true;
 				if(verif){
-					result+="Regle : " + regle + " validée\n";
-					System.out.println("Regle : " + regle + " validée");
+					remplirBF(regle);
+					BR.remove(i);
+					result+="Regle : " + regle + " validï¿½e\n";
+					System.out.println("Regle : " + regle + " validï¿½e");
+					chainageFin = false;
 				}
 			}
 		}
 		System.out.println("END");
 	}
-	
+
+	//chainage avant saturation
+	public void saturation(){
+		int iter = 0;
+		while(!chainageFin){
+			System.out.println("Tour : "+ iter);
+			verifiationChainageAvant();
+			chargerBF();
+			inf=true;
+			iter++;
+		}
+		affichageBF();
+	}
+
+	public void remplirBF(String but){
+		try {
+			fileRW.writeLine(but,"./src/doc/BF.txt");
+		} catch (IOException e) {
+			System.err.println("ERREUR : dans l'ecriture du fichier BF");
+			e.printStackTrace();
+		}
+	}
+
 	public void chargerBF(){
 		try {
 			//"./src/doc/BF.txt"
-			BF = fileRW.readLines(MainWindow.getFichierBF());
+			BF = fileRW.readLines("./src/doc/BF.txt");
+			//			BF = fileRW.readLines(MainWindow.getFichierBF());
 		} catch (IOException e) {
 			result="ERREUR : chargement du fichier BF\n";
 			System.err.println("ERREUR : chargement du fichier BF");
@@ -82,14 +109,15 @@ public class ChainageAvant
 	public void chargerBR(){
 		try {
 			//"./src/doc/BR.txt"
-			BR = fileRW.readLines(MainWindow.getFichierBR());
+			BR = fileRW.readLines("./src/doc/BR.txt");
+			//			BR = fileRW.readLines(MainWindow.getFichierBR());
 		} catch (IOException e) {
 			result="ERREUR : chargement du fichier BR\n";
 			System.err.println("ERREUR : chargement du fichier BR");
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void chargerRegle(int i){
 		//on charge la regle en la splitant dans un tableau
 		regleSplitTab = BR.get(i).split(",");
@@ -101,14 +129,14 @@ public class ChainageAvant
 		regle = regleSplitArray.get(regleSplitArray.size()-1).toString();
 
 	}
-	
+
 	public void chargeAntecedent(){
 		//on fait l'array des antecedents
 		antecedents = regleSplitArray;
 		antecedents.remove(0);
 		antecedents.remove(regleSplitArray.size()-1);
 	}
-	
+
 	public void affichageRegle(){
 		//affichage de la regles et des antecedents
 		System.out.print("regle:" + regle + "antecedent ");
@@ -120,7 +148,7 @@ public class ChainageAvant
 		result+="\n";
 		System.out.println("");
 	}
-	
+
 	public void affichageBF(){
 		//on parcours la base de fait pour voir si les antecedents sont presents
 		System.out.print("BF :");
