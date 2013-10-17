@@ -1,8 +1,5 @@
-G
-A
-H
-B
-C
-F
-D
-I
+nuit
+demarre
+roule
+feux grille
+non vision route
