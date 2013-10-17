@@ -21,6 +21,9 @@ import javax.swing.JComboBox;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 import javax.swing.JTextArea;
+import javax.swing.JPanel;
+import java.awt.BorderLayout;
+import java.awt.Dimension;
 
 public class MainWindow
 {
@@ -64,9 +67,6 @@ public class MainWindow
 	 */
 	private void initialize()
 	{
-		//deblaration / initialisation des objets de la fenetre
-		final JTextField textBF = new JTextField();
-		final JTextField textBR = new JTextField();
 		final JComboBox<String> choixChainage = new JComboBox<String>();
 		final ButtonGroup grpTypeParcourt = new ButtonGroup();
 		final JRadioButton rdbtnSaturation = new JRadioButton("Saturation");
@@ -74,6 +74,10 @@ public class MainWindow
 		final JRadioButton rdbtnProfondeur = new JRadioButton("Profondeur");
 		final JRadioButton rdbtnLargeur = new JRadioButton("Largeur");
 		final JTextArea textArea = new JTextArea();
+		final JTextField textBF = new JTextField();
+		textBF.setMaximumSize(new Dimension(6, 20));
+		final JTextField textBR = new JTextField();
+		textBR.setMaximumSize(new Dimension(6, 20));
 		
 		ButtonGroup grpTypeFin = new ButtonGroup();
 		JLabel lblNewLabel = new JLabel("");
@@ -84,6 +88,9 @@ public class MainWindow
 		JButton btnExplorerBR = new JButton("Explorer");
 		JButton btnQuitter = new JButton("Quitter");
 		JButton btnValider = new JButton("Valider");
+		
+		JPanel panelJtextField = new JPanel();
+		JPanel panelArea = new JPanel();
 
 		fichierBF="";
 		fichierBR="";
@@ -91,7 +98,7 @@ public class MainWindow
 		frame = new JFrame();
 		frame.setResizable(false);
 		frame.getContentPane().setFont(new Font("Tahoma", Font.PLAIN, 16));
-		frame.setBounds(100, 100, 625, 700);
+		frame.setBounds(100, 100, 850, 700);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		
@@ -217,70 +224,65 @@ public class MainWindow
 			}
 		});
 		
-
-		textArea.setEditable(false);
+		
 		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
 		groupLayout.setHorizontalGroup(
-			groupLayout.createParallelGroup(Alignment.TRAILING)
+			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-						.addGroup(Alignment.TRAILING, groupLayout.createSequentialGroup()
+						.addGroup(groupLayout.createSequentialGroup()
 							.addContainerGap()
-							.addComponent(btnQuitter, GroupLayout.DEFAULT_SIZE, 307, Short.MAX_VALUE)
-							.addPreferredGap(ComponentPlacement.UNRELATED)
-							.addComponent(btnValider, GroupLayout.PREFERRED_SIZE, 282, GroupLayout.PREFERRED_SIZE)
-							.addPreferredGap(ComponentPlacement.RELATED))
+							.addComponent(btnQuitter, GroupLayout.PREFERRED_SIZE, 413, GroupLayout.PREFERRED_SIZE)
+							.addGap(18)
+							.addComponent(btnValider, GroupLayout.DEFAULT_SIZE, 393, Short.MAX_VALUE))
 						.addGroup(groupLayout.createSequentialGroup()
-							.addGap(107)
-							.addComponent(lblNewLabel))
+							.addContainerGap()
+							.addComponent(panelArea, GroupLayout.DEFAULT_SIZE, 824, Short.MAX_VALUE))
 						.addGroup(groupLayout.createSequentialGroup()
 							.addGap(18)
 							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-								.addComponent(lblBf, GroupLayout.PREFERRED_SIZE, 54, GroupLayout.PREFERRED_SIZE)
 								.addComponent(lblBr)
+								.addComponent(lblBf, GroupLayout.PREFERRED_SIZE, 54, GroupLayout.PREFERRED_SIZE)
 								.addComponent(lblChainage, GroupLayout.PREFERRED_SIZE, 135, GroupLayout.PREFERRED_SIZE))
-							.addPreferredGap(ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
-							.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING, false)
-								.addComponent(textBF, GroupLayout.DEFAULT_SIZE, 236, Short.MAX_VALUE)
-								.addComponent(choixChainage, 0, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-								.addComponent(textBR))
-							.addGap(18)
+							.addGap(66)
 							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-								.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING, false)
-									.addComponent(btnExplorerBR, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-									.addComponent(btnExplorerBF, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+								.addComponent(lblNewLabel)
 								.addGroup(groupLayout.createSequentialGroup()
-									.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-										.addComponent(rdbtnProfondeur)
-										.addComponent(rdbtnSaturation))
+									.addGroup(groupLayout.createParallelGroup(Alignment.LEADING, false)
+										.addComponent(choixChainage, 0, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+										.addComponent(panelJtextField, GroupLayout.PREFERRED_SIZE, 287, GroupLayout.PREFERRED_SIZE))
 									.addGap(18)
 									.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-										.addComponent(rdbtnLargeur)
-										.addComponent(rdbtnBut))))))
-					.addGap(10))
-				.addGroup(groupLayout.createSequentialGroup()
-					.addContainerGap()
-					.addComponent(textArea, GroupLayout.DEFAULT_SIZE, 574, Short.MAX_VALUE)
+										.addGroup(groupLayout.createSequentialGroup()
+											.addGroup(groupLayout.createParallelGroup(Alignment.LEADING, false)
+												.addComponent(rdbtnProfondeur, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+												.addComponent(rdbtnSaturation))
+											.addGap(18)
+											.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+												.addComponent(rdbtnLargeur)
+												.addComponent(rdbtnBut)))
+										.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING, false)
+											.addComponent(btnExplorerBR, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+											.addComponent(btnExplorerBF, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)))))))
 					.addContainerGap())
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
+					.addContainerGap()
 					.addComponent(lblNewLabel)
-					.addGap(18)
-					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING, false)
+					.addGap(31)
+					.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
 						.addGroup(groupLayout.createSequentialGroup()
-							.addGap(3)
-							.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-								.addComponent(btnExplorerBF, 0, 0, Short.MAX_VALUE)
-								.addComponent(textBF, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
-						.addComponent(lblBf, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE))
-					.addGap(18)
-					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-						.addComponent(textBR, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(btnExplorerBR, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE)
-						.addComponent(lblBr, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE))
-					.addGap(18)
+							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+								.addComponent(lblBf, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE)
+								.addComponent(btnExplorerBF, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE))
+							.addGap(18)
+							.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
+								.addComponent(lblBr, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE)
+								.addComponent(btnExplorerBR, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE)))
+						.addComponent(panelJtextField, GroupLayout.PREFERRED_SIZE, 59, GroupLayout.PREFERRED_SIZE))
+					.addGap(16)
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 						.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
 							.addComponent(lblChainage, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE)
@@ -293,14 +295,26 @@ public class MainWindow
 							.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
 								.addComponent(rdbtnProfondeur)
 								.addComponent(rdbtnLargeur))))
-					.addGap(20)
-					.addComponent(textArea, GroupLayout.PREFERRED_SIZE, 384, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+					.addGap(18)
+					.addComponent(panelArea, GroupLayout.PREFERRED_SIZE, 398, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.RELATED)
 					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
 						.addComponent(btnValider)
 						.addComponent(btnQuitter))
 					.addGap(23))
 		);
+		panelArea.setLayout(new BorderLayout(0, 0));
+		
+		panelArea.add(textArea, BorderLayout.CENTER);
+		
+
+		textArea.setEditable(false);
+		panelJtextField.setLayout(new BorderLayout(0, 0));
+		//deblaration / initialisation des objets de la fenetre
+		
+		panelJtextField.add(textBF, BorderLayout.NORTH);
+
+		panelJtextField.add(textBR, BorderLayout.SOUTH);
 		frame.getContentPane().setLayout(groupLayout);
 	}
 
