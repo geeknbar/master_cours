@@ -15,6 +15,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.ButtonGroup;
+import javax.swing.JOptionPane;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -23,10 +24,12 @@ import javax.swing.JTextField;
 import javax.swing.JTextArea;
 import javax.swing.JPanel;
 
+import algorithme.ChainageArriere;
 import algorithme.ChainageAvant;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
+
 import javax.swing.JScrollPane;
 
 public class MainWindow
@@ -73,17 +76,17 @@ public class MainWindow
 	{
 		final JComboBox<String> choixChainage = new JComboBox<String>();
 		final ButtonGroup grpTypeParcourt = new ButtonGroup();
+		final ButtonGroup grpTypeFin = new ButtonGroup();
 		final JRadioButton rdbtnSaturation = new JRadioButton("Saturation");
 		final JRadioButton rdbtnBut = new JRadioButton("But");
 		final JRadioButton rdbtnProfondeur = new JRadioButton("Profondeur");
 		final JRadioButton rdbtnLargeur = new JRadioButton("Largeur");
 		final JTextArea textArea = new JTextArea();
 		final JTextField textBF = new JTextField();
-		textBF.setMaximumSize(new Dimension(6, 20));
 		final JTextField textBR = new JTextField();
-		textBR.setMaximumSize(new Dimension(6, 20));
 		
-		ButtonGroup grpTypeFin = new ButtonGroup();
+		
+		
 		JLabel lblNewLabel = new JLabel("");
 		JLabel lblBr = new JLabel("BR");
 		JLabel lblChainage = new JLabel("Chainage ");
@@ -104,12 +107,33 @@ public class MainWindow
 		frame.setBounds(100, 100, 850, 700);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+		textBF.setMaximumSize(new Dimension(6, 20));
+		textBR.setMaximumSize(new Dimension(6, 20));
+		
 		
 		lblNewLabel.setIcon(new ImageIcon(MainWindow.class.getResource("/img/logo.png")));
 		JLabel lblBf = new JLabel("BF");
 		lblBf.setForeground(Color.BLUE);
 		lblBf.setFont(new Font("Techno Hideo", Font.PLAIN, 19));
 
+		choixChainage.addActionListener(new ActionListener() 
+		{
+			public void actionPerformed(ActionEvent arg0) 
+			{
+				if(!"Chainage Avant".equals(choixChainage.getSelectedItem().toString()))
+				{
+					rdbtnBut.setEnabled(false);
+					rdbtnSaturation.setEnabled(false);
+				}
+				else
+				{
+					rdbtnBut.setEnabled(true);
+					rdbtnSaturation.setEnabled(true);
+				}
+			}
+		});
+		
+		
 		btnExplorerBF.addActionListener(new ActionListener() 
 		{
 			public void actionPerformed(ActionEvent arg0)
@@ -173,55 +197,44 @@ public class MainWindow
 						if(rdbtnProfondeur.isSelected() && rdbtnSaturation.isSelected())
 						{
 							//TODO chainage avant profondeur/saturation
-							System.out.println("chainage avant profondeur/saturation");
 							ca.verifiationChainageAvant();
-							textArea.setText("chainage avant profondeur/saturation \n" + ca.getResult());
+							textArea.setText("Chainage avant en profondeur avec saturation de la BF\n\n" + ca.getResult());
 						}
 						if(rdbtnLargeur.isSelected() && rdbtnSaturation.isSelected())
 						{
 							//TODO chainage avant largeur/saturation
-							System.out.println("chainage avant largeur/saturation");
-							textArea.setText("chainage avant largeur/saturation");
+							System.out.println("Chainage avant en largeur avec saturation de la BF\n\n");
+							textArea.setText("Chainage avant en largeur avec saturation de la BF\n\n");
 						}
 						if(rdbtnProfondeur.isSelected() && rdbtnBut.isSelected())
 						{
 							//TODO chainage avant profondeur/but
-							System.out.println("chainage avant profondeur/but");
-							textArea.setText("chainage avant profondeur/but");
+							System.out.println("Chainage avant en profondeur sans saturation de la BF\n\n");
+							textArea.setText("Chainage avant en profondeur sans saturation de la BF\n\n");
 						}
 						if(rdbtnLargeur.isSelected() && rdbtnBut.isSelected())
 						{
 							//TODO chainage avant largeur/but
-							System.out.println("chainage avant largeur/but");
-							textArea.setText("chainage avant largeur/but");
+							System.out.println("Chainage avant en largeur sans saturation de la BF\n\n");
+							textArea.setText("Chainage avant en largeur sans saturation de la BF\n\n");
 						}
 
 					}
 					else
 					{
-						if(rdbtnProfondeur.isSelected() && rdbtnSaturation.isSelected())
+						String but = JOptionPane.showInputDialog("Quel but voulez vous atteindre?");
+						ChainageArriere ca = new ChainageArriere();
+						
+						if(rdbtnProfondeur.isSelected())
 						{
-							//TODO chainage arrière profondeur/saturation
-							System.out.println("chainage arrière profondeur/saturation");
-							textArea.setText("chainage arrière profondeur/saturation");
+							ca.chainage(but);
+							textArea.setText("Chainage arrière en profondeur\n\n" +ca.getResult());
 						}
-						if(rdbtnLargeur.isSelected() && rdbtnSaturation.isSelected())
+						else 
 						{
-							//TODO chainage arrière largeur/saturation
-							System.out.println("chainage arrière largeur/saturation");
-							textArea.setText("chainage arrière largeur/saturation");
-						}
-						if(rdbtnProfondeur.isSelected() && rdbtnBut.isSelected())
-						{
-							//TODO chainage arrière profondeur/but
-							System.out.println("chainage arrière profondeur/but");
-							textArea.setText("chainage arrière profondeur/but");
-						}
-						if(rdbtnLargeur.isSelected() && rdbtnBut.isSelected())
-						{
-							//TODO chainage arrière largeur/but
-							System.out.println("chainage arrière largeur/but");
-							textArea.setText("chainage arrière largeur/but");
+							//TODO chainage arrière largeur
+							System.out.println("chainage arrière largeur");
+							textArea.setText("Chainage arrière en largeur");
 						}
 					}
 				}
@@ -236,17 +249,17 @@ public class MainWindow
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.TRAILING)
 				.addGroup(groupLayout.createSequentialGroup()
+					.addContainerGap()
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-						.addGroup(groupLayout.createSequentialGroup()
-							.addContainerGap()
-							.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
-								.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 824, Short.MAX_VALUE)
-								.addGroup(groupLayout.createSequentialGroup()
+						.addGroup(Alignment.TRAILING, groupLayout.createSequentialGroup()
+							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+								.addComponent(scrollPane, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 824, Short.MAX_VALUE)
+								.addGroup(Alignment.TRAILING, groupLayout.createSequentialGroup()
 									.addComponent(btnQuitter, GroupLayout.PREFERRED_SIZE, 413, GroupLayout.PREFERRED_SIZE)
 									.addGap(18)
-									.addComponent(btnValider, GroupLayout.DEFAULT_SIZE, 393, Short.MAX_VALUE))))
+									.addComponent(btnValider, GroupLayout.DEFAULT_SIZE, 393, Short.MAX_VALUE)))
+							.addContainerGap())
 						.addGroup(groupLayout.createSequentialGroup()
-							.addContainerGap()
 							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 								.addComponent(lblBr)
 								.addComponent(lblBf, GroupLayout.PREFERRED_SIZE, 54, GroupLayout.PREFERRED_SIZE)
@@ -260,18 +273,23 @@ public class MainWindow
 									.addGap(81)
 									.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 										.addGroup(groupLayout.createSequentialGroup()
-											.addGroup(groupLayout.createParallelGroup(Alignment.LEADING, false)
-												.addComponent(rdbtnProfondeur, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+											.addPreferredGap(ComponentPlacement.RELATED)
+											.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+												.addComponent(rdbtnProfondeur)
 												.addComponent(rdbtnSaturation))
 											.addGap(18)
 											.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-												.addComponent(rdbtnLargeur)
-												.addComponent(rdbtnBut)))
-										.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING, false)
-											.addComponent(btnExplorerBR, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-											.addComponent(btnExplorerBF, Alignment.LEADING, GroupLayout.PREFERRED_SIZE, 115, GroupLayout.PREFERRED_SIZE))))
-								.addComponent(lblNewLabel))))
-					.addContainerGap())
+												.addComponent(rdbtnBut)
+												.addComponent(rdbtnLargeur))
+											.addContainerGap(122, Short.MAX_VALUE))
+										.addGroup(groupLayout.createSequentialGroup()
+											.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING, false)
+												.addComponent(btnExplorerBR, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+												.addComponent(btnExplorerBF, Alignment.LEADING, GroupLayout.PREFERRED_SIZE, 115, GroupLayout.PREFERRED_SIZE))
+											.addContainerGap(45, Short.MAX_VALUE))))
+								.addGroup(groupLayout.createSequentialGroup()
+									.addComponent(lblNewLabel)
+									.addContainerGap(100, Short.MAX_VALUE))))))
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
@@ -286,12 +304,12 @@ public class MainWindow
 							.addComponent(btnExplorerBR, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE)
 							.addGap(16)
 							.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-								.addComponent(rdbtnSaturation)
-								.addComponent(rdbtnBut))
+								.addComponent(rdbtnProfondeur)
+								.addComponent(rdbtnLargeur))
 							.addPreferredGap(ComponentPlacement.UNRELATED)
 							.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-								.addComponent(rdbtnProfondeur)
-								.addComponent(rdbtnLargeur)))
+								.addComponent(rdbtnSaturation)
+								.addComponent(rdbtnBut)))
 						.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
 							.addGroup(groupLayout.createSequentialGroup()
 								.addComponent(panelJtextField, GroupLayout.PREFERRED_SIZE, 59, GroupLayout.PREFERRED_SIZE)
