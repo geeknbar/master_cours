@@ -52,18 +52,28 @@ public class ChainageArriere
 	public boolean demo(String b, ArrayList<String> BF){
 		boolean dem = false;
 		
+		//1 er cas 
 		if(BF.contains(b)){
 			dem = true;
 			fin = true;
 		}
+		//2 eme cas
 		for (int i = 0; i < BR.size(); i++) {
 			chargerRegle(i);
 			chargeAntecedent();
-			if (b.equals(regle)){
+			if(b.equals(regle)){
 				while (!dem){
 					dem = verif(antecedents,BF);
 				}
 			}
+		}
+		//3 eme cas
+		if (!dem ){
+			
+		}
+		//dans tous les cas
+		if (dem){
+			remplirBF(b);
 		}
 		return dem;
 	}
@@ -87,7 +97,7 @@ public class ChainageArriere
 	}
 
 	public void chainage(){
-		But.add("usure ");
+		But.add("feux grille");
 		verif(But,BF);
 		butTrouve();
 	}
@@ -126,6 +136,16 @@ public class ChainageArriere
 			BR = fBR.readLines("./src/doc/BR.txt");
 		} catch (IOException e) {
 			System.err.println("ERREUR : chargement du fichier BR");
+			e.printStackTrace();
+		}
+	}
+	
+	public void remplirBF(String but){
+		try {
+			FileWR fBR = new FileWR();
+			fBR.writeLine(but,"./src/doc/BF.txt");
+		} catch (IOException e) {
+			System.err.println("ERREUR : dans l'ecriture du fichier BF");
 			e.printStackTrace();
 		}
 	}
