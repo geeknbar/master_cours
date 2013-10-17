@@ -24,7 +24,7 @@ import javax.swing.JTextField;
 import javax.swing.JTextArea;
 import javax.swing.JPanel;
 
-import algorithme.ChainageArriere;
+import algorithme.ChainageArriere; 
 import algorithme.ChainageAvant;
 
 import java.awt.BorderLayout;
@@ -35,7 +35,7 @@ import javax.swing.JScrollPane;
 public class MainWindow
 {
 
-	private JFrame frame;
+	private static JFrame frame;
 	private static String fichierBF;
 	private static String fichierBR;
 	
@@ -46,12 +46,13 @@ public class MainWindow
 	{
 		EventQueue.invokeLater(new Runnable() 
 		{
+			@SuppressWarnings("static-access")
 			public void run() 
 			{
 				try 
 				{
 					MainWindow window = new MainWindow();
-					window.frame.setVisible(true);
+					window.getFrame().setVisible(true);
 				} catch (Exception e)
 				{
 					e.printStackTrace();
@@ -101,11 +102,11 @@ public class MainWindow
 		fichierBF="";
 		fichierBR="";
 		
-		frame = new JFrame();
-		frame.setResizable(false);
-		frame.getContentPane().setFont(new Font("Tahoma", Font.PLAIN, 16));
-		frame.setBounds(100, 100, 850, 700);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setFrame(new JFrame());
+		getFrame().setResizable(false);
+		getFrame().getContentPane().setFont(new Font("Tahoma", Font.PLAIN, 16));
+		getFrame().setBounds(100, 100, 850, 700);
+		getFrame().setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		textBF.setMaximumSize(new Dimension(6, 20));
 		textBR.setMaximumSize(new Dimension(6, 20));
@@ -138,9 +139,9 @@ public class MainWindow
 		{
 			public void actionPerformed(ActionEvent arg0)
 			{
-				LoadFromFile(frame,"Ouvrir","","*.txt", "BF");
+				LoadFromFile(getFrame(),"Ouvrir","","*.txt", "BF");
 				textBF.setText(fichierBF);
-				frame.validate ();
+				getFrame().validate ();
 			}
 		});
 
@@ -151,9 +152,9 @@ public class MainWindow
 		{
 			public void actionPerformed(ActionEvent e) 
 			{
-				LoadFromFile(frame,"Ouvrir","","*.txt", "BR");
+				LoadFromFile(getFrame(),"Ouvrir","","*.txt", "BR");
 				textBR.setText(fichierBR);
-				frame.validate ();
+				getFrame().validate ();
 			}
 		});
 
@@ -177,7 +178,7 @@ public class MainWindow
 		{
 			public void actionPerformed(ActionEvent e) 
 			{
-				frame.dispose();
+				getFrame().dispose();
 			}
 		});
 
@@ -196,8 +197,7 @@ public class MainWindow
 						ChainageAvant ca= new ChainageAvant();
 						if(rdbtnProfondeur.isSelected() && rdbtnSaturation.isSelected())
 						{
-							//TODO chainage avant profondeur/saturation
-							ca.verifiationChainageAvant();
+							ca.profondeurSaturation();
 							textArea.setText("Chainage avant en profondeur avec saturation de la BF\n\n" + ca.getResult());
 						}
 						if(rdbtnLargeur.isSelected() && rdbtnSaturation.isSelected())
@@ -208,9 +208,10 @@ public class MainWindow
 						}
 						if(rdbtnProfondeur.isSelected() && rdbtnBut.isSelected())
 						{
-							//TODO chainage avant profondeur/but
-							System.out.println("Chainage avant en profondeur sans saturation de la BF\n\n");
-							textArea.setText("Chainage avant en profondeur sans saturation de la BF\n\n");
+							
+							String but = JOptionPane.showInputDialog("Quel but voulez vous atteindre?");
+							ca.profondeurBut(but);
+							textArea.setText("Chainage avant en profondeur sans saturation de la BF\n\n"  + ca.getResult());
 						}
 						if(rdbtnLargeur.isSelected() && rdbtnBut.isSelected())
 						{
@@ -238,14 +239,14 @@ public class MainWindow
 						}
 					}
 				}
-				frame.validate ();
+				getFrame().validate ();
 			}
 		});
 		
 		JScrollPane scrollPane = new JScrollPane();
 		
 		
-		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
+		GroupLayout groupLayout = new GroupLayout(getFrame().getContentPane());
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.TRAILING)
 				.addGroup(groupLayout.createSequentialGroup()
@@ -338,7 +339,7 @@ public class MainWindow
 		panelJtextField.add(textBF, BorderLayout.NORTH);
 
 		panelJtextField.add(textBR, BorderLayout.SOUTH);
-		frame.getContentPane().setLayout(groupLayout);
+		getFrame().getContentPane().setLayout(groupLayout);
 	}
 
 
@@ -366,6 +367,16 @@ public class MainWindow
 		
 	}
 
+	public static boolean addElemToBF(String but)
+	{
+		int reponse = JOptionPane.showConfirmDialog(getFrame(), "Voulez vous ajouter le but "+but+" dans la BF", "", JOptionPane.YES_NO_OPTION);
+		if (reponse == JOptionPane.YES_OPTION) 
+			return true;
+		else 
+			return false;
+	}
+	
+	
 	public static String getFichierBF() {
 		return fichierBF;
 	}
@@ -380,5 +391,13 @@ public class MainWindow
 
 	public static void setFichierBR(String fichierBR) {
 		MainWindow.fichierBR = fichierBR;
+	}
+
+	public static JFrame getFrame() {
+		return frame;
+	}
+
+	public static void setFrame(JFrame frame) {
+		MainWindow.frame = frame;
 	}
 }

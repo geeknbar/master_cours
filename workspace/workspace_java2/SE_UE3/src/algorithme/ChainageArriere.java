@@ -4,6 +4,7 @@
 package algorithme;
 
 import gestionFichier.FileWR;
+import interfaceGraphique.MainWindow;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -16,9 +17,9 @@ import java.util.Arrays;
 public class ChainageArriere 
 {
 	private ArrayList<String> BR;
-	private ArrayList<String> Demandable;
 	private ArrayList<String> BF;
 	private ArrayList<String> But;
+	private ArrayList<String> ElemDemandable;
 	private boolean inf;
 	private boolean dec;
 	private int nbinf;
@@ -38,6 +39,7 @@ public class ChainageArriere
 		BF = new ArrayList<String>();
 		But = new ArrayList<String>();
 		antecedents = new ArrayList<String>();
+		ElemDemandable = new ArrayList<String>();
 		inf = true;
 		nbinf = 0;
 		result="";
@@ -51,7 +53,7 @@ public class ChainageArriere
 	
 	
 
-	public boolean demo(String b, ArrayList<String> BF){
+	public boolean demo(String b){
 		boolean dem = false;
 		
 		//1 er cas 
@@ -65,13 +67,19 @@ public class ChainageArriere
 			chargeAntecedent();
 			if(b.equals(regle)){
 				while (!dem){
-					dem = verif(antecedents,BF);
+					dem = verif(antecedents);
 				}
 			}
 		}
 		//3 eme cas
-		if (!dem ){
-			
+		if (!dem && !ElemDemandable.contains(b)){
+			dem=MainWindow.addElemToBF(b);
+			if(dem)
+			{
+				ElemDemandable.add(b);
+				fin=true;
+				result+=b+" a été ajouté a la BF\n";
+			}
 		}
 		//dans tous les cas
 		if (dem){
@@ -80,11 +88,11 @@ public class ChainageArriere
 		return dem;
 	}
 	
-	public boolean verif(ArrayList<String> But, ArrayList<String> BF){
+	public boolean verif(ArrayList<String> But){
 		boolean ver =true;
 		for (int i = 0; i < But.size(); i++) {
 			while(ver && !fin){
-				ver = demo(But.get(i),BF);
+				ver = demo(But.get(i));
 			}
 		}
 		return ver;
@@ -102,7 +110,7 @@ public class ChainageArriere
 
 	public void chainage(String but){
 		But.add(but);
-		verif(But,BF);
+		verif(But);
 		butTrouve();
 	}
 	public void chargerRegle(int i){
@@ -114,6 +122,7 @@ public class ChainageArriere
 
 		//on sort le resulat de la rÃ¨gle, ex: A,B => C , ici on prend C
 		regle = regleSplitArray.get(regleSplitArray.size()-1).toString();
+		ElemDemandable.add(regle);
 
 	}
 	
@@ -189,14 +198,6 @@ public class ChainageArriere
 		BR = bR;
 	}
 
-	public ArrayList<String> getDemandable() {
-		return Demandable;
-	}
-
-	public void setDemandable(ArrayList<String> demandable) {
-		Demandable = demandable;
-	}
-
 	public ArrayList<String> getBF() {
 		return BF;
 	}
@@ -215,6 +216,18 @@ public class ChainageArriere
 
 	public void setResult(String result) {
 		this.result = result;
+	}
+
+
+
+	public ArrayList<String> getElemDemandable() {
+		return ElemDemandable;
+	}
+
+
+
+	public void setElemDemandable(ArrayList<String> elemDemandable) {
+		ElemDemandable = elemDemandable;
 	}	
 }
 

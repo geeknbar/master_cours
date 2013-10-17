@@ -1,7 +1,6 @@
 package algorithme;
 
 import gestionFichier.FileWR;
-import interfaceGraphique.MainWindow;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -63,8 +62,8 @@ public class ChainageAvant
 				if(verif){
 					remplirBF(regle);
 					BR.remove(i);
-					result+="Regle : " + regle + " validï¿½e\n";
-					System.out.println("Regle : " + regle + " validï¿½e");
+					result+="Regle : " + regle + " validée\n";
+					System.out.println("Regle : " + regle + " validée");
 					chainageFin = false;
 				}
 			}
@@ -73,7 +72,7 @@ public class ChainageAvant
 	}
 
 	//chainage avant profondeur saturation
-	public void saturation(){
+	public void profondeurSaturation(){
 		int iter = 0;
 		while(!chainageFin){
 			System.out.println("Tour : "+ (iter+1));
@@ -86,7 +85,7 @@ public class ChainageAvant
 	}
 	
 	//chainage avant profondeur but
-	public void but(String but){
+	public void profondeurBut(String but){
 		int iter = 0;
 		
 		while(!chainageFin && !BF.contains(but)){
@@ -158,8 +157,8 @@ public class ChainageAvant
 
 	public void affichageRegle(){
 		//affichage de la regles et des antecedents
-		System.out.print("regle:" + regle + "antecedent ");
-		result+="regle:" + regle + "antecedent \n";
+		System.out.print("regle:" + regle + " antecedent ");
+		result+="regle:" + regle + " antecedent \n";
 		for(String s : antecedents){
 			result+=s + "\n";
 			System.out.print(s + " ,");
