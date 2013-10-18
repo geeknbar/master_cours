@@ -1,7 +1,5 @@
+package brouillon;
 import java.io.IOException;
-
-import algorithme.ChainageAvant;
-
 
 
 public class Test {
