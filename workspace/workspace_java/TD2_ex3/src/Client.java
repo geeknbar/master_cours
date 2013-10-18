@@ -7,7 +7,7 @@ class Client {
 		BufferedReader in = null;
 		Socket s = null;
 
-		String name = "Lulu";
+		String name = "Dorian";
 		try {
 			s = new Socket("localhost", 30970);
 			out = new PrintWriter(s.getOutputStream(), true);
