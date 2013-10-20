@@ -29,6 +29,7 @@ public class ChainageArriere
 	private String regle;
 	private boolean fin = false;
 	private String result;
+	public String minimumResult;
 
 
 
@@ -43,6 +44,7 @@ public class ChainageArriere
 		inf = true;
 		nbinf = 0;
 		result="";
+		minimumResult="";
 		
 		//charge les fichiers BR et BF
 		chargerBR();
@@ -55,7 +57,7 @@ public class ChainageArriere
 
 	public boolean demo(String b){
 		boolean dem = false;
-		
+		System.out.println(b);
 		//1 er cas 
 		if(BF.contains(b)){
 			dem = true;
@@ -70,6 +72,8 @@ public class ChainageArriere
 					dem = verif(antecedents);
 				}
 				result+="application de la regle :" + BR.get(i)+"\n";
+				result+="le but "+ b +" a ete ajoute a la BF\n";
+				
 			}
 		}
 		//3 eme cas
@@ -80,12 +84,13 @@ public class ChainageArriere
 				ElemDemandable.add(b);
 				fin=true;
 				result+=b+" a ete ajoute a la BF\n";
+				minimumResult+=b+" a ete ajoute a la BF\n";
 			}
 		}
 		//dans tous les cas
 		if (dem){	
 			remplirBF(b);
-			result+="le but"+ b +"a ete ajoute a la BF\n";
+//			result+="le but"+ b +"a ete ajoute a la BF\n";
 		}
 		return dem;
 	}
@@ -94,6 +99,7 @@ public class ChainageArriere
 		boolean ver =true;
 		for (int i = 0; i < But.size(); i++) {
 			while(ver && !fin){
+				System.out.println(But.get(i));
 				ver = demo(But.get(i));
 			}
 		}
@@ -104,9 +110,11 @@ public class ChainageArriere
 		if (fin){
 			System.out.println("But trouve avec chainage arriere");
 			result+="But trouve avec chainage arriere\n";
+			minimumResult+="But trouve avec chainage arriere\n";
 		}else{
 			System.out.println("But non trouve avec chainage arriere");
 			result+="But non trouve avec chainage arriere\n";
+			minimumResult+="But non trouve avec chainage arriere\n";
 		}
 	}
 
@@ -142,6 +150,7 @@ public class ChainageArriere
 		} catch (IOException e) {
 			System.err.println("ERREUR : chargement du fichier BF");
 			result="ERREUR : chargement du fichier BF";
+			minimumResult="ERREUR : chargement du fichier BF";
 			e.printStackTrace();
 		}
 	}
@@ -153,6 +162,7 @@ public class ChainageArriere
 		} catch (IOException e) {
 			System.err.println("ERREUR : chargement du fichier BR");
 			result="ERREUR : chargement du fichier BR";
+			minimumResult="ERREUR : chargement du fichier BR";
 			e.printStackTrace();
 		}
 	}
@@ -164,6 +174,7 @@ public class ChainageArriere
 		} catch (IOException e) {
 			System.err.println("ERREUR : dans l'ecriture du fichier BF");
 			result="ERREUR : dans l'ecriture du fichier BF";
+			minimumResult="ERREUR : dans l'ecriture du fichier BF";
 			e.printStackTrace();
 		}
 	}
@@ -218,6 +229,16 @@ public class ChainageArriere
 
 	public void setResult(String result) {
 		this.result = result;
+	}
+
+	public String getMinimumResult() {
+		return minimumResult;
+	}
+
+
+
+	public void setMinimumResult(String minimumResult) {
+		this.minimumResult = minimumResult;
 	}
 
 

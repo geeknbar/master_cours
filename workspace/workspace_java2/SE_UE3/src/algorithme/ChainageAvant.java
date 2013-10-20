@@ -23,6 +23,7 @@ public class ChainageAvant
 	private FileWR fileRW;
 	private String result;
 	private boolean chainageFin;
+	public String minimumResult;
 
 	public ChainageAvant()
 	{
@@ -33,6 +34,7 @@ public class ChainageAvant
 		inf = true;
 		antecedents = new ArrayList<String>();
 		fileRW=new FileWR();
+		minimumResult="";
 
 		//charge les fichiers BR et BF
 		chargerBR();
@@ -76,6 +78,8 @@ public class ChainageAvant
 	//chainage avant profondeur saturation
 	public void profondeurSaturation(){
 		int iter = 0;
+		minimumResult+="BF de depart : ";
+		affichageminiBF();
 		while(!chainageFin){
 			affichageBF();
 			result+=("Tour : "+ (iter+1) + "\n");
@@ -87,6 +91,8 @@ public class ChainageAvant
 		}
 		result+=("Fin du chainage avant en saturation \n");
 		affichageBF();
+		minimumResult+="BF apres saturation : ";
+		affichageminiBF();
 	}
 	
 	//chainage avant profondeur but
@@ -102,10 +108,12 @@ public class ChainageAvant
 		}
 		if(BF.contains(but)){
 			result+="But : " + but + " trouve\n";
+			minimumResult+="But : " + but + " trouve\n";
 			System.out.println("But : " + but + " trouve");
 		}else{
 			System.out.println("But : " + but + " non trouve");
 			result+="But : " + but + " non trouve\n";
+			minimumResult+="But : " + but + " non trouve\n";
 		}
 		affichageBF();
 	}
@@ -185,6 +193,15 @@ public class ChainageAvant
 		System.out.println("");
 		result+="\n";
 	}
+	
+	public void affichageminiBF(){
+		//on parcours la base de fait pour voir si les antecedents sont presents
+		for(String s : BF){
+			minimumResult+=s + " ";
+		}
+		System.out.println("");
+		minimumResult+="\n";
+	}
 
 	public ArrayList<String> getBR() {
 		return BR;
@@ -256,5 +273,13 @@ public class ChainageAvant
 
 	public void setResult(String result) {
 		this.result = result;
+	}
+	
+	public String getMinimumResult() {
+		return minimumResult;
+	}
+
+	public void setMinimumResult(String minimumResult) {
+		this.minimumResult = minimumResult;
 	}
 }
