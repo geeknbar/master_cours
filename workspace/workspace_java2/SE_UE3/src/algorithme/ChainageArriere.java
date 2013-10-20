@@ -69,6 +69,7 @@ public class ChainageArriere
 				while (!dem){
 					dem = verif(antecedents);
 				}
+				result+="application de la regle :" + BR.get(i)+"\n";
 			}
 		}
 		//3 eme cas
@@ -78,12 +79,13 @@ public class ChainageArriere
 			{
 				ElemDemandable.add(b);
 				fin=true;
-				result+=b+" a été ajouté a la BF\n";
+				result+=b+" a ete ajoute a la BF\n";
 			}
 		}
 		//dans tous les cas
-		if (dem){
+		if (dem){	
 			remplirBF(b);
+			result+="le but"+ b +"a ete ajoute a la BF\n";
 		}
 		return dem;
 	}
