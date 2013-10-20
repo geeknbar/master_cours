@@ -225,6 +225,10 @@ public class MainWindow
 					if("Chainage Avant".equals(choixChainage.getSelectedItem().toString()))
 					{
 						ChainageAvant ca= new ChainageAvant();
+						setContenuBF(ca.getBF().toString());
+						setContenuBR(ca.affichageAreaBR());
+						areaBF.setText(contenuBF);
+						areaBR.setText(contenuBR);
 						if(rdbtnProfondeur.isSelected() && rdbtnSaturation.isSelected())
 						{
 							ca.profondeurSaturation();
@@ -264,7 +268,10 @@ public class MainWindow
 					{
 						String but = JOptionPane.showInputDialog("Quel but voulez vous atteindre?");
 						ChainageArriere ca = new ChainageArriere();
-
+						setContenuBF(ca.getBF().toString());
+						setContenuBR(ca.affichageAreaBR());
+						areaBF.setText(contenuBF);
+						areaBR.setText(contenuBR);
 						if(rdbtnProfondeur.isSelected())
 						{
 							ca.chainage(but);

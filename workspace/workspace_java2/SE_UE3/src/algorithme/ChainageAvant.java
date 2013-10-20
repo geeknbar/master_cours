@@ -202,6 +202,16 @@ public class ChainageAvant
 		System.out.println("");
 		minimumResult+="\n";
 	}
+	
+	public String affichageAreaBR(){
+		//on parcours la base de fait pour voir si les antecedents sont presents
+		String areaBF ="";
+		for(String s : BR){
+			areaBF+=s + " \n";
+		}
+		System.out.println("");
+		return areaBF+="\n";
+	}
 
 	public ArrayList<String> getBR() {
 		return BR;

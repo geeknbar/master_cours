@@ -178,6 +178,16 @@ public class ChainageArriere
 			e.printStackTrace();
 		}
 	}
+	
+	public String affichageAreaBR(){
+		//on parcours la base de fait pour voir si les antecedents sont presents
+		String areaBF ="";
+		for(String s : BR){
+			areaBF+=s + " \n";
+		}
+		System.out.println("");
+		return areaBF+="\n";
+	}
 
 	public boolean isInf() {
 		return inf;
