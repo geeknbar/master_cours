@@ -1,6 +1,7 @@
 package algorithme;
 
 import gestionFichier.FileWR;
+import interfaceGraphique.MainWindow;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -49,8 +50,8 @@ public class ChainageAvant
 				chargerRegle(i);	
 				chargeAntecedent();
 
-				affichageRegle();
-				affichageBF();
+				
+				
 
 				boolean verif = true;
 				for (int k = 0; k < antecedents.size(); k++) {
@@ -61,10 +62,11 @@ public class ChainageAvant
 				chainageFin = true;
 				if(verif){
 					remplirBF(regle);
-					BR.remove(i);
-					result+="Regle : " + regle + " validée\n";
-					System.out.println("Regle : " + regle + " validée");
+					affichageRegle();
+					result+="Regle : " + BR.get(i) + " validee\n\n";
+					System.out.println("Regle : " + regle + " validee");
 					chainageFin = false;
+					BR.remove(i);
 				}
 			}
 		}
@@ -75,12 +77,15 @@ public class ChainageAvant
 	public void profondeurSaturation(){
 		int iter = 0;
 		while(!chainageFin){
-			System.out.println("Tour : "+ (iter+1));
+			affichageBF();
+			result+=("Tour : "+ (iter+1) + "\n");
 			verifiationChainageAvant();
 			chargerBF();
 			inf=true;
 			iter++;
+			result+=("==================\n");
 		}
+		result+=("Fin du chainage avant en saturation \n");
 		affichageBF();
 	}
 	
@@ -96,9 +101,11 @@ public class ChainageAvant
 			iter++;
 		}
 		if(BF.contains(but)){
+			result+="But : " + but + " trouve\n";
 			System.out.println("But : " + but + " trouve");
 		}else{
 			System.out.println("But : " + but + " non trouve");
+			result+="But : " + but + " non trouve\n";
 		}
 		affichageBF();
 	}
@@ -115,8 +122,8 @@ public class ChainageAvant
 	public void chargerBF(){
 		try {
 			//"./src/doc/BF.txt"
-			BF = fileRW.readLines("./src/doc/BF.txt");
-			//			BF = fileRW.readLines(MainWindow.getFichierBF());
+//			BF = fileRW.readLines("./src/doc/BF.txt");
+						BF = fileRW.readLines(MainWindow.getFichierBF());
 		} catch (IOException e) {
 			result="ERREUR : chargement du fichier BF\n";
 			System.err.println("ERREUR : chargement du fichier BF");
@@ -127,8 +134,8 @@ public class ChainageAvant
 	public void chargerBR(){
 		try {
 			//"./src/doc/BR.txt"
-			BR = fileRW.readLines("./src/doc/BR.txt");
-			//			BR = fileRW.readLines(MainWindow.getFichierBR());
+//			BR = fileRW.readLines("./src/doc/BR.txt");
+						BR = fileRW.readLines(MainWindow.getFichierBR());
 		} catch (IOException e) {
 			result="ERREUR : chargement du fichier BR\n";
 			System.err.println("ERREUR : chargement du fichier BR");
@@ -158,9 +165,9 @@ public class ChainageAvant
 	public void affichageRegle(){
 		//affichage de la regles et des antecedents
 		System.out.print("regle:" + regle + " antecedent ");
-		result+="regle:" + regle + " antecedent \n";
+		result+="La regle " + " a pour but " + regle + " antecedent : ";
 		for(String s : antecedents){
-			result+=s + "\n";
+			result+=s + " ";
 			System.out.print(s + " ,");
 		}
 		result+="\n";
@@ -170,10 +177,10 @@ public class ChainageAvant
 	public void affichageBF(){
 		//on parcours la base de fait pour voir si les antecedents sont presents
 		System.out.print("BF :");
-		result+="BF :\n";
+		result+="BF :";
 		for(String s : BF){
 			System.out.print(s + " ,");
-			result+=s + "\n";
+			result+=s + " ";
 		}
 		System.out.println("");
 		result+="\n";

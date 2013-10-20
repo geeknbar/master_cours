@@ -2,8 +2,3 @@ A
 G
 H
 B
-C
-F
-D
-I
-E

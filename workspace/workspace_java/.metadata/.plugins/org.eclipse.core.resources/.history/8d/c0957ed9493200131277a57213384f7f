@@ -1,8 +1,0 @@
-package tp16;
-
-public class Body {
-	
-	public Body(){
-		
-	}
-}
