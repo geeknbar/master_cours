@@ -15,7 +15,6 @@
 <fullyQualifiedTypeName name="java.nio.charset.Charset"/>
 <fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="gestionFichier.FileWR"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="java.util.StringTokenizer"/>
 <fullyQualifiedTypeName name="java.lang.Runtime"/>
 <fullyQualifiedTypeName name="java.io.BufferedReader"/>
@@ -28,5 +27,11 @@
 <fullyQualifiedTypeName name="javax.swing.JScrollPane"/>
 <fullyQualifiedTypeName name="javax.swing.JPanel"/>
 <fullyQualifiedTypeName name="java.awt.FlowLayout"/>
+<fullyQualifiedTypeName name="java.awt.BorderLayout"/>
+<fullyQualifiedTypeName name="java.net.Socket"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="tchat.client.ClientGUI"/>
 <fullyQualifiedTypeName name="tchat.client.ClientConnection"/>
+<fullyQualifiedTypeName name="tchat.server.ServerConnection"/>
+<fullyQualifiedTypeName name="tchat.server.Server"/>
 </qualifiedTypeNameHistroy>

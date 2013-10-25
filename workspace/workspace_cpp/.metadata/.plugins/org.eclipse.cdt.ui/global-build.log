@@ -1,27 +1,16 @@
-10:56:55 **** Incremental Build of configuration Debug for project TD3 ****
+11:21:07 **** Incremental Build of configuration Debug for project TD4 ****
 make all 
-Building file: ../src/TD3.cpp
+Building file: ../src/TD4.cpp
 Invoking: GCC C++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/TD3.d" -MT"src/TD3.d" -o "src/TD3.o" "../src/TD3.cpp"
-Finished building: ../src/TD3.cpp
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/TD4.d" -MT"src/TD4.d" -o "src/TD4.o" "../src/TD4.cpp"
+In file included from ../src/TD4.cpp:10:0:
+../src/node.h:53:2: attention : commentaire multi-lignes [-Wcomment]
+../src/TD4.cpp:53:2: attention : commentaire multi-lignes [-Wcomment]
+../src/TD4.cpp:55:2: attention : commentaire multi-lignes [-Wcomment]
+Finished building: ../src/TD4.cpp
  
-Building target: TD3
+Building target: TD4
 Invoking: GCC C++ Linker
-g++  -o "TD3"  ./src/TD3.o ./src/person.o   
-Finished building target: TD3
- 
-10:56:58 **** Incremental Build of configuration Debug for project TD3 ****
-make all 
-make: Rien à faire pour « all ».
-11:28:22 **** Incremental Build of configuration Debug for project TD3 ****
-make all 
-Building file: ../src/TD3.cpp
-Invoking: GCC C++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/TD3.d" -MT"src/TD3.d" -o "src/TD3.o" "../src/TD3.cpp"
-Finished building: ../src/TD3.cpp
- 
-Building target: TD3
-Invoking: GCC C++ Linker
-g++  -o "TD3"  ./src/TD3.o ./src/person.o   
-Finished building target: TD3
+g++  -o "TD4"  ./src/Matrix.o ./src/Node.o ./src/Person.o ./src/TD4.o   
+Finished building target: TD4
  

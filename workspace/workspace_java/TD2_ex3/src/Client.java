@@ -11,9 +11,7 @@ class Client {
 		try {
 			s = new Socket("localhost", 30970);
 			out = new PrintWriter(s.getOutputStream(), true);
-			in = new BufferedReader(new InputStreamReader(
-					s.getInputStream())
-					);
+			in = new BufferedReader(new InputStreamReader(s.getInputStream()));
 
 			for (int i = 0; i < 5; i++) {
 				out.println(name + ":hello server");
