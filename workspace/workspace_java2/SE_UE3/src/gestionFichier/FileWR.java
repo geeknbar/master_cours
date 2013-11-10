@@ -19,7 +19,7 @@ public class FileWR {
 		setPathSource(pathS);
 		ArrayList<String> array = new ArrayList<String>();
 
-		List<String> lignes =  Files.readAllLines(pathSource, StandardCharsets.UTF_8);  
+		List<String> lignes =  Files.readAllLines(pathSource, StandardCharsets.UTF_8);
 		for (String ligne : lignes){
 			array.add(ligne);
 		}

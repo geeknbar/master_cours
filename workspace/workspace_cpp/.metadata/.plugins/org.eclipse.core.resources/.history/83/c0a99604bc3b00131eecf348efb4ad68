@@ -1,0 +1,68 @@
+/*
+ * node.h
+ *
+ *  Created on: 23 oct. 2013
+ *      Author: dorian
+ */
+
+#ifndef NODE_H_
+#define NODE_H_
+
+#include <vector>
+#include <string>
+#include <iostream>
+#include <algorithm>
+
+using namespace std;
+template<class T>
+class Node{
+protected:
+	Node<T> *parent;
+	vector<Node<T>*> offspring;
+	T value;
+public:
+	//	ce constructeur n'est pas viable car on ne peut pas savoir la valeur que l'utilisateur veut
+	//  on pourait mettre valeur = 0; mais si l'utilisateur utilise des valeur Personne cela ne fonctionne plus;
+	//	Node(){
+	//		parent = NULL;
+	//	};
+
+	Node(T v){
+		parent = NULL;
+		value = v;
+	}
+
+	void add(Node<T> *node){
+		offspring.push_back(node);
+	}
+
+	// parcours infix
+	//	 2
+	//	/ \
+	// 1   3   donne 1 2 3
+	void print(ostream& out){
+		if(offspring.size()==0){
+			//leaf
+			out << " "<< value;
+		}else{
+			offspring[0]->print(out);//gauche, dans le vector
+			out << " "<< value;
+			offspring[1]->print(out);//droite
+		}
+
+
+	}
+
+	Node<T> *clone(){
+		newVector = new Node<T>();
+		return newVector;
+	}
+
+	friend ostream& operator << (ostream& out, Node<T>&Node){
+		Node.print(out);
+		return out;
+	}
+};
+
+
+#endif /* NODE_H_ */
