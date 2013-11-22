@@ -1,15 +1,6 @@
-11:28:22 **** Incremental Build of configuration Debug for project TD3 ****
+11:28:04 **** Incremental Build of configuration Debug for project TD3 ****
 make all 
-Building file: ../src/TD3.cpp
-Invoking: GCC C++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/TD3.d" -MT"src/TD3.d" -o "src/TD3.o" "../src/TD3.cpp"
-Finished building: ../src/TD3.cpp
- 
-Building target: TD3
-Invoking: GCC C++ Linker
-g++  -o "TD3"  ./src/TD3.o ./src/person.o   
-Finished building target: TD3
- 
+make: Rien à faire pour « all ».
 
-11:28:22 Build Finished (took 663ms)
+11:28:04 Build Finished (took 63ms)
 

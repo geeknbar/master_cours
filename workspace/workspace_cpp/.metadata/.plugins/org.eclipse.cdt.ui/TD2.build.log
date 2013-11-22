@@ -1,15 +1,31 @@
-09:04:28 **** Incremental Build of configuration Debug for project TD2 ****
+11:28:04 **** Incremental Build of configuration Debug for project TD2 ****
 make all 
-Building file: ../src/TD2prof.cpp
-Invoking: GCC C++ Compiler
-g++ -O0 --std=c++11 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/TD2prof.d" -MT"src/TD2prof.d" -o "src/TD2prof.o" "../src/TD2prof.cpp"
-Finished building: ../src/TD2prof.cpp
- 
 Building target: TD2
 Invoking: GCC C++ Linker
 g++  -o "TD2"  ./src/TD2.o ./src/TD2prof.o   
-Finished building target: TD2
- 
+./src/TD2prof.o: dans la fonction « aleatoire() »:
+/home/dorian/Documents/master_cours/workspace/workspace_cpp/TD2/Debug/../src/TD2prof.cpp:22: définitions multiples de « aleatoire() »
+./src/TD2.o:/home/dorian/Documents/master_cours/workspace/workspace_cpp/TD2/Debug/../src/TD2.cpp:17: défini pour la première fois ici
+./src/TD2prof.o: dans la fonction « greater_than_five(int) »:
+/home/dorian/Documents/master_cours/workspace/workspace_cpp/TD2/Debug/../src/TD2prof.cpp:26: définitions multiples de « greater_than_five(int) »
+./src/TD2.o:/home/dorian/Documents/master_cours/workspace/workspace_cpp/TD2/Debug/../src/TD2.cpp:21: défini pour la première fois ici
+./src/TD2prof.o: dans la fonction « compare_pair(std::pair<int, int> const&, std::pair<int, int> const&) »:
+/home/dorian/Documents/master_cours/workspace/workspace_cpp/TD2/Debug/../src/TD2prof.cpp:31: définitions multiples de « compare_pair(std::pair<int, int> const&, std::pair<int, int> const&) »
+./src/TD2.o:/home/dorian/Documents/master_cours/workspace/workspace_cpp/TD2/Debug/../src/TD2.cpp:25: défini pour la première fois ici
+./src/TD2prof.o: dans la fonction « exercice_1() »:
+/home/dorian/Documents/master_cours/workspace/workspace_cpp/TD2/Debug/../src/TD2prof.cpp:51: définitions multiples de « exercice_1() »
+./src/TD2.o:/home/dorian/Documents/master_cours/workspace/workspace_cpp/TD2/Debug/../src/TD2.cpp:41: défini pour la première fois ici
+./src/TD2prof.o: dans la fonction « exercice_2() »:
+/home/dorian/Documents/master_cours/workspace/workspace_cpp/TD2/Debug/../src/TD2prof.cpp:110: définitions multiples de « exercice_2() »
+./src/TD2.o:/home/dorian/Documents/master_cours/workspace/workspace_cpp/TD2/Debug/../src/TD2.cpp:115: défini pour la première fois ici
+./src/TD2prof.o: dans la fonction « exercice_3() »:
+/home/dorian/Documents/master_cours/workspace/workspace_cpp/TD2/Debug/../src/TD2prof.cpp:163: définitions multiples de « exercice_3() »
+./src/TD2.o:/home/dorian/Documents/master_cours/workspace/workspace_cpp/TD2/Debug/../src/TD2.cpp:183: défini pour la première fois ici
+./src/TD2prof.o: dans la fonction « main »:
+/home/dorian/Documents/master_cours/workspace/workspace_cpp/TD2/Debug/../src/TD2prof.cpp:191: définitions multiples de « main »
+./src/TD2.o:/home/dorian/Documents/master_cours/workspace/workspace_cpp/TD2/Debug/../src/TD2.cpp:215: défini pour la première fois ici
+collect2: erreur: ld a retourné 1 code d'état d'exécution
+make: *** [TD2] Erreur 1
 
-09:04:29 Build Finished (took 107ms)
+11:28:04 Build Finished (took 261ms)
 
