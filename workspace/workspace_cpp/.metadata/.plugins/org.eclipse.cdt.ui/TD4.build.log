@@ -1,6 +1,20 @@
-11:28:04 **** Incremental Build of configuration Debug for project TD4 ****
+11:13:53 **** Incremental Build of configuration Debug for project TD4 ****
 make all 
-make: Rien à faire pour « all ».
+Building file: ../src/Matrix.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0  -std=c++11 -MMD -MP -MF"src/Matrix.d" -MT"src/Matrix.d" -o "src/Matrix.o" "../src/Matrix.cpp"
+Finished building: ../src/Matrix.cpp
+ 
+Building file: ../src/main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0  -std=c++11 -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.cpp"
+Finished building: ../src/main.cpp
+ 
+Building target: TD4
+Invoking: GCC C++ Linker
+g++  -o "TD4"  ./src/Matrix.o ./src/Node.o ./src/Person.o ./src/TD4.o ./src/main.o   
+Finished building target: TD4
+ 
 
-11:28:04 Build Finished (took 63ms)
+11:13:54 Build Finished (took 762ms)
 

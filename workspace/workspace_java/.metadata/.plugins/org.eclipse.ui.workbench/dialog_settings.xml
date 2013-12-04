@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="FileSystemImportWizard">
+		<item value="false" key="WizardFileSystemResourceImportPage1.STORE_OVERWRITE_EXISTING_RESOURCES_ID"/>
+		<item value="false" key="WizardFileSystemResourceImportPage1.STORE_CREATE_CONTAINER_STRUCTURE_ID"/>
+		<list key="WizardFileSystemResourceImportPage1.STORE_SOURCE_NAMES_ID">
+			<item value="/home/dorian/Documents/projet_graphe_m1/src"/>
+		</list>
 	</section>
 	<section name="org.eclipse.ui.internal.QuickAccess">
 		<item value="853" key="dialogWidth"/>
@@ -24,9 +29,17 @@
 			<item value="com.objectaid.uml.new"/>
 		</list>
 	</section>
+	<section name="InstallationDialogSettings">
+		<item value="582" key="DIALOG_WIDTH"/>
+		<item value="-154" key="DIALOG_Y_ORIGIN"/>
+		<item value="24" key="DIALOG_X_ORIGIN"/>
+		<item value="733" key="DIALOG_HEIGHT"/>
+		<item value="1|Ubuntu|9.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
+	</section>
 	<section name="ImportExportAction">
-		<item value="org.eclipse.egit.ui.internal.clone.GitCloneWizard" key="ImportExportPage.STORE_SELECTED_IMPORT_WIZARD_ID"/>
+		<item value="org.eclipse.ui.wizards.import.FileSystem" key="ImportExportPage.STORE_SELECTED_IMPORT_WIZARD_ID"/>
 		<list key="ImportExportPage.STORE_EXPANDED_IMPORT_CATEGORIES">
+			<item value="org.eclipse.ui.Basic"/>
 			<item value="org.eclipse.egit.ui.internal.clone.gitclonecategory"/>
 		</list>
 	</section>

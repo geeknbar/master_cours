@@ -116,9 +116,9 @@ void node_ptr_person(){
 
 }
 
-int main() {
-	node_int();
-	node_person();
-	node_ptr_person();
-	return 0;
-};
+//int main() {
+//	node_int();
+//	node_person();
+//	node_ptr_person();
+//	return 0;
+//};

@@ -4,6 +4,7 @@
 		<item value="false" key="WizardFileSystemResourceImportPage1.STORE_OVERWRITE_EXISTING_RESOURCES_ID"/>
 		<item value="false" key="WizardFileSystemResourceImportPage1.STORE_CREATE_CONTAINER_STRUCTURE_ID"/>
 		<list key="WizardFileSystemResourceImportPage1.STORE_SOURCE_NAMES_ID">
+			<item value="/home/dorian/Downloads/tpNoteRicher_corr"/>
 			<item value="/home/dorian/tmp/HW"/>
 		</list>
 	</section>
@@ -20,8 +21,8 @@
 		</list>
 	</section>
 	<section name="WorkbenchPreferenceDialogSettings">
-		<item value="7" key="DIALOG_Y_ORIGIN"/>
-		<item value="198" key="DIALOG_X_ORIGIN"/>
+		<item value="171" key="DIALOG_Y_ORIGIN"/>
+		<item value="26" key="DIALOG_X_ORIGIN"/>
 	</section>
 	<section name="NewWizardAction">
 		<item value="org.eclipse.cdt.ui.wizards.NewCWizard1" key="NewWizardSelectionPage.STORE_SELECTED_ID"/>

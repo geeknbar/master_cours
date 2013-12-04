@@ -1,0 +1,11 @@
+Graphe 125, Clique de 29 trouvé, Clique optimum 34, en sec
+[Sommet [value=103], Sommet [value=2], Sommet [value=1], Sommet [value=4], Sommet [value=5], Sommet [value=6], Sommet [value=7], Sommet [value=8], Sommet [value=9], Sommet [value=10], Sommet [value=11], Sommet [value=17], Sommet [value=18], Sommet [value=19], Sommet [value=21], Sommet [value=35], Sommet [value=39], Sommet [value=41], Sommet [value=45], Sommet [value=63], Sommet [value=73], Sommet [value=80], Sommet [value=89], Sommet [value=91], Sommet [value=98], Sommet [value=99], Sommet [value=100], Sommet [value=107], Sommet [value=119]]
+
+
+Graphe 250, Clique de 35 trouvé, Clique optimum 44, en min
+[Sommet [value=7], Sommet [value=2], Sommet [value=1], Sommet [value=5], Sommet [value=8], Sommet [value=12], Sommet [value=13], Sommet [value=14], Sommet [value=21], Sommet [value=23], Sommet [value=29], Sommet [value=30], Sommet [value=33], Sommet [value=36], Sommet [value=39], Sommet [value=41], Sommet [value=49], Sommet [value=50], Sommet [value=55], Sommet [value=63], Sommet [value=66], Sommet [value=77], Sommet [value=94], Sommet [value=115], Sommet [value=118], Sommet [value=136], Sommet [value=147], Sommet [value=160], Sommet [value=178], Sommet [value=181], Sommet [value=197], Sommet [value=218], Sommet [value=234], Sommet [value=242], Sommet [value=248]]
+
+
+Graphe 500, Clique de XX trouvé, Clique optimum 57, trop long entre chaque tour.
+Test avec 4 tour : 33 sommets
+[Sommet [value=2], Sommet [value=1], Sommet [value=3], Sommet [value=5], Sommet [value=7], Sommet [value=8], Sommet [value=9], Sommet [value=11], Sommet [value=13], Sommet [value=14], Sommet [value=15], Sommet [value=17], Sommet [value=22], Sommet [value=32], Sommet [value=41], Sommet [value=53], Sommet [value=65], Sommet [value=74], Sommet [value=86], Sommet [value=97], Sommet [value=109], Sommet [value=116], Sommet [value=132], Sommet [value=137], Sommet [value=147], Sommet [value=166], Sommet [value=173], Sommet [value=179], Sommet [value=226], Sommet [value=239], Sommet [value=284], Sommet [value=319], Sommet [value=387]]

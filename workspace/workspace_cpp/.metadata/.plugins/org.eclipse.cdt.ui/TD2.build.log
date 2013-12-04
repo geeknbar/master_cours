@@ -1,4 +1,4 @@
-11:28:04 **** Incremental Build of configuration Debug for project TD2 ****
+23:54:35 **** Incremental Build of configuration Debug for project TD2 ****
 make all 
 Building target: TD2
 Invoking: GCC C++ Linker
@@ -27,5 +27,5 @@ g++  -o "TD2"  ./src/TD2.o ./src/TD2prof.o
 collect2: erreur: ld a retourné 1 code d'état d'exécution
 make: *** [TD2] Erreur 1
 
-11:28:04 Build Finished (took 261ms)
+23:54:35 Build Finished (took 470ms)
 

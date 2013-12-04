@@ -15,7 +15,7 @@ public class Result implements Serializable{
 
 	}
 	
-	public void set (BigInteger fact, BigInteger fib){
+	public void set(BigInteger fact, BigInteger fib){
 		data[0] = fact;
 		data[1] = fib;
 	}
