@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+		<rdfs:Class rdf:ID="Produit">
+		</rdfs:Class>
+		<rdfs:Class rdf:ID="CarteMere">
+			<rdfs:subClassOf rdf:resource="Produit"/>
+		</rdfs:Class>
+		<rdfs:Class rdf:ID="CarteGraphique">
+			<rdfs:subClassOf rdf:resource="Produit"/>
+		</rdfs:Class>
+		<rdfs:Class rdf:ID="Socket">
+		</rdfs:Class>
+		<rdfs:Class rdf:ID="Port">
+		</rdfs:Class>
+		<rdfs:Class rdf:ID="Sortie">
+		</rdfs:Class>
+		<rdfs:Class rdf:ID="Nom">
+		</rdfs:Class>
+		<rdfs:Property rdf:ID="typeSocket">
+			<rdfs:domain rdf:resource="#Produit"/>
+			<rdfs:range rdf:resource="#Socket"/>
+		</rdfs:Property>
+		<rdfs:Property rdf:ID="typePort">
+			<rdfs:domain rdf:resource="#Produit"/>
+			<rdfs:range rdf:resource="#Port"/>
+		</rdfs:Property>
+		<rdfs:Property rdf:ID="nom">
+			<rdfs:domain rdf:resource="#Produit"/>
+			<rdfs:range rdf:resource="#Nom"/>
+		</rdfs:Property>
+		<rdfs:Property rdf:ID="typeSortie">
+			<rdfs:domain rdf:resource="#Produit"/>
+			<rdfs:range rdf:resource="#Sortie"/>
+		</rdfs:Property>
+		<rdfs:Property rdf:ID="prix">
+			<rdfs:domain rdf:resource="#Produit"/>
+			<rdfs:range rdf:resource="#Produit"/>
+		</rdfs:Property>
+		<rdfs:Property rdf:ID="commentaire">
+			<rdfs:domain rdf:resource="#Produit"/>
+			<rdfs:range rdf:resource="#Produit"/>
+		</rdfs:Property>
+	</rdf:RDF>

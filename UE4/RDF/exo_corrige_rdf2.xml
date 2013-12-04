@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.univ-mlv.fr/~ocure/etudSchema.rdf#">
+		<Cours rdf:ID="Cours1">
+			<possedeNom>XML et Java</possedeNom>
+			<estEnseignant rdf:nodeID="oc"/>
+			<etudiantsCours rdf:nodeID="classeIST"/>
+		</Cours>
+		<Cours rdf:ID="Cours2">
+			<possedeNom>Ontologie conception et realisation</possedeNom>
+			<estEnseignant rdf:nodeID="oc"/>
+			<etudiantsCours rdf:nodeID="classeIST"/>
+		</Cours>
+		<Enseignant rdf:nodeID="oc">
+			<possedeNom>Olivier Cure</possedeNom>
+		</Enseignant>
+		<rdf:Seq rdf:nodeID="classeIST">
+			<rdf:li>
+				<Etudiant rdf:ID="etud01">
+					<possedeNom>Pierre Dupont</possedeNom>
+				</Etudiant>
+			</rdf:li>
+			<rdf:li>
+				<Etudiant rdf:ID="etud02">
+					<possedeNom>Alain Durand</possedeNom>
+				</Etudiant>
+			</rdf:li>
+			<rdf:li>
+				<Etudiant rdf:ID="etud03">
+					<possedeNom>Marie Martin</possedeNom>
+				</Etudiant>
+			</rdf:li>
+		</rdf:Seq>
+	</rdf:RDF>

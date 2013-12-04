@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+		<rdfs:Class rdf:ID="Personne"/>
+		<rdfs:Class rdf:ID="Etudiant">
+			<rdfs:subClassOf rdf:resource="Personne"/>
+		</rdfs:Class>
+		<rdfs:Class rdf:ID="Enseignant">
+			<rdfs:subClassOf rdf:resource="Personne"/>
+		</rdfs:Class>
+		<rdfs:Class rdf:ID="Cours"/>
+		<rdfs:Property rdf:ID="estEnseignant">
+			<rdfs:domain rdf:resource="#Cours"/>
+			<rdfs:range rdf:resource="#Enseignant"/>
+		</rdfs:Property>
+		<rdfs:Property rdf:ID="etudiantsCours">
+			<rdfs:domain rdf:resource="#Cours"/>
+			<rdfs:range rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Seq"/>
+		</rdfs:Property>
+		<rdfs:Property rdf:ID="possedeNom">
+			<rdfs:domain rdf:resource="Cours"/>
+			<rdfs:domain rdf:resource="Personne"/>
+			<rdfs:range rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Literal"/>
+		</rdfs:Property>
+	</rdf:RDF>
