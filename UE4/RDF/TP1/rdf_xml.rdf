@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:exvoc="http://www.exemple.org/voc#">
+	<rdf:Description rdf:about="http://www.exemple.org/produit#CMH77MA" rdf:type="http://www.example.org/voc#CarteMere">
+		<exvoc:nom>H77MA</exvoc:nom>
+		<exvoc:typeSocket rdf:resource="http://www.exemple.org/tech#LGA1155"/>
+		<exvoc:typePort rdf:resource="http://www.exemple.org/tech#pcix16x"/>
+		<exvoc:typePort rdf:resource="http://www.exemple.org/tech#pcix1x"/>
+		<exvoc:typePort rdf:resource="http://www.exemple.org/tech#pci"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://www.exemple.org/produit#GF7800" rdf:type="http://www.example.org/voc#CarteGraphique">
+		<exvoc:nom>GF7800</exvoc:nom>
+		<exvoc:typePort rdf:resource="http://www.exemple.org/tech#pcix16x"/>
+		<exvoc:typeSortie rdf:resource="http://www.exemple.org/tech#vga"/>
+		<exvoc:typeSsortie rdf:resource="http://www.exemple.org/tech#dvi"/>
+	</rdf:Description>
+</rdf:RDF>

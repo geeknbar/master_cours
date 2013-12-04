@@ -1,6 +1,22 @@
-22:03:23 **** Build of configuration Debug for project TP_Note_Correction ****
+13:08:42 **** Incremental Build of configuration Debug for project CC_cpp ****
 make all 
-make: Rien à faire pour « all ».
-22:03:30 **** Incremental Build of configuration Debug for project TP_Note_Correction ****
-make all 
-make: Rien à faire pour « all ».
+Building file: ../src/list.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 --std=c++11 -MMD -MP -MF"src/list.d" -MT"src/list.d" -o "src/list.o" "../src/list.cpp"
+Finished building: ../src/list.cpp
+ 
+Building file: ../src/main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 --std=c++11 -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.cpp"
+Finished building: ../src/main.cpp
+ 
+Building file: ../src/main_pers.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 --std=c++11 -MMD -MP -MF"src/main_pers.d" -MT"src/main_pers.d" -o "src/main_pers.o" "../src/main_pers.cpp"
+Finished building: ../src/main_pers.cpp
+ 
+Building target: CC_cpp
+Invoking: GCC C++ Linker
+g++  -o "CC_cpp"  ./src/link.o ./src/list.o ./src/main.o ./src/main_pers.o   
+Finished building target: CC_cpp
+ 

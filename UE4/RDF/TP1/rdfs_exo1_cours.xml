@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+		
+		<rdfs:Class rdf:about="http://www.example.org/voc#Produit">
+		</rdfs:Class>
+
+		<rdfs:Class rdf:about="http://www.example.org/voc#CarteMere">
+			<rdfs:subClassOf rdf:resource="http://www.example.org/voc#Produit"/>
+		</rdfs:Class>
+
+		<rdfs:Class rdf:about="http://www.example.org/voc#CarteGraphique">
+			<rdfs:subClassOf rdf:resource="http://www.example.org/voc#Produit"/>
+		</rdfs:Class>
+
+		<rdfs:Class rdf:about="http://www.example.org/voc#Socket">
+		</rdfs:Class>
+
+		<rdfs:Class rdf:about="http://www.example.org/voc#Port">
+		</rdfs:Class>
+		
+		<rdfs:Class rdf:about="http://www.example.org/voc#Sortie">
+		</rdfs:Class>
+
+		<rdfs:Class rdf:about="http://www.example.org/voc#Commentaire">
+		</rdfs:Class>
+
+		<rdfs:Property rdf:about="http://www.example.org/voc#typePort">
+			<rdfs:domain rdf:resource="http://www.example.org/voc#Produit"/>
+			<rdfs:range rdf:resource="http://www.example.org/voc#Port"/>
+		</rdfs:Property>
+
+		<rdfs:Property rdf:about="http://www.example.org/voc#typeSortie">
+			<rdfs:domain rdf:resource="http://www.example.org/voc#CarteGraphique"/>
+			<rdfs:range rdf:resource="http://www.example.org/voc#Sortie"/>
+		</rdfs:Property>
+
+		<rdfs:Property rdf:about="http://www.example.org/voc#typeSocket">
+			<rdfs:domain rdf:resource="http://www.example.org/voc#CarteMere"/>
+			<rdfs:range rdf:resource="http://www.example.org/voc#Socket"/>
+		</rdfs:Property>
+
+		<rdfs:Property rdf:about="http://www.example.org/voc#prix">
+			<rdfs:domain rdf:resource="http://www.example.org/voc#Produit"/>
+			<rdfs:range rdf:resource="xsd:integer"/>
+		</rdfs:Property>
+
+		<rdfs:Property rdf:about="http://www.example.org/voc#note">
+			<rdfs:domain rdf:resource="http://www.example.org/voc#Commentaire"/>
+			<rdfs:range rdf:resource="xsd:integer"/>
+		</rdfs:Property>
+
+		<rdfs:Property rdf:about="http://www.example.org/voc#date">
+			<rdfs:domain rdf:resource="http://www.example.org/voc#Commentaire"/>
+			<rdfs:range rdf:resource="xsd:string"/>
+		</rdfs:Property>
+
+		<rdfs:Property rdf:about="http://www.example.org/voc#message">
+			<rdfs:domain rdf:resource="http://www.example.org/voc#Commentaire"/>
+			<rdfs:range rdf:resource="xsd:string"/>
+		</rdfs:Property>
+
+		<rdfs:Property rdf:about="http://www.example.org/voc#commentaire">
+			<rdfs:domain rdf:resource="http://www.example.org/voc#Produit"/>
+			<rdfs:range rdf:resource="http://www.example.org/voc#Commentaire"/>
+		</rdfs:Property>
+
+	</rdf:RDF>

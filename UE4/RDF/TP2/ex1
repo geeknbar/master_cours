@@ -1,0 +1,7 @@
+PREFIX m: <http://exemple.fr/mv#>
+SELECT ?Name ?n
+FROM <personnes.n3>
+WHERE {
+	m:ws m:dirige ?Name .
+	?Name m:nom ?n .
+}

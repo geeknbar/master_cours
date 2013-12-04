@@ -1,0 +1,27 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix mv: <http://exemple.fr/mv#> .
+
+mv:fm mv:nom "Fox Mulder" ;
+	mv:famille mv:Mulder ;
+	mv:travailleavec mv:ds ;
+	mv:pere mv:bm ;
+	mv:photo <http://upload.wikimedia.org/wikipedia/en/5/5e/Xfiles-FoxMulder-small.jpg> ;
+	mv:naissance "1961"^^xsd:gYear .
+
+mv:bm mv:nom "Bill Mulder" ;
+	mv:famille mv:Mulder ;
+	mv:fils mv:fm .
+
+mv:ds mv:nom "Dana Scully" ;
+	mv:famille mv:Scully ;
+	mv:travailleavec mv:fm ;
+	mv:naissance "1964"^^xsd:gYear .
+
+mv:ws mv:nom "Walter Skinner" ;
+	mv:dirige mv:fm ;
+	mv:dirige mv:ds ;
+	mv:dirige mv:ak .
+
+mv:ak mv:nom "Alex Krycek" ;
+	mv:travailleavec mv:fm .

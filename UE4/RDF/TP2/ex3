@@ -1,0 +1,10 @@
+PREFIX m: <http://exemple.fr/mv#>
+SELECT ?uri ?Name ?NameAc ?NAc
+FROM <personnes.n3>
+FROM <acteur.n3>
+WHERE {
+	?uri m:nom "Walter Skinner" .
+	?uri m:dirige ?Name .
+	?NameAc m:role ?Name .
+	?NameAc m:nom ?NAc .
+}

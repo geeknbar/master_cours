@@ -1,0 +1,18 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix mv: <http://exemple.fr/mv#> .
+
+mv:dd mv:nom "David Duchovny" ;
+	mv:role mv:fm ;
+	mv:naissance "1960"^^xsd:gYear .
+
+mv:ga mv:nom "Gillian Anderson" ;
+	mv:role mv:ds ;
+	mv:naissance "1968"^^xsd:gYear .
+
+mv:mp mv:nom "Mitch Pileggi" ;
+	mv:role mv:ws ;
+	mv:naissance "1952"^^xsd:gYear .
+
+mv:nl mv:nom "Nicholas Lea" ;
+	mv:role mv:ak .
