@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Built-By: sagara
+Build-Jdk: 1.6.0_22
+Class-Path: MathProject.jar
+Created-By: Apache Maven
+Archiver-Version: Plexus Archiver
+
