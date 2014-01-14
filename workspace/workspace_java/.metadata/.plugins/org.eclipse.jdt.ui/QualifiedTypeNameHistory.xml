@@ -1,12 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="threads.Fibonacci"/>
-<fullyQualifiedTypeName name="java.lang.System"/>
-<fullyQualifiedTypeName name="threads.Thread1_1"/>
-<fullyQualifiedTypeName name="threads.Thread1_2"/>
-<fullyQualifiedTypeName name="java.lang.Thread.State"/>
 <fullyQualifiedTypeName name="tp16.Motor"/>
-<fullyQualifiedTypeName name="java.lang.Thread"/>
 <fullyQualifiedTypeName name="tp16.Fabrication"/>
 <fullyQualifiedTypeName name="FileWR"/>
 <fullyQualifiedTypeName name="java.nio.file.Files"/>
@@ -19,12 +13,9 @@
 <fullyQualifiedTypeName name="java.lang.Runtime"/>
 <fullyQualifiedTypeName name="java.io.BufferedReader"/>
 <fullyQualifiedTypeName name="javax.swing.JFrame"/>
-<fullyQualifiedTypeName name="java.awt.event.ActionListener"/>
-<fullyQualifiedTypeName name="java.awt.event.ActionEvent"/>
 <fullyQualifiedTypeName name="javax.swing.JButton"/>
 <fullyQualifiedTypeName name="javax.swing.JTextArea"/>
 <fullyQualifiedTypeName name="java.awt.GridLayout"/>
-<fullyQualifiedTypeName name="javax.swing.JScrollPane"/>
 <fullyQualifiedTypeName name="javax.swing.JPanel"/>
 <fullyQualifiedTypeName name="java.awt.FlowLayout"/>
 <fullyQualifiedTypeName name="java.awt.BorderLayout"/>
@@ -41,7 +32,6 @@
 <fullyQualifiedTypeName name="common.InputData"/>
 <fullyQualifiedTypeName name="java.io.Serializable"/>
 <fullyQualifiedTypeName name="common.Result"/>
-<fullyQualifiedTypeName name="java.math.BigInteger"/>
 <fullyQualifiedTypeName name="java.util.HashSet"/>
 <fullyQualifiedTypeName name="java.util.HashMap"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
@@ -53,4 +43,21 @@
 <fullyQualifiedTypeName name="javax.tools.JavaCompiler"/>
 <fullyQualifiedTypeName name="javax.tools.ToolProvider"/>
 <fullyQualifiedTypeName name="javax.tools.JavaFileObject"/>
+<fullyQualifiedTypeName name="common.DOMTools"/>
+<fullyQualifiedTypeName name="org.w3c.dom.Document"/>
+<fullyQualifiedTypeName name="org.xml.sax.InputSource"/>
+<fullyQualifiedTypeName name="javax.xml.xpath.XPathFactory"/>
+<fullyQualifiedTypeName name="javax.xml.xpath.XPath"/>
+<fullyQualifiedTypeName name="javax.xml.xpath.XPathExpression"/>
+<fullyQualifiedTypeName name="javax.xml.namespace.QName"/>
+<fullyQualifiedTypeName name="java.math.BigInteger"/>
+<fullyQualifiedTypeName name="java.lang.Thread"/>
+<fullyQualifiedTypeName name="java.awt.event.ActionEvent"/>
+<fullyQualifiedTypeName name="javax.swing.JFileChooser"/>
+<fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
+<fullyQualifiedTypeName name="java.awt.event.ActionListener"/>
+<fullyQualifiedTypeName name="java.awt.event.WindowEvent"/>
+<fullyQualifiedTypeName name="javax.swing.ButtonGroup"/>
+<fullyQualifiedTypeName name="javax.swing.JScrollPane"/>
+<fullyQualifiedTypeName name="javax.swing.ScrollPaneConstants"/>
 </qualifiedTypeNameHistroy>

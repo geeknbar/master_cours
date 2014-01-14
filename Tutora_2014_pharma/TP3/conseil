@@ -1,0 +1,30 @@
+<!DOCTYPE html
+   PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="stylesheet" type="text/css" title="tableau"  href=""/> 
+	<title>premier tableau</title>
+</head>
+<body>
+
+<table>
+  <tr> <th> Ville </th><th> Date </th><th> Temp en degrés </th><th> Altitude </th><th> Population </th><th> Qualité
+  des repas </th></tr>
+<tr><td> Angers </td><td> 15 juin </td><td> 22 </td><td> 20 mètres </td><td> 150 000 </td><td>4/5</td></tr>
+<tr><td> Chinon </td><td> 25 juin </td><td> 24 </td><td> 37 mètres </td><td> 8 700 </td><td> 3/5</td></tr>
+<tr><td> Tours </td><td> 10 juillet </td><td> 25 </td><td> 60 mètres </td><td> 136 500 </td><td> 4/5</td></tr>
+<tr><td> Blois </td><td> 23 juillet </td><td> 22 </td><td> 73 mètres </td><td> 50 000 </td><td> 3/5</td></tr>
+<tr><td>Amboise </td><td> 9 août </td><td> 24 </td><td> 58 mètres </td><td> 12 000 </td><td> 5/5 </td></tr>
+<tr><td> Vendôme </td><td> 18 août </td><td> 22 </td><td> 82 mètres </td><td> 18 000 </td><td> 3/5</td></tr>
+
+	
+</table>
+<p>
+    <a href="http://validator.w3.org/check?uri=referer"><img
+      src="http://www.w3.org/Icons/valid-xhtml10" alt="Valid XHTML 1.0 Strict" height="31" width="88" /></a>
+  </p>
+</body>
+</html>

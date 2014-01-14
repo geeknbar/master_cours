@@ -32,8 +32,8 @@ int main() {
 
 	Matrix<int> m7 { 2, 3, 1, 2, 3, 4, 5, 6};
 	cout << "m7 =" << endl << m7 << endl;
-	Matrix<int> m8 (2,3,{ -1, -2, -3, -4, -5, -6});
-	cout << "m8 =" << endl << m8 << endl;
+//	Matrix<int> m8 (2,3,{ -1, -2, -3, -4, -5, -6});
+//	cout << "m8 =" << endl << m8 << endl;
 
 	return 0;
 };

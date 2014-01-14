@@ -1,0 +1,37 @@
+<!DOCTYPE html
+   PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title> Ma super Collection de Manga </title>
+</head>
+
+<body>
+<h1> Collection de Manga</h1>
+<h2> XXX-Holic de Clamp </h2>
+<p> C'est un manga pour <em>public averti</em>  (certains passages peuvent effrayer). 
+Ce manga nous fait plonger dans l'ésotérisme</p>
+<p> S'il ne fallait retenir qu'une phrase : <q>Tout est inéluctable.</q></p>
+<h2> Card Captor Sakura de Clamp</h2>
+<p> Ce manga est aussi appelé <abbr title="Card Captor Sakura">CCS</abbr>.
+C'est un manga pour petites filles.
+Je le réserve pour occuper mes petites nièces, lorsqu'elles viennent me rendre visite.</p>
+
+<h2>Fruits Basket de Natsuki Takaya</h2>
+<p> C'est l'histoire d'une malédiction. 
+Cette histoire sert de prétexte pour explorer la psychologie des personnages.</p>
+
+<h2>Nana d'Ai Yazawa</h2>
+<p> L'histoire de deux juenes femmes qui &quot;montent &quot; à Tokyo.
+Amour, musique et Punk-attitude.</p>
+
+ <p>
+    <a href="http://validator.w3.org/check?uri=referer"><img
+        src="http://www.w3.org/Icons/valid-xhtml10"
+        alt="Valid XHTML 1.0 Strict" height="31" width="88" /></a>
+  </p>
+
+</body>
+</html>

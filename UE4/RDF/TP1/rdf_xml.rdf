@@ -11,6 +11,6 @@
 		<exvoc:nom>GF7800</exvoc:nom>
 		<exvoc:typePort rdf:resource="http://www.exemple.org/tech#pcix16x"/>
 		<exvoc:typeSortie rdf:resource="http://www.exemple.org/tech#vga"/>
-		<exvoc:typeSsortie rdf:resource="http://www.exemple.org/tech#dvi"/>
+		<exvoc:typeSortie rdf:resource="http://www.exemple.org/tech#dvi"/>
 	</rdf:Description>
 </rdf:RDF>

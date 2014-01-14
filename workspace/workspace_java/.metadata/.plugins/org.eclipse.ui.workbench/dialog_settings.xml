@@ -4,6 +4,7 @@
 		<item value="false" key="WizardFileSystemResourceImportPage1.STORE_OVERWRITE_EXISTING_RESOURCES_ID"/>
 		<item value="false" key="WizardFileSystemResourceImportPage1.STORE_CREATE_CONTAINER_STRUCTURE_ID"/>
 		<list key="WizardFileSystemResourceImportPage1.STORE_SOURCE_NAMES_ID">
+			<item value="/home/dorian/tmp/projet_ue1_ue2_COFFINET_FARDILHA_GAUTHIER_PILLIE/projet_msn"/>
 			<item value="/home/dorian/Documents/projet_graphe_m1/src"/>
 		</list>
 	</section>
@@ -23,21 +24,25 @@
 		<item value="3" key="DIALOG_Y_ORIGIN"/>
 		<item value="28" key="DIALOG_X_ORIGIN"/>
 	</section>
+	<section name="NewWizardAction">
+		<item value="org.eclipse.wb.swing.JFrame" key="NewWizardSelectionPage.STORE_SELECTED_ID"/>
+		<list key="NewWizardSelectionPage.STORE_EXPANDED_CATEGORIES_ID">
+			<item value="com.objectaid.uml.new"/>
+			<item value="org.eclipse.wb"/>
+			<item value="org.eclipse.wb/org.eclipse.wb.swing"/>
+		</list>
+	</section>
 	<section name="InstallationDialogSettings">
 		<item value="582" key="DIALOG_WIDTH"/>
 		<item value="-154" key="DIALOG_Y_ORIGIN"/>
-		<item value="733" key="DIALOG_HEIGHT"/>
 		<item value="24" key="DIALOG_X_ORIGIN"/>
+		<item value="733" key="DIALOG_HEIGHT"/>
 		<item value="1|Ubuntu|9.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
 	</section>
-	<section name="NewWizardAction">
-		<item value="com.objectaid.uml.new.classdiagram" key="NewWizardSelectionPage.STORE_SELECTED_ID"/>
-		<list key="NewWizardSelectionPage.STORE_EXPANDED_CATEGORIES_ID">
-			<item value="com.objectaid.uml.new"/>
-		</list>
+	<section name="FileSystemExportWizard">
 	</section>
 	<section name="ImportExportAction">
-		<item value="org.eclipse.ui.wizards.import.FileSystem" key="ImportExportPage.STORE_SELECTED_IMPORT_WIZARD_ID"/>
+		<item value="org.eclipse.ui.wizards.import.ExternalProject" key="ImportExportPage.STORE_SELECTED_IMPORT_WIZARD_ID"/>
 		<list key="ImportExportPage.STORE_EXPANDED_IMPORT_CATEGORIES">
 			<item value="org.eclipse.ui.Basic"/>
 			<item value="org.eclipse.egit.ui.internal.clone.gitclonecategory"/>

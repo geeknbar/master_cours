@@ -1,22 +1,96 @@
-13:08:42 **** Incremental Build of configuration Debug for project CC_cpp ****
+11:01:17 **** Incremental Build of configuration Debug for project TD6_exemple ****
 make all 
-Building file: ../src/list.cpp
-Invoking: GCC C++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 --std=c++11 -MMD -MP -MF"src/list.d" -MT"src/list.d" -o "src/list.o" "../src/list.cpp"
-Finished building: ../src/list.cpp
- 
-Building file: ../src/main.cpp
-Invoking: GCC C++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 --std=c++11 -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.cpp"
-Finished building: ../src/main.cpp
- 
-Building file: ../src/main_pers.cpp
-Invoking: GCC C++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 --std=c++11 -MMD -MP -MF"src/main_pers.d" -MT"src/main_pers.d" -o "src/main_pers.o" "../src/main_pers.cpp"
-Finished building: ../src/main_pers.cpp
- 
-Building target: CC_cpp
+Building target: TD6_exemple
 Invoking: GCC C++ Linker
-g++  -o "CC_cpp"  ./src/link.o ./src/list.o ./src/main.o ./src/main_pers.o   
-Finished building target: CC_cpp
+g++  -o "TD6_exemple"  ./src/MyClassTestFixture.o   
+./src/MyClassTestFixture.o: dans la fonction « MyClassTestFixture::test_set() »:
+/home/dorian/Documents/master_cours/workspace/workspace_cpp/TD6_exemple/Debug/../src/MyClassTestFixture.cpp:16: référence indéfinie vers « CppUnit::SourceLine::SourceLine(std::string const&, int) »
+/home/dorian/Documents/master_cours/workspace/workspace_cpp/TD6_exemple/Debug/../src/MyClassTestFixture.cpp:16: référence indéfinie vers « CppUnit::Message::Message(std::string const&, std::string const&) »
+/home/dorian/Documents/master_cours/workspace/workspace_cpp/TD6_exemple/Debug/../src/MyClassTestFixture.cpp:16: référence indéfinie vers « CppUnit::Asserter::failIf(bool, CppUnit::Message const&, CppUnit::SourceLine const&) »
+/home/dorian/Documents/master_cours/workspace/workspace_cpp/TD6_exemple/Debug/../src/MyClassTestFixture.cpp:16: référence indéfinie vers « CppUnit::SourceLine::~SourceLine() »
+/home/dorian/Documents/master_cours/workspace/workspace_cpp/TD6_exemple/Debug/../src/MyClassTestFixture.cpp:16: référence indéfinie vers « CppUnit::SourceLine::~SourceLine() »
+./src/MyClassTestFixture.o: dans la fonction « make_suite() »:
+/home/dorian/Documents/master_cours/workspace/workspace_cpp/TD6_exemple/Debug/../src/MyClassTestFixture.cpp:21: référence indéfinie vers « CppUnit::TestSuite::TestSuite(std::string) »
+/home/dorian/Documents/master_cours/workspace/workspace_cpp/TD6_exemple/Debug/../src/MyClassTestFixture.cpp:26: référence indéfinie vers « CppUnit::TestSuite::addTest(CppUnit::Test*) »
+./src/MyClassTestFixture.o: dans la fonction « main »:
+/home/dorian/Documents/master_cours/workspace/workspace_cpp/TD6_exemple/Debug/../src/MyClassTestFixture.cpp:33: référence indéfinie vers « CppUnit::TextTestRunner::TextTestRunner(CppUnit::Outputter*) »
+/home/dorian/Documents/master_cours/workspace/workspace_cpp/TD6_exemple/Debug/../src/MyClassTestFixture.cpp:35: référence indéfinie vers « CppUnit::TestRunner::addTest(CppUnit::Test*) »
+/home/dorian/Documents/master_cours/workspace/workspace_cpp/TD6_exemple/Debug/../src/MyClassTestFixture.cpp:36: référence indéfinie vers « CppUnit::TextTestRunner::result() const »
+/home/dorian/Documents/master_cours/workspace/workspace_cpp/TD6_exemple/Debug/../src/MyClassTestFixture.cpp:36: référence indéfinie vers « CppUnit::CompilerOutputter::CompilerOutputter(CppUnit::TestResultCollector*, std::ostream&, std::string const&) »
+/home/dorian/Documents/master_cours/workspace/workspace_cpp/TD6_exemple/Debug/../src/MyClassTestFixture.cpp:36: référence indéfinie vers « CppUnit::TextTestRunner::setOutputter(CppUnit::Outputter*) »
+/home/dorian/Documents/master_cours/workspace/workspace_cpp/TD6_exemple/Debug/../src/MyClassTestFixture.cpp:37: référence indéfinie vers « CppUnit::TextTestRunner::run(std::string, bool, bool, bool) »
+/home/dorian/Documents/master_cours/workspace/workspace_cpp/TD6_exemple/Debug/../src/MyClassTestFixture.cpp:38: référence indéfinie vers « CppUnit::TextTestRunner::~TextTestRunner() »
+/home/dorian/Documents/master_cours/workspace/workspace_cpp/TD6_exemple/Debug/../src/MyClassTestFixture.cpp:38: référence indéfinie vers « CppUnit::TextTestRunner::~TextTestRunner() »
+./src/MyClassTestFixture.o: dans la fonction « CppUnit::TestCaller<MyClassTestFixture>::TestCaller(std::string, void (MyClassTestFixture::*)()) »:
+/usr/include/cppunit/TestCaller.h:119: référence indéfinie vers « CppUnit::TestCase::TestCase(std::string const&) »
+/usr/include/cppunit/TestCaller.h:119: référence indéfinie vers « CppUnit::TestCase::~TestCase() »
+./src/MyClassTestFixture.o:(.rodata._ZTVN7CppUnit10TestCallerI18MyClassTestFixtureEE[_ZTVN7CppUnit10TestCallerI18MyClassTestFixtureEE]+0x20): référence indéfinie vers « CppUnit::TestCase::run(CppUnit::TestResult*) »
+./src/MyClassTestFixture.o:(.rodata._ZTVN7CppUnit10TestCallerI18MyClassTestFixtureEE[_ZTVN7CppUnit10TestCallerI18MyClassTestFixtureEE]+0x28): référence indéfinie vers « CppUnit::TestLeaf::countTestCases() const »
+./src/MyClassTestFixture.o:(.rodata._ZTVN7CppUnit10TestCallerI18MyClassTestFixtureEE[_ZTVN7CppUnit10TestCallerI18MyClassTestFixtureEE]+0x30): référence indéfinie vers « CppUnit::TestLeaf::getChildTestCount() const »
+./src/MyClassTestFixture.o:(.rodata._ZTVN7CppUnit10TestCallerI18MyClassTestFixtureEE[_ZTVN7CppUnit10TestCallerI18MyClassTestFixtureEE]+0x38): référence indéfinie vers « CppUnit::Test::getChildTestAt(int) const »
+./src/MyClassTestFixture.o:(.rodata._ZTVN7CppUnit10TestCallerI18MyClassTestFixtureEE[_ZTVN7CppUnit10TestCallerI18MyClassTestFixtureEE]+0x40): référence indéfinie vers « CppUnit::TestCase::getName() const »
+./src/MyClassTestFixture.o:(.rodata._ZTVN7CppUnit10TestCallerI18MyClassTestFixtureEE[_ZTVN7CppUnit10TestCallerI18MyClassTestFixtureEE]+0x48): référence indéfinie vers « CppUnit::Test::findTestPath(std::string const&, CppUnit::TestPath&) const »
+./src/MyClassTestFixture.o:(.rodata._ZTVN7CppUnit10TestCallerI18MyClassTestFixtureEE[_ZTVN7CppUnit10TestCallerI18MyClassTestFixtureEE]+0x50): référence indéfinie vers « CppUnit::Test::findTestPath(CppUnit::Test const*, CppUnit::TestPath&) const »
+./src/MyClassTestFixture.o:(.rodata._ZTVN7CppUnit10TestCallerI18MyClassTestFixtureEE[_ZTVN7CppUnit10TestCallerI18MyClassTestFixtureEE]+0x58): référence indéfinie vers « CppUnit::Test::findTest(std::string const&) const »
+./src/MyClassTestFixture.o:(.rodata._ZTVN7CppUnit10TestCallerI18MyClassTestFixtureEE[_ZTVN7CppUnit10TestCallerI18MyClassTestFixtureEE]+0x60): référence indéfinie vers « CppUnit::Test::resolveTestPath(std::string const&) const »
+./src/MyClassTestFixture.o:(.rodata._ZTVN7CppUnit10TestCallerI18MyClassTestFixtureEE[_ZTVN7CppUnit10TestCallerI18MyClassTestFixtureEE]+0x68): référence indéfinie vers « CppUnit::Test::checkIsValidIndex(int) const »
+./src/MyClassTestFixture.o:(.rodata._ZTVN7CppUnit10TestCallerI18MyClassTestFixtureEE[_ZTVN7CppUnit10TestCallerI18MyClassTestFixtureEE]+0x70): référence indéfinie vers « CppUnit::TestLeaf::doGetChildTestAt(int) const »
+./src/MyClassTestFixture.o:(.rodata._ZTIN7CppUnit10TestCallerI18MyClassTestFixtureEE[_ZTIN7CppUnit10TestCallerI18MyClassTestFixtureEE]+0x10): référence indéfinie vers « typeinfo for CppUnit::TestCase »
+./src/MyClassTestFixture.o: dans la fonction « CppUnit::TestCaller<MyClassTestFixture>::~TestCaller() »:
+/usr/include/cppunit/TestCaller.h:161: référence indéfinie vers « CppUnit::TestCase::~TestCase() »
+/usr/include/cppunit/TestCaller.h:161: référence indéfinie vers « CppUnit::TestCase::~TestCase() »
+collect2: erreur: ld a retourné 1 code d'état d'exécution
+make: *** [TD6_exemple] Erreur 1
+
+11:01:18 Build Finished (took 631ms)
+
+11:01:18 **** Incremental Build of configuration Release for project TD6_exemple ****
+make all 
+Building file: ../src/MyClassTestFixture.cpp
+Invoking: GCC C++ Compiler
+g++ -O3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/MyClassTestFixture.d" -MT"src/MyClassTestFixture.d" -o "src/MyClassTestFixture.o" "../src/MyClassTestFixture.cpp"
+Finished building: ../src/MyClassTestFixture.cpp
  
+Building target: TD6_exemple
+Invoking: GCC C++ Linker
+g++  -o "TD6_exemple"  ./src/MyClassTestFixture.o   
+./src/MyClassTestFixture.o: dans la fonction « make_suite() »:
+MyClassTestFixture.cpp:(.text+0x72): référence indéfinie vers « CppUnit::TestSuite::TestSuite(std::string) »
+MyClassTestFixture.cpp:(.text+0x21c): référence indéfinie vers « CppUnit::TestCase::TestCase(std::string const&) »
+MyClassTestFixture.cpp:(.text+0x25f): référence indéfinie vers « CppUnit::TestSuite::addTest(CppUnit::Test*) »
+MyClassTestFixture.cpp:(.text+0x383): référence indéfinie vers « CppUnit::TestCase::~TestCase() »
+./src/MyClassTestFixture.o: dans la fonction « MyClassTestFixture::test_set() »:
+MyClassTestFixture.cpp:(.text+0x3d5): référence indéfinie vers « CppUnit::SourceLine::SourceLine(std::string const&, int) »
+MyClassTestFixture.cpp:(.text+0x414): référence indéfinie vers « CppUnit::Message::Message(std::string const&, std::string const&) »
+MyClassTestFixture.cpp:(.text+0x428): référence indéfinie vers « CppUnit::Asserter::failIf(bool, CppUnit::Message const&, CppUnit::SourceLine const&) »
+MyClassTestFixture.cpp:(.text+0x589): référence indéfinie vers « CppUnit::SourceLine::~SourceLine() »
+MyClassTestFixture.cpp:(.text+0x660): référence indéfinie vers « CppUnit::SourceLine::~SourceLine() »
+./src/MyClassTestFixture.o: dans la fonction « CppUnit::TestCaller<MyClassTestFixture>::~TestCaller() »:
+MyClassTestFixture.cpp:(.text._ZN7CppUnit10TestCallerI18MyClassTestFixtureED2Ev[_ZN7CppUnit10TestCallerI18MyClassTestFixtureED5Ev]+0x52): référence indéfinie vers « CppUnit::TestCase::~TestCase() »
+MyClassTestFixture.cpp:(.text._ZN7CppUnit10TestCallerI18MyClassTestFixtureED2Ev[_ZN7CppUnit10TestCallerI18MyClassTestFixtureED5Ev]+0x47): référence indéfinie vers « CppUnit::TestCase::~TestCase() »
+./src/MyClassTestFixture.o: dans la fonction « CppUnit::TestCaller<MyClassTestFixture>::~TestCaller() »:
+MyClassTestFixture.cpp:(.text._ZN7CppUnit10TestCallerI18MyClassTestFixtureED0Ev[_ZN7CppUnit10TestCallerI18MyClassTestFixtureED0Ev]+0x39): référence indéfinie vers « CppUnit::TestCase::~TestCase() »
+MyClassTestFixture.cpp:(.text._ZN7CppUnit10TestCallerI18MyClassTestFixtureED0Ev[_ZN7CppUnit10TestCallerI18MyClassTestFixtureED0Ev]+0x5a): référence indéfinie vers « CppUnit::TestCase::~TestCase() »
+./src/MyClassTestFixture.o: dans la fonction « main »:
+MyClassTestFixture.cpp:(.text.startup+0x3e): référence indéfinie vers « CppUnit::TextTestRunner::TextTestRunner(CppUnit::Outputter*) »
+MyClassTestFixture.cpp:(.text.startup+0x50): référence indéfinie vers « CppUnit::TestRunner::addTest(CppUnit::Test*) »
+MyClassTestFixture.cpp:(.text.startup+0x5a): référence indéfinie vers « CppUnit::TextTestRunner::result() const »
+MyClassTestFixture.cpp:(.text.startup+0x93): référence indéfinie vers « CppUnit::CompilerOutputter::CompilerOutputter(CppUnit::TestResultCollector*, std::ostream&, std::string const&) »
+MyClassTestFixture.cpp:(.text.startup+0xa0): référence indéfinie vers « CppUnit::TextTestRunner::setOutputter(CppUnit::Outputter*) »
+MyClassTestFixture.cpp:(.text.startup+0xda): référence indéfinie vers « CppUnit::TextTestRunner::run(std::string, bool, bool, bool) »
+MyClassTestFixture.cpp:(.text.startup+0xee): référence indéfinie vers « CppUnit::TextTestRunner::~TextTestRunner() »
+MyClassTestFixture.cpp:(.text.startup+0x104): référence indéfinie vers « CppUnit::TextTestRunner::~TextTestRunner() »
+./src/MyClassTestFixture.o:(.rodata._ZTVN7CppUnit10TestCallerI18MyClassTestFixtureEE[_ZTVN7CppUnit10TestCallerI18MyClassTestFixtureEE]+0x20): référence indéfinie vers « CppUnit::TestCase::run(CppUnit::TestResult*) »
+./src/MyClassTestFixture.o:(.rodata._ZTVN7CppUnit10TestCallerI18MyClassTestFixtureEE[_ZTVN7CppUnit10TestCallerI18MyClassTestFixtureEE]+0x28): référence indéfinie vers « CppUnit::TestLeaf::countTestCases() const »
+./src/MyClassTestFixture.o:(.rodata._ZTVN7CppUnit10TestCallerI18MyClassTestFixtureEE[_ZTVN7CppUnit10TestCallerI18MyClassTestFixtureEE]+0x30): référence indéfinie vers « CppUnit::TestLeaf::getChildTestCount() const »
+./src/MyClassTestFixture.o:(.rodata._ZTVN7CppUnit10TestCallerI18MyClassTestFixtureEE[_ZTVN7CppUnit10TestCallerI18MyClassTestFixtureEE]+0x38): référence indéfinie vers « CppUnit::Test::getChildTestAt(int) const »
+./src/MyClassTestFixture.o:(.rodata._ZTVN7CppUnit10TestCallerI18MyClassTestFixtureEE[_ZTVN7CppUnit10TestCallerI18MyClassTestFixtureEE]+0x40): référence indéfinie vers « CppUnit::TestCase::getName() const »
+./src/MyClassTestFixture.o:(.rodata._ZTVN7CppUnit10TestCallerI18MyClassTestFixtureEE[_ZTVN7CppUnit10TestCallerI18MyClassTestFixtureEE]+0x48): référence indéfinie vers « CppUnit::Test::findTestPath(std::string const&, CppUnit::TestPath&) const »
+./src/MyClassTestFixture.o:(.rodata._ZTVN7CppUnit10TestCallerI18MyClassTestFixtureEE[_ZTVN7CppUnit10TestCallerI18MyClassTestFixtureEE]+0x50): référence indéfinie vers « CppUnit::Test::findTestPath(CppUnit::Test const*, CppUnit::TestPath&) const »
+./src/MyClassTestFixture.o:(.rodata._ZTVN7CppUnit10TestCallerI18MyClassTestFixtureEE[_ZTVN7CppUnit10TestCallerI18MyClassTestFixtureEE]+0x58): référence indéfinie vers « CppUnit::Test::findTest(std::string const&) const »
+./src/MyClassTestFixture.o:(.rodata._ZTVN7CppUnit10TestCallerI18MyClassTestFixtureEE[_ZTVN7CppUnit10TestCallerI18MyClassTestFixtureEE]+0x60): référence indéfinie vers « CppUnit::Test::resolveTestPath(std::string const&) const »
+./src/MyClassTestFixture.o:(.rodata._ZTVN7CppUnit10TestCallerI18MyClassTestFixtureEE[_ZTVN7CppUnit10TestCallerI18MyClassTestFixtureEE]+0x68): référence indéfinie vers « CppUnit::Test::checkIsValidIndex(int) const »
+./src/MyClassTestFixture.o:(.rodata._ZTVN7CppUnit10TestCallerI18MyClassTestFixtureEE[_ZTVN7CppUnit10TestCallerI18MyClassTestFixtureEE]+0x70): référence indéfinie vers « CppUnit::TestLeaf::doGetChildTestAt(int) const »
+./src/MyClassTestFixture.o:(.rodata._ZTIN7CppUnit10TestCallerI18MyClassTestFixtureEE[_ZTIN7CppUnit10TestCallerI18MyClassTestFixtureEE]+0x10): référence indéfinie vers « typeinfo for CppUnit::TestCase »
+collect2: erreur: ld a retourné 1 code d'état d'exécution
+make: *** [TD6_exemple] Erreur 1
