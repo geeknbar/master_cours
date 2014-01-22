@@ -25,9 +25,8 @@ class User
 		personne1 = { :nom => "coffinet", :prenom => "dorian" }
 		personne2 = { :nom => "azerty", :prenom => "uiop" }
 		personne3 = { :nom => "qsdfgh", :prenom => "hjklm" }
-		params[:pere] = { personne1 }
-		params[:mere] = { personne2 }
-		params[:enfant] = { personne3 }
+		params = {}
+		params = { :pere => personne1 ,:mere => personne2 ,:enfant => personne3 }
 
 		puts "#{params.inspect}"
 	end
