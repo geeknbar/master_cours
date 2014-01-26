@@ -9,7 +9,14 @@ describe "Users" do
         lambda do
           visit signup_path
           fill_in "Nom", :with => ""
-          fill_in "eMail", :with => ""
+          fill_in "email", :with => ""
+          select "2014", :from => "user[dateNaissance(1i)]"
+          select "January", :from => "user[dateNaissance(2i)]"
+          select "16", :from => "user[dateNaissance(3i)]"
+          fill_in "poidsActuel", :with => ""
+          fill_in "poidsIdeal", :with => ""
+          choose("user_estSportif_1")
+          choose("user_souhaitePratiquerSport_1")
           click_button
           response.should render_template('users/new')
           response.should have_selector("div#error_explanation")
@@ -24,6 +31,13 @@ describe "Users" do
           visit signup_path
           fill_in "Nom", :with => "Example User"
           fill_in "eMail", :with => "user@example.com"
+          select "2014", :from => "user[dateNaissance(1i)]"
+          select "January", :from => "user[dateNaissance(2i)]"
+          select "16", :from => "user[dateNaissance(3i)]"
+          fill_in "poidsActuel", :with => 50
+          fill_in "poidsIdeal", :with => 70
+          choose("user_estSportif_1")
+          choose("user_souhaitePratiquerSport_1")
           click_button
           response.should have_selector("div.flash.success",
                                         :content => "Bienvenue")
