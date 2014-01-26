@@ -10,6 +10,23 @@
     <%= f.label :email %><br />
     <%= f.text_field :email %>
   </div>
+    <div class="field">
+    <%= f.label :dateNaissance %><br />
+    <%= f.date_select :dateNaissance %>
+  </div>
+    <div class="field">
+    <%= f.label :poidsActuel %><br />
+    <%= f.text_field :poidsActuel %>
+  </div>
+    <div class="field">
+    <%= f.label :poidsIdeal %><br />
+    <%= f.text_field :poidsIdeal %>
+  </div>
+   <div class="field">
+   	<%= f.label "Est Sportif : " %>
+   	<%= f.label "Oui" %><%= f.radio_button :estSportif, 1 %>
+		<%= f.label "Non" %><%= f.radio_button :estSportif, 0 %>
+  </div>
   <div class="actions">
     <%= f.submit "Inscription" %>
   </div>
