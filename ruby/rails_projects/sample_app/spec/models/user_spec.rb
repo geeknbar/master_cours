@@ -2,15 +2,16 @@
 #
 # Table name: users
 #
-#  id            :integer          not null, primary key
-#  nom           :string(255)
-#  email         :string(255)
-#  created_at    :datetime         not null
-#  updated_at    :datetime         not null
-#  dateNaissance :date
-#  poidsActuel   :integer
-#  poidsIdeal    :integer
-#  estSportif    :date
+#  id                     :integer          not null, primary key
+#  nom                    :string(255)
+#  email                  :string(255)
+#  created_at             :datetime         not null
+#  updated_at             :datetime         not null
+#  dateNaissance          :date
+#  poidsActuel            :integer
+#  poidsIdeal             :integer
+#  estSportif             :boolean
+#  souhaitePratiquerSport :boolean
 #
 
 require 'spec_helper'
