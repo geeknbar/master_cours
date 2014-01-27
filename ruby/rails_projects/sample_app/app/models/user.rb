@@ -30,4 +30,18 @@ class User < ActiveRecord::Base
     now.year - self.dateNaissance.year - ((now.month > self.dateNaissance.month || (now.month == self.dateNaissance.month && now.day >= self.dateNaissance.day)) ? 0 : 1)
   end
 
+  def imc
+  	taille = 1.60
+  	imc = self.poidsActuel / (taille * taille)
+  	
+  	imc_status = case imc
+						  	 when 0..16 then "dénutrition"
+						  	 when 16..18 then "maigreur"
+						  	 when 18..25 then "normal"
+						  	 when 25..30 then "surpoids"
+						  	 when 30..35 then "obésité modérée"
+						  	 when 35..40 then "obésité sévère"
+						  	 else "obésité massive"	
+						  	 end
+	end
 end
