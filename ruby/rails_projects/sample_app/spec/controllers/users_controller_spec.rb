@@ -31,7 +31,7 @@ describe UsersController do
     describe "échec" do
 
       before(:each) do
-        @attr = { :nom => "", :email => "", :dateNaissance => nil, :poidsActuel => "", :poidsIdeal => "", :estSportif => "", :souhaitePratiquerSport => "" }
+        @attr = { :nom => "", :email => "", :dateNaissance => nil, :poidsActuel => "", :poidsIdeal => "", :taille => "", :estSportif => "", :souhaitePratiquerSport => "" }
       end
 
       it "ne devrait pas créer d'utilisateur" do
@@ -56,7 +56,7 @@ describe UsersController do
 
       before(:each) do
         @date = Date.today
-        @attr = { :nom => "New User", :email => "user@example.com", :dateNaissance => @date, :poidsActuel => 60, :poidsIdeal => 70, :estSportif => :true, :souhaitePratiquerSport => :false}
+        @attr = { :nom => "New User", :email => "user@example.com", :dateNaissance => @date, :poidsActuel => 60, :poidsIdeal => 70, :taille => 170, :estSportif => :true, :souhaitePratiquerSport => :false}
       end
 
       it "devrait créer un utilisateur" do

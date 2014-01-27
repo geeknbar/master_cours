@@ -15,6 +15,7 @@ describe "Users" do
           select "16", :from => "user[dateNaissance(3i)]"
           fill_in "poidsActuel", :with => ""
           fill_in "poidsIdeal", :with => ""
+          fill_in "taille", :with => ""
           choose("user_estSportif_1")
           choose("user_souhaitePratiquerSport_1")
           click_button
@@ -36,6 +37,7 @@ describe "Users" do
           select "16", :from => "user[dateNaissance(3i)]"
           fill_in "poidsActuel", :with => 50
           fill_in "poidsIdeal", :with => 70
+          fill_in "taille", :with => 100
           choose("user_estSportif_1")
           choose("user_souhaitePratiquerSport_1")
           click_button
