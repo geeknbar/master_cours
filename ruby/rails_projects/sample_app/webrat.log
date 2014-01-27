@@ -198,3 +198,8 @@ REQUESTING PAGE: POST /users with {"utf8"=>"✓", "user"=>{"nom"=>"", "email"=>"
 REQUESTING PAGE: GET /signup with {} and HTTP headers {}
 REQUESTING PAGE: POST /users with {"utf8"=>"✓", "user"=>{"nom"=>"Example User", "email"=>"user@example.com", "dateNaissance(1i)"=>"2014", "dateNaissance(2i)"=>"1", "dateNaissance(3i)"=>"16", "poidsActuel"=>"50", "poidsIdeal"=>"70", "estSportif"=>"1", "souhaitePratiquerSport"=>"1"}, "commit"=>"Inscription"} and HTTP headers {"HTTP_REFERER"=>"/signup"}
 REQUESTING PAGE: GET http://www.example.com/users/1 with {} and HTTP headers {"HTTP_REFERER"=>"/users"}
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+REQUESTING PAGE: POST /users with {"utf8"=>"✓", "user"=>{"nom"=>"", "email"=>"", "dateNaissance(1i)"=>"2014", "dateNaissance(2i)"=>"1", "dateNaissance(3i)"=>"16", "poidsActuel"=>"", "poidsIdeal"=>"", "estSportif"=>"1", "souhaitePratiquerSport"=>"1"}, "commit"=>"Inscription"} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+REQUESTING PAGE: POST /users with {"utf8"=>"✓", "user"=>{"nom"=>"Example User", "email"=>"user@example.com", "dateNaissance(1i)"=>"2014", "dateNaissance(2i)"=>"1", "dateNaissance(3i)"=>"16", "poidsActuel"=>"50", "poidsIdeal"=>"70", "estSportif"=>"1", "souhaitePratiquerSport"=>"1"}, "commit"=>"Inscription"} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+REQUESTING PAGE: GET http://www.example.com/users/1 with {} and HTTP headers {"HTTP_REFERER"=>"/users"}

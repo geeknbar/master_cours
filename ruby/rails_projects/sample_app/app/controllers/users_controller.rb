@@ -1,11 +1,17 @@
 class UsersController < ApplicationController
-def new
+  
+  def new
     @user = User.new
     @titre = "Inscription"
   end
 
   def show
     @user = User.find(params[:id])
+  end
+
+  def index
+    @titre = "Tous les utilisateurs"
+    @users = User.all
   end
 
 	def create
