@@ -47,6 +47,8 @@ class User < ActiveRecord::Base
 							  	 when 35..40 then "obésité sévère"
 							  	 else "obésité massive"	
 							  	 end
+
+			imc_status += " : #{imc}"
 		end
 	end
 end

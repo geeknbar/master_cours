@@ -1,32 +1,29 @@
 <h1>Tous les utilisateurs</h1>
-
-<ul class="users">
-  <table>                         
-	  <tr>                          
-	    <th>Nom</th>
-	    <th>Email</th>
-	    <th>Date Naissance</th>
-	    <th>Age</th>
-	    <th>Taille</th>
-	    <th>PoidsA</th>
-	    <th>PoidsI</th>
-	    <th>IMC</th>
-	    <th>Sportif</th>
-	    <th>SouhaiteSport</th>
+<table>                         
+  <tr>                          
+    <th>Nom</th>
+    <th>Email</th>
+    <th>Date Naissance</th>
+    <th>Age</th>
+    <th>Taille</th>
+    <th>PoidsA</th>
+    <th>PoidsI</th>
+    <th>IMC</th>
+    <th>Sportif</th>
+    <th>SouhaiteSport</th>
+  </tr>
+	<% @users.each do |user| %>
+	  <tr>
+			<td><%= link_to user.nom, user %></td>
+			<td><%= user.email%></td>
+			<td><%= user.dateNaissance%></td>
+			<td><%= user.age %></td>
+			<td><%= user.taille %></td>
+			<td><%= user.poidsActuel%></td>
+			<td><%= user.poidsIdeal%></td>
+			<td><%= user.imc %></td>
+			<td><%= user.estSportif%></td>
+			<td><%= user.souhaitePratiquerSport%></td>
 	  </tr>
-		<% @users.each do |user| %>
-		  <tr>
-				<td><%= link_to user.nom, user %></td>
-				<td><%= user.email%></td>
-				<td><%= user.dateNaissance%></td>
-				<td><%= user.age %></td>
-				<td><%= user.taille %></td>
-				<td><%= user.poidsActuel%></td>
-				<td><%= user.poidsIdeal%></td>
-				<td><%= user.imc %></td>
-				<td><%= user.estSportif%></td>
-				<td><%= user.souhaitePratiquerSport%></td>
-		  </tr>
-		<% end %>
-	</table>  
-</ul>
+	<% end %>
+</table>  

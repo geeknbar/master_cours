@@ -1,1 +1,26 @@
-<%= @user.nom %>, <%= @user.email %>, <%= @user.dateNaissance %>, <%= @user.poidsActuel %>, <%= @user.poidsIdeal %>, <%= @user.taille %>, <%= @user.estSportif %>, <%= @user.souhaitePratiquerSport %>
+<table>                         
+  <tr>                          
+    <th>Nom</th>
+    <th>Email</th>
+    <th>Date Naissance</th>
+    <th>Age</th>
+    <th>Taille</th>
+    <th>PoidsA</th>
+    <th>PoidsI</th>
+    <th>IMC</th>
+    <th>Sportif</th>
+    <th>SouhaiteSport</th>
+  </tr>
+  <tr>
+		<td><%= link_to @user.nom, @user %></td>
+		<td><%= @user.email%></td>
+		<td><%= @user.dateNaissance%></td>
+		<td><%= @user.age %></td>
+		<td><%= @user.taille %></td>
+		<td><%= @user.poidsActuel%></td>
+		<td><%= @user.poidsIdeal%></td>
+		<td><%= @user.imc %></td>
+		<td><%= @user.estSportif%></td>
+		<td><%= @user.souhaitePratiquerSport%></td>
+  </tr>
+</table>  
