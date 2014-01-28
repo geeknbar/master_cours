@@ -20,7 +20,7 @@ require 'spec_helper'
 describe User do
 	before(:each) do
     @date = Date.today
-    @attr = { :nom => "New User", :email => "user@example.com", :dateNaissance => @date, :poidsActuel => 60, :poidsIdeal => 70, :taille => 170, :estSportif => :true, :souhaitePratiquerSport => :false}
+    @attr = { :nom => "New User", :email => "user@example.com", :dateNaissance => @date, :poidsActuel => 60, :poidsIdeal => 55, :taille => 170, :estSportif => :true, :souhaitePratiquerSport => :false}
   end
 
   it "devrait créer une nouvelle instance dotée des attributs valides" do

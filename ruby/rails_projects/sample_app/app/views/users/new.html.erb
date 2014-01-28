@@ -1,7 +1,7 @@
 <h1>Inscription</h1>
-<p>
+
 <%= form_for(@user) do |f| %>
-	<%= render 'shared/error_messages' %>
+  <%= render 'shared/error_messages' %>
   <div class="field">
     <%= f.label :nom %><br />
     <%= f.text_field :nom %>
@@ -27,17 +27,16 @@
     <%= f.text_field :taille %>
   </div>
   <div class="field">
-   	<%= f.label "Est Sportif" %><br />
-   	<%= f.label "Oui" %><%= f.radio_button :estSportif, 1 %>
-		<%= f.label "Non" %><%= f.radio_button :estSportif, 0 %>
+    <%= f.label "Est Sportif" %><br />
+    <%= f.label "Oui" %><%= f.radio_button :estSportif, 1 %>
+    <%= f.label "Non" %><%= f.radio_button :estSportif, 0 %>
   </div>
   <div class="field">
-   	<%= f.label "Souhaite faire du sport" %><br />
-   	<%= f.label "Oui" %><%= f.radio_button :souhaitePratiquerSport, 1 %>
-		<%= f.label "Non" %><%= f.radio_button :souhaitePratiquerSport, 0 %>
+    <%= f.label "Souhaite faire du sport" %><br />
+    <%= f.label "Oui" %><%= f.radio_button :souhaitePratiquerSport, 1 %>
+    <%= f.label "Non" %><%= f.radio_button :souhaitePratiquerSport, 0 %>
   </div>
   <div class="actions">
     <%= f.submit "Inscription" %>
   </div>
 <% end %>
-</p>

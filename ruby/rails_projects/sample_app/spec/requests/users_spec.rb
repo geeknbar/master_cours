@@ -35,8 +35,8 @@ describe "Users" do
           select "2014", :from => "user[dateNaissance(1i)]"
           select "January", :from => "user[dateNaissance(2i)]"
           select "16", :from => "user[dateNaissance(3i)]"
-          fill_in "poidsActuel", :with => 50
-          fill_in "poidsIdeal", :with => 70
+          fill_in "poidsActuel", :with => 70
+          fill_in "poidsIdeal", :with => 40
           fill_in "taille", :with => 100
           choose("user_estSportif_1")
           choose("user_souhaitePratiquerSport_1")

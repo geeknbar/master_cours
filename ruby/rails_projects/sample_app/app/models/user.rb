@@ -24,7 +24,7 @@ class User < ActiveRecord::Base
   validates :email, :presence   => true,
                     :format     => { :with => email_regex },
                     :uniqueness => { :case_sensitive => false }
-
+  validates_numericality_of :poidsActuel, :greater_than => Proc.new {|user| user.poidsIdeal }
 
  	def age
     now = Time.now.utc.to_date

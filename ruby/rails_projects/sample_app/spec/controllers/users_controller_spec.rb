@@ -56,7 +56,7 @@ describe UsersController do
 
       before(:each) do
         @date = Date.today
-        @attr = { :nom => "New User", :email => "user@example.com", :dateNaissance => @date, :poidsActuel => 60, :poidsIdeal => 70, :taille => 170, :estSportif => :true, :souhaitePratiquerSport => :false}
+        @attr = { :nom => "New User", :email => "user@example.com", :dateNaissance => @date, :poidsActuel => 60, :poidsIdeal => 40, :taille => 170, :estSportif => :true, :souhaitePratiquerSport => :false}
       end
 
       it "devrait créer un utilisateur" do
