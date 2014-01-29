@@ -18,6 +18,7 @@ describe "Users" do
           fill_in "taille", :with => ""
           choose("user_estSportif_1")
           choose("user_souhaitePratiquerSport_1")
+          fill_in "cvpdf", :with => @cv_exemple
           click_button
           response.should render_template('users/new')
           response.should have_selector("div#error_explanation")
@@ -26,7 +27,9 @@ describe "Users" do
     end
 
     describe "réussie" do
-
+      # before :each do
+        @cv_exemple = 'fixtures/files/cv_exemple.pdf'
+      # end
       it "devrait créer un nouvel utilisateurr" do
         lambda do
           visit signup_path
@@ -40,6 +43,7 @@ describe "Users" do
           fill_in "taille", :with => 100
           choose("user_estSportif_1")
           choose("user_souhaitePratiquerSport_1")
+          fill_in "cvpdf", :with => @cv_exemple
           click_button
           response.should have_selector("div.flash.success",
                                         :content => "Bienvenue")

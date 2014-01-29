@@ -4,6 +4,6 @@ class AddAttributUserTaille < ActiveRecord::Migration
   end
 
   def down
-  	remove_column :users, :taille, :integer
+  	remove_column :users, :taille
   end
 end

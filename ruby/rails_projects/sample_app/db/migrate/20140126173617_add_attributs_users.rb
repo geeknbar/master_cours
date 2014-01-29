@@ -7,9 +7,9 @@ class AddAttributsUsers < ActiveRecord::Migration
   end
 
   def down
-  	remove_column :users, :dateNaissance, :date
-  	remove_column :users, :poidsActuel, :integer
-  	remove_column :users, :poidsIdeal, :integer
-  	remove_column :users, :estSportif, :date
+  	remove_column :users, :dateNaissance
+  	remove_column :users, :poidsActuel
+  	remove_column :users, :poidsIdeal
+  	remove_column :users, :estSportif
   end
 end

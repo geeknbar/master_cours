@@ -4,6 +4,6 @@ class AddAttributUserSouhaitePratiquerSport < ActiveRecord::Migration
   end
 
   def down
-  	remove_column :users, :souhaitePratiquerSport, :boolean
+  	remove_column :users, :souhaitePratiquerSport
   end
 end

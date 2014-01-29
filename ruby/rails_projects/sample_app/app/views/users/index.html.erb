@@ -11,6 +11,7 @@
     <th>IMC</th>
     <th>Sportif</th>
     <th>SouhaiteSport</th>
+    <th>CV</th>
   </tr>
 	<% @users.each do |user| %>
 	  <tr>
@@ -24,6 +25,7 @@
 			<td><%= user.imc %></td>
 			<td><%= user.estSportif%></td>
 			<td><%= user.souhaitePratiquerSport%></td>
+			<td><%= link_to "Download", @user.cvpdf.url(:original, false) %></td>
 	  </tr>
 	<% end %>
 </table>  

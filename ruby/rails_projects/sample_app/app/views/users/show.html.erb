@@ -10,7 +10,6 @@
     <th>IMC</th>
     <th>Sportif</th>
     <th>SouhaiteSport</th>
-    <th>CV</th>
   </tr>
   <tr>
 		<td><%= link_to @user.nom, @user %></td>
@@ -23,6 +22,5 @@
 		<td><%= @user.imc %></td>
 		<td><%= @user.estSportif%></td>
 		<td><%= @user.souhaitePratiquerSport%></td>
-    <td><%= link_to "Download CV", @user.cvpdf.url(:original, false) %></td>
   </tr>
 </table>  
