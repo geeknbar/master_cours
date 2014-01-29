@@ -1,6 +1,6 @@
 <h1>Inscription</h1>
 
-<%= form_for(@user) do |f| %>
+<%= form_for @user, :url => users_path, :html => { :multipart => true } do |f| %>
   <%= render 'shared/error_messages' %>
   <div class="field">
     <%= f.label :nom %><br />
@@ -35,6 +35,10 @@
     <%= f.label "Souhaite faire du sport" %><br />
     <%= f.label "Oui" %><%= f.radio_button :souhaitePratiquerSport, 1 %>
     <%= f.label "Non" %><%= f.radio_button :souhaitePratiquerSport, 0, :checked => true %>
+  </div>
+  <div class="field">
+    <%= f.label :cvpdf %><br />
+    <%= f.file_field :cvpdf %>
   </div>
   <div class="actions">
     <%= f.submit "Inscription" %>
