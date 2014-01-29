@@ -1,5 +1,6 @@
 require 'rubygems'
 require 'spork'
+require "paperclip/matchers"
 #uncomment the following line to use spork with the debugger
 #require 'spork/ext/ruby-debug'
 
@@ -73,4 +74,7 @@ RSpec.configure do |config|
   # examples within a transaction, remove the following line or assign false
   # instead of true.
   config.use_transactional_fixtures = true
+
+  #for paperclip
+  config.include Paperclip::Shoulda::Matchers
 end

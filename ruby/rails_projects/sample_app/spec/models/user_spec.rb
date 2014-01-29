@@ -20,7 +20,8 @@ require 'spec_helper'
 describe User do
 	before(:each) do
     @date = Date.today
-    @attr = { :nom => "New User", :email => "user@example.com", :dateNaissance => @date, :poidsActuel => 60, :poidsIdeal => 55, :taille => 170, :estSportif => :true, :souhaitePratiquerSport => :false}
+    @attr = { :nom => "New User", :email => "user@example.com", :dateNaissance => @date, :poidsActuel => 60,
+              :poidsIdeal => 55, :taille => 170, :estSportif => :true, :souhaitePratiquerSport => :false, :cvpdf => nil}
   end
 
   it "devrait créer une nouvelle instance dotée des attributs valides" do
@@ -72,4 +73,14 @@ describe User do
     user_with_duplicate_email = User.new(@attr)
     user_with_duplicate_email.should_not be_valid
   end
+
+  it "exige un poidsActuel supérieur au poidsIdeal" do
+    bad_guy = User.new(@attr.merge(:poidsActuel=> 55, :poidsIdeal => 70))
+    bad_guy.should_not be_valid
+  end
+
+  it "doit ajouter un cv en pdf" do
+    User.new@attr.merge(:cvpdf => File.new(Rails.root + 'spec/fixtures/files/cv_exemple.pdf'))
+  end
+
 end

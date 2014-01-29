@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   end
 
   def index
-    @titre = "Tous les utilisateurs"
+    @titre = "Liste des utilisateurs"
     @users = User.all
   end
 

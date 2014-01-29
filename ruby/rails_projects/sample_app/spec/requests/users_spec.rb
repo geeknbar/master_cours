@@ -13,8 +13,8 @@ describe "Users" do
           select "2014", :from => "user[dateNaissance(1i)]"
           select "January", :from => "user[dateNaissance(2i)]"
           select "16", :from => "user[dateNaissance(3i)]"
-          fill_in "poidsActuel", :with => ""
-          fill_in "poidsIdeal", :with => ""
+          fill_in "poidsActuel", :with => 60
+          fill_in "poidsIdeal", :with => 70
           fill_in "taille", :with => ""
           choose("user_estSportif_1")
           choose("user_souhaitePratiquerSport_1")
@@ -27,9 +27,8 @@ describe "Users" do
     end
 
     describe "réussie" do
-      # before :each do
-        @cv_exemple = 'fixtures/files/cv_exemple.pdf'
-      # end
+      @cv_exemple = 'fixtures/files/cv_exemple.pdf'
+      
       it "devrait créer un nouvel utilisateurr" do
         lambda do
           visit signup_path
