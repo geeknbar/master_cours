@@ -28,13 +28,13 @@
   </div>
   <div class="field">
     <%= f.label "Est Sportif" %><br />
-    <%= f.label "Oui" %><%= f.radio_button :estSportif, 1 %>
-    <%= f.label "Non" %><%= f.radio_button :estSportif, 0 %>
+    <%= f.label "Oui" %><%= f.radio_button :estSportif, 1%>
+    <%= f.label "Non" %><%= f.radio_button :estSportif, 0, :checked => true %>
   </div>
   <div class="field">
     <%= f.label "Souhaite faire du sport" %><br />
     <%= f.label "Oui" %><%= f.radio_button :souhaitePratiquerSport, 1 %>
-    <%= f.label "Non" %><%= f.radio_button :souhaitePratiquerSport, 0 %>
+    <%= f.label "Non" %><%= f.radio_button :souhaitePratiquerSport, 0, :checked => true %>
   </div>
   <div class="actions">
     <%= f.submit "Inscription" %>

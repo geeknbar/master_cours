@@ -24,6 +24,7 @@ class User < ActiveRecord::Base
   validates :email, :presence   => true,
                     :format     => { :with => email_regex },
                     :uniqueness => { :case_sensitive => false }
+
   validates_numericality_of :poidsActuel, :greater_than => Proc.new {|user| user.poidsIdeal }
 
  	def age
@@ -35,19 +36,18 @@ class User < ActiveRecord::Base
   	if taille.nil? then
   		imc_status = "donnée insuffisante"
   	else
-  		taille_mettre = self.taille/100
-	  	imc = self.poidsActuel / (taille_mettre*taille_mettre)
+  		taille_mettre = (self.taille.to_f/100).to_f
+	  	imc = (self.poidsActuel / (taille_mettre*taille_mettre)).round(2)
 	  	
 	  	imc_status = case imc
-							  	 when 0..16 then "dénutrition"
-							  	 when 16..18 then "maigreur"
-							  	 when 18..25 then "normal"
-							  	 when 25..30 then "surpoids"
-							  	 when 30..35 then "obésité modérée"
-							  	 when 35..40 then "obésité sévère"
+							  	 when 0...16 then "dénutrition"
+							  	 when 16...18 then "maigreur"
+							  	 when 18...25 then "normal"
+							  	 when 25...30 then "surpoids"
+							  	 when 30...35 then "obésité modérée"
+							  	 when 35...40 then "obésité sévère"
 							  	 else "obésité massive"	
 							  	 end
-
 			imc_status += " : #{imc}"
 		end
 	end
