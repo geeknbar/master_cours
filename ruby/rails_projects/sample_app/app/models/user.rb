@@ -28,15 +28,19 @@ class User < ActiveRecord::Base
   validates_numericality_of :poidsActuel, :greater_than => Proc.new {|user| user.poidsIdeal }
 
  	def age
-    now = Time.now.utc.to_date
-    now.year - self.dateNaissance.year - ((now.month > self.dateNaissance.month || (now.month == self.dateNaissance.month && now.day >= self.dateNaissance.day)) ? 0 : 1)
+ 		if self.dateNaissance > Date.today
+ 			"Visiteur du futur"
+ 		else	
+	    now = Time.now.utc.to_date
+	    now.year - self.dateNaissance.year - ((now.month > self.dateNaissance.month || (now.month == self.dateNaissance.month && now.day >= self.dateNaissance.day)) ? 0 : 1)
+  	end
   end
 
   def imc
   	if taille.nil? then
-  		imc_status = "donnée insuffisante"
+  		imc_status = "données insuffisantes"
   	else
-  		taille_mettre = (self.taille.to_f/100).to_f
+  		taille_mettre = (self.taille.to_f/100)
 	  	imc = (self.poidsActuel / (taille_mettre*taille_mettre)).round(2)
 	  	
 	  	imc_status = case imc
