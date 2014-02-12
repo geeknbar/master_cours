@@ -4,6 +4,7 @@
 		<item value="false" key="WizardFileSystemResourceImportPage1.STORE_OVERWRITE_EXISTING_RESOURCES_ID"/>
 		<item value="false" key="WizardFileSystemResourceImportPage1.STORE_CREATE_CONTAINER_STRUCTURE_ID"/>
 		<list key="WizardFileSystemResourceImportPage1.STORE_SOURCE_NAMES_ID">
+			<item value="/home/dorian/Downloads/s4/S4 Bis/S4Bis/Compil"/>
 			<item value="/home/dorian/tmp/Syst_expert"/>
 			<item value="/home/dorian/tmp/Syst_expert/src"/>
 		</list>
