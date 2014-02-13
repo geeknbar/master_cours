@@ -1,3 +1,4 @@
+# encoding: UTF-8
 require 'spec_helper'
 
 describe "Users" do
@@ -44,8 +45,7 @@ describe "Users" do
           choose("user_souhaitePratiquerSport_1")
           fill_in "cvpdf", :with => @cv_exemple
           click_button
-          response.should have_selector("div.flash.success",
-                                        :content => "Bienvenue")
+          response.should have_selector("div.flash.success",:content => "Bienvenue dans l'Application Exemple!")
           response.should render_template('users/show')
         end.should change(User, :count).by(1)
       end
