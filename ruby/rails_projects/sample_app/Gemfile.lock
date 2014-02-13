@@ -143,6 +143,7 @@ DEPENDENCIES
   ZenTest
   annotate
   coffee-rails (~> 3.2.1)
+  i18n (~> 0.6.9)
   paperclip
   rails (= 3.2.11)
   rspec-rails (= 2.8.0)
