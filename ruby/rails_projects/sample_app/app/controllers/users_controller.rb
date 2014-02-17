@@ -24,4 +24,10 @@ class UsersController < ApplicationController
       render 'new'
     end
   end
+
+  def sportif
+    @users = User.where(estSportif: true)
+    render 'index'
+  end
+  
 end
