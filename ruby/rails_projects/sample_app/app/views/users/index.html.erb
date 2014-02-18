@@ -3,14 +3,14 @@
   <tr>                          
     <th>Nom</th>
     <th>Email</th>
-    <th>Date Naissance</th>
+    <th>Date de Naissance</th>
     <th>Age</th>
     <th>Taille</th>
     <th>PoidsA</th>
     <th>PoidsI</th>
     <th>IMC</th>
     <th>Sportif</th>
-    <th>SouhaiteSport</th>
+    <th>Souhaite Pratiquer</th>
     <th>CV</th>
   </tr>
 	<% @users.each do |user| %>
@@ -23,8 +23,8 @@
 			<td><%= user.poidsActuel%></td>
 			<td><%= user.poidsIdeal%></td>
 			<td><%= user.imc %></td>
-			<td><%= user.estSportif%></td>
-			<td><%= user.souhaitePratiquerSport%></td>
+			<td><%= user.estSportif ? "✓" : " " %></td>
+			<td><%= user.souhaitePratiquerSport  ? "✓" : "x" %></td>
 			<td><%= link_to "Download", user.cvpdf.url(:original, false) if user.cvpdf.size %></td>
 	  </tr>
 	<% end %>
