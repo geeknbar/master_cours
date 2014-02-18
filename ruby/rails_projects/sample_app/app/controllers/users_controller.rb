@@ -26,7 +26,7 @@ class UsersController < ApplicationController
   end
 
   def sportif
-    @users = User.where(estSportif: true)
+    @users = User.where(estSportif: false, souhaitePratiquerSport: true)
     render 'index'
   end
   

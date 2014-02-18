@@ -169,3 +169,34 @@ ul.users {
 .users li {
   list-style: none;
 }
+
+
+.fiche {
+  div.left-sidebar, div.right-sidebar {
+    -moz-box-shadow:10px 10px 5px #000000;
+    -webkit-box-shadow:10px 10px 5px #000000;
+    box-shadow:10px 10px 5px #000000;
+    border-radius: 10px;
+    float: left;
+    width: 40%;
+    position: relative;
+    font-weight:bold;
+    p {
+      margin-left: 1em;
+      margin-top: 1em;
+    }
+  }
+  display: inline-block; 
+  width: 100%;
+}
+
+.left-sidebar {
+  background: #006363;
+  color: #5CCCCC;
+}
+
+.right-sidebar {
+  margin-left: 150px;
+  background: #009999;
+  color: #5CCCCC;
+}

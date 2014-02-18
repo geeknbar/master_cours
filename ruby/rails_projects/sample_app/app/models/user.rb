@@ -18,7 +18,7 @@
 
 class User < ActiveRecord::Base
 
-  has_attached_file :cvpdf
+  has_attached_file :cvpdf ,:styles => {:thumb => ["100x100", :png]}
 
 
   attr_accessible :email, :nom, :dateNaissance, :poidsActuel, :poidsIdeal, :estSportif, :souhaitePratiquerSport, :taille, :cvpdf

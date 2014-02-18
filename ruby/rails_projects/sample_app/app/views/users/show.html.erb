@@ -1,4 +1,4 @@
-<table>                         
+<!-- <table>                         
   <tr>                          
     <th>Nom</th>
     <th>Email</th>
@@ -25,4 +25,27 @@
 		<td><%= @user.souhaitePratiquerSport%></td>
     <td><%= link_to "Download", @user.cvpdf.url(:original, false) %></td>
   </tr>
-</table>  
+</table>
+ -->
+<div class="fiche">
+  <div class="left-sidebar">
+    <div>
+      <p><%= @user.nom%></p>
+      <p><%=@user.email%></p>
+      <p>Cv : <%= link_to image_tag("save_pdf.ico", size: "25x25"), @user.cvpdf.url(:original, false) %></p>
+    </div>
+  
+    <div>
+      <p>Age : <%= @user.age %> ans</p>
+      <p>Taille : <%= @user.taille %> cm</p>
+      <p>Poids Actuel : <%= @user.poidsActuel%> kg</p>
+      <p>Poids Ideal : <%= @user.poidsIdeal%> kg</p>
+      <p>Imc : <%= @user.imc %></p>
+    </div>
+  </div>
+
+  <div class="right-sidebar">
+    <p>Sportif : <%= @user.estSportif ? "Oui" : "Non" %></p>
+    <p>Souhaite Pratiquer un sport : <%= @user.souhaitePratiquerSport ? "Oui" : "Non"%></p>
+  </div>
+</div>
