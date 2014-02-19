@@ -15,6 +15,7 @@
 #  souhaitePratiquerSport :boolean
 #  taille                 :integer
 #
+require 'prawn'
 
 class User < ActiveRecord::Base
 

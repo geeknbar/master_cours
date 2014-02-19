@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
-  
+
+  # helper_method :generate
+
   def new
     @user = User.new
     @titre = "Inscription"
@@ -12,6 +14,11 @@ class UsersController < ApplicationController
   def index
     @titre = "Liste des utilisateurs"
     @users = User.all
+
+    respond_to do |format|
+      format.html
+      format.pdf
+    end
   end
 
 	def create
@@ -29,5 +36,5 @@ class UsersController < ApplicationController
     @users = User.where(estSportif: false, souhaitePratiquerSport: true)
     render 'index'
   end
-  
+
 end
