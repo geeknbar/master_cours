@@ -32,7 +32,9 @@
     <div>
       <p><%= @user.nom%></p>
       <p><%=@user.email%></p>
-      <p>Cv : <%= link_to image_tag("save_pdf.ico", size: "25x25"), @user.cvpdf.url(:original, false) %></p>
+      <% if @user.cvpdf.size %>
+        <p>Cv : <%= link_to image_tag("save_pdf.ico", size: "25x25"), @user.cvpdf.url(:original, false) %></p>
+      <% end %>
     </div>
   
     <div>

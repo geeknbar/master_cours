@@ -23,8 +23,8 @@
 			<td><%= user.poidsActuel%></td>
 			<td><%= user.poidsIdeal%></td>
 			<td><%= user.imc %></td>
-			<td><%= user.estSportif ? "✓" : " " %></td>
-			<td><%= user.souhaitePratiquerSport  ? "✓" : "x" %></td>
+			<td><%= user.estSportif ? "oui" : "non" %></td>
+			<td><%= user.souhaitePratiquerSport  ? "oui" : "non" %></td>
 			<td><%= link_to "Download", user.cvpdf.url(:original, false) if user.cvpdf.size %></td>
 	  </tr>
 	<% end %>

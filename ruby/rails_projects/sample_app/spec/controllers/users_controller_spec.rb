@@ -79,11 +79,11 @@ describe UsersController do
       @cv_exemple = Rack::Test::UploadedFile.new('spec/fixtures/files/cv_exemple.pdf')
 
       first  = User.create!({ :nom => "New User1", :email => "user1@example.com", :dateNaissance => @date, :poidsActuel => 70,
-              :poidsIdeal => 65, :taille => 176, :estSportif => :true, :souhaitePratiquerSport => :false, :cvpdf => @cv_exemple})
+              :poidsIdeal => 65, :taille => 176, :estSportif => true, :souhaitePratiquerSport => false, :cvpdf => @cv_exemple})
       second = User.create!({ :nom => "New User2", :email => "user2@example.com", :dateNaissance => @date, :poidsActuel => 105,
-              :poidsIdeal => 100, :taille => 190, :estSportif => :true, :souhaitePratiquerSport => :false, :cvpdf => nil})
+              :poidsIdeal => 100, :taille => 190, :estSportif => true, :souhaitePratiquerSport => false, :cvpdf => nil})
       third  = User.create!({ :nom => "New User3", :email => "user3@example.com", :dateNaissance => @date, :poidsActuel => 60,
-              :poidsIdeal => 55, :taille => 170, :estSportif => :true, :souhaitePratiquerSport => :false, :cvpdf => nil})
+              :poidsIdeal => 55, :taille => 170, :estSportif => true, :souhaitePratiquerSport => false, :cvpdf => nil})
 
       @users = [first, second, third]
 
@@ -110,8 +110,8 @@ describe UsersController do
         response.should have_selector("td", :content => user.poidsActuel.to_s)
         response.should have_selector("td", :content => user.poidsIdeal.to_s)
         response.should have_selector("td", :content => user.taille.to_s)
-        response.should have_selector("td", :content => user.estSportif.to_s)
-        response.should have_selector("td", :content => user.souhaitePratiquerSport.to_s)
+        response.should have_selector("td", :content => user.estSportif ? "oui" : "non")
+        response.should have_selector("td", :content => user.souhaitePratiquerSport ? "oui" : "non")
         response.should have_selector("td", :content => "Download") if user.cvpdf.size
 
       end
