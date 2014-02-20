@@ -5,7 +5,7 @@ User.delete_all
 @cv_3 = Rack::Test::UploadedFile.new('db/files/cv_3.pdf')
 @cv_4 = Rack::Test::UploadedFile.new('db/files/cv_4.pdf')
 
-User.create!({ :nom => "Jean",
+User.create!({ :nom => "Jean Dupont",
 	:email => "jean.dupond@example.com",
 	:dateNaissance => Date.new(2001,2,3),
 	:poidsActuel => 70,
@@ -15,7 +15,7 @@ User.create!({ :nom => "Jean",
   :souhaitePratiquerSport => true,
   :cvpdf => @cv_1})
 
-User.create!({ :nom => "Paul",
+User.create!({ :nom => "Paul Pierre",
 	:email => "paul@dom.fr",
 	:dateNaissance => Date.new(1989,8,9),
 	:poidsActuel => 105,
@@ -25,7 +25,7 @@ User.create!({ :nom => "Paul",
 	:souhaitePratiquerSport => false,
 	:cvpdf => nil})
 
-User.create!({ :nom => "Pierre",
+User.create!({ :nom => "Pierre Lafeuille",
 	:email => "pierre.lepape@mail.eu",
 	:dateNaissance => Date.new(1977,6,5),
 	:poidsActuel => 30,
@@ -35,7 +35,7 @@ User.create!({ :nom => "Pierre",
 	:souhaitePratiquerSport => false,
 	:cvpdf => @cv_2})
 
-User.create!({ :nom => "Sophie",
+User.create!({ :nom => "Sophie Bois",
 	:email => "soso.38@boite.org",
 	:dateNaissance => Date.new(1947,2,12),
 	:poidsActuel => 53,
@@ -45,7 +45,7 @@ User.create!({ :nom => "Sophie",
 	:souhaitePratiquerSport => true,
 	:cvpdf => @cv_3})
 
-User.create!({ :nom => "Marie",
+User.create!({ :nom => "Marie Du Pape",
 	:email => "marie.help@help.com",
 	:dateNaissance => Date.new(1967,4,25),
 	:poidsActuel => 98,
@@ -55,7 +55,7 @@ User.create!({ :nom => "Marie",
 	:souhaitePratiquerSport => true,
 	:cvpdf => nil})
 
-User.create!({ :nom => "Julie",
+User.create!({ :nom => "Julie Patoulatchi",
 	:email => "juju.job@entreprise.de",
 	:dateNaissance => Date.new(1953,12,16),
 	:poidsActuel => 89,
@@ -65,7 +65,7 @@ User.create!({ :nom => "Julie",
 	:souhaitePratiquerSport => false,
 	:cvpdf => @cv_4})
 
-User.create!({ :nom => "Toto",
+User.create!({ :nom => "Toto MaidIn",
 	:email => "toto@faitdu.velo",
 	:dateNaissance => Date.new(1998,10,17),
 	:poidsActuel => 150,
