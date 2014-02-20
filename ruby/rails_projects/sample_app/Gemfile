@@ -25,7 +25,8 @@ end
 gem "paperclip"
 
 gem "prawn"
-gem 'prawn_rails'
+gem "prawn_rails"
+gem "prawn-layout"
 
 gem "i18n", "~> 0.6.9"
 
