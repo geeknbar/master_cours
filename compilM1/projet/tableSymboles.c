@@ -1,15 +1,16 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
-#include "table_symboles.h"
 
+
+typedef struct element element;
+typedef element* llist;
 struct element
 {
     // int val;
     char* symb;
     struct element *nxt;
 };
- 
 // int main(int argc, char **argv)
 // {
 //     /* Déclarons 3 listes chaînées de façons différentes mais équivalentes */

@@ -1,6 +1,6 @@
 %{
 	#include<stdio.h>
-	#include"table_symboles.h"
+	#include"tableSymboles.h"
 	void yyerror(char*s);
 	
 %}
@@ -10,7 +10,7 @@ LETTRE[a-zA-Z]
 %%
 
 {LETTRE}({LETTRE}|{CHIFFRE})* {
-	ajout_symbole(table_sym, yytext);
+	ajoutSymbole(table_sym, yytext);
 }
 
 %%

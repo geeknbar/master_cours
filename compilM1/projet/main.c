@@ -1,6 +1,6 @@
 #include <stdlib.h>
 #include <string.h>
-#include "table_symboles.c"
+#include "tableSymboles.h"
 
 int main(int argc, char **argv)
 {
