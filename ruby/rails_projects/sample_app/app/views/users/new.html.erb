@@ -27,17 +27,17 @@
     <%= f.text_field :taille %>
   </div>
   <div class="field">
-    <%= f.label "Est Sportif" %><br />
+    <%= f.label "Pratiquez vous un sport ?" %>
     <%= f.label "Oui" %><%= f.radio_button :estSportif, 1%>
     <%= f.label "Non" %><%= f.radio_button :estSportif, 0, :checked => true %>
   </div>
   <div class="field">
-    <%= f.label "Souhaite faire du sport" %><br />
+    <%= f.label "Souhaitez faire du sport ?" %>
     <%= f.label "Oui" %><%= f.radio_button :souhaitePratiquerSport, 1 %>
     <%= f.label "Non" %><%= f.radio_button :souhaitePratiquerSport, 0, :checked => true %>
   </div>
   <div class="field">
-    <%= f.label :cvpdf %><br />
+    <%= f.label "Vous pouvez déposer votre cv ici : " %>
     <%= f.file_field :cvpdf %>
   </div>
   <div class="actions">
