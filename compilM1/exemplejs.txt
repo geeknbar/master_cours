@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hello World!</title>
+    <SCRIPT LANGUAGE="JavaScript">
+		Today = new Date;
+		Heure = Today.getHours();
+		Min = Today.getMinutes();
+		Message = "Il est " + Heure + "h" + Min + "m";
+		</SCRIPT>
+  </head>
+
+  <body>
+
+    <script>
+
+      document.write(Message);
+
+    </script>
+
+  </body>
+</html>

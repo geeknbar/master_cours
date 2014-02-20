@@ -4,12 +4,12 @@ prawn_document() do |pdf|
 
 	pdf.move_down 50
 
-  @users.each {|user|
+  @users.each do |user|
   		sportif = user.estSportif ? "oui" : "non"
   		souhaiteSport = user.souhaitePratiquerSport  ? "oui" : "non" 
 
 
-			pdf.text "Je m'appelle " + user.nom + " vous pouvez me contacter ici : <u><link href=\"mailto:" +
+			pdf.text "Je m'appelle " + user.nom + ", vous pouvez me contacter ici : <u><link href=\"mailto:" +
 								user.email + ">" + user.email + "</link></u>. Je suis né(e) le " + user.dateNaissance.to_s +
 								" et j'ai " + user.age.to_s + " ans.", :inline_format => true
 
@@ -23,9 +23,9 @@ prawn_document() do |pdf|
 			
 			pdf.move_down 20
 
-			}
+	end
 
-			pdf.move_down 20
+	pdf.move_down 20
 
   pdf.text "Créé le : " +  Time.now.strftime('%d-%m-%Y %H:%M'), :style => :italic, :align => :right 
 

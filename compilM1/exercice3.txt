@@ -1,0 +1,21 @@
+begin
+
+x + 3
+y + 6
+z * x + y
+
+	123,3 - 7
+
+a = 3**
+
+variable
+
+"Gallile a dit \"Et pourtant, elle \n tourne!\""
+
+{ ceci est un 
+commentaire \n }
+
+/* bonjour 
+je suis un \n commentaire */
+/** toto **/
+end
