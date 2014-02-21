@@ -21,5 +21,5 @@ $(EXEC_NAME) : $(OBJ_FILES)
 lex.yy.c: exercice4.l
 	flex exercice4.l
 
-a.out: lex.yy.c tableSymboles.h
-	gcc -o -lfl a.out tableSymboles.h -I.  
+a.out: lex.yy.c tableSymboles.c
+	gcc lex.yy.c tableSymboles.c -lfl  
