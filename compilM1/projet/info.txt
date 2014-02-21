@@ -1,0 +1,2 @@
+flex regles2.l && gcc  lex.yy.c -lfl
+gcc lex.yy.c tableSymboles.c -lfl

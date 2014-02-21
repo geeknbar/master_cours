@@ -11,16 +11,6 @@ struct element
     char* symb;
     struct element *nxt;
 };
-// int main(int argc, char **argv)
-// {
-//     /* Déclarons 3 listes chaînées de façons différentes mais équivalentes */
-//     llist ma_liste1 = NULL;
-//     element *ma_liste2 = NULL;
-//     struct element *ma_liste3 = NULL;
- 
- 
-//     return 0;
-// }
 
 
 llist ajouterEnFin(llist table_symboles, char* symbole)
@@ -73,12 +63,15 @@ void afficherListe(llist table_symboles)
 {
     element *tmp = table_symboles;
     /* Tant que l'on n'est pas au bout de la liste */
+    int i = 1;
     while(tmp != NULL)
     {
         /* On affiche */
-        printf("%s ", tmp->symb);
+        printf("Symbole %d : %s\n", i, tmp->symb);
+        // printf("%s \n", tmp->symb);
         /* On avance d'une case */
         tmp = tmp->nxt;
+        i++;
     }
 }
 
@@ -105,10 +98,12 @@ llist rechercherElement(llist table_symboles, char* symbole)
 
 llist ajoutSymbole(llist table_symboles, char* symbole)
 {
-    // char* symb = symbole;
-    if (rechercherElement(table_symboles, symbole)==NULL)
+    char* symb;
+    symb = malloc(strlen(symbole) + 1);
+    strcpy(symb, symbole);
+    if (rechercherElement(table_symboles, symb)==NULL)
     {
-        table_symboles = ajouterEnFin(table_symboles, symbole);
+        table_symboles = ajouterEnFin(table_symboles, symb);
     }
     return table_symboles;
 }
