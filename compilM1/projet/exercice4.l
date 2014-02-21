@@ -33,6 +33,7 @@ int main(int argc, char* argv[]){
 		fclose(f);
 
 	afficherListe(table_sym);
+	liberationMemoire(table_sym);
 
 	return 0;
 }
