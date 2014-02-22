@@ -1,5 +1,4 @@
 <h1>List des utilisateurs</h1>
-
 <p class="export">Télécharger la liste des utilisateurs en pdf <%= link_to image_tag("pdf_export.png", size: "25x25"), "/users.pdf"%></p>
 
 <table>                         
@@ -31,4 +30,85 @@
 			<td><%= link_to "Download", user.cvpdf.url(:original, false) if user.cvpdf.size %></td>
 	  </tr>
 	<% end %>
-</table>  
+</table>
+
+<%
+    # tableau pour les données des utilisateurs
+    # poids_ac ensemble des poids actuels des utilisateurs
+    # poids_id ensemble des poids idéaux des utilisateurs
+    # repartition_imc répartition des imc suivant les utilisateurs
+    poids_ac = Array.new
+    poids_id = Array.new
+    repartition_imc = []
+
+    #pour tous les utilisateurs on remplis les tableau
+    @users.each do |user|
+        poids_ac << user.poidsActuel
+        poids_id << user.poidsIdeal
+        repartition_imc << user.imc.split(/\s:\s/)[0]
+    end
+
+    #pour la répartiton on compte les occurences de chaque imc
+    counts = Hash.new(0)
+    for imc in repartition_imc
+        counts[imc] += 1
+    end
+
+    #on formate les imc pour le graphique de higjcharts
+    datas = Array.new
+    counts.each do |k,v|
+        datas << [k,v]
+    end
+
+
+
+%>
+
+<div id="container1" style="width:100%; height:400px;"></div>
+<div id="container2" style="width:100%; height:400px;"></div>
+
+<script type="text/javascript"> 
+    $(function () { 
+        $('#container1').highcharts({
+            chart: {
+                type: 'line'
+            },
+            title: {
+                text: 'Courbe des Poids Actuels et Idéaux des utilisateurs'
+            },
+            yAxis: {
+                title: {
+                    text: 'Poigs en kg'
+                }
+            },
+            series: [{
+                name: 'Poids Actuels',
+                data: <%=poids_ac%>
+            }, {
+                name: 'Poids Idéaux',
+                data: <%=poids_id%>
+            }]
+        });
+    });
+
+    $(function () {
+        $('#container2').highcharts({
+            chart: {
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false
+            },
+            title: {
+                text: 'Répartition des imc utilisateurs'
+            },
+            tooltip: {
+                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+            },
+            series: [{
+                type: 'pie',
+                name: 'Browser share',
+                data: <%= raw datas.as_json %>
+            }]
+        });
+    });
+</script>
