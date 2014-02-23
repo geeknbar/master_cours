@@ -1,6 +1,6 @@
-class UsersController < ApplicationController
+require 'user_statistics'
 
-  # helper_method :generate
+class UsersController < ApplicationController
 
   def new
     @user = User.new
@@ -14,6 +14,7 @@ class UsersController < ApplicationController
   def index
     @titre = "Liste des utilisateurs"
     @users = User.all
+    @user_statistics = UserStatistics.new(@users)
 
     respond_to do |format|
       format.html
