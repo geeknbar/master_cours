@@ -1,9 +1,20 @@
 User.delete_all
 
+@cv_dc = Rack::Test::UploadedFile.new('db/files/cv_dc.pdf')
 @cv_1 = Rack::Test::UploadedFile.new('db/files/cv_1.pdf')
 @cv_2 = Rack::Test::UploadedFile.new('db/files/cv_2.pdf')
 @cv_3 = Rack::Test::UploadedFile.new('db/files/cv_3.pdf')
 @cv_4 = Rack::Test::UploadedFile.new('db/files/cv_4.pdf')
+
+User.create!({ :nom => "Dorian Coffinet",
+	:email => "dorian.coffinet@gmail.com",
+	:dateNaissance => Date.new(1989,03,22),
+	:poidsActuel => 60,
+	:poidsIdeal => 55,
+	:taille => 177,
+	:estSportif => false,
+	:souhaitePratiquerSport => true,
+	:cvpdf => @cv_dc})
 
 User.create!({ :nom => "Jean Dupont",
 	:email => "jean.dupond@example.com",
@@ -74,3 +85,24 @@ User.create!({ :nom => "Toto MaidIn",
 	:estSportif => false,
 	:souhaitePratiquerSport => true,
 	:cvpdf => nil})
+
+User.create!({ :nom => "Benoit Martin",
+	:email => "benoit.martin@test.eu",
+	:dateNaissance => Date.new(1965,7,4),
+	:poidsActuel => 78,
+	:poidsIdeal => 75,
+	:taille => 186,
+	:estSportif => true,
+	:souhaitePratiquerSport => false,
+	:cvpdf => nil})
+
+User.create!({ :nom => "Jean-Eude Camino",
+	:email => "j.e@camino.el",
+	:dateNaissance => Date.new(1945,9,26),
+	:poidsActuel => 85,
+	:poidsIdeal => 80,
+	:taille => 165,
+	:estSportif => false,
+	:souhaitePratiquerSport => false,
+	:cvpdf => nil})
+

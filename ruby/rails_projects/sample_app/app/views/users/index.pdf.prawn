@@ -2,7 +2,11 @@ prawn_document() do |pdf|
 
 	pdf.text "Export de la liste des utilisateurs enregistrés", :size => 20, :align => :center
 
-	pdf.move_down 50
+	pdf.move_down 20
+
+	pdf.text "Créé le : " +  Time.now.strftime('%d-%m-%Y à %H:%M'), :style => :italic, :align => :center
+
+	pdf.move_down 70
 
   @users.each do |user|
   		sportif = user.estSportif ? "oui" : "non"
@@ -24,9 +28,4 @@ prawn_document() do |pdf|
 			pdf.move_down 20
 
 	end
-
-	pdf.move_down 20
-
-  pdf.text "Créé le : " +  Time.now.strftime('%d-%m-%Y %H:%M'), :style => :italic, :align => :right 
-
 end
