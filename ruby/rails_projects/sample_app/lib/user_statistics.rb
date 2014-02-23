@@ -2,6 +2,7 @@ class UserStatistics
 
 	attr_accessor :poids_ac, :poids_id, :datas
 
+	#initilisation des variables
 	def initialize(users)
 		@users = users
 		@poids_ac = Array.new
@@ -9,17 +10,17 @@ class UserStatistics
 		@datas = Array.new
   end
 
+  #pour tous les utilisateurs on va chercher les poids actuels
   def poids_ac_users
-  	#pour tous les utilisateurs on va chercher les poids idéaux
-		@users.each do |user|
+  	@users.each do |user|
 			@poids_ac << user.poidsActuel
 		end
 
 		@poids_ac
   end
 	
+  #pour tous les utilisateurs on va chercher les poids idéaux
 	def poids_id_users
-  	#pour tous les utilisateurs on va chercher les poids idéaux
 		@users.each do |user|
 			@poids_id << user.poidsIdeal
 		end
@@ -27,9 +28,10 @@ class UserStatistics
 		@poids_id
   end
 
+  #permet d'avoir la répartition des imc des utilisateurs 
   def repartition_imc
 		repartition_imc = []
-		#pour tous les utilisateurs on remplis les tableau
+		#pour tous les utilisateurs on va chercher le status de l'imc
 		@users.each do |user|
 			repartition_imc << user.imc.split(/\s:\s/)[0]
 		end
@@ -40,7 +42,7 @@ class UserStatistics
 			counts[imc] += 1
 		end
 
-		#on formate les imc pour le graphique de higjcharts
+		#on formate les imc pour le graphique de highcharts de la forme [[key1,value1], [key2,value2]]
 		counts.each do |k,v|
 			@datas << [k,v]
 		end

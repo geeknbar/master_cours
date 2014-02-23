@@ -32,51 +32,5 @@
 	<% end %>
 </table>
 
-<div id="container1" style="width:100%; height:400px;"></div>
-<div id="container2" style="width:100%; height:400px;"></div>
-
-<script type="text/javascript"> 
-    $(function () { 
-        $('#container1').highcharts({
-            chart: {
-                type: 'line'
-            },
-            title: {
-                text: 'Courbe des Poids Actuels et Idéaux des utilisateurs'
-            },
-            yAxis: {
-                title: {
-                    text: 'Poigs en kg'
-                }
-            },
-            series: [{
-                name: 'Poids Actuels',
-                data: <%=@user_statistics.poids_ac_users%>
-            }, {
-                name: 'Poids Idéaux',
-                data: <%=@user_statistics.poids_id_users%>
-            }]
-        });
-    });
-
-    $(function () {
-        $('#container2').highcharts({
-            chart: {
-                plotBackgroundColor: null,
-                plotBorderWidth: null,
-                plotShadow: false
-            },
-            title: {
-                text: 'Répartition des imc utilisateurs'
-            },
-            tooltip: {
-                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-            },
-            series: [{
-                type: 'pie',
-                name: 'Browser share',
-                data: <%= raw @user_statistics.repartition_imc.as_json %>
-            }]
-        });
-    });
-</script>
+<%= render partial: "shared/graphics_poids_ac_ic", locals: {user_statistics: @user_statistics} %>
+<%= render partial: "shared/graphics_repartition_imc", locals: {user_statistics: @user_statistics} %>
