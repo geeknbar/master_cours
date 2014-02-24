@@ -72,6 +72,28 @@ describe UsersController do
     end
   end
 
+  describe "GET 'sportif'" do
+    it "devrait réussir" do
+      get 'nonsportif'
+      response.should be_success
+    end
+
+    it "devrait avoir le bon titre" do
+      get 'nonsportif'
+      response.should have_selector("title", :content => "Liste des utilisateurs non sportif")
+    end
+
+    it "devrait avoir le graphique poids ac/id" do
+      get 'nonsportif'
+      response.should have_selector("div", :id => "graphique1")
+    end
+
+    it "devrait avoir le graphique repartition imc" do
+      get 'nonsportif'
+      response.should have_selector("div", :id => "graphique2")
+    end
+  end
+
   describe "GET 'index'" do
 
     before(:each) do
@@ -86,9 +108,6 @@ describe UsersController do
               :poidsIdeal => 55, :taille => 170, :estSportif => true, :souhaitePratiquerSport => false, :cvpdf => nil})
 
       @users = [first, second, third]
-
-
-
     end
 
     it "devrait réussir" do
@@ -116,6 +135,17 @@ describe UsersController do
 
       end
     end
+
+    it "devrait avoir le graphique poids ac/id" do
+      get :index
+      response.should have_selector("div", :id => "graphique1")
+    end
+
+    it "devrait avoir le graphique repartition imc" do
+      get :index
+      response.should have_selector("div", :id => "graphique2")
+    end
+
   end
 
   describe "POST 'create'" do

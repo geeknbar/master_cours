@@ -33,8 +33,10 @@ class UsersController < ApplicationController
     end
   end
 
-  def sportif
+  def nonsportif
     @users = User.where(estSportif: false, souhaitePratiquerSport: true)
+    @user_statistics = UserStatistics.new(@users)
+    @titre = "Liste des utilisateurs non sportif"
     render 'index'
   end
 
