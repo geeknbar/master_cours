@@ -1,3 +1,4 @@
+# encoding: UTF-8
 require 'user_statistics'
 
 class UsersController < ApplicationController
@@ -25,7 +26,7 @@ class UsersController < ApplicationController
 	def create
     @user = User.new(params[:user])
     if @user.save
-      flash[:success] = "Bienvenue dans l'Application Exemple!"
+      flash[:success] = "Inscription de l'utilisateur réussie!"
       redirect_to @user
     else
       @titre = "Inscription"

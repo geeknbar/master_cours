@@ -12,7 +12,7 @@ describe "Users" do
           fill_in "Nom", :with => ""
           fill_in "email", :with => ""
           select "2014", :from => "user[dateNaissance(1i)]"
-          select "January", :from => "user[dateNaissance(2i)]"
+          select "Janvier", :from => "user[dateNaissance(2i)]"
           select "16", :from => "user[dateNaissance(3i)]"
           fill_in "user[poidsActuel]", :with => 60
           fill_in "user[poidsIdeal]", :with => 70
@@ -36,7 +36,7 @@ describe "Users" do
           fill_in "Nom", :with => "Example User"
           fill_in "eMail", :with => "user@example.com"
           select "2014", :from => "user[dateNaissance(1i)]"
-          select "January", :from => "user[dateNaissance(2i)]"
+          select "Janvier", :from => "user[dateNaissance(2i)]"
           select "16", :from => "user[dateNaissance(3i)]"
           fill_in "user[poidsActuel]", :with => 70
           fill_in "user[poidsIdeal]", :with => 40
@@ -45,7 +45,7 @@ describe "Users" do
           choose("user_souhaitePratiquerSport_1")
           fill_in "user_cvpdf", :with => @cv_exemple
           click_button
-          response.should have_selector("div.flash.success",:content => "Bienvenue dans l'Application Exemple!")
+          response.should have_selector("div.flash.success",:content => "Inscription de l'utilisateur réussie!")
           response.should render_template('users/show')
         end.should change(User, :count).by(1)
       end

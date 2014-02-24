@@ -1,6 +1,7 @@
 # encoding: UTF-8
 require 'spec_helper'
 require 'rack/test'
+require 'factories'
 
 describe UsersController do
 	render_views
@@ -145,6 +146,38 @@ describe UsersController do
       get :index
       response.should have_selector("div", :id => "graphique2")
     end
+  end
+
+  describe "GET 'show'" do
+
+    before(:each) do
+      @user = Factory(:user)
+    end
+
+    it "devrait réussir" do
+      get :show, :id => @user
+      response.should be_success
+    end
+
+    it "devrait trouver le bon utilisateur" do
+      get :show, :id => @user
+      assigns(:user).should == @user
+    end
+
+    it "devrait avoir une div fiche_infos" do
+      get :show, :id => @user
+      response.should have_selector("div", :id => "fiche_infos")
+    end
+
+    it "devrait avoir une div fiche_sport" do
+      get :show, :id => @user
+      response.should have_selector("div", :id => "fiche_sport")
+    end
+
+    it "devrait avoir une div fiche_thumb" do
+      get :show, :id => @user
+      response.should have_selector("div", :id => "fiche_thumb")
+    end
 
   end
 
@@ -197,7 +230,7 @@ describe UsersController do
 
       it "devrait avoir un message de bienvenue" do
         post :create, :user => @attr
-        flash[:success].should =~ /Bienvenue dans l'Application Exemple/i
+        flash[:success].should =~ /Inscription de l'utilisateur réussie!/i
       end
     end
   end
