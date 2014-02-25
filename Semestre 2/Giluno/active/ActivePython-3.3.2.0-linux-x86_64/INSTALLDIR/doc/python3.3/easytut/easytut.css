@@ -1,8 +1,0 @@
-/* Start with our std style document. */
-@import url(aspn.css);
-
-/* Set off Python code. */
-pre {
-    margin-left: 1em;
-    color: #00008b;
-}
