@@ -1,0 +1,269 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+
+
+<link rel='start' href='../index.html' title='Python Documentation Index'>
+<link rel="first" href="whatsnew23.html" title='What's New in Python 2.3'>
+<link rel='contents' href='contents.html' title="Contents">
+<link rel='last' href='about.html' title='About this document...'>
+<link rel='help' href='about.html' title='About this document...'>
+<LINK REL="next" href="section-other.html">
+<LINK REL="prev" href="section-pymalloc.html">
+<LINK REL="parent" HREF="whatsnew23.html">
+<LINK REL="next" href="section-other.html">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name='aesop' content='information'>
+<META NAME="description" CONTENT="Build and C API Changes">
+<META NAME="keywords" CONTENT="whatsnew23">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<title>19 Build and C API Changes</title>
+<link rel="stylesheet" href="../style.css" type="text/css">
+</head>
+<body>
+<DIV CLASS="navigation">
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td><a rel="prev" title="18 Pymalloc: A Specialized" 
+  href="section-pymalloc.html"><img src='../icons/previous.gif'
+  border='0' height='32'  alt='Previous Page' width='32'></A></td>
+<td><a rel="parent" title="What's New in Python" 
+  HREF="whatsnew23.html"><img src='../icons/up.gif'
+  border='0' height='32'  alt='Up One Level' width='32'></A></td>
+<td><a rel="next" title="20 Other Changes and" 
+  href="section-other.html"><img src='../icons/next.gif'
+  border='0' height='32'  alt='Next Page' width='32'></A></td>
+<td align="center" width="100%">What's New in Python 2.3</td>
+<td><a rel="contents" title="Table of Contents" 
+  href="contents.html"><img src='../icons/contents.gif'
+  border='0' height='32'  alt='Contents' width='32'></A></td>
+<td><img src='../icons/blank.gif'
+  border='0' height='32'  alt='' width='32'></td>
+</tr></table>
+<b class="navlabel">Previous:</b>
+<a class="sectref" rel="prev" href="section-pymalloc.html">18 Pymalloc: A Specialized</A>
+<b class="navlabel">Up:</b>
+<a class="sectref" rel="parent" HREF="whatsnew23.html">What's New in Python</A>
+<b class="navlabel">Next:</b>
+<a class="sectref" rel="next" href="section-other.html">20 Other Changes and</A>
+<br><hr>
+</DIV>
+<!--End of Navigation Panel-->
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></a>
+
+<UL CLASS="ChildLinks">
+<LI><A href="node20.html#SECTION0002010000000000000000">19.1 Port-Specific Changes</a>
+</ul>
+<!--End of Table of Child-Links-->
+<HR>
+
+<H1><A NAME="SECTION0002000000000000000000">
+19 Build and C API Changes</A>
+</H1>
+
+<P>
+Changes to Python's build process and to the C API include:
+
+<P>
+
+<UL>
+<LI>The C-level interface to the garbage collector has been changed
+to make it easier to write extension types that support garbage
+collection and to debug misuses of the functions.
+Various functions have slightly different semantics, so a bunch of
+functions had to be renamed.  Extensions that use the old API will
+still compile but will <i>not</i> participate in garbage collection,
+so updating them for 2.3 should be considered fairly high priority.
+
+<P>
+To upgrade an extension module to the new API, perform the following
+steps:
+
+<P>
+
+<UL>
+<LI>Rename <tt class="cfunction">Py_TPFLAGS_GC</tt> to <tt class="cfunction">PyTPFLAGS_HAVE_GC</tt>.
+
+<P>
+</LI>
+<LI>Use <tt class="cfunction">PyObject_GC_New</tt> or <tt class="cfunction">PyObject_GC_NewVar</tt> to
+allocate objects, and <tt class="cfunction">PyObject_GC_Del</tt> to deallocate them.
+
+<P>
+</LI>
+<LI>Rename <tt class="cfunction">PyObject_GC_Init</tt> to <tt class="cfunction">PyObject_GC_Track</tt> and
+<tt class="cfunction">PyObject_GC_Fini</tt> to <tt class="cfunction">PyObject_GC_UnTrack</tt>.
+
+<P>
+</LI>
+<LI>Remove <tt class="cfunction">PyGC_HEAD_SIZE</tt> from object size calculations.
+
+<P>
+</LI>
+<LI>Remove calls to <tt class="cfunction">PyObject_AS_GC</tt> and <tt class="cfunction">PyObject_FROM_GC</tt>.
+
+<P>
+</LI>
+</UL>
+
+<P>
+</LI>
+<LI>The cycle detection implementation used by the garbage collection
+has proven to be stable, so it's now been made mandatory.  You can no
+longer compile Python without it, and the
+<b class="programopt">--with-cycle-gc</b> switch to <b class="program">configure</b> has been removed.
+
+<P>
+</LI>
+<LI>Python can now optionally be built as a shared library
+(<span class="file">libpython2.3.so</span>) by supplying <b class="programopt">--enable-shared</b>
+when running Python's <b class="program">configure</b> script.  (Contributed by Ondrej
+Palkovsky.)
+
+<P>
+</LI>
+<LI>The DL_EXPORT and DL_IMPORT macros
+are now deprecated.  Initialization functions for Python extension
+modules should now be declared using the new macro
+PyMODINIT_FUNC, while the Python core will generally
+use the PyAPI_FUNC and PyAPI_DATA
+macros.
+
+<P>
+</LI>
+<LI>The interpreter can be compiled without any docstrings for
+the built-in functions and modules by supplying
+<b class="programopt">--without-doc-strings</b> to the <b class="program">configure</b> script.
+This makes the Python executable about 10% smaller, but will also
+mean that you can't get help for Python's built-ins.  (Contributed by
+Gustavo Niemeyer.)
+
+<P>
+</LI>
+<LI>The <tt class="cfunction">PyArg_NoArgs()</tt> macro is now deprecated, and code
+that uses it should be changed.  For Python 2.2 and later, the method
+definition table can specify the
+<tt class="constant">METH_NOARGS</tt> flag, signalling that there are no arguments, and
+the argument checking can then be removed.  If compatibility with
+pre-2.2 versions of Python is important, the code could use
+<code>PyArg_ParseTuple(<var>args</var>, "")</code> instead, but this will be slower
+than using <tt class="constant">METH_NOARGS</tt>.
+
+<P>
+</LI>
+<LI>A new function, <tt class="cfunction">PyObject_DelItemString(<var>mapping</var>,
+char *<var>key</var>)</tt> was added as shorthand for
+<code>PyObject_DelItem(<var>mapping</var>, PyString_New(<var>key</var>))</code>.
+
+<P>
+</LI>
+<LI>File objects now manage their internal string buffer
+differently, increasing it exponentially when needed.  This results in
+the benchmark tests in <span class="file">Lib/test/test_bufio.py</span> speeding up
+considerably (from 57 seconds to 1.7 seconds, according to one
+measurement).
+
+<P>
+</LI>
+<LI>It's now possible to define class and static methods for a C
+extension type by setting either the <tt class="constant">METH_CLASS</tt> or
+<tt class="constant">METH_STATIC</tt> flags in a method's <tt class="ctype">PyMethodDef</tt>
+structure.
+
+<P>
+</LI>
+<LI>Python now includes a copy of the Expat XML parser's source code,
+removing any dependence on a system version or local installation of
+Expat.
+
+<P>
+</LI>
+<LI>If you dynamically allocate type objects in your extension, you
+should be aware of a change in the rules relating to the
+<tt class="member">__module__</tt> and <tt class="member">__name__</tt> attributes.  In summary,
+you will want to ensure the type's dictionary contains a
+<code>'__module__'</code> key; making the module name the part of the type
+name leading up to the final period will no longer have the desired
+effect.  For more detail, read the API reference documentation or the 
+source.
+
+<P>
+</LI>
+</UL>
+
+<P>
+
+<H2><A NAME="SECTION0002010000000000000000">
+19.1 Port-Specific Changes</A>
+</H2>
+
+<P>
+Support for a port to IBM's OS/2 using the EMX runtime environment was
+merged into the main Python source tree.  EMX is a POSIX emulation
+layer over the OS/2 system APIs.  The Python port for EMX tries to
+support all the POSIX-like capability exposed by the EMX runtime, and
+mostly succeeds; <tt class="function">fork()</tt> and <tt class="function">fcntl()</tt> are
+restricted by the limitations of the underlying emulation layer.  The
+standard OS/2 port, which uses IBM's Visual Age compiler, also gained
+support for case-sensitive import semantics as part of the integration
+of the EMX port into CVS.  (Contributed by Andrew MacIntyre.)
+
+<P>
+On MacOS, most toolbox modules have been weaklinked to improve
+backward compatibility.  This means that modules will no longer fail
+to load if a single routine is missing on the curent OS version.
+Instead calling the missing routine will raise an exception.
+(Contributed by Jack Jansen.)
+
+<P>
+The RPM spec files, found in the <span class="file">Misc/RPM/</span> directory in the
+Python source distribution, were updated for 2.3.  (Contributed by
+Sean Reifschneider.)
+
+<P>
+Other new platforms now supported by Python include AtheOS
+(<a class="url" href="http://www.atheos.cx/">http://www.atheos.cx/</a>), GNU/Hurd, and OpenVMS.
+
+<P>
+
+<DIV CLASS="navigation">
+<p><hr>
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td><a rel="prev" title="18 Pymalloc: A Specialized" 
+  rel="prev" title="18 Pymalloc: A Specialized" 
+  href="section-pymalloc.html"><img src='../icons/previous.gif'
+  border='0' height='32'  alt='Previous Page' width='32'></A></td>
+<td><a rel="parent" title="What's New in Python" 
+  rel="parent" title="What's New in Python" 
+  HREF="whatsnew23.html"><img src='../icons/up.gif'
+  border='0' height='32'  alt='Up One Level' width='32'></A></td>
+<td><a rel="next" title="20 Other Changes and" 
+  rel="next" title="20 Other Changes and" 
+  href="section-other.html"><img src='../icons/next.gif'
+  border='0' height='32'  alt='Next Page' width='32'></A></td>
+<td align="center" width="100%">What's New in Python 2.3</td>
+<td><a rel="contents" title="Table of Contents" 
+  rel="contents" title="Table of Contents" 
+  href="contents.html"><img src='../icons/contents.gif'
+  border='0' height='32'  alt='Contents' width='32'></A></td>
+<td><img src='../icons/blank.gif'
+  border='0' height='32'  alt='' width='32'></td>
+</tr></table>
+<b class="navlabel">Previous:</b>
+<a class="sectref" rel="prev" href="section-pymalloc.html">18 Pymalloc: A Specialized</A>
+<b class="navlabel">Up:</b>
+<a class="sectref" rel="parent" HREF="whatsnew23.html">What's New in Python</A>
+<b class="navlabel">Next:</b>
+<a class="sectref" rel="next" href="section-other.html">20 Other Changes and</A>
+<hr>
+<span class="release-info">Release 1.00.</span>
+</DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+See <i><a href="about.html">About this document...</a></i> for information on suggesting changes.
+</ADDRESS>
+</BODY>
+</HTML>

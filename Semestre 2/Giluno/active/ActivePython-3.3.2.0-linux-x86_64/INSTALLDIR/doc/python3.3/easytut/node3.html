@@ -1,0 +1,194 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.48)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Intro</TITLE>
+<META NAME="description" CONTENT="Intro">
+<META NAME="keywords" CONTENT="easytut">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="easytut.css">
+
+<LINK REL="next" HREF="node4.html">
+<LINK REL="previous" HREF="node2.html">
+<LINK REL="up" HREF="easytut.html">
+<LINK REL="next" HREF="node4.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html168"
+  HREF="node4.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html164"
+  HREF="easytut.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html158"
+  HREF="node2.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html166"
+  HREF="node2.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html169"
+  HREF="node4.html">Hello, World</A>
+<B> Up:</B> <A NAME="tex2html165"
+  HREF="easytut.html">Non-Programmers Tutorial For Python</A>
+<B> Previous:</B> <A NAME="tex2html159"
+  HREF="node2.html">Contents</A>
+ &nbsp <B>  <A NAME="tex2html167"
+  HREF="node2.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL>
+<LI><A NAME="tex2html170"
+  HREF="#SECTION00310000000000000000">First things first</A>
+<LI><A NAME="tex2html171"
+  HREF="#SECTION00320000000000000000">Installing Python</A>
+<LI><A NAME="tex2html172"
+  HREF="#SECTION00330000000000000000">Interactive Mode</A>
+<LI><A NAME="tex2html173"
+  HREF="#SECTION00340000000000000000">Creating and Running Programs</A>
+<LI><A NAME="tex2html174"
+  HREF="#SECTION00350000000000000000">Using Python from the command line</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+
+<H1><A NAME="SECTION00300000000000000000">
+Intro</A>
+</H1>
+
+<P>
+
+<H1><A NAME="SECTION00310000000000000000">
+First things first</A>
+</H1>
+
+<P>
+So, you've never programmed before.  As we go through this tutorial I
+will attempt to teach you how to program.  There really is only one
+way to learn to program.  <B>You</B> must read code and write code.
+I'm going to show you lots of code.  You should type in code that I
+show you to see what happens.  Play around with it and make changes.
+The worst that can happen is that it won't work.  When I type in code
+it will be formatted like this:
+
+<P>
+<PRE>
+##Python is easy to learn
+print "Hello, World!"
+</PRE>
+
+<P>
+That's so it is easy to distinguish from the other text.  To make it confusing I will also print what the computer outputs in that same font.
+
+<P>
+Now, on to more important things.  In order to program in Python you need the Python software.  If you don't already have the Python software go to http://www.python.org/download/ and get the proper version for your platform.  Download it, read the instructions and get it installed.  
+
+<P>
+
+<H1><A NAME="SECTION00320000000000000000">
+Installing Python</A>
+</H1>
+First you need to download the appropriate file for your computer from <TT><A NAME="tex2html1"
+  HREF="http://www.python.org/download">http://www.python.org/download</A></TT>.  Go to the 2.0 link (or newer) and then get the windows installer if you use Windows or the rpm or source if you use Unix.  
+
+<P>
+The Windows installer will download to file.  The file can then be run by double clicking on the icon that is downloaded.  The installation will then proceed.
+
+<P>
+If you get the Unix source make sure you compile in the tk extension if you want to use IDLE.
+
+<P>
+
+<H1><A NAME="SECTION00330000000000000000">
+Interactive Mode</A>
+</H1>
+Go into IDLE (also called the Python GUI).  You should see a window that has some text like this:
+<PRE>
+Python 2.0 (#4, Dec 12 2000, 19:19:57) 
+[GCC 2.95.2 20000220 (Debian GNU/Linux)] on linux2
+Type "copyright", "credits" or "license" for more information.
+IDLE 0.6 -- press F1 for help
+&gt;&gt;&gt;
+</PRE>
+The <code>&gt;&gt;&gt;</code> is Python way of telling you that you are in
+interactive mode.  In interactive mode what you type is immediately
+run.  Try typing <code>1+1</code> in. Python will respond with <code>2</code>.
+Interactive mode allows you to test out and see what Python will do.
+If you ever feel you need to play with new Python statements go into
+interactive mode and try them out.
+
+<P>
+
+<H1><A NAME="SECTION00340000000000000000"></A>
+<A NAME="create"></A>
+<BR>
+Creating and Running Programs
+</H1>
+Go into IDLE if you are not already.  Go to <code>File</code> then <code>New Window</code>.  In this window type the following:
+<PRE>
+print "Hello, World!"
+</PRE>
+
+<P>
+First save the program.  Go to <code>File</code> then <code>Save</code>.  Save it as hello.py.  (If you want you can save it to some other directory than the default.)  Now that it is saved it can be run.  
+
+<P>
+Next run the program by going to <code>Run</code> then <code>Run Module</code> (or if you have a older version of IDLE use <code>Edit</code> then <code>Run script</code>).  This will output <code>Hello, World!</code> on the <code>*Python Shell*</code> window.  
+
+<P>
+Confused still?  Try this tutorial for IDLE at <TT><A NAME="tex2html2"
+  HREF="http://hkn.eecs.berkeley.edu/~dyoo/python/idle_intro/index.html">http://hkn.eecs.berkeley.edu/~dyoo/python/idle_intro/index.html</A></TT>
+<P>
+
+<H1><A NAME="SECTION00350000000000000000">
+Using Python from the command line</A>
+</H1>
+If you don't want to use Python from the command line, you don't have too, just use IDLE.  To get into interactive mode just type <code>python</code> with out any arguments.  To run a program create it with a text editor (Emacs has a good python mode) and then run it with <code>python program name</code>.  
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html168"
+  HREF="node4.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html164"
+  HREF="easytut.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html158"
+  HREF="node2.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html166"
+  HREF="node2.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html169"
+  HREF="node4.html">Hello, World</A>
+<B> Up:</B> <A NAME="tex2html165"
+  HREF="easytut.html">Non-Programmers Tutorial For Python</A>
+<B> Previous:</B> <A NAME="tex2html159"
+  HREF="node2.html">Contents</A>
+ &nbsp <B>  <A NAME="tex2html167"
+  HREF="node2.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+Josh Cogliati <a href="mailto:jjc@honors.montana.edu">jjc@honors.montana.edu</a> Wikibooks Version: <a href="http://wikibooks.org/wiki/User:Jrincayc/Contents">Wikibooks Non-programmers Python Tutorial Contents</a>
+</ADDRESS>
+</BODY>
+</HTML>

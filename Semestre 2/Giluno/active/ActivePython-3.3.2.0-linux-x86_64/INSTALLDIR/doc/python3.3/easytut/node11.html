@@ -1,0 +1,226 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.48)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>For Loops</TITLE>
+<META NAME="description" CONTENT="For Loops">
+<META NAME="keywords" CONTENT="easytut">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="easytut.css">
+
+<LINK REL="next" HREF="node12.html">
+<LINK REL="previous" HREF="node10.html">
+<LINK REL="up" HREF="easytut.html">
+<LINK REL="next" HREF="node12.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html296"
+  HREF="node12.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html292"
+  HREF="easytut.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html286"
+  HREF="node10.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html294"
+  HREF="node2.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html297"
+  HREF="node12.html">Boolean Expressions</A>
+<B> Up:</B> <A NAME="tex2html293"
+  HREF="easytut.html">Non-Programmers Tutorial For Python</A>
+<B> Previous:</B> <A NAME="tex2html287"
+  HREF="node10.html">Lists</A>
+ &nbsp <B>  <A NAME="tex2html295"
+  HREF="node2.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION001100000000000000000">
+For Loops</A>
+</H1>
+And here is the new typing exercise for this chapter:
+<PRE>
+onetoten = range(1,11)
+for count in onetoten:
+        print count
+</PRE>
+and the ever-present output:
+<PRE>
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</PRE>
+The output looks awfully familiar but the program code looks different.  The first line uses the <TT>range</TT> function.  The <TT>range</TT> function uses two arguments like this <TT>range(start,finish)</TT>.  <TT>start</TT> is the first number that is produced.  <TT>finish</TT> is one larger than the last number.  Note that this program could have been done in a shorter way:
+<PRE>
+for count in range(1,11):
+        print count
+</PRE>
+Here are some examples to show what happens with the <TT>range</TT> command:
+<PRE>
+&gt;&gt;&gt; range(1,10)
+[1, 2, 3, 4, 5, 6, 7, 8, 9]
+&gt;&gt;&gt; range(-32, -20)
+[-32, -31, -30, -29, -28, -27, -26, -25, -24, -23, -22, -21]
+&gt;&gt;&gt; range(5,21)
+[5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+&gt;&gt;&gt; range(21,5)
+[]
+</PRE>
+The next line <code>for count in onetoten:</code> uses the <TT>for</TT> control structure.  A <TT>for</TT> control structure looks like <TT>for variable in list:</TT>.  <TT>list</TT> is gone through starting with the first element of the list and going to the last.  As <TT>for</TT> goes through each element in a list it puts each into <TT>variable</TT>.  That allows <TT>variable</TT> to be used in each successive time the for loop is run through.  Here is another example (you don't have to type this) to demonstrate:
+<PRE>
+demolist = ['life',42, 'the universe', 6,'and',7,'everything']
+for item in demolist:
+    print "The Current item is:",
+    print item
+</PRE>
+The output is:
+<PRE>
+The Current item is: life
+The Current item is: 42
+The Current item is: the universe
+The Current item is: 6
+The Current item is: and
+The Current item is: 7
+The Current item is: everything
+</PRE>
+Notice how the for loop goes through and sets item to each element in the list.  (Notice how if you don't want <TT>print</TT> to go to the next line add a comma at the end of the statement (i.e. if you want to print something else on that line). )  So, what is <TT>for</TT> good for?  (groan)  The first use is to go through all the elements of a list and do something with each of them.  Here a quick way to add up all the elements:
+<PRE>
+list = [2,4,6,8]
+sum = 0
+for num in list:
+        sum = sum + num
+print "The sum is: ",sum
+</PRE>
+with the output simply being:
+<PRE>
+The sum is:  20
+</PRE>
+Or you could write a program to find out if there are any duplicates in a list like this program does:
+<PRE>
+list = [4, 5, 7, 8, 9, 1,0,7,10]
+list.sort()
+prev = list[0]
+del list[0]
+for item in list:
+        if prev == item:
+                print "Duplicate of ",prev," Found"
+        prev = item
+</PRE>
+and for good measure:
+<PRE>
+Duplicate of  7  Found
+</PRE>
+Okay, so how does it work?  Here is a special debugging version to help you understand (you don't need to type this in):
+<PRE>
+l = [4, 5, 7, 8, 9, 1,0,7,10]
+print "l = [4, 5, 7, 8, 9, 1,0,7,10]","\tl:",l
+l.sort()
+print "l.sort()","\tl:",l
+prev = l[0]
+print "prev = l[0]","\tprev:",prev
+del l[0]
+print "del l[0]","\tl:",l
+for item in l:
+        if prev == item:
+                print "Duplicate of ",prev," Found"
+        print "if prev == item:","\tprev:",prev,"\titem:",item
+        prev = item
+        print "prev = item","\t\tprev:",prev,"\titem:",item
+</PRE>
+with the output being:
+<PRE>
+l = [4, 5, 7, 8, 9, 1,0,7,10]   l: [4, 5, 7, 8, 9, 1, 0, 7, 10]
+l.sort()        l: [0, 1, 4, 5, 7, 7, 8, 9, 10]
+prev = l[0]     prev: 0
+del l[0]        l: [1, 4, 5, 7, 7, 8, 9, 10]
+if prev == item:        prev: 0         item: 1
+prev = item             prev: 1         item: 1
+if prev == item:        prev: 1         item: 4
+prev = item             prev: 4         item: 4
+if prev == item:        prev: 4         item: 5
+prev = item             prev: 5         item: 5
+if prev == item:        prev: 5         item: 7
+prev = item             prev: 7         item: 7
+Duplicate of  7  Found
+if prev == item:        prev: 7         item: 7
+prev = item             prev: 7         item: 7
+if prev == item:        prev: 7         item: 8
+prev = item             prev: 8         item: 8
+if prev == item:        prev: 8         item: 9
+prev = item             prev: 9         item: 9
+if prev == item:        prev: 9         item: 10
+prev = item             prev: 10        item: 10
+</PRE>
+The reason I put so many <TT>print</TT> statements in the code was so that you can see what is happening in each line.  (BTW, if you can't figure out why a program is not working, try putting in lots of print statements to you can see what is happening)  First the program starts with a boring old list.  Next the program sorts the list.  This is so that any duplicates get put next to each other.  The program then initializes a prev(ious) variable.  Next the first element of the list is deleted so that the first item is not incorrectly thought to be a duplicate.  Next a for loop is gone into.  Each item of the list is checked to see if it is the same as the previous.  If it is a duplicate was found.  The value of prev is then changed so that the next time the for loop is run through prev is the previous item to the current.  Sure enough, the 7 is found to be a duplicate.  (Notice how <code>\t</code> is used to print a tab.)  
+
+<P>
+The other way to use for loops is to do something a certain number of times.  Here is some code to print out the first 11 numbers of the Fibonacci series:
+<PRE>
+a = 1
+b = 1
+for c in range(1,10):
+        print a,
+        n = a + b
+        a = b
+        b = n
+</PRE>
+with the surprising output:
+<PRE>
+1 1 2 3 5 8 13 21 34
+</PRE>
+Everything that can be done with <TT>for</TT> loops can also be done with <TT>while</TT> loops but <TT>for</TT> loops give a easy way to go through all the elements in a list or to do something a certain number of times.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html296"
+  HREF="node12.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html292"
+  HREF="easytut.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html286"
+  HREF="node10.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html294"
+  HREF="node2.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html297"
+  HREF="node12.html">Boolean Expressions</A>
+<B> Up:</B> <A NAME="tex2html293"
+  HREF="easytut.html">Non-Programmers Tutorial For Python</A>
+<B> Previous:</B> <A NAME="tex2html287"
+  HREF="node10.html">Lists</A>
+ &nbsp <B>  <A NAME="tex2html295"
+  HREF="node2.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+Josh Cogliati <a href="mailto:jjc@honors.montana.edu">jjc@honors.montana.edu</a> Wikibooks Version: <a href="http://wikibooks.org/wiki/User:Jrincayc/Contents">Wikibooks Non-programmers Python Tutorial Contents</a>
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,161 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+
+
+<link rel='start' href='../index.html' title='Python Documentation Index'>
+<link rel="first" href="whatsnew23.html" title='What's New in Python 2.3'>
+<link rel='contents' href='contents.html' title="Contents">
+<link rel='last' href='about.html' title='About this document...'>
+<link rel='help' href='about.html' title='About this document...'>
+<LINK REL="next" HREF="node6.html">
+<LINK REL="prev" href="section-encodings.html">
+<LINK REL="parent" HREF="whatsnew23.html">
+<LINK REL="next" HREF="node6.html">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name='aesop' content='information'>
+<META NAME="description" CONTENT="PEP 273: Importing Modules from Zip Archives">
+<META NAME="keywords" CONTENT="whatsnew23">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<title>4 PEP 273: Importing Modules from Zip Archives</title>
+<link rel="stylesheet" href="../style.css" type="text/css">
+</head>
+<body>
+<DIV CLASS="navigation">
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td><a rel="prev" title="3 PEP 263: Source" 
+  href="section-encodings.html"><img src='../icons/previous.gif'
+  border='0' height='32'  alt='Previous Page' width='32'></A></td>
+<td><a rel="parent" title="What's New in Python" 
+  HREF="whatsnew23.html"><img src='../icons/up.gif'
+  border='0' height='32'  alt='Up One Level' width='32'></A></td>
+<td><a rel="next" title="5 PEP 277: Unicode" 
+  HREF="node6.html"><img src='../icons/next.gif'
+  border='0' height='32'  alt='Next Page' width='32'></A></td>
+<td align="center" width="100%">What's New in Python 2.3</td>
+<td><a rel="contents" title="Table of Contents" 
+  href="contents.html"><img src='../icons/contents.gif'
+  border='0' height='32'  alt='Contents' width='32'></A></td>
+<td><img src='../icons/blank.gif'
+  border='0' height='32'  alt='' width='32'></td>
+</tr></table>
+<b class="navlabel">Previous:</b>
+<a class="sectref" rel="prev" href="section-encodings.html">3 PEP 263: Source</A>
+<b class="navlabel">Up:</b>
+<a class="sectref" rel="parent" HREF="whatsnew23.html">What's New in Python</A>
+<b class="navlabel">Next:</b>
+<a class="sectref" rel="next" HREF="node6.html">5 PEP 277: Unicode</A>
+<br><hr>
+</DIV>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION000500000000000000000">
+4 PEP 273: Importing Modules from Zip Archives</A>
+</H1>
+
+<P>
+The new <tt class="module">zipimport</tt> module adds support for importing
+modules from a ZIP-format archive.  You don't need to import the
+module explicitly; it will be automatically imported if a ZIP
+archive's filename is added to <code>sys.path</code>.  For example:
+
+<P>
+<div class="verbatim"><pre>
+amk@nyman:~/src/python$ unzip -l /tmp/example.zip
+Archive:  /tmp/example.zip
+  Length     Date   Time    Name
+ --------    ----   ----    ----
+     8467  11-26-02 22:30   jwzthreading.py
+ --------                   -------
+     8467                   1 file
+amk@nyman:~/src/python$ ./python
+Python 2.3 (#1, Aug 1 2003, 19:54:32) 
+&gt;&gt;&gt; import sys
+&gt;&gt;&gt; sys.path.insert(0, '/tmp/example.zip')  # Add .zip file to front of path
+&gt;&gt;&gt; import jwzthreading
+&gt;&gt;&gt; jwzthreading.__file__
+'/tmp/example.zip/jwzthreading.py'
+&gt;&gt;&gt;
+</pre></div>
+
+<P>
+An entry in <code>sys.path</code> can now be the filename of a ZIP archive.
+The ZIP archive can contain any kind of files, but only files named
+<span class="file">*.py</span>, <span class="file">*.pyc</span>, or <span class="file">*.pyo</span> can be imported.  If an
+archive only contains <span class="file">*.py</span> files, Python will not attempt to
+modify the archive by adding the corresponding <span class="file">*.pyc</span> file, meaning
+that if a ZIP archive doesn't contain <span class="file">*.pyc</span> files, importing may be
+rather slow.
+
+<P>
+A path within the archive can also be specified to only import from a
+subdirectory; for example, the path <span class="file">/tmp/example.zip/lib/</span>
+would only import from the <span class="file">lib/</span> subdirectory within the
+archive.
+
+<P>
+<div class="seealso">
+  <p class="heading"><b>See Also:</b></p>
+
+<P>
+<dl compact class="seerfc">
+    <dt><a href="http://www.python.org/peps/pep-0273.html"
+        title="Import Modules from Zip Archives"
+        >PEP 273, <em>Import Modules from Zip Archives</em></a>
+    <dd>Written by James C. Ahlstrom, 
+who also provided an implementation.
+Python 2.3 follows the specification in <a class="rfc" name="rfcref-2110"
+href="http://www.python.org/peps/pep-0273.html">PEP 273</a>, 
+but uses an implementation written by Just van&nbsp;Rossum 
+that uses the import hooks described in <a class="rfc" name="rfcref-2112"
+href="http://www.python.org/peps/pep-0302.html">PEP 302</a>.
+See section&nbsp;<A href="section-pep302.html#section-pep302">12</A> for a description of the new import hooks.
+
+  </dl>
+
+<P>
+</div>
+
+<P>
+
+<DIV CLASS="navigation">
+<p><hr>
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td><a rel="prev" title="3 PEP 263: Source" 
+  rel="prev" title="3 PEP 263: Source" 
+  href="section-encodings.html"><img src='../icons/previous.gif'
+  border='0' height='32'  alt='Previous Page' width='32'></A></td>
+<td><a rel="parent" title="What's New in Python" 
+  rel="parent" title="What's New in Python" 
+  HREF="whatsnew23.html"><img src='../icons/up.gif'
+  border='0' height='32'  alt='Up One Level' width='32'></A></td>
+<td><a rel="next" title="5 PEP 277: Unicode" 
+  rel="next" title="5 PEP 277: Unicode" 
+  HREF="node6.html"><img src='../icons/next.gif'
+  border='0' height='32'  alt='Next Page' width='32'></A></td>
+<td align="center" width="100%">What's New in Python 2.3</td>
+<td><a rel="contents" title="Table of Contents" 
+  rel="contents" title="Table of Contents" 
+  href="contents.html"><img src='../icons/contents.gif'
+  border='0' height='32'  alt='Contents' width='32'></A></td>
+<td><img src='../icons/blank.gif'
+  border='0' height='32'  alt='' width='32'></td>
+</tr></table>
+<b class="navlabel">Previous:</b>
+<a class="sectref" rel="prev" href="section-encodings.html">3 PEP 263: Source</A>
+<b class="navlabel">Up:</b>
+<a class="sectref" rel="parent" HREF="whatsnew23.html">What's New in Python</A>
+<b class="navlabel">Next:</b>
+<a class="sectref" rel="next" HREF="node6.html">5 PEP 277: Unicode</A>
+<hr>
+<span class="release-info">Release 1.00.</span>
+</DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+See <i><a href="about.html">About this document...</a></i> for information on suggesting changes.
+</ADDRESS>
+</BODY>
+</HTML>

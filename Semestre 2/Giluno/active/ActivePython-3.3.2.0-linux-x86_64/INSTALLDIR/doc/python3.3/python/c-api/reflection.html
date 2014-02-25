@@ -1,0 +1,157 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso8859_1" />
+    
+    <title>Reflection</title>
+    <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="copyright" title="Copyright" href="../copyright.html" />
+    <link rel="top" title="Python v3.3.2 documentation" href="../index.html" />
+    <link rel="up" title="Utilities" href="utilities.html" />
+    <link rel="next" title="Codec registry and support functions" href="codec.html" />
+    <link rel="prev" title="String conversion and formatting" href="conversion.html" />
+    <link rel="shortcut icon" type="image/png" href="../_static/py.png" />
+    
+    
+    
+ 
+
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="codec.html" title="Codec registry and support functions"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="conversion.html" title="String conversion and formatting"
+             accesskey="P">previous</a> |</li>
+        <li><img src="../_static/py.png" alt=""
+                 style="vertical-align: middle; margin-top: -1px"/></li>
+        <li><a href="http://www.python.org/">Python</a> &raquo;</li>
+        <li>
+          <a href="../index.html">3.3.2 Documentation</a> &raquo;
+        </li>
+
+          <li><a href="index.html" >Python/C API Reference Manual</a> &raquo;</li>
+          <li><a href="utilities.html" accesskey="U">Utilities</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body">
+            
+  <div class="section" id="reflection">
+<span id="id1"></span><h1>Reflection</h1>
+<dl class="function">
+<dt id="PyEval_GetBuiltins">
+<a class="reference internal" href="structures.html#PyObject" title="PyObject">PyObject</a>* <tt class="descname">PyEval_GetBuiltins</tt><big>(</big><big>)</big></dt>
+<dd><em class="refcount">Return value: Borrowed reference.</em><p>Return a dictionary of the builtins in the current execution frame,
+or the interpreter of the thread state if no frame is currently executing.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="PyEval_GetLocals">
+<a class="reference internal" href="structures.html#PyObject" title="PyObject">PyObject</a>* <tt class="descname">PyEval_GetLocals</tt><big>(</big><big>)</big></dt>
+<dd><em class="refcount">Return value: Borrowed reference.</em><p>Return a dictionary of the local variables in the current execution frame,
+or <em>NULL</em> if no frame is currently executing.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="PyEval_GetGlobals">
+<a class="reference internal" href="structures.html#PyObject" title="PyObject">PyObject</a>* <tt class="descname">PyEval_GetGlobals</tt><big>(</big><big>)</big></dt>
+<dd><em class="refcount">Return value: Borrowed reference.</em><p>Return a dictionary of the global variables in the current execution frame,
+or <em>NULL</em> if no frame is currently executing.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="PyEval_GetFrame">
+PyFrameObject* <tt class="descname">PyEval_GetFrame</tt><big>(</big><big>)</big></dt>
+<dd><em class="refcount">Return value: Borrowed reference.</em><p>Return the current thread state&#8217;s frame, which is <em>NULL</em> if no frame is
+currently executing.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="PyFrame_GetLineNumber">
+int <tt class="descname">PyFrame_GetLineNumber</tt><big>(</big>PyFrameObject<em>&nbsp;*frame</em><big>)</big></dt>
+<dd><p>Return the line number that <em>frame</em> is currently executing.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="PyEval_GetFuncName">
+const char* <tt class="descname">PyEval_GetFuncName</tt><big>(</big><a class="reference internal" href="structures.html#PyObject" title="PyObject">PyObject</a><em>&nbsp;*func</em><big>)</big></dt>
+<dd><p>Return the name of <em>func</em> if it is a function, class or instance object, else the
+name of <em>func</em>s type.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="PyEval_GetFuncDesc">
+const char* <tt class="descname">PyEval_GetFuncDesc</tt><big>(</big><a class="reference internal" href="structures.html#PyObject" title="PyObject">PyObject</a><em>&nbsp;*func</em><big>)</big></dt>
+<dd><p>Return a description string, depending on the type of <em>func</em>.
+Return values include &#8220;()&#8221; for functions and methods, &#8221; constructor&#8221;,
+&#8221; instance&#8221;, and &#8221; object&#8221;.  Concatenated with the result of
+<a class="reference internal" href="#PyEval_GetFuncName" title="PyEval_GetFuncName"><tt class="xref c c-func docutils literal"><span class="pre">PyEval_GetFuncName()</span></tt></a>, the result will be a description of
+<em>func</em>.</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="codec.html" title="Codec registry and support functions"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="conversion.html" title="String conversion and formatting"
+             >previous</a> |</li>
+        <li><img src="../_static/py.png" alt=""
+                 style="vertical-align: middle; margin-top: -1px"/></li>
+        <li><a href="http://www.python.org/">Python</a> &raquo;</li>
+        <li>
+          <a href="../index.html">3.3.2 Documentation</a> &raquo;
+        </li>
+
+          <li><a href="index.html" >Python/C API Reference Manual</a> &raquo;</li>
+          <li><a href="utilities.html" >Utilities</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+    &copy; <a href="../copyright.html">Copyright</a> 1990-2013, Python Software Foundation.
+    <br />
+    The Python Software Foundation is a non-profit corporation.
+    <a href="http://www.python.org/psf/donations/">Please donate.</a>
+    <br />
+    Last updated on Aug 23, 2013.
+    <a href="../bugs.html">Found a bug</a>?
+    <br />
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+
+  </body>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+
+
+<link rel='start' href='../index.html' title='Python Documentation Index'>
+<link rel="first" href="whatsnew23.html" title='What's New in Python 2.3'>
+<link rel='contents' href='contents.html' title="Contents">
+<link rel='last' href='about.html' title='About this document...'>
+<link rel='help' href='about.html' title='About this document...'>
+<LINK REL="next" HREF="node22.html">
+<LINK REL="prev" HREF="node20.html">
+<LINK REL="parent" HREF="whatsnew23.html">
+<LINK REL="next" HREF="node22.html">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name='aesop' content='information'>
+<META NAME="description" CONTENT="Other Changes and Fixes ">
+<META NAME="keywords" CONTENT="whatsnew23">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<title>20 Other Changes and Fixes </title>
+<link rel="stylesheet" href="../style.css" type="text/css">
+</head>
+<body>
+<DIV CLASS="navigation">
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td><a rel="prev" title="19 Build and C" 
+  HREF="node20.html"><img src='../icons/previous.gif'
+  border='0' height='32'  alt='Previous Page' width='32'></A></td>
+<td><a rel="parent" title="What's New in Python" 
+  HREF="whatsnew23.html"><img src='../icons/up.gif'
+  border='0' height='32'  alt='Up One Level' width='32'></A></td>
+<td><a rel="next" title="21 Porting to Python" 
+  HREF="node22.html"><img src='../icons/next.gif'
+  border='0' height='32'  alt='Next Page' width='32'></A></td>
+<td align="center" width="100%">What's New in Python 2.3</td>
+<td><a rel="contents" title="Table of Contents" 
+  href="contents.html"><img src='../icons/contents.gif'
+  border='0' height='32'  alt='Contents' width='32'></A></td>
+<td><img src='../icons/blank.gif'
+  border='0' height='32'  alt='' width='32'></td>
+</tr></table>
+<b class="navlabel">Previous:</b>
+<a class="sectref" rel="prev" HREF="node20.html">19 Build and C</A>
+<b class="navlabel">Up:</b>
+<a class="sectref" rel="parent" HREF="whatsnew23.html">What's New in Python</A>
+<b class="navlabel">Next:</b>
+<a class="sectref" rel="next" HREF="node22.html">21 Porting to Python</A>
+<br><hr>
+</DIV>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION0002100000000000000000">&nbsp;</A>
+<BR>
+20 Other Changes and Fixes 
+</H1>
+
+<P>
+As usual, there were a bunch of other improvements and bugfixes
+scattered throughout the source tree.  A search through the CVS change
+logs finds there were 523 patches applied and 514 bugs fixed between
+Python 2.2 and 2.3.  Both figures are likely to be underestimates.
+
+<P>
+Some of the more notable changes are:
+
+<P>
+
+<UL>
+<LI>If the <a class="envvar" name="l2h-6">PYTHONINSPECT</a> environment variable is set, the
+Python interpreter will enter the interactive prompt after running a
+Python program, as if Python had been invoked with the <b class="programopt">-i</b>
+option. The environment variable can be set before running the Python
+interpreter, or it can be set by the Python program as part of its
+execution.
+
+<P>
+</LI>
+<LI>The <span class="file">regrtest.py</span> script now provides a way to allow ``all
+resources except <var>foo</var>.''  A resource name passed to the
+<b class="programopt">-u</b> option can now be prefixed with a hyphen
+("<tt class="character">-</tt>") to mean ``remove this resource.''  For example, the
+option `<code><b class="programopt">-u</b>all,-bsddb</code>' could be used to enable the
+use of all resources except <code>bsddb</code>.
+
+<P>
+</LI>
+<LI>The tools used to build the documentation now work under Cygwin
+as well as <font style="font-variant: small-caps;">Unix</font>.
+
+<P>
+</LI>
+<LI>The <code>SET_LINENO</code> opcode has been removed.  Back in the
+mists of time, this opcode was needed to produce line numbers in
+tracebacks and support trace functions (for, e.g., <tt class="module">pdb</tt>).
+Since Python 1.5, the line numbers in tracebacks have been computed
+using a different mechanism that works with ``python -O''.  For Python
+2.3 Michael Hudson implemented a similar scheme to determine when to
+call the trace function, removing the need for <code>SET_LINENO</code>
+entirely.
+
+<P>
+It would be difficult to detect any resulting difference from Python
+code, apart from a slight speed up when Python is run without
+<b class="programopt">-O</b>.
+
+<P>
+C extensions that access the <tt class="member">f_lineno</tt> field of frame objects
+should instead call <code>PyCode_Addr2Line(f-&gt;f_code, f-&gt;f_lasti)</code>.
+This will have the added effect of making the code work as desired
+under ``python -O'' in earlier versions of Python.
+
+<P>
+A nifty new feature is that trace functions can now assign to the
+<tt class="member">f_lineno</tt> attribute of frame objects, changing the line that
+will be executed next.  A "<tt class="samp">jump</tt>" command has been added to the
+<tt class="module">pdb</tt> debugger taking advantage of this new feature.
+(Implemented by Richie Hindle.)
+
+<P>
+</LI>
+</UL>
+
+<P>
+
+<DIV CLASS="navigation">
+<p><hr>
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td><a rel="prev" title="19 Build and C" 
+  rel="prev" title="19 Build and C" 
+  HREF="node20.html"><img src='../icons/previous.gif'
+  border='0' height='32'  alt='Previous Page' width='32'></A></td>
+<td><a rel="parent" title="What's New in Python" 
+  rel="parent" title="What's New in Python" 
+  HREF="whatsnew23.html"><img src='../icons/up.gif'
+  border='0' height='32'  alt='Up One Level' width='32'></A></td>
+<td><a rel="next" title="21 Porting to Python" 
+  rel="next" title="21 Porting to Python" 
+  HREF="node22.html"><img src='../icons/next.gif'
+  border='0' height='32'  alt='Next Page' width='32'></A></td>
+<td align="center" width="100%">What's New in Python 2.3</td>
+<td><a rel="contents" title="Table of Contents" 
+  rel="contents" title="Table of Contents" 
+  href="contents.html"><img src='../icons/contents.gif'
+  border='0' height='32'  alt='Contents' width='32'></A></td>
+<td><img src='../icons/blank.gif'
+  border='0' height='32'  alt='' width='32'></td>
+</tr></table>
+<b class="navlabel">Previous:</b>
+<a class="sectref" rel="prev" HREF="node20.html">19 Build and C</A>
+<b class="navlabel">Up:</b>
+<a class="sectref" rel="parent" HREF="whatsnew23.html">What's New in Python</A>
+<b class="navlabel">Next:</b>
+<a class="sectref" rel="next" HREF="node22.html">21 Porting to Python</A>
+<hr>
+<span class="release-info">Release 1.00.</span>
+</DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+See <i><a href="about.html">About this document...</a></i> for information on suggesting changes.
+</ADDRESS>
+</BODY>
+</HTML>

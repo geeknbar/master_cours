@@ -1,0 +1,375 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.48)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Decisions</TITLE>
+<META NAME="description" CONTENT="Decisions">
+<META NAME="keywords" CONTENT="easytut">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="easytut.css">
+
+<LINK REL="next" HREF="node8.html">
+<LINK REL="previous" HREF="node6.html">
+<LINK REL="up" HREF="easytut.html">
+<LINK REL="next" HREF="node8.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html232"
+  HREF="node8.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html228"
+  HREF="easytut.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html222"
+  HREF="node6.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html230"
+  HREF="node2.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html233"
+  HREF="node8.html">Debugging</A>
+<B> Up:</B> <A NAME="tex2html229"
+  HREF="easytut.html">Non-Programmers Tutorial For Python</A>
+<B> Previous:</B> <A NAME="tex2html223"
+  HREF="node6.html">Count to 10</A>
+ &nbsp <B>  <A NAME="tex2html231"
+  HREF="node2.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL>
+<LI><A NAME="tex2html234"
+  HREF="#SECTION00710000000000000000">If statement</A>
+<LI><A NAME="tex2html235"
+  HREF="#SECTION00720000000000000000">Examples</A>
+<LI><A NAME="tex2html236"
+  HREF="#SECTION00730000000000000000">Exercises</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+
+<H1><A NAME="SECTION00700000000000000000">
+Decisions</A>
+</H1>
+
+<P>
+
+<H1><A NAME="SECTION00710000000000000000">
+If statement</A>
+</H1>
+As always I believe I should start each chapter with a warm up typing exercise so here is a short program to compute the absolute value of a number:
+<PRE>
+n = input("Number? ")
+if n &lt; 0:
+        print "The absolute value of",n,"is",-n
+else:
+        print "The absolute value of",n,"is",n
+</PRE>
+
+<P>
+Here is the output from the two times that I ran this program:
+<PRE>
+Number? -34
+The absolute value of -34 is 34
+
+Number? 1
+The absolute value of 1 is 1
+</PRE>
+
+<P>
+So what does the computer do when when it sees this piece of code?  First it prompts the user for a number with the statement <TT>n = input("Number? ")</TT>.  Next it reads the line <TT>if n &lt; 0:</TT> If <TT>n</TT> is less than zero Python runs the line <TT>print "The absolute value of",n,"is",-n</TT>. Otherwise python runs the line  <TT>print "The absolute value of",n,"is",n</TT>.  
+
+<P>
+More formally Python looks at whether the <EM>expression</EM> <TT>n &lt; 0</TT> is true or false.  A <TT>if</TT> statement is followed by a <EM>block</EM> of statements that are run when the expression is true.  Optionally after the <TT>if</TT> statement is a <TT>else</TT> statement.  The <TT>else</TT> statement is run if the expression is false.  
+
+<P>
+There are several different tests that a expression can have.  Here is a table of all of them:
+
+<P>
+<TABLE CELLPADDING=3 BORDER="1">
+<TR><TD ALIGN="LEFT">operator</TD>
+<TD ALIGN="LEFT">function</TD>
+</TR>
+<TR><TD ALIGN="LEFT"><code>&lt;</code></TD>
+<TD ALIGN="LEFT">less than</TD>
+</TR>
+<TR><TD ALIGN="LEFT"><code>&lt;=</code></TD>
+<TD ALIGN="LEFT">less than or equal to</TD>
+</TR>
+<TR><TD ALIGN="LEFT"><code>&gt;</code></TD>
+<TD ALIGN="LEFT">greater than</TD>
+</TR>
+<TR><TD ALIGN="LEFT"><code>&gt;=</code></TD>
+<TD ALIGN="LEFT">greater than or equal to</TD>
+</TR>
+<TR><TD ALIGN="LEFT"><code>==</code></TD>
+<TD ALIGN="LEFT">equal</TD>
+</TR>
+<TR><TD ALIGN="LEFT"><code>!=</code></TD>
+<TD ALIGN="LEFT">not equal</TD>
+</TR>
+<TR><TD ALIGN="LEFT"><code>&lt;&gt;</code></TD>
+<TD ALIGN="LEFT">another way to say not equal</TD>
+</TR>
+</TABLE>
+
+<P>
+Another feature of the <TT>if</TT> command is the <TT>elif </TT> statement.  It stands for else if and means if the original <TT>if</TT> statement is false and then the <TT>elif</TT> part is true do that part.  Here's a example:
+<PRE>
+a = 0
+while a &lt; 10:
+        a = a + 1
+        if a &gt; 5:
+                print a," &gt; ",5
+        elif a &lt;= 7:
+                print a," &lt;= ",7
+        else:
+                print "Neither test was true"
+</PRE>
+
+<P>
+and the output:
+
+<P>
+<PRE>
+1  &lt;=  7
+2  &lt;=  7
+3  &lt;=  7
+4  &lt;=  7
+5  &lt;=  7
+6  &gt;  5
+7  &gt;  5
+8  &gt;  5
+9  &gt;  5
+10  &gt;  5
+</PRE>
+
+<P>
+Notice how the <TT>elif a &lt;= 7</TT> is only tested when the <TT>if</TT> statement fail to be true.  <TT>elif</TT> allows multiple tests to be done in a single if statement. 
+
+<P>
+
+<H1><A NAME="SECTION00720000000000000000">
+Examples</A>
+</H1>
+
+<P>
+High_low.py
+<A NAME="firsthighlow"></A><PRE>
+#Plays the guessing game higher or lower 
+# (originally written by Josh Cogliati, improved by Quique)
+
+#This should actually be something that is semi random like the
+# last digits of the time or something else, but that will have to
+# wait till a later chapter.  (Extra Credit, modify it to be random
+# after the Modules chapter)
+number = 78
+guess = 0
+
+while guess != number : 
+    guess = input ("Guess a number: ")
+
+    if guess &gt; number :
+        print "Too high"
+
+    elif guess &lt; number :
+            print "Too low"
+
+print "Just right"
+</PRE>
+
+<P>
+Sample run:
+<PRE>
+Guess a number:100
+Too high
+Guess a number:50
+Too low
+Guess a number:75
+Too low
+Guess a number:87
+Too high
+Guess a number:81
+Too high
+Guess a number:78
+Just right
+</PRE>
+
+<P>
+even.py
+<PRE>
+#Asks for a number.
+#Prints if it is even or odd
+
+number = input("Tell me a number: ")
+if number % 2 == 0:
+    print number,"is even."
+elif number % 2 == 1:
+    print number,"is odd."
+else:
+    print number,"is very strange."
+</PRE>
+
+<P>
+Sample runs.
+<PRE>
+Tell me a number: 3
+3 is odd.
+
+Tell me a number: 2
+2 is even.
+
+Tell me a number: 3.14159
+3.14159 is very strange.
+</PRE>
+
+<P>
+average1.py
+<PRE>
+#keeps asking for numbers until 0 is entered.
+#Prints the average value.
+
+count = 0
+sum = 0.0
+number = 1 #set this to something that will not exit
+#           the while loop immediatly.
+
+print "Enter 0 to exit the loop"
+
+while number != 0:
+    number = input("Enter a number:")
+    count = count + 1
+    sum = sum + number
+
+count = count - 1 #take off one for the last number
+print "The average was:",sum/count
+</PRE>
+
+<P>
+Sample runs
+<PRE>
+Enter 0 to exit the loop
+Enter a number:3
+Enter a number:5
+Enter a number:0
+The average was: 4.0
+
+Enter 0 to exit the loop
+Enter a number:1
+Enter a number:4
+Enter a number:3
+Enter a number:0
+The average was: 2.66666666667
+</PRE>
+
+<P>
+average2.py
+<PRE>
+#keeps asking for numbers until count have been entered.
+#Prints the average value.
+
+sum = 0.0
+
+print "This program will take several numbers than average them"
+count = input("How many numbers would you like to sum:")
+current_count = 0
+
+while current_count &lt; count:
+    current_count = current_count + 1
+    print "Number ",current_count
+    number = input("Enter a number:")
+    sum = sum + number
+
+print "The average was:",sum/count
+</PRE>
+
+<P>
+Sample runs
+<PRE>
+This program will take several numbers than average them
+How many numbers would you like to sum:2
+Number  1
+Enter a number:3
+Number  2
+Enter a number:5
+The average was: 4.0
+
+This program will take several numbers than average them
+How many numbers would you like to sum:3
+Number  1
+Enter a number:1
+Number  2
+Enter a number:4
+Number  3
+Enter a number:3
+The average was: 2.66666666667
+</PRE>
+
+<P>
+
+<H1><A NAME="SECTION00730000000000000000">
+Exercises</A>
+</H1>
+
+<P>
+Modify the password guessing program to keep track of how many times the 
+user has entered the password wrong.  If it is more than 3 times, print
+``That must have been complicated.''
+
+<P>
+Write a program that asks for two numbers.  If the sum of the numbers 
+is greater than 100, print ``That is big number''.
+
+<P>
+Write a program that asks the user their name, if they enter your name
+say "That is a nice name", if they enter "John Cleese" or "Michael
+Palin", tell them how you feel about them ;), otherwise tell them "You
+have a nice name".
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html232"
+  HREF="node8.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html228"
+  HREF="easytut.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html222"
+  HREF="node6.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html230"
+  HREF="node2.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html233"
+  HREF="node8.html">Debugging</A>
+<B> Up:</B> <A NAME="tex2html229"
+  HREF="easytut.html">Non-Programmers Tutorial For Python</A>
+<B> Previous:</B> <A NAME="tex2html223"
+  HREF="node6.html">Count to 10</A>
+ &nbsp <B>  <A NAME="tex2html231"
+  HREF="node2.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+Josh Cogliati <a href="mailto:jjc@honors.montana.edu">jjc@honors.montana.edu</a> Wikibooks Version: <a href="http://wikibooks.org/wiki/User:Jrincayc/Contents">Wikibooks Non-programmers Python Tutorial Contents</a>
+</ADDRESS>
+</BODY>
+</HTML>

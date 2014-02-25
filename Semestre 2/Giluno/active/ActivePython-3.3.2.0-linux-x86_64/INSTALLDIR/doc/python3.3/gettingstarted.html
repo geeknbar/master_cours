@@ -1,0 +1,447 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title>Getting Started with ActivePython 3.3</title>
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+
+<body>
+
+
+
+<p>You are here: <a href="welcome.html">ActivePython User Guide</a> &raquo; <strong>Getting Started</strong></p>
+<a name="Top"></a>
+<h1>Getting Started with ActivePython 3.3</h1>
+
+<p>Welcome to ActivePython!  Python is an interpreted
+<a target="_blank" href="http://www.activestate.com/white-papers/benefits-dynamic-languages"
+>dynamic
+programming language <img src="img/xlink.gif" border="0"/></a>. ActivePython is
+a binary distribution of that language: a no-hassle, ready to install package
+to lets you get to the business of writing Python software.</p>
+
+<p>Presumably you have now installed ActivePython. (If not, head over to the
+<a href="installnotes.html">Install Notes</a> to find out how.) <em>So now
+what?</em> This page will help you get started using ActivePython
+3.3 quickly and effectively.</p>
+
+<ul>
+<li>If you are an old Python hat but just new to ActivePython, the 
+<a href="welcome.html">User Guide welcome page</a> gives a brief answer to
+<q><em>What is ActivePython?</em></q> and <a href="whatsincluded.html">this
+page</a> describes the contents of the ActivePython distribution.
+</li>
+
+<li>If you are new to Python you might want to read any or all of the 
+<a href="python/tutorial/index.html">Python Tutorial</a>, the 
+<a href="easytut/index.html">Non-Programmer's Tutorial for Python</a>, and
+<a href="diveintopython/html/toc/index.html">Dive Into Python</a> depending on
+your programming experience. After having read those the 
+<a href="python/index.html">main Python documentation</a>, 
+especially the <a href="python/library/index.html">Library Reference</a>, will most
+likely be your best reference.</li>
+
+<li>If you are upgrading your Python version to 3.3, you
+should read <a href="python/whatsnew/3.3.html">What's New in
+Python 3.3?</a> For a more detailed change list, check out the
+<a href="whatsnew/NEWS.html">Python NEWS file</a>.</li>
+
+<li>See below for details on using ActivePython on your particular platform:
+<ul>
+    <li><a href="#windows">Getting Started on Windows</a></li>
+    <li><a href="#macosx">Getting Started on Mac OS X</a></li>
+    <li><a href="#linux">Getting Started on Linux, AIX and HP-UX</a></li>
+    <li><a href="#solaris">Getting Started on Solaris</a></li>
+</ul>
+</li>
+</ul>
+
+
+<h2 id="windows"><img src="img/icon_win.gif"/> Getting Started on Windows</h2>
+
+<table class="quicklist">
+<tr>
+    <th>Install Location</th>
+    <td><code>%SystemDrive%\Python33</code> (usually
+    <code>C:\Python33</code>) by default, but can be specified
+    at install time</td>
+</tr>
+<tr>
+    <th>Local Documentation</th>
+    <td>The <q>ActivePython Documentation</q> link in the
+    <q>ActiveState ActivePython 3.3</q> program group of the Start
+    menu.</td>
+</tr>
+</table>
+
+
+<h3>Running Python and the Interactive Shell</h3>
+<p>The ActivePython installer on Windows will automatically add
+<code>python</code> to your PATH environment variable (Win98/WinME users may
+have to reboot for this change to take effect) so you should be able to run
+<code>python</code> at the DOS shell to start the Python interactive shell. You
+can also start the Python interactive shell from the ActivePython program group
+under the Windows Start menu. You should see something like the following:</p>
+
+<pre>ActivePython 3.3.2.0 (ActiveState Software Inc.) based on
+Python 3.3.2 (#65, Mar 30 2005, 09:33:37 [MSC v.1310 32 bit (Intel)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+&gt;&gt;&gt;
+</pre>
+
+<p>You can use the Python shell to interactively run Python code. This can be
+very useful development and debugging tool. Learn how to use Python's built-in
+<a href="python/library/functions.html#dir"><code>dir()</code></a> and 
+<a href="python/library/functions.html#help"><code>help()</code></a>
+introspection functions to dive into Python objects. For example, try running
+the following:</p>
+
+<pre>
+&gt;&gt;&gt; import os.path
+&gt;&gt;&gt; dir(os.path)
+<strong>list of members of os.path module...</strong>
+&gt;&gt;&gt; help(os.path)
+<strong>MAN page-like description of the os.path module...</strong>
+&gt;&gt;&gt; help(os.path.join)
+<strong>help on the join function...</strong>
+</pre>
+
+<p>Read the <a href="python/tutorial/index.html">Python Tutorial</a> for more information.</p>
+
+<!-- TODO: running a script, double-clicking, PATHEXT, pythonw -->
+
+<h3>GUI Programming</h3>
+
+<p><a href="python/library/tk.html">Tkinter</a> is Python's binding to
+the cross-platform Tk GUI toolkit and is a default part of any ActivePython
+installation.</p>
+
+<p>wxPython is another popular cross-platform GUI programming toolkit. It is
+available separately from <a
+href="http://www.wxpython.org/">http://www.wxpython.org/</a>.</p>
+
+<p>Python includes a large number of GUI programming toolkits and while Tkinter
+and wxPython are the primary two contenders on Windows, there are some other
+options. The included PyWin32 extensions provide some bindings to Windows UI
+routines (<a href="pywin32/win32ui.html">win32ui</a>,
+<a href="pywin32/win32uiole.html">win32uiole</a>). As well there are the 
+<a href="http://www.riverbankcomputing.co.uk/software/pyqt/intro">PyQT</a>
+and <a href="http://www.pygtk.org/">PyGTK</a> bindings to the QT and GTK GUI
+toolkits, respectively. They are both available separately. Both QT's and GTK's
+main roots are in the Linux/Unix platform, but they are available for Windows
+as well.</p>
+
+<h3>Windows-specific Libraries and Tools</h3>
+
+<p>ActivePython on Windows includes the
+<a href="https://sourceforge.net/projects/pywin32/">PyWin32 extensions</a>.
+These extensions provide bindings to much of the Windows API, full Windows COM
+integration, and the Pythonwin IDE (a basic Python editing environment). Read
+more about the Windows API and COM integration in the
+<a href="pywin32/PyWin32.HTML">PyWin32 documentation</a> (only include in the
+ActivePython documentation on Windows).</p>
+
+
+<h2 id="macosx"><img src="img/icon_mac.gif"/> Getting Started on Mac OS X</h2>
+<table class="quicklist">
+<tr>
+    <th>Install Location</th>
+    <td><code>/Library/Frameworks/Python.framework/Versions/3.3</code>
+    with links created in <code>/usr/local/bin</code></td>
+</tr>
+<tr>
+    <th>Local Documentation</th>
+    <td>Open the "Help Viewer" application
+    (<code>/System/Library/CoreServices/Help Viewer.app</code>). Select
+    "ActivePython 3.3 Help" from Help Viewer's "Library" menu.
+    <a href="faq.html#mac-os-x">More info...</a></td>
+</tr>
+</table>
+
+<h3>Running Python and the Interactive Shell</h3>
+<p>The ActivePython installer on Mac OS X installs symlinks for running
+<code>python</code>, <code>pythonw</code>, and <code>pydoc</code> to
+<code>/usr/local/bin</code>. If this directory is not already on your PATH you
+can add it manually as follows. Note that the default setup on Mac OS X 
+10.4 (Tiger) does <em>not</em> put <code>/usr/local/bin</code> on
+your PATH.</p>
+
+<pre># Place the following in your <code>~/.bashrc</code> file.
+PATH=/usr/local/bin:$PATH; export PATH
+</pre>
+
+<p>Open the Terminal application
+(<code>/Applications/Utilities/Terminal.app</code>) and type <code>python</code>.
+(If you already had a terminal open you may need to start a new one to see the
+PATH changes.) You should see something like the following:</p>
+
+<pre>ActivePython 3.3.2.0 (ActiveState Software Inc.) based on
+Python 3.3.2 (#1, Mar 30 2005, 09:33:37)
+[GCC 3.3 20030304 (Apple Computer, Inc. build 1666)] on darwin
+Type "help", "copyright", "credits" or "license" for more information.
+&gt;&gt;&gt;
+</pre>
+
+<p>You can use the Python shell to interactively run Python code. This can be
+very useful development and debugging tool. Learn how to use Python's built-in
+<a href="python/library/functions.html#dir"><code>dir()</code></a> and 
+<a href="python/library/functions.html#help"><code>help()</code></a>
+introspection functions to dive into Python objects. For example, try running
+the following:</p>
+
+<pre>
+&gt;&gt;&gt; import os.path
+&gt;&gt;&gt; dir(os.path)
+<strong>list of members of os.path module...</strong>
+&gt;&gt;&gt; help(os.path)
+<strong>MAN page-like desciption of the os.path module...</strong>
+&gt;&gt;&gt; help(os.path.join)
+<strong>help on the join function...</strong>
+</pre>
+
+<p>Read the <a href="python/tutorial/index.html">Python Tutorial</a> for more information.</p>
+
+<h5>pythonw</h5>
+
+On Mac OS X, any process that provides a GUI (i.e. talks to the Aqua window
+manager) needs to be launched in a certain way. The <code>pythonw</code>
+command (just a stub that calls the actual Python executable as required) is
+provided for this purpose. If your Python code provides a GUI, launch it with
+<code>pythonw</code> instead of <code>python</code>. (There <em>is</em> a <a
+href="http://svn.red-bean.com/pyobjc/trunk/pyobjc/pyobjc-core/Examples/Scripts/wmEnable.py">hack</a>,
+but it is not recommended.)
+
+
+<h3>GUI Programming</h3>
+
+<p><a href="python/library/tk.html">Tkinter</a> is Python's binding to
+the cross-platform Tk GUI toolkit. ActivePython includes Tkinter by default,
+but on Mac OS X you must also install
+<a href="http://www.activestate.com/activetcl">ActiveTcl</a> 
+to use Tkinter.</p>
+
+<p>wxPython is another popular cross-platform GUI programming toolkit. It is
+available separately from <a
+href="http://www.wxpython.org/">http://www.wxpython.org/</a>.</p>
+
+<p>The PyObjC project provides a bridge between Python and Apple's Objective-C
+system. Part of this system is the Cocao toolkit for Mac OS X GUI programming.
+See below for more information.</p>
+
+<h3>Mac OS X-specific Libraries and Tools</h3>
+
+<h5>Documentation</h5>
+<p>In addition to the <a href="python/library/index.html">Python Library
+Reference</a> that most Python developers will want to be familiar with, Python
+developers on Mac OS X may also want to take a look at the 
+<a href="python/library/mac.html">Macintosh Module Reference</a>. Please be aware,
+however, that some of this documentation is out-of-date (some of referring to
+Mac OS 9, a.k.a. Mac Classic). The most useful sections will be
+<a href="python/library/carbon.html">MacOS Toolbox Modules</a> and possibly
+<a href="python/library/macosa.html#mac-scripting">MacPython OSA Modules</a>, which discusses
+current bindings to Apple's OSA (Open Scripting Architecture, of which
+AppleScript is an implementation) system.</p>
+
+<h5>PyObjC</h5>
+<p>The <a href="http://pyobjc.sourceforge.net/">PyObjC project</a>, as mentioned
+above, provides a bridge between Python and Apple's Objective-C system. In
+particular it provides the ability to write complete Mac OS X GUI applications
+in Python. PyObjC is, at the time of this writing, being very actively
+developed. You can either install the latest release version of PyObjC using 
+<a href="pypm.html#installing-packages">PyPM</a> or build it yourself 
+as follows:
+</p>
+
+<ol>
+<li>If you do not have a <code>/Developer</code> directory, you will first need
+to install the Apple Developer Tools. These are often available on a separate
+CD that shipped with your Mac hardware. Alternatively you can 
+<a href="http://developer.apple.com/tools/">download them</a> from Apple's
+developer site after registering for a (free) ADC membership.</li>
+
+<li>You will need a Subversion client, <code>svn</code>, with which to checkout
+the latest PyObjC sources. You can find a Subversion installer 
+<a href="http://subversion.apache.org/packages.html#osx">here</a>.</li>
+
+<li>Run the following to download, build, and install PyObjC:
+<pre>svn co http://svn.red-bean.com/pyobjc/trunk/pyobjc/
+cd pyobjc
+/usr/local/bin/python setup.py install
+</pre></li>
+</ol>
+
+<h5>py2app</h5>
+<p><code>py2app</code> (available separately from 
+<a href="http://undefined.org/python/py2app.html">here</a>) is an
+extension to <a href="python/distutils/index.html">Python's standard distutils
+system</a> for building and distributing Python software. If would like to
+distribute your Python software as full-fledged Mac OS X applications and/or
+with Mac OS X Installer packages you should take a look at <code>py2app</code>.
+
+<!-- TODO: PythonLauncher, PackageManager, pythonw -->
+
+
+<h2 id="linux"><img src="img/icon_lin.gif"/> Getting Started on Linux, AIX, HP-UX</h2>
+<table class="quicklist">
+<tr>
+    <th>Install Location</th>
+    <td><code>/opt/ActivePython-3.3</code> by default, but can
+    be specified at install time</td>
+</tr>
+<tr>
+    <th>Local Documentation</th>
+    <td>Open
+    <code>/opt/ActivePython-3.3/doc/python3.3/index.html</code>
+    in your browser.</td>
+</tr>
+</table>
+
+<h3>Running Python and the Interactive Shell</h3>
+<p>The ActivePython installer on Linux, AIX and HP-UX installs to
+<code>/opt/ActivePython-3.3</code> by default, but an alternate
+install directory (for example, somewhere in your home directory) can be
+specified at install time. To be able to simply run <code>python</code> from
+the shell you either need to add this install directory's <code>bin</code> dir
+to your <code>PATH</code>:</p>
+
+<pre># If you use the Bash shell place the following in 
+# your <code>~/.bashrc</code> file.
+PATH=<strong>/opt/ActivePython-3.3</strong>/bin:$PATH; export PATH
+
+# If you use the <code>tcsh</code> shell place the following in
+# your <code>~/.cshrc</code> file.
+setenv PATH <strong>/opt/ActivePython-3.3</strong>/bin:$PATH
+</pre>
+
+<p>or create symlinks from some directory alread on your <code>PATH</code>
+(commonly <code>/usr/local/bin</code>) to <code>python</code>:</p>
+
+<pre>sudo ln -sf <strong>/opt/ActivePython-3.3</strong>/bin/python3.3 /usr/local/bin/python3.3
+sudo ln -sf /usr/local/bin/python3.3 /usr/local/bin/python
+</pre>
+
+<p>Type <code>python</code> in the shell. (If you modified your shell startup
+script, you may need to start a new shell to see the PATH changes.) You should
+see something like the following:</p>
+
+<pre>ActivePython 3.3.2.0 (ActiveState Software Inc.) based on
+Python 3.3.2 (#1, Mar 30 2005, 09:33:37)
+[GCC 3.3.1 (SuSE Linux)] on linux2
+Type "help", "copyright", "credits" or "license" for more information.
+&gt;&gt;&gt;
+</pre>
+
+<p>You can use the Python shell to interactively run Python code. This can be
+very useful development and debugging tool. Learn how to use Python's built-in
+<a href="python/library/functions.html#dir"><code>dir()</code></a> and 
+<a href="python/library/functions.html#help"><code>help()</code></a>
+introspection functions to dive into Python objects. For example, try running
+the following:</p>
+
+<pre>
+&gt;&gt;&gt; import os.path
+&gt;&gt;&gt; dir(os.path)
+<strong>list of members of os.path module...</strong>
+&gt;&gt;&gt; help(os.path)
+<strong>MAN page-like desciption of the os.path module...</strong>
+&gt;&gt;&gt; help(os.path.join)
+<strong>help on the join function...</strong>
+</pre>
+
+<p>Read the <a href="python/tutorial/index.html">Python Tutorial</a> for more information.</p>
+
+<h3>GUI Programming</h3>
+
+<p><a href="python/library/tk.html">Tkinter</a> is Python's binding to
+the cross-platform Tk GUI toolkit and is a default part of any ActivePython
+installation on Linux, AIX and HP-UX.</p>
+
+<p>wxPython is another popular cross-platform GUI programming toolkit. It is
+available separately from <a
+href="http://www.wxpython.org/">http://www.wxpython.org/</a>.</p>
+
+<p>As well there are the 
+<a href="http://www.riverbankcomputing.co.uk/software/pyqt/intro">PyQT</a>
+and <a href="http://www.pygtk.org/">PyGTK</a> bindings to the QT and GTK GUI
+toolkits, respectively. They are both available separately.</p>
+
+
+<h2 id="solaris"><img src="img/icon_sol.gif"/> Getting Started on Solaris</h2>
+<table class="quicklist">
+<tr>
+    <th>Install Location</th>
+    <td><code>/opt/ASpy33</code> by default, but can
+    be specified at install time</td>
+</tr>
+<tr>
+    <th>Local Documentation</th>
+    <td>Open
+    <code>/opt/ASpy33/doc/python3.3/index.html</code>
+    in your browser.</td>
+</tr>
+</table>
+
+<h3>Running Python and the Interactive Shell</h3>
+<p>The ActivePython installer on Solaris installs to
+<code>/opt/ASpy33</code> by default, but an alternate
+install directory (for example, somewhere in your home directory) can be
+specified at install time. To be able to simply run <code>python</code> from
+the shell you either need to add this install directory's <code>bin</code> dir
+to your <code>PATH</code>:</p>
+
+<pre># If you use the Bash shell place the following in 
+# your <code>~/.bashrc</code> file.
+PATH=<strong>/opt/ASpy33</strong>/bin:$PATH; export PATH
+
+# If you use the <code>tcsh</code> shell place the following in
+# your <code>~/.cshrc</code> file.
+setenv PATH <strong>/opt/ASpy33</strong>/bin:$PATH
+</pre>
+
+<p>or create symlinks from some directory alread on your <code>PATH</code>
+(commonly <code>/usr/local/bin</code>) to <code>python</code>:</p>
+
+<pre>sudo ln -sf <strong>/opt/ASpy33</strong>/bin/python3.3 /usr/local/bin/python3.3
+sudo ln -sf /usr/local/bin/python3.3 /usr/local/bin/python
+</pre>
+
+<p>Type <code>python</code> in the shell. (If you modified your shell startup
+script, you may need to start a new shell to see the PATH changes.) You should
+see something like the following:</p>
+
+<pre>ActivePython 3.3.2.0 (ActiveState Software Inc.) based on
+Python 3.3.2 (#2, Mar 30 2005, 09:33:37) [C] on sunos5
+Type "help", "copyright", "credits" or "license" for more information.
+&gt;&gt;&gt;
+</pre>
+
+<p>You can use the Python shell to interactively run Python code. This can be
+very useful development and debugging tool. Learn how to use Python's built-in
+<a href="python/library/functions.html#dir"><code>dir()</code></a> and 
+<a href="python/library/functions.html#help"><code>help()</code></a>
+introspection functions to dive into Python objects. For example, try running
+the following:</p>
+
+<pre>
+&gt;&gt;&gt; import os.path
+&gt;&gt;&gt; dir(os.path)
+<strong>list of members of os.path module...</strong>
+&gt;&gt;&gt; help(os.path)
+<strong>MAN page-like desciption of the os.path module...</strong>
+&gt;&gt;&gt; help(os.path.join)
+<strong>help on the join function...</strong>
+</pre>
+
+<p>Read the <a href="python/tutorial/index.html">Python Tutorial</a> for more information.</p>
+
+
+<!-- Footer Start -->
+<br/>
+<div class="footer" align="center">Copyright &copy; 2000-2013 ActiveState Software Inc. 
+
+<a class="doc" target="_blank" href="http://www.activestate.com">http://www.activestate.com</a> 
+All Rights Reserved.</div> 
+<!-- Footer End -->
+
+</body>
+</html>

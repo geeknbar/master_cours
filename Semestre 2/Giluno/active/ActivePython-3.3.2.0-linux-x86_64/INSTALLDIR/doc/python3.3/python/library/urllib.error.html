@@ -1,0 +1,158 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso8859_1" />
+    
+    <title>21.9. urllib.error &#8212; Exception classes raised by urllib.request</title>
+    <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="copyright" title="Copyright" href="../copyright.html" />
+    <link rel="top" title="Python v3.3.2 documentation" href="../index.html" />
+    <link rel="up" title="21. Internet Protocols and Support" href="internet.html" />
+    <link rel="next" title="21.10. urllib.robotparser &#8212; Parser for robots.txt" href="urllib.robotparser.html" />
+    <link rel="prev" title="21.8. urllib.parse &#8212; Parse URLs into components" href="urllib.parse.html" />
+    <link rel="shortcut icon" type="image/png" href="../_static/py.png" />
+    
+    
+    
+ 
+
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="urllib.robotparser.html" title="21.10. urllib.robotparser &#8212; Parser for robots.txt"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="urllib.parse.html" title="21.8. urllib.parse &#8212; Parse URLs into components"
+             accesskey="P">previous</a> |</li>
+        <li><img src="../_static/py.png" alt=""
+                 style="vertical-align: middle; margin-top: -1px"/></li>
+        <li><a href="http://www.python.org/">Python</a> &raquo;</li>
+        <li>
+          <a href="../index.html">3.3.2 Documentation</a> &raquo;
+        </li>
+
+          <li><a href="index.html" >The Python Standard Library</a> &raquo;</li>
+          <li><a href="internet.html" accesskey="U">21. Internet Protocols and Support</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body">
+            
+  <div class="section" id="module-urllib.error">
+<span id="urllib-error-exception-classes-raised-by-urllib-request"></span><h1>21.9. <a class="reference internal" href="#module-urllib.error" title="urllib.error: Exception classes raised by urllib.request."><tt class="xref py py-mod docutils literal"><span class="pre">urllib.error</span></tt></a> &#8212; Exception classes raised by urllib.request</h1>
+<p>The <a class="reference internal" href="#module-urllib.error" title="urllib.error: Exception classes raised by urllib.request."><tt class="xref py py-mod docutils literal"><span class="pre">urllib.error</span></tt></a> module defines the exception classes for exceptions
+raised by <a class="reference internal" href="urllib.request.html#module-urllib.request" title="urllib.request: Extensible library for opening URLs."><tt class="xref py py-mod docutils literal"><span class="pre">urllib.request</span></tt></a>.  The base exception class is <a class="reference internal" href="#urllib.error.URLError" title="urllib.error.URLError"><tt class="xref py py-exc docutils literal"><span class="pre">URLError</span></tt></a>.</p>
+<p>The following exceptions are raised by <a class="reference internal" href="#module-urllib.error" title="urllib.error: Exception classes raised by urllib.request."><tt class="xref py py-mod docutils literal"><span class="pre">urllib.error</span></tt></a> as appropriate:</p>
+<dl class="exception">
+<dt id="urllib.error.URLError">
+<em class="property">exception </em><tt class="descclassname">urllib.error.</tt><tt class="descname">URLError</tt></dt>
+<dd><p>The handlers raise this exception (or derived exceptions) when they run into
+a problem.  It is a subclass of <a class="reference internal" href="exceptions.html#OSError" title="OSError"><tt class="xref py py-exc docutils literal"><span class="pre">OSError</span></tt></a>.</p>
+<dl class="attribute">
+<dt id="urllib.error.URLError.reason">
+<tt class="descname">reason</tt></dt>
+<dd><p>The reason for this error.  It can be a message string or another
+exception instance.</p>
+</dd></dl>
+
+<p class="versionchanged">
+<span class="versionmodified">Changed in version 3.3:</span> <a class="reference internal" href="#urllib.error.URLError" title="urllib.error.URLError"><tt class="xref py py-exc docutils literal"><span class="pre">URLError</span></tt></a> has been made a subclass of <a class="reference internal" href="exceptions.html#OSError" title="OSError"><tt class="xref py py-exc docutils literal"><span class="pre">OSError</span></tt></a> instead
+of <a class="reference internal" href="exceptions.html#IOError" title="IOError"><tt class="xref py py-exc docutils literal"><span class="pre">IOError</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="urllib.error.HTTPError">
+<em class="property">exception </em><tt class="descclassname">urllib.error.</tt><tt class="descname">HTTPError</tt></dt>
+<dd><p>Though being an exception (a subclass of <a class="reference internal" href="#urllib.error.URLError" title="urllib.error.URLError"><tt class="xref py py-exc docutils literal"><span class="pre">URLError</span></tt></a>), an
+<a class="reference internal" href="#urllib.error.HTTPError" title="urllib.error.HTTPError"><tt class="xref py py-exc docutils literal"><span class="pre">HTTPError</span></tt></a> can also function as a non-exceptional file-like return
+value (the same thing that <tt class="xref py py-func docutils literal"><span class="pre">urlopen()</span></tt> returns).  This is useful when
+handling exotic HTTP errors, such as requests for authentication.</p>
+<dl class="attribute">
+<dt id="urllib.error.HTTPError.code">
+<tt class="descname">code</tt></dt>
+<dd><p>An HTTP status code as defined in <a class="reference external" href="http://www.faqs.org/rfcs/rfc2616.html">RFC 2616</a>.  This numeric value corresponds
+to a value found in the dictionary of codes as found in
+<a class="reference internal" href="http.server.html#http.server.BaseHTTPRequestHandler.responses" title="http.server.BaseHTTPRequestHandler.responses"><tt class="xref py py-attr docutils literal"><span class="pre">http.server.BaseHTTPRequestHandler.responses</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="urllib.error.HTTPError.reason">
+<tt class="descname">reason</tt></dt>
+<dd><p>This is usually a string explaining the reason for this error.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="exception">
+<dt id="urllib.error.ContentTooShortError">
+<em class="property">exception </em><tt class="descclassname">urllib.error.</tt><tt class="descname">ContentTooShortError</tt><big>(</big><em>msg</em>, <em>content</em><big>)</big></dt>
+<dd><p>This exception is raised when the <tt class="xref py py-func docutils literal"><span class="pre">urlretrieve()</span></tt> function detects that
+the amount of the downloaded data is less than the expected amount (given by
+the <em>Content-Length</em> header).  The <tt class="xref py py-attr docutils literal"><span class="pre">content</span></tt> attribute stores the
+downloaded (and supposedly truncated) data.</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="urllib.robotparser.html" title="21.10. urllib.robotparser &#8212; Parser for robots.txt"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="urllib.parse.html" title="21.8. urllib.parse &#8212; Parse URLs into components"
+             >previous</a> |</li>
+        <li><img src="../_static/py.png" alt=""
+                 style="vertical-align: middle; margin-top: -1px"/></li>
+        <li><a href="http://www.python.org/">Python</a> &raquo;</li>
+        <li>
+          <a href="../index.html">3.3.2 Documentation</a> &raquo;
+        </li>
+
+          <li><a href="index.html" >The Python Standard Library</a> &raquo;</li>
+          <li><a href="internet.html" >21. Internet Protocols and Support</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+    &copy; <a href="../copyright.html">Copyright</a> 1990-2013, Python Software Foundation.
+    <br />
+    The Python Software Foundation is a non-profit corporation.
+    <a href="http://www.python.org/psf/donations/">Please donate.</a>
+    <br />
+    Last updated on Aug 23, 2013.
+    <a href="../bugs.html">Found a bug</a>?
+    <br />
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+
+  </body>
+</html>

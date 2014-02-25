@@ -1,0 +1,11 @@
+#!/home/apy/rrun/build/activepython-svn-trunk/build/py3_3_2-linux-x86_64-apy33-rrun/CoReAcTiVePyThOnPrEfIxCoReAcTiVePyThOnPrEfIxCoReAcTiVePyThOnPrEfIxCoReAcTiVePyThOnPrEfIxCoReAcTiVePyThOnPrEfIxCoReAcTiVePyThOnPrEfIxCoReAcTiVePyThOnPrEfIxCoReAcTiVePyThOnPrEfIxCoReAcTiVePyThOnPrEfIxCoReAcTiVePyThOnPrEfIx/bin/python3.3
+if __name__ == '__main__':
+    import sys
+    rc = 1
+    try:
+        import venv
+        venv.main()
+        rc = 0
+    except Exception as e:
+        print('Error: %s' % e, file=sys.stderr)
+    sys.exit(rc)

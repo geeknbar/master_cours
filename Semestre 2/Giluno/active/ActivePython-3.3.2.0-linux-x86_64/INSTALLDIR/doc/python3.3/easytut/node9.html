@@ -1,0 +1,643 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.48)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Defining Functions</TITLE>
+<META NAME="description" CONTENT="Defining Functions">
+<META NAME="keywords" CONTENT="easytut">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="easytut.css">
+
+<LINK REL="next" HREF="node10.html">
+<LINK REL="previous" HREF="node8.html">
+<LINK REL="up" HREF="easytut.html">
+<LINK REL="next" HREF="node10.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html263"
+  HREF="node10.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html259"
+  HREF="easytut.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html253"
+  HREF="node8.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html261"
+  HREF="node2.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html264"
+  HREF="node10.html">Lists</A>
+<B> Up:</B> <A NAME="tex2html260"
+  HREF="easytut.html">Non-Programmers Tutorial For Python</A>
+<B> Previous:</B> <A NAME="tex2html254"
+  HREF="node8.html">Debugging</A>
+ &nbsp <B>  <A NAME="tex2html262"
+  HREF="node2.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL>
+<LI><A NAME="tex2html265"
+  HREF="#SECTION00910000000000000000">Creating Functions</A>
+<LI><A NAME="tex2html266"
+  HREF="#SECTION00920000000000000000">Variables in functions</A>
+<LI><A NAME="tex2html267"
+  HREF="#SECTION00930000000000000000">Function walkthrough</A>
+<LI><A NAME="tex2html268"
+  HREF="#SECTION00940000000000000000">Examples</A>
+<LI><A NAME="tex2html269"
+  HREF="#SECTION00950000000000000000">Exercises</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+
+<H1><A NAME="SECTION00900000000000000000">
+Defining Functions</A>
+</H1>
+
+<H1><A NAME="SECTION00910000000000000000">
+Creating Functions</A>
+</H1>
+To start off this chapter I am going to give you a example of what you could do but shouldn't (so don't type it in):
+<PRE>
+a = 23
+b = -23
+
+if a &lt; 0:
+    a = -a
+
+if b &lt; 0:
+    b = -b
+
+if a == b:
+    print "The absolute values of", a,"and",b,"are equal"
+else:
+    print "The absolute values of a and b are different"
+</PRE>
+with the output being:
+<PRE>
+The absolute values of 23 and 23 are equal
+</PRE>
+The program seems a little repetitive.  (Programmers hate to repeat things (That's what computers are for aren't they?))  Fortunately Python allows you to create functions to remove duplication.  Here's the rewritten example:
+<PRE>
+a = 23
+b = -23
+
+def my_abs(num):
+    if num &lt; 0:
+        num = -num
+    return num
+
+if my_abs(a) == my_abs(b):
+    print "The absolute values of", a,"and",b,"are equal"
+else:
+    print "The absolute values of a and b are different"
+</PRE>
+with the output being:
+<PRE>
+The absolute values of 23 and -23 are equal
+</PRE>
+The key feature of this program is the <TT>def</TT> statement.  <TT>def</TT>
+(short for define) starts a function definition.  <TT>def</TT> is
+followed by the name of the function <TT>my_abs</TT>.  Next comes a <TT>(</TT>
+followed by the parameter <TT>num</TT> (<TT>num</TT> is passed from the
+program into the function when the function is called).  The statements
+after the <TT>:</TT> are executed when the function is used.  The
+statements continue until either the indented statements end or a
+<TT>return</TT> is encountered.  The <TT>return</TT> statement returns a value
+back to the place where the function was called.
+
+<P>
+Notice how the values of <TT>a</TT> and <TT>b</TT> are not changed.
+Functions of course can be used to repeat tasks that don't return
+values.  Here's some examples:
+<PRE>
+def hello():
+    print "Hello"
+
+def area(width,height):
+    return width*height
+
+def print_welcome(name):
+    print "Welcome",name
+    
+hello()
+hello()
+
+print_welcome("Fred")
+w = 4
+h = 5
+print "width =",w,"height =",h,"area =",area(w,h)
+</PRE>
+with output being:
+<PRE>
+Hello
+Hello
+Welcome Fred
+width = 4 height = 5 area = 20
+</PRE>
+That example just shows some more stuff that you can do with
+functions.  Notice that you can use no arguments or two or more.
+Notice also when a function doesn't need to send back a value, a
+return is optional.
+
+<P>
+
+<H1><A NAME="SECTION00920000000000000000">
+Variables in functions</A>
+</H1>
+
+<P>
+Of course, when eliminiating repeated code, you often have variables in 
+the repeated code.  These are dealt with in a special way in Python.  Up 
+till now, all variables we have see are global variables.  Functions have 
+a special type of variable called local variables.  These variables only 
+exist while the function is running.  When a local variable has the 
+same name as another variable such as a global variable, the local variable
+hides the other variable.  Sound confusing?  Well, hopefully this next 
+example (which is a bit contrived) will clear things up.
+
+<P>
+<PRE>
+a_var = 10
+b_var = 15
+e_var = 25
+
+def a_func(a_var):
+    print "in a_func a_var = ",a_var
+    b_var = 100 + a_var
+    d_var = 2*a_var
+    print "in a_func b_var = ",b_var
+    print "in a_func d_var = ",d_var
+    print "in a_func e_var = ",e_var
+    return b_var + 10
+
+c_var = a_func(b_var)
+
+print "a_var = ",a_var
+print "b_var = ",b_var
+print "c_var = ",c_var
+print "d_var = ",d_var
+</PRE>
+
+<P>
+The output is:
+<PRE>
+in a_func a_var =  15
+in a_func b_var =  115
+in a_func d_var =  30
+in a_func e_var =  25
+a_var =  10
+b_var =  15
+c_var =  125
+d_var = 
+Traceback (innermost last):
+  File "separate.py", line 20, in ?
+    print "d_var = ",d_var
+NameError: d_var
+</PRE>
+
+<P>
+In this example the variables <TT>a_var</TT>, <TT>b_var</TT>, and <TT>d_var</TT>
+are all local variables when they are inside the function <TT>a_func</TT>.  
+After the statement <TT>return b_var + 10</TT> is run, they all cease to 
+exist. The variable <TT>a_var</TT> is automatically a local variable since it 
+is a parameter name.  The variables <TT>b_var</TT> and <TT>d_var</TT> are local
+variables since they appear on the left of an equals sign in the function in
+the statements <code>b_var = 100 + a_var</code> and <code>d_var = 2*a_var</code> .
+
+<P>
+Inside of the function <TT>a_var</TT> is 15 since the function is called
+with <TT>a_func(b_var)</TT>.  Since at that point in time <TT>b_var</TT> is 
+15, the call to the function is <TT>a_func(15)</TT>  This ends up setting
+<TT>a_var</TT> to 15 when it is inside of <TT>a_func</TT>.  
+
+<P>
+As you can see, once the function finishes running, the local variables
+<TT>a_var</TT> and <TT>b_var</TT> that had hidden the global variables of the same
+name are gone.  Then the statement <code>print "a_var = ",a_var</code> prints the 
+value <TT>10</TT> rather than the value <TT>15</TT> since the local variable 
+that hid the global variable is gone.  
+
+<P>
+Another thing to notice is the <TT>NameError</TT> that happens at the end.  
+This appears since the variable <TT>d_var</TT> no longer exists since 
+<TT>a_func</TT> finished.  All the local variables are deleted when the function
+exits.  If you want to get something from a function, then you will have 
+to use <TT>return something</TT>.
+
+<P>
+One last thing to notice is that the value of <TT>e_var</TT> remains unchanged 
+inside <TT>a_func</TT> since it is not a parameter and it never appears on the 
+left of an equals sign inside of the function <TT>a_func</TT>.  When a 
+global variable is accessed inside a function it is the global variable 
+from the outside.
+
+<P>
+Functions allow local variables that exist only inside the function and 
+can hide other variables that are outside the function.
+
+<P>
+
+<H1><A NAME="SECTION00930000000000000000">
+Function walkthrough</A>
+</H1>
+
+<P>
+<EM>TODO</EM> Move this section to a new chapter, Advanced Functions.
+
+<P>
+Now we will do a walk through for the following program:
+<PRE>
+def mult(a,b):
+    if b == 0:
+        return 0
+    rest = mult(a,b - 1)
+    value = a + rest
+    return value
+
+print "3*2 = ",mult(3,2)
+</PRE>
+
+<P>
+Basically this program creates a positive integer multiplication function
+(that is far slower than the built in multiplication function) and then
+demonstrates this function with a use of the function.  
+
+<P>
+<B>Question: </B>What is the first thing the program does?
+
+<P>
+<B>Answer: </B>The first thing done is the function mult is defined with the lines:
+<PRE>
+def mult(a,b):
+    if b == 0:
+        return 0
+    rest = mult(a,b - 1)
+    value = a + rest
+    return value
+</PRE>
+This creates a function that takes two parameters and returns a value when 
+it is done.  Later this function can be run.
+
+<P>
+<B>Question: </B>What happens next?  
+
+<P>
+<B>Answer: </B>The next line after the function,
+<code>print "3*2 = ",mult(3,2)</code> is run.
+
+<P>
+<B>Question: </B>And what does this do?
+
+<P>
+<B>Answer: </B>It prints <code>3*2 = </code> and the return value of <code>mult(3,2)</code>
+
+<P>
+<B>Question: </B>And what does <code>mult(3,2)</code> return?
+
+<P>
+<B>Answer: </B>We need to do a walkthrough of the <TT>mult</TT> function to find out.
+
+<P>
+<B>Question: </B>What happens next?
+
+<P>
+<B>Answer: </B>The variable <TT>a</TT> gets the value 3 assigned to it and the 
+variable <TT>b</TT> gets the value 2 assigned to it.
+
+<P>
+<B>Question: </B>And then?
+
+<P>
+<B>Answer: </B>The line <code>if b == 0:</code> is run.  Since <TT>b</TT> has the value 2 
+this is false so the line <code> return 0</code> is skipped.
+
+<P>
+<B>Question: </B>And what then?
+
+<P>
+<B>Answer: </B>The line <code>rest = mult(a,b - 1)</code> is run.  This line sets the 
+local variable <TT>rest</TT> to the value of <code>mult(a,b - 1)</code>.  The 
+value of <TT>a</TT> is 3 and the value of <TT>b</TT> is 2 so the function call 
+is <code>mult(3,1)</code>
+
+<P>
+<B>Question: </B>So what is the value of <code>mult(3,1)</code> ?
+
+<P>
+<B>Answer: </B>We will need to run the function <TT>mult</TT> with the parameters
+3 and 1.
+
+<P>
+<B>Question: </B>So what happens next?
+
+<P>
+<B>Answer: </B>The local variables in the <EM>new</EM> run of the function are
+set so that <TT>a</TT> has the value 3 and <TT>b</TT> has the value 1.
+Since these are local values these do not affect the previous values
+of <TT>a</TT> and <TT>b</TT>.
+
+<P>
+<B>Question: </B>And then?
+
+<P>
+<B>Answer: </B>Since <TT>b</TT> has the value 1 the if statement is false, so the 
+next line becomes <code>rest = mult(a,b - 1)</code>.
+
+<P>
+<B>Question: </B>What does this line do?
+
+<P>
+<B>Answer: </B>This line will assign the value of <TT>mult(3,0)</TT> to rest.
+
+<P>
+<B>Question: </B>So what is that value?
+
+<P>
+<B>Answer: </B>We will have to run the function one more time to find that out.
+This time <TT>a</TT> has the value 3 and <TT>b</TT> has the value 0.
+
+<P>
+<B>Question: </B>So what happens next?
+
+<P>
+<B>Answer: </B>The first line in the function to run is <code>if b == 0:</code> .  <TT>b</TT> has the value 0 so the next line to run is <code>return 0</code> 
+
+<P>
+<B>Question: </B>And what does the line <code>return 0</code> do?
+
+<P>
+<B>Answer: </B>This line returns the value 0 out of the function. 
+
+<P>
+<B>Question: </B>So?
+
+<P>
+<B>Answer: </B>So now we know that <TT>mult(3,0)</TT> has the value 0.  Now we
+know what the line <code>rest = mult(a,b - 1)</code> did since we have run
+the function <TT>mult</TT> with the parameters 3 and 0.  We have finished
+running <TT>mult(3,0)</TT> and are now back to running <TT>mult(3,1)</TT>.
+The variable <TT>rest</TT> gets assigned the value 0.
+
+<P>
+<B>Question: </B>What line is run next?
+
+<P>
+<B>Answer: </B>The line <code>value = a + rest</code> is run next. In this run of the 
+function, <code>a=3</code> and <code>rest=0</code> so now <code>value=3</code>.  
+
+<P>
+<B>Question: </B>What happens next?
+
+<P>
+<B>Answer: </B>The line <code>return value</code> is run.  This returns 3 from the function.
+This also exits from the run of the function <TT>mult(3,1)</TT>.  After <TT>return</TT> is called, we go back to running <TT>mult(3,2)</TT>.
+
+<P>
+<B>Question: </B>Where were we in <TT>mult(3,2)</TT>?
+
+<P>
+<B>Answer: </B>We had the variables <code>a=3</code> and <code>b=2</code> and were examining 
+the line <code>rest = mult(a,b - 1)</code> .
+
+<P>
+<B>Question: </B>So what happens now?
+
+<P>
+<B>Answer: </B>The variable <TT>rest</TT> get 3 assigned to it.  The next line
+<code>value = a + rest</code> sets <TT>value</TT> to <TT>3+3</TT> or 6.  
+
+<P>
+<B>Question: </B>So now what happens?
+
+<P>
+<B>Answer: </B>The next line runs, this returns 6 from the function.  We are now
+back to running the line <code>print "3*2 = ",mult(3,2)</code> which can now
+print out the 6.
+
+<P>
+<B>Question: </B>What is happening overall?  
+
+<P>
+<B>Answer: </B>Basically we used two facts to calulate the multipule of the
+two numbers.  The first is that any number times 0 is 0 (<TT>x * 0 =
+0</TT>).  The second is that a number times another number is equal to the
+first number plus the first number times one less than the second
+number (<TT>x * y = x + x * (y - 1)</TT>).  So what happens is <TT>3*2</TT> is
+first converted into <TT>3 + 3*1</TT>.  Then <TT>3*1</TT> is converted into
+<TT>3 + 3*0</TT>.  Then we know that any number times 0 is 0 so <TT>3*0</TT>
+is 0.  Then we can calculate that <TT>3 + 3*0</TT> is <TT>3 + 0</TT> which
+is <TT>3</TT>.  Now we know what <TT>3*1</TT> is so we can calculate that
+<TT>3 + 3*1</TT> is <TT>3 + 3</TT> which is <TT>6</TT>.
+
+<P>
+This is how the whole thing works:
+
+<P>
+<PRE>
+3*2
+3 + 3*1
+3 + 3 + 3*0
+3 + 3 + 0
+3 + 3
+6
+</PRE>
+
+<P>
+These last two sections were recently written.  If you have any
+comments, found any errors or think I need more/clearer explanations
+please email.  I have been known in the past to make simple things
+incomprehensible.  If the rest of the tutorial has made sense, but this
+section didn't, it is probably my fault and I would like to know.
+Thanks.
+
+<P>
+
+<H1><A NAME="SECTION00940000000000000000">
+Examples</A>
+</H1>
+
+<P>
+factorial.py
+<PRE>
+#defines a function that calculates the factorial
+
+def factorial(n):
+    if n &lt;= 1:
+        return 1
+    return n*factorial(n-1)
+
+print "2! = ",factorial(2)
+print "3! = ",factorial(3)
+print "4! = ",factorial(4)
+print "5! = ",factorial(5)
+</PRE>
+
+<P>
+Output:
+<PRE>
+2! =  2
+3! =  6
+4! =  24
+5! =  120
+</PRE>
+
+<P>
+temperature2.py
+<PRE>
+#converts temperature to fahrenheit or celsius
+
+def print_options():
+    print "Options:"
+    print " 'p' print options"
+    print " 'c' convert from celsius"
+    print " 'f' convert from fahrenheit"
+    print " 'q' quit the program"
+
+def celsius_to_fahrenheit(c_temp):
+    return 9.0/5.0*c_temp+32
+
+def fahrenheit_to_celsius(f_temp):
+    return (f_temp - 32.0)*5.0/9.0
+
+choice = "p"
+while choice != "q":
+    if choice == "c":
+        temp = input("Celsius temperature:")
+        print "Fahrenheit:",celsius_to_fahrenheit(temp)
+    elif choice == "f":
+        temp = input("Fahrenheit temperature:")
+        print "Celsius:",fahrenheit_to_celsius(temp)
+    elif choice != "q":
+        print_options()
+    choice = raw_input("option:")
+</PRE>
+
+<P>
+Sample Run:
+<PRE>
+&gt; python temperature2.py
+Options:
+ 'p' print options
+ 'c' convert from celsius
+ 'f' convert from fahrenheit
+ 'q' quit the program
+option:c
+Celsius temperature:30 
+Fahrenheit: 86.0
+option:f
+Fahrenheit temperature:60
+Celsius: 15.5555555556
+option:q
+</PRE>
+
+<P>
+area2.py
+<PRE>
+#By Amos Satterlee
+print
+def hello():
+    print 'Hello!'
+
+def area(width,height):
+    return width*height
+
+def print_welcome(name):
+    print 'Welcome,',name
+
+name = raw_input('Your Name: ')
+hello(),
+print_welcome(name)
+print
+print 'To find the area of a rectangle,'
+print 'Enter the width and height below.'
+print
+w = input('Width:  ')
+while w &lt;= 0:
+    print 'Must be a positive number'
+    w = input('Width:  ')
+h = input('Height: ')
+while h &lt;= 0:
+    print 'Must be a positive number'
+    h = input('Height: ')
+print 'Width =',w,' Height =',h,' so Area =',area(w,h)
+</PRE>
+
+<P>
+Sample Run:
+<PRE>
+Your Name: Josh
+Hello!
+Welcome, Josh
+
+To find the area of a rectangle,
+Enter the width and height below.
+
+Width:  -4
+Must be a positive number
+Width:  4
+Height: 3
+Width = 4  Height = 3  so Area = 12
+</PRE>
+
+<P>
+
+<H1><A NAME="SECTION00950000000000000000">
+Exercises</A>
+</H1>
+
+<P>
+Rewrite the area.py program done in <A HREF="node5.html#firstarea">3.2</A> to have a separate
+function for the area of a square, the area of a rectangle, and the
+area of a circle.  (3.14 * radius**2). This program should include a
+menu interface.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html263"
+  HREF="node10.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html259"
+  HREF="easytut.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html253"
+  HREF="node8.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html261"
+  HREF="node2.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html264"
+  HREF="node10.html">Lists</A>
+<B> Up:</B> <A NAME="tex2html260"
+  HREF="easytut.html">Non-Programmers Tutorial For Python</A>
+<B> Previous:</B> <A NAME="tex2html254"
+  HREF="node8.html">Debugging</A>
+ &nbsp <B>  <A NAME="tex2html262"
+  HREF="node2.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+Josh Cogliati <a href="mailto:jjc@honors.montana.edu">jjc@honors.montana.edu</a> Wikibooks Version: <a href="http://wikibooks.org/wiki/User:Jrincayc/Contents">Wikibooks Non-programmers Python Tutorial Contents</a>
+</ADDRESS>
+</BODY>
+</HTML>

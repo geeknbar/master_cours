@@ -1,0 +1,144 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+
+
+<link rel='start' href='../index.html' title='Python Documentation Index'>
+<link rel="first" href="whatsnew23.html" title='What's New in Python 2.3'>
+<link rel='contents' href='contents.html' title="Contents">
+<link rel='last' href='about.html' title='About this document...'>
+<link rel='help' href='about.html' title='About this document...'>
+<LINK REL="next" href="section-enumerate.html">
+<LINK REL="prev" HREF="node6.html">
+<LINK REL="parent" HREF="whatsnew23.html">
+<LINK REL="next" href="section-enumerate.html">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name='aesop' content='information'>
+<META NAME="description" CONTENT="PEP 278: Universal Newline Support">
+<META NAME="keywords" CONTENT="whatsnew23">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<title>6 PEP 278: Universal Newline Support</title>
+<link rel="stylesheet" href="../style.css" type="text/css">
+</head>
+<body>
+<DIV CLASS="navigation">
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td><a rel="prev" title="5 PEP 277: Unicode" 
+  HREF="node6.html"><img src='../icons/previous.gif'
+  border='0' height='32'  alt='Previous Page' width='32'></A></td>
+<td><a rel="parent" title="What's New in Python" 
+  HREF="whatsnew23.html"><img src='../icons/up.gif'
+  border='0' height='32'  alt='Up One Level' width='32'></A></td>
+<td><a rel="next" title="7 PEP 279: enumerate()" 
+  href="section-enumerate.html"><img src='../icons/next.gif'
+  border='0' height='32'  alt='Next Page' width='32'></A></td>
+<td align="center" width="100%">What's New in Python 2.3</td>
+<td><a rel="contents" title="Table of Contents" 
+  href="contents.html"><img src='../icons/contents.gif'
+  border='0' height='32'  alt='Contents' width='32'></A></td>
+<td><img src='../icons/blank.gif'
+  border='0' height='32'  alt='' width='32'></td>
+</tr></table>
+<b class="navlabel">Previous:</b>
+<a class="sectref" rel="prev" HREF="node6.html">5 PEP 277: Unicode</A>
+<b class="navlabel">Up:</b>
+<a class="sectref" rel="parent" HREF="whatsnew23.html">What's New in Python</A>
+<b class="navlabel">Next:</b>
+<a class="sectref" rel="next" href="section-enumerate.html">7 PEP 279: enumerate()</A>
+<br><hr>
+</DIV>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION000700000000000000000">
+6 PEP 278: Universal Newline Support</A>
+</H1>
+
+<P>
+The three major operating systems used today are Microsoft Windows,
+Apple's Macintosh OS, and the various <font style="font-variant: small-caps;">Unix</font> derivatives.  A minor
+irritation of cross-platform work 
+is that these three platforms all use different characters
+to mark the ends of lines in text files.  <font style="font-variant: small-caps;">Unix</font> uses the linefeed
+(ASCII character 10), MacOS uses the carriage return (ASCII
+character 13), and Windows uses a two-character sequence of a
+carriage return plus a newline.
+
+<P>
+Python's file objects can now support end of line conventions other
+than the one followed by the platform on which Python is running.
+Opening a file with the mode <code>'U'</code> or <code>'rU'</code> will open a file
+for reading in universal newline mode.  All three line ending
+conventions will be translated to a "<tt class="character">&#92;n</tt>" in the strings
+returned by the various file methods such as <tt class="method">read()</tt> and
+<tt class="method">readline()</tt>.
+
+<P>
+Universal newline support is also used when importing modules and when
+executing a file with the <tt class="function">execfile()</tt> function.  This means
+that Python modules can be shared between all three operating systems
+without needing to convert the line-endings.
+
+<P>
+This feature can be disabled when compiling Python by specifying
+the <b class="programopt">--without-universal-newlines</b> switch when running Python's
+<b class="program">configure</b> script.
+
+<P>
+<div class="seealso">
+  <p class="heading"><b>See Also:</b></p>
+
+<P>
+<dl compact class="seerfc">
+    <dt><a href="http://www.python.org/peps/pep-0278.html"
+        title="Universal Newline Support"
+        >PEP 278, <em>Universal Newline Support</em></a>
+    <dd>Written
+and implemented by Jack Jansen.
+  </dl>
+
+<P>
+</div>
+
+<P>
+
+<DIV CLASS="navigation">
+<p><hr>
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td><a rel="prev" title="5 PEP 277: Unicode" 
+  rel="prev" title="5 PEP 277: Unicode" 
+  HREF="node6.html"><img src='../icons/previous.gif'
+  border='0' height='32'  alt='Previous Page' width='32'></A></td>
+<td><a rel="parent" title="What's New in Python" 
+  rel="parent" title="What's New in Python" 
+  HREF="whatsnew23.html"><img src='../icons/up.gif'
+  border='0' height='32'  alt='Up One Level' width='32'></A></td>
+<td><a rel="next" title="7 PEP 279: enumerate()" 
+  rel="next" title="7 PEP 279: enumerate()" 
+  href="section-enumerate.html"><img src='../icons/next.gif'
+  border='0' height='32'  alt='Next Page' width='32'></A></td>
+<td align="center" width="100%">What's New in Python 2.3</td>
+<td><a rel="contents" title="Table of Contents" 
+  rel="contents" title="Table of Contents" 
+  href="contents.html"><img src='../icons/contents.gif'
+  border='0' height='32'  alt='Contents' width='32'></A></td>
+<td><img src='../icons/blank.gif'
+  border='0' height='32'  alt='' width='32'></td>
+</tr></table>
+<b class="navlabel">Previous:</b>
+<a class="sectref" rel="prev" HREF="node6.html">5 PEP 277: Unicode</A>
+<b class="navlabel">Up:</b>
+<a class="sectref" rel="parent" HREF="whatsnew23.html">What's New in Python</A>
+<b class="navlabel">Next:</b>
+<a class="sectref" rel="next" href="section-enumerate.html">7 PEP 279: enumerate()</A>
+<hr>
+<span class="release-info">Release 1.00.</span>
+</DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+See <i><a href="about.html">About this document...</a></i> for information on suggesting changes.
+</ADDRESS>
+</BODY>
+</HTML>

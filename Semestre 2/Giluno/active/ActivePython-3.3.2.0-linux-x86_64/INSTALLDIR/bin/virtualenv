@@ -1,0 +1,10 @@
+#!/home/apy/rrun/build/activepython-svn-trunk/build/py3_3_2-linux-x86_64-apy33-rrun/image/opt/ActivePython-3.3/bin/python3.3
+# EASY-INSTALL-ENTRY-SCRIPT: 'virtualenv==1.10.1','console_scripts','virtualenv'
+__requires__ = 'virtualenv==1.10.1'
+import sys
+from pkg_resources import load_entry_point
+
+if __name__ == '__main__':
+    sys.exit(
+        load_entry_point('virtualenv==1.10.1', 'console_scripts', 'virtualenv')()
+    )

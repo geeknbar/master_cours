@@ -1,0 +1,524 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.48)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Debugging</TITLE>
+<META NAME="description" CONTENT="Debugging">
+<META NAME="keywords" CONTENT="easytut">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="easytut.css">
+
+<LINK REL="next" HREF="node9.html">
+<LINK REL="previous" HREF="node7.html">
+<LINK REL="up" HREF="easytut.html">
+<LINK REL="next" HREF="node9.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html247"
+  HREF="node9.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html243"
+  HREF="easytut.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html237"
+  HREF="node7.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html245"
+  HREF="node2.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html248"
+  HREF="node9.html">Defining Functions</A>
+<B> Up:</B> <A NAME="tex2html244"
+  HREF="easytut.html">Non-Programmers Tutorial For Python</A>
+<B> Previous:</B> <A NAME="tex2html238"
+  HREF="node7.html">Decisions</A>
+ &nbsp <B>  <A NAME="tex2html246"
+  HREF="node2.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL>
+<LI><A NAME="tex2html249"
+  HREF="#SECTION00810000000000000000">What is debugging?</A>
+<LI><A NAME="tex2html250"
+  HREF="#SECTION00820000000000000000">What should the program do?</A>
+<LI><A NAME="tex2html251"
+  HREF="#SECTION00830000000000000000">What does the program do?</A>
+<LI><A NAME="tex2html252"
+  HREF="#SECTION00840000000000000000">How do I fix the program?</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+
+<H1><A NAME="SECTION00800000000000000000">
+Debugging</A>
+</H1>
+
+<H1><A NAME="SECTION00810000000000000000">
+What is debugging?</A>
+</H1>
+<BLOCKQUOTE>
+As soon as we started programming, we found to our surprise that it
+wasn't as easy to get programs right as we had thought.  Debugging had
+to be discovered.  I can remember the exact instant when I realized
+that a large part of my life from then on was going to be spent in
+finding mistakes in my own programs.
+</BLOCKQUOTE>
+<P>
+<BLOCKQUOTE>- Maurice Wilkes discovers debugging, 1949
+
+</BLOCKQUOTE>
+
+<P>
+By now if you have been messing around with the programs you have probably found that sometimes the program does something you didn't want it to do.  This is fairly common.  Debugging is the process of figuring out what the computer is doing and then getting it to do what you want it to do.  This can be tricky.  I once spent nearly a week tracking down and fixing a bug that was caused by someone putting an <TT>x</TT> where a <TT>y</TT> should have been.  
+
+<P>
+This chapter will be more abstract than previous chapters.  Please tell me if 
+it is useful.
+
+<P>
+
+<H1><A NAME="SECTION00820000000000000000">
+What should the program do?</A>
+</H1>
+
+<P>
+The first thing to do (this sounds obvious) is to figure out what the
+program should be doing if it is running correctly.  Come up with some
+test cases and see what happens.  For example, let's say I have a
+program to compute the perimeter of a rectangle (the sum of the length
+of all the edges).  I have the following test cases:
+
+<P>
+<TABLE CELLPADDING=3 BORDER="1">
+<TR><TD ALIGN="LEFT">width</TD>
+<TD ALIGN="LEFT">height</TD>
+<TD ALIGN="LEFT">perimeter</TD>
+</TR>
+<TR><TD ALIGN="LEFT">3</TD>
+<TD ALIGN="LEFT">4</TD>
+<TD ALIGN="LEFT">14</TD>
+</TR>
+<TR><TD ALIGN="LEFT">2</TD>
+<TD ALIGN="LEFT">3</TD>
+<TD ALIGN="LEFT">10</TD>
+</TR>
+<TR><TD ALIGN="LEFT">4</TD>
+<TD ALIGN="LEFT">4</TD>
+<TD ALIGN="LEFT">16</TD>
+</TR>
+<TR><TD ALIGN="LEFT">2</TD>
+<TD ALIGN="LEFT">2</TD>
+<TD ALIGN="LEFT">8</TD>
+</TR>
+<TR><TD ALIGN="LEFT">5</TD>
+<TD ALIGN="LEFT">1</TD>
+<TD ALIGN="LEFT">12</TD>
+</TR>
+</TABLE>
+
+<P>
+I now run my program on all of the test cases and see if the program does what 
+I expect it to do.  If it doesn't then I need to find out what the computer is
+doing.  
+
+<P>
+More commonly some of the test cases will work and some will not.  If that is the case you should try and figure out what the working ones have in common. 
+For example here is the output for a perimeter program (you get to see the code in a minute):
+
+<P>
+<PRE>
+Height: 3
+Width: 4
+perimeter =  15
+</PRE>
+<PRE>
+Height: 2
+Width: 3
+perimeter =  11
+</PRE>
+<PRE>
+Height: 4
+Width: 4
+perimeter =  16
+</PRE>
+<PRE>
+Height: 2
+Width: 2
+perimeter =  8
+</PRE>
+<PRE>
+Height: 5
+Width: 1
+perimeter =  8
+</PRE>
+
+<P>
+Notice that it didn't work for the first two inputs, it worked for the next
+two and it didn't work on the last one.  Try and figure out what is in common 
+with the working ones.  Once you have some idea what the problem is finding the
+cause is easier.  With your own programs you should try more test cases if you need them.
+
+<P>
+
+<H1><A NAME="SECTION00830000000000000000">
+What does the program do?</A>
+</H1>
+
+<P>
+The next thing to do is to look at the source code.  One of the most important things to do while programming is reading source code.  The primary way to do this is code walkthroughs.  
+
+<P>
+A code walkthrough starts at the first line, and works its way down until the program is done.  <TT>While</TT> loops and <TT>if</TT> statements mean that some lines may never be run and some lines are run many times.  At each line you figure out what Python has done.
+
+<P>
+Lets start with the simple perimeter program.  Don't type it in, you are going to read it, not run it.  The source code is:
+
+<P>
+<PRE>
+height = input("Height: ")
+width = input("Width: ")
+print "perimeter = ",width+height+width+width
+</PRE>
+
+<P>
+<B>Question: </B>What is the first line Python runs?
+
+<P>
+<B>Answer: </B>The first line is alway run first.  In this case it is: <code>height = input("Height: ")</code>
+
+<P>
+<B>Question: </B>What does that line do?
+
+<P>
+<B>Answer: </B>Prints <TT>Height: </TT>, waits for the user to type a number in, and puts that in the variable height.
+
+<P>
+<B>Question: </B>What is the next line that runs?
+
+<P>
+<B>Answer: </B>In general, it is the next line down which is: <code>width = input("Width: ")</code>
+
+<P>
+<B>Question: </B>What does that line do?
+
+<P>
+<B>Answer: </B>Prints <TT>Width: </TT>, waits for the user to type a number in, and puts what the user types in the variable width.
+
+<P>
+<B>Question: </B>What is the next line that runs?
+
+<P>
+<B>Answer: </B>When the next line is not indented more or less than the current line,
+ it is the line right afterwards, so it is: <code>print "perimeter = ",width+height+width+width</code>  (It may also run a function in the current line, but thats a future chapter.)
+
+<P>
+<B>Question: </B>What does that line do?
+
+<P>
+<B>Answer: </B>First it prints <TT>perimeter =</TT>, then it prints <TT>width+height+width+width</TT>.
+
+<P>
+<B>Question: </B>Does <TT>width+height+width+width</TT> calculate the perimeter properly?
+
+<P>
+<B>Answer: </B>Let's see, perimeter of a rectangle is the bottom (width) plus the left side (height) plus the top (width) plus the right side (huh?).  The last item should be the right side's length, or the height.
+
+<P>
+<B>Question: </B>Do you understand why some of the times the perimeter was calculated `correctly'?
+
+<P>
+<B>Answer: </B>It was calculated correctly when the width and the height were equal.
+
+<P>
+The next program we will do a code walkthrough for is a program that is supposed to print out 5 dots on the screen.  However, this is what the program is outputting:
+
+<P>
+<PRE>
+. . . .
+</PRE>
+
+<P>
+And here is the program:
+
+<P>
+<PRE>
+number = 5
+while number &gt; 1:
+    print ".",
+    number = number - 1
+print
+</PRE>
+
+<P>
+This program will be more complex to walkthrough since it now has indented portions (or control structures).  Let us begin.
+
+<P>
+<B>Question: </B>What is the first line to be run?
+
+<P>
+<B>Answer: </B>The first line of the file: <TT>number = 5</TT>
+
+<P>
+<B>Question: </B>What does it do?
+
+<P>
+<B>Answer: </B>Puts the number 5 in the variable number.
+
+<P>
+<B>Question: </B>What is the next line?
+
+<P>
+<B>Answer: </B>The next line is: <TT>while number &gt; 1:</TT>
+
+<P>
+<B>Question: </B>What does it do?
+
+<P>
+<B>Answer: </B>Well, <TT>while</TT> statements in general look at their expression, and if it is true they do the next indented block of code, otherwise they skip the next indented block of code.
+
+<P>
+<B>Question: </B>So what does it do right now?
+
+<P>
+<B>Answer: </B>If <TT>number &gt; 1</TT> is true then the next two lines will be run.
+
+<P>
+<B>Question: </B>So is <TT>number &gt; 1</TT>?
+
+<P>
+<B>Answer: </B>The last value put into <TT>number</TT> was <TT>5</TT> and <TT>5 &gt; 1</TT> so yes.
+
+<P>
+<B>Question: </B>So what is the next line?
+
+<P>
+<B>Answer: </B>Since the <TT>while</TT> was true the next line is: <code>print ".",</code>
+
+<P>
+<B>Question: </B>What does that line do?
+
+<P>
+<B>Answer: </B>Prints one dot and since the statement ends with a <TT>,</TT> the next print statement will not be on a different screen line.
+
+<P>
+<B>Question: </B>What is the next line?
+
+<P>
+<B>Answer: </B><code>number = number - 1</code> since that is following line and there are no indent changes.
+
+<P>
+<B>Question: </B>What does it do?
+
+<P>
+<B>Answer: </B>It calculates <TT>number - 1</TT>, which is the current value of
+<TT>number</TT> (or 5) subtracts 1 from it, and makes that the new value
+of number.  So basically it changes <TT>number</TT>'s value from 5 to 4.
+
+<P>
+<B>Question: </B>What is the next line?
+
+<P>
+<B>Answer: </B>Well, the indent level decreases so we have to look at what type of control structure it is.  It is a <TT>while</TT> loop, so we have to go back to the <TT>while</TT> clause which is <code>while number &gt; 1:</code>
+
+<P>
+<B>Question: </B>What does it do?
+
+<P>
+<B>Answer: </B>It looks at the value of number, which is 4, and compares it to 1 and since <code>4 &gt; 1</code> the while loop continues.
+
+<P>
+<B>Question: </B>What is the next line?
+
+<P>
+<B>Answer: </B>Since the while loop was true, the next line is: <code>print ".",</code>
+
+<P>
+<B>Question: </B>What does it do?
+
+<P>
+<B>Answer: </B>It prints a second dot on the line.
+
+<P>
+<B>Question: </B>What is the next line?
+
+<P>
+<B>Answer: </B>No indent change so it is: <code>number = number - 1</code>
+
+<P>
+<B>Question: </B>And what does it do?
+
+<P>
+<B>Answer: </B>It talks the current value of number (4), subtracts 1 from it, which gives it 3 and then finally makes 3 the new value of number.
+
+<P>
+<B>Question: </B>What is the next line?
+
+<P>
+<B>Answer: </B>Since there is an indent change caused by the end of the while loop, the next line is: <code>while number &gt; 1:</code>
+
+<P>
+<B>Question: </B>What does it do?
+
+<P>
+<B>Answer: </B>It compares the current value of number (3) to 1.  <code>3 &gt; 1</code> so the while loop continues.
+
+<P>
+<B>Question: </B>What is the next line?
+
+<P>
+<B>Answer: </B>Since the while loop condition was true the next line is: <code>print ".",</code>
+
+<P>
+<B>Question: </B>And it does what?
+
+<P>
+<B>Answer: </B>A third dot is printed on the line.
+
+<P>
+<B>Question: </B>What is the next line?
+
+<P>
+<B>Answer: </B>It is: <code>number = number - 1</code>
+
+<P>
+<B>Question: </B>What does it do?
+
+<P>
+<B>Answer: </B>It takes the current value of number (3) subtracts from it 1 and makes the 2 the new value of number.
+
+<P>
+<B>Question: </B>What is the next line?
+
+<P>
+<B>Answer: </B>Back up to the start of the while loop: <code>while number &gt; 1:</code>
+
+<P>
+<B>Question: </B>What does it do?
+
+<P>
+<B>Answer: </B>It compares the current value of number (2) to 1.  Since <code>2 &gt; 1</code> the while loop continues.
+
+<P>
+<B>Question: </B>What is the next line?
+
+<P>
+<B>Answer: </B>Since the while loop is continuing: <code>print ".",</code>
+
+<P>
+<B>Question: </B>What does it do?
+
+<P>
+<B>Answer: </B>It discovers the meaning of life, the universe and everything.  I'm joking. (I had to make sure you were awake.)  The line prints a fourth dot on the screen.
+
+<P>
+<B>Question: </B>What is the next line?
+
+<P>
+<B>Answer: </B>It's: <code>number = number - 1</code>
+
+<P>
+<B>Question: </B>What does it do?
+
+<P>
+<B>Answer: </B>Takes the current value of number (2) subtracts 1 and makes 1 the new value of number.
+
+<P>
+<B>Question: </B>What is the next line?
+
+<P>
+<B>Answer: </B>Back up to the while loop: <code>while number &gt; 1:</code>
+
+<P>
+<B>Question: </B>What does the line do?
+
+<P>
+<B>Answer: </B>It compares the current value of number (1) to 1.  Since <code>1 &gt; 1</code> is false (one is not greater than one), the while loop exits.
+
+<P>
+<B>Question: </B>What is the next line?
+
+<P>
+<B>Answer: </B>Since the while loop condition was false the next line is the line after the while loop exits, or: <code>print</code>
+
+<P>
+<B>Question: </B>What does that line do?
+
+<P>
+<B>Answer: </B>Makes the screen go to the next line.
+
+<P>
+<B>Question: </B>Why doesn't the program print 5 dots?
+
+<P>
+<B>Answer: </B>The loop exits 1 dot too soon.
+
+<P>
+<B>Question: </B>How can we fix that?
+
+<P>
+<B>Answer: </B>Make the loop exit 1 dot later.
+
+<P>
+<B>Question: </B>And how do we do that?
+
+<P>
+<B>Answer: </B>There are several ways.  One way would be to change the while loop to:
+<code>while number &gt; 0:</code>  Another way would be to change the conditional to: <code>number &gt;= 1</code>  There are a couple others.
+
+<P>
+
+<H1><A NAME="SECTION00840000000000000000">
+How do I fix the program?</A>
+</H1>
+
+<P>
+You need to figure out what the program is doing.  You need to figure out what the program should do.  Figure out what the difference between the two is.  Debugging is a skill that has to be done to be learned. If you can't figure it out after an hour or so take a break, talk to someone about the problem or contemplate the lint in your navel.  Come back in a while and you will probably have new ideas about the problem.  Good luck.  
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html247"
+  HREF="node9.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html243"
+  HREF="easytut.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html237"
+  HREF="node7.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html245"
+  HREF="node2.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html248"
+  HREF="node9.html">Defining Functions</A>
+<B> Up:</B> <A NAME="tex2html244"
+  HREF="easytut.html">Non-Programmers Tutorial For Python</A>
+<B> Previous:</B> <A NAME="tex2html238"
+  HREF="node7.html">Decisions</A>
+ &nbsp <B>  <A NAME="tex2html246"
+  HREF="node2.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+Josh Cogliati <a href="mailto:jjc@honors.montana.edu">jjc@honors.montana.edu</a> Wikibooks Version: <a href="http://wikibooks.org/wiki/User:Jrincayc/Contents">Wikibooks Non-programmers Python Tutorial Contents</a>
+</ADDRESS>
+</BODY>
+</HTML>

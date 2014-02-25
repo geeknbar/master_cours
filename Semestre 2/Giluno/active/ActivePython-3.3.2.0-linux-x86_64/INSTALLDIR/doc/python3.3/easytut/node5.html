@@ -1,0 +1,346 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.48)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Who Goes There?</TITLE>
+<META NAME="description" CONTENT="Who Goes There?">
+<META NAME="keywords" CONTENT="easytut">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="easytut.css">
+
+<LINK REL="next" HREF="node6.html">
+<LINK REL="previous" HREF="node4.html">
+<LINK REL="up" HREF="easytut.html">
+<LINK REL="next" HREF="node6.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html203"
+  HREF="node6.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html199"
+  HREF="easytut.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html193"
+  HREF="node4.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html201"
+  HREF="node2.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html204"
+  HREF="node6.html">Count to 10</A>
+<B> Up:</B> <A NAME="tex2html200"
+  HREF="easytut.html">Non-Programmers Tutorial For Python</A>
+<B> Previous:</B> <A NAME="tex2html194"
+  HREF="node4.html">Hello, World</A>
+ &nbsp <B>  <A NAME="tex2html202"
+  HREF="node2.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL>
+<LI><A NAME="tex2html205"
+  HREF="#SECTION00510000000000000000">Input and Variables</A>
+<LI><A NAME="tex2html206"
+  HREF="#SECTION00520000000000000000">Examples</A>
+<LI><A NAME="tex2html207"
+  HREF="#SECTION00530000000000000000">Exercises</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+
+<H1><A NAME="SECTION00500000000000000000">
+Who Goes There?</A>
+</H1>
+
+<H1><A NAME="SECTION00510000000000000000">
+Input and Variables</A>
+</H1>
+Now I feel it is time for a really complicated program.  Here it is:
+<PRE>
+print "Halt!"
+s = raw_input("Who Goes there? ")
+print "You may pass,", s
+</PRE>
+
+<P>
+When <B>I</B> ran it here is what <B>my</B> screen showed:
+<PRE>
+Halt!
+Who Goes there? Josh
+You may pass, Josh
+</PRE>
+
+<P>
+Of course when you run the program your screen will look different
+because of the <code>raw_input</code> statement.  When you ran the program
+you probably noticed (you did run the program, right?) how you had to
+type in your name and then press Enter.  Then the program printed out
+some more text and also your name.  This is an example of input.  The
+program reaches a certain point and then waits for the user to input
+some data that the program can use later.
+
+<P>
+Of course, getting information from the user would be useless if we didn't have anywhere to put that information and this is where variables come in.  In the previous program <TT>s</TT> is a variable.  Variables are like a box that can store some piece of data.  Here is a program to show examples of variables:
+<PRE>
+a = 123.4
+b23 = 'Spam'
+first_name = "Bill"
+b = 432
+c = a + b
+print "a + b is", c
+print "first_name is", first_name
+print "Sorted Parts, After Midnight or",b23
+</PRE>
+
+<P>
+And here is the output:
+<PRE>
+a + b is 555.4
+first_name is Bill
+Sorted Parts, After Midnight or Spam
+</PRE>
+
+<P>
+Variables store data.  The variables in the above program are <TT>a</TT>, <TT>b23</TT>, <code>first_name</code>, <TT>b</TT>, and <TT>c</TT>.  The two basic types are strings and numbers.  Strings are a sequence of letters, numbers and other characters.  In this example <TT>b23</TT> and <code>first_name</code> are variables that are storing strings.  <TT>Spam</TT>, <TT>Bill</TT>, <TT>a + b is</TT>, and <code>first_name is</code> are the strings in this program.  The characters are surrounded by <TT>"</TT> or <TT>'</TT>.  The other type of variables are numbers.  
+
+<P>
+Okay, so we have these boxes called variables and also data that can go into the variable.  The computer will see a line like <code>first_name = "Bill"</code> and it reads it as Put the string <TT>Bill</TT> into the box (or variable) <code>first_name</code>.  Later on it sees the statement <TT>c = a + b</TT> and it reads it as Put <TT>a + b</TT> or <TT>123.4 + 432</TT> or <TT>555.4</TT> into <TT>c</TT>.  
+
+<P>
+Here is another example of variable usage:
+<PRE>
+a = 1
+print a
+a = a + 1
+print a
+a = a * 2
+print a
+</PRE>
+
+<P>
+And of course here is the output:
+<PRE>
+1
+2
+4
+</PRE>
+
+<P>
+Even if it is the same variable on both sides the computer still reads it as: First find out the data to store and than find out where the data goes.  
+
+<P>
+One more program before I end this chapter:
+<PRE>
+num = input("Type in a Number: ")
+str = raw_input("Type in a String: ")
+print "num =", num
+print "num is a ",type(num)
+print "num * 2 =",num*2
+print "str =", str
+print "str is a ",type(str)
+print "str * 2 =",str*2
+</PRE>
+
+<P>
+The output I got was:
+<PRE>
+Type in a Number: 12.34
+Type in a String: Hello
+num = 12.34
+num is a  &lt;type 'float'&gt;
+num * 2 = 24.68
+str = Hello
+str is a  &lt;type 'string'&gt;
+str * 2 = HelloHello
+</PRE>
+
+<P>
+Notice that <code>num</code> was gotten with <TT>input</TT> while <code>str</code> was gotten with <code>raw_input</code>.   <code>raw_input</code> returns a string while <TT>input</TT> returns a number.  When you want the user to type in a number use <TT>input</TT> but if you want the user to type in a string use <code>raw_input</code>.
+
+<P>
+The second half of the program uses <TT>type</TT> which tells what a
+variable is.  Numbers are of type <TT>int</TT> or <TT>float</TT> (which are
+short for 'integer' and 'floating point' respectively).  Strings are
+of type <TT>string</TT>.  Integers and floats can be worked on by
+mathematical functions, strings cannot.  Notice how when python
+multiples a number by a integer the expected thing happens.  However
+when a string is multiplied by a integer the string has that many
+copies of it added i.e. <code>str * 2 = HelloHello</code>.
+
+<P>
+The operations with strings do slightly different things than 
+operations with numbers.  Here are some interative mode examples
+to show that some more.
+
+<P>
+<PRE>
+&gt;&gt;&gt; "This"+" "+"is"+" joined."
+'This is joined.'
+&gt;&gt;&gt; "Ha, "*5
+'Ha, Ha, Ha, Ha, Ha, '
+&gt;&gt;&gt; "Ha, "*5+"ha!"
+'Ha, Ha, Ha, Ha, Ha, ha!'
+&gt;&gt;&gt;
+</PRE>
+
+<P>
+Here is the list of some string operations:
+
+<P>
+<TABLE CELLPADDING=3 BORDER="1">
+<TR><TD ALIGN="LEFT">Operation</TD>
+<TD ALIGN="CENTER">Symbol</TD>
+<TD ALIGN="LEFT">Example</TD>
+</TR>
+<TR><TD ALIGN="LEFT">Repetition</TD>
+<TD ALIGN="CENTER"><code>*</code></TD>
+<TD ALIGN="LEFT"><code>"i"*5 == "iiiii"</code></TD>
+</TR>
+<TR><TD ALIGN="LEFT">Concatenation</TD>
+<TD ALIGN="CENTER"><code>+</code></TD>
+<TD ALIGN="LEFT"><code>"Hello, "+"World!" == "Hello, World!"</code></TD>
+</TR>
+</TABLE>
+
+<P>
+
+<H1><A NAME="SECTION00520000000000000000">
+Examples</A>
+</H1>
+
+<P>
+Rate_times.py
+<PRE>
+#This programs calculates rate and distance problems
+print "Input a rate and a distance"
+rate = input("Rate:")
+distance = input("Distance:")
+print "Time:",distance/rate
+</PRE>
+
+<P>
+Sample runs:
+<PRE>
+&gt; python rate_times.py
+Input a rate and a distance
+Rate:5
+Distance:10
+Time: 2
+&gt; python rate_times.py 
+Input a rate and a distance
+Rate:3.52
+Distance:45.6
+Time: 12.9545454545
+</PRE>
+
+<P>
+Area.py
+<A NAME="firstarea"></A><PRE>
+#This program calculates the perimeter and area of a rectangle
+print "Calculate information about a rectangle"
+length = input("Length:")
+width = input("Width:")
+print "Area",length*width
+print "Perimeter",2*length+2*width
+</PRE>
+
+<P>
+Sample runs:
+<PRE>
+&gt; python area.py
+Calculate information about a rectangle
+Length:4
+Width:3
+Area 12
+Perimeter 14
+&gt; python area.py
+Calculate information about a rectangle
+Length:2.53
+Width:5.2
+Area 13.156
+Perimeter 15.46
+</PRE>
+
+<P>
+temperature.py
+<PRE>
+#Converts Fahrenheit to Celsius
+temp = input("Farenheit temperature:")
+print (temp-32.0)*5.0/9.0
+</PRE>
+
+<P>
+Sample runs:
+<PRE>
+&gt; python temperature.py
+Farenheit temperature:32
+0.0
+&gt; python temperature.py
+Farenheit temperature:-40
+-40.0
+&gt; python temperature.py
+Farenheit temperature:212
+100.0
+&gt; python temperature.py
+Farenheit temperature:98.6
+37.0
+</PRE>
+
+<P>
+
+<H1><A NAME="SECTION00530000000000000000">
+Exercises</A>
+</H1>
+
+<P>
+Write a program that gets 2 string variables and 2 integer variables
+from the user, concatenates (joins them together with no spaces) and
+displays the strings, then multiplies the two numbers on a new line.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html203"
+  HREF="node6.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html199"
+  HREF="easytut.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html193"
+  HREF="node4.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html201"
+  HREF="node2.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html204"
+  HREF="node6.html">Count to 10</A>
+<B> Up:</B> <A NAME="tex2html200"
+  HREF="easytut.html">Non-Programmers Tutorial For Python</A>
+<B> Previous:</B> <A NAME="tex2html194"
+  HREF="node4.html">Hello, World</A>
+ &nbsp <B>  <A NAME="tex2html202"
+  HREF="node2.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+Josh Cogliati <a href="mailto:jjc@honors.montana.edu">jjc@honors.montana.edu</a> Wikibooks Version: <a href="http://wikibooks.org/wiki/User:Jrincayc/Contents">Wikibooks Non-programmers Python Tutorial Contents</a>
+</ADDRESS>
+</BODY>
+</HTML>

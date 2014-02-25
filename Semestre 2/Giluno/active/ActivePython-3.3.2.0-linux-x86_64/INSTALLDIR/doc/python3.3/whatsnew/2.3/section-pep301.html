@@ -1,0 +1,164 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+
+
+<link rel='start' href='../index.html' title='Python Documentation Index'>
+<link rel="first" href="whatsnew23.html" title='What's New in Python 2.3'>
+<link rel='contents' href='contents.html' title="Contents">
+<link rel='last' href='about.html' title='About this document...'>
+<link rel='help' href='about.html' title='About this document...'>
+<LINK REL="next" href="section-pep302.html">
+<LINK REL="prev" HREF="node11.html">
+<LINK REL="parent" HREF="whatsnew23.html">
+<LINK REL="next" href="section-pep302.html">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name='aesop' content='information'>
+<META NAME="description" CONTENT="PEP 301: Package Index and Metadata for
+Distutils">
+<META NAME="keywords" CONTENT="whatsnew23">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<title>11 PEP 301: Package Index and Metadata for
+Distutils</title>
+<link rel="stylesheet" href="../style.css" type="text/css">
+</head>
+<body>
+<DIV CLASS="navigation">
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td><a rel="prev" title="10 PEP 293: Codec" 
+  HREF="node11.html"><img src='../icons/previous.gif'
+  border='0' height='32'  alt='Previous Page' width='32'></A></td>
+<td><a rel="parent" title="What's New in Python" 
+  HREF="whatsnew23.html"><img src='../icons/up.gif'
+  border='0' height='32'  alt='Up One Level' width='32'></A></td>
+<td><a rel="next" title="12 PEP 302: New" 
+  href="section-pep302.html"><img src='../icons/next.gif'
+  border='0' height='32'  alt='Next Page' width='32'></A></td>
+<td align="center" width="100%">What's New in Python 2.3</td>
+<td><a rel="contents" title="Table of Contents" 
+  href="contents.html"><img src='../icons/contents.gif'
+  border='0' height='32'  alt='Contents' width='32'></A></td>
+<td><img src='../icons/blank.gif'
+  border='0' height='32'  alt='' width='32'></td>
+</tr></table>
+<b class="navlabel">Previous:</b>
+<a class="sectref" rel="prev" HREF="node11.html">10 PEP 293: Codec</A>
+<b class="navlabel">Up:</b>
+<a class="sectref" rel="parent" HREF="whatsnew23.html">What's New in Python</A>
+<b class="navlabel">Next:</b>
+<a class="sectref" rel="next" href="section-pep302.html">12 PEP 302: New</A>
+<br><hr>
+</DIV>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION0001200000000000000000">&nbsp;</A>
+<BR>
+11 PEP 301: Package Index and Metadata for
+Distutils
+</H1>
+
+<P>
+Support for the long-requested Python catalog makes its first
+appearance in 2.3.
+
+<P>
+The heart of the catalog is the new Distutils <code>register</code> command.
+Running <code>python setup.py register</code> will collect the metadata
+describing a package, such as its name, version, maintainer,
+description, &amp;c., and send it to a central catalog server.  The
+resulting catalog is available from <a class="url" href="http://www.python.org/pypi">http://www.python.org/pypi</a>.
+
+<P>
+To make the catalog a bit more useful, a new optional
+<var>classifiers</var> keyword argument has been added to the Distutils
+<tt class="function">setup()</tt> function.  A list of
+<a class="ulink" href="http://catb.org/~esr/trove/"
+  >Trove</a>-style
+strings can be supplied to help classify the software.
+
+<P>
+Here's an example <span class="file">setup.py</span> with classifiers, written to be compatible 
+with older versions of the Distutils:
+
+<P>
+<div class="verbatim"><pre>
+from distutils import core
+kw = {'name': "Quixote",
+      'version': "0.5.1",
+      'description': "A highly Pythonic Web application framework",
+      # ...
+      }
+
+if (hasattr(core, 'setup_keywords') and 
+    'classifiers' in core.setup_keywords):
+    kw['classifiers'] = \
+        ['Topic :: Internet :: WWW/HTTP :: Dynamic Content',
+         'Environment :: No Input/Output (Daemon)',
+         'Intended Audience :: Developers'],
+
+core.setup(**kw)
+</pre></div>
+
+<P>
+The full list of classifiers can be obtained by running 
+<code>python setup.py register --list-classifiers</code>.
+
+<P>
+<div class="seealso">
+  <p class="heading"><b>See Also:</b></p>
+
+<P>
+<dl compact class="seerfc">
+    <dt><a href="http://www.python.org/peps/pep-0301.html"
+        title="Package Index and Metadata for Distutils"
+        >PEP 301, <em>Package Index and Metadata for Distutils</em></a>
+    <dd>Written and
+implemented by Richard Jones.
+  </dl>
+
+<P>
+</div>
+
+<P>
+
+<DIV CLASS="navigation">
+<p><hr>
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td><a rel="prev" title="10 PEP 293: Codec" 
+  rel="prev" title="10 PEP 293: Codec" 
+  HREF="node11.html"><img src='../icons/previous.gif'
+  border='0' height='32'  alt='Previous Page' width='32'></A></td>
+<td><a rel="parent" title="What's New in Python" 
+  rel="parent" title="What's New in Python" 
+  HREF="whatsnew23.html"><img src='../icons/up.gif'
+  border='0' height='32'  alt='Up One Level' width='32'></A></td>
+<td><a rel="next" title="12 PEP 302: New" 
+  rel="next" title="12 PEP 302: New" 
+  href="section-pep302.html"><img src='../icons/next.gif'
+  border='0' height='32'  alt='Next Page' width='32'></A></td>
+<td align="center" width="100%">What's New in Python 2.3</td>
+<td><a rel="contents" title="Table of Contents" 
+  rel="contents" title="Table of Contents" 
+  href="contents.html"><img src='../icons/contents.gif'
+  border='0' height='32'  alt='Contents' width='32'></A></td>
+<td><img src='../icons/blank.gif'
+  border='0' height='32'  alt='' width='32'></td>
+</tr></table>
+<b class="navlabel">Previous:</b>
+<a class="sectref" rel="prev" HREF="node11.html">10 PEP 293: Codec</A>
+<b class="navlabel">Up:</b>
+<a class="sectref" rel="parent" HREF="whatsnew23.html">What's New in Python</A>
+<b class="navlabel">Next:</b>
+<a class="sectref" rel="next" href="section-pep302.html">12 PEP 302: New</A>
+<hr>
+<span class="release-info">Release 1.00.</span>
+</DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+See <i><a href="about.html">About this document...</a></i> for information on suggesting changes.
+</ADDRESS>
+</BODY>
+</HTML>

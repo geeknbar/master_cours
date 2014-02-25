@@ -1,0 +1,193 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+
+
+<link rel='start' href='../index.html' title='Python Documentation Index'>
+<link rel="first" href="whatsnew23.html" title='What's New in Python 2.3'>
+<link rel='contents' href='contents.html' title="Contents">
+<link rel='last' href='about.html' title='About this document...'>
+<link rel='help' href='about.html' title='About this document...'>
+<LINK REL="next" HREF="node14.html">
+<LINK REL="prev" href="section-pep301.html">
+<LINK REL="parent" HREF="whatsnew23.html">
+<LINK REL="next" HREF="node14.html">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name='aesop' content='information'>
+<META NAME="description" CONTENT="PEP 302: New Import Hooks ">
+<META NAME="keywords" CONTENT="whatsnew23">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<title>12 PEP 302: New Import Hooks </title>
+<link rel="stylesheet" href="../style.css" type="text/css">
+</head>
+<body>
+<DIV CLASS="navigation">
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td><a rel="prev" title="11 PEP 301: Package" 
+  href="section-pep301.html"><img src='../icons/previous.gif'
+  border='0' height='32'  alt='Previous Page' width='32'></A></td>
+<td><a rel="parent" title="What's New in Python" 
+  HREF="whatsnew23.html"><img src='../icons/up.gif'
+  border='0' height='32'  alt='Up One Level' width='32'></A></td>
+<td><a rel="next" title="13 PEP 305: Comma-separated" 
+  HREF="node14.html"><img src='../icons/next.gif'
+  border='0' height='32'  alt='Next Page' width='32'></A></td>
+<td align="center" width="100%">What's New in Python 2.3</td>
+<td><a rel="contents" title="Table of Contents" 
+  href="contents.html"><img src='../icons/contents.gif'
+  border='0' height='32'  alt='Contents' width='32'></A></td>
+<td><img src='../icons/blank.gif'
+  border='0' height='32'  alt='' width='32'></td>
+</tr></table>
+<b class="navlabel">Previous:</b>
+<a class="sectref" rel="prev" href="section-pep301.html">11 PEP 301: Package</A>
+<b class="navlabel">Up:</b>
+<a class="sectref" rel="parent" HREF="whatsnew23.html">What's New in Python</A>
+<b class="navlabel">Next:</b>
+<a class="sectref" rel="next" HREF="node14.html">13 PEP 305: Comma-separated</A>
+<br><hr>
+</DIV>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION0001300000000000000000">&nbsp;</A>
+<BR>
+12 PEP 302: New Import Hooks 
+</H1>
+
+<P>
+While it's been possible to write custom import hooks ever since the
+<tt class="module">ihooks</tt> module was introduced in Python 1.3, no one has ever
+been really happy with it because writing new import hooks is
+difficult and messy.  There have been various proposed alternatives
+such as the <tt class="module">imputil</tt> and <tt class="module">iu</tt> modules, but none of them
+has ever gained much acceptance, and none of them were easily usable
+from C code.
+
+<P>
+<a class="rfc" name="rfcref-2126"
+href="http://www.python.org/peps/pep-0302.html">PEP 302</a> borrows ideas from its predecessors, especially from
+Gordon McMillan's <tt class="module">iu</tt> module.  Three new items 
+are added to the <tt class="module">sys</tt> module:
+
+<P>
+
+<UL>
+<LI><code>sys.path_hooks</code> is a list of callable objects; most 
+  often they'll be classes.  Each callable takes a string containing a
+  path and either returns an importer object that will handle imports
+  from this path or raises an <tt class="exception">ImportError</tt> exception if it
+  can't handle this path.
+
+<P>
+</LI>
+<LI><code>sys.path_importer_cache</code> caches importer objects for
+  each path, so <code>sys.path_hooks</code> will only need to be traversed
+  once for each path.
+
+<P>
+</LI>
+<LI><code>sys.meta_path</code> is a list of importer objects that will
+  be traversed before <code>sys.path</code> is checked.  This list is
+  initially empty, but user code can add objects to it.  Additional
+  built-in and frozen modules can be imported by an object added to
+  this list.
+
+<P>
+</LI>
+</UL>
+
+<P>
+Importer objects must have a single method,
+<tt class="method">find_module(<var>fullname</var>, <var>path</var>=None)</tt>.  <var>fullname</var>
+will be a module or package name, e.g. "<tt class="samp">string</tt>" or
+"<tt class="samp">distutils.core</tt>".  <tt class="method">find_module()</tt> must return a loader object
+that has a single method, <tt class="method">load_module(<var>fullname</var>)</tt>, that
+creates and returns the corresponding module object.
+
+<P>
+Pseudo-code for Python's new import logic, therefore, looks something
+like this (simplified a bit; see <a class="rfc" name="rfcref-2128"
+href="http://www.python.org/peps/pep-0302.html">PEP 302</a> for the full details):
+
+<P>
+<div class="verbatim"><pre>
+for mp in sys.meta_path:
+    loader = mp(fullname)
+    if loader is not None:
+        &lt;module&gt; = loader.load_module(fullname)
+        
+for path in sys.path:
+    for hook in sys.path_hooks:
+        try:
+            importer = hook(path)
+        except ImportError:
+            # ImportError, so try the other path hooks
+            pass
+        else:
+            loader = importer.find_module(fullname)
+            &lt;module&gt; = loader.load_module(fullname)
+
+# Not found!
+raise ImportError
+</pre></div>
+
+<P>
+<div class="seealso">
+  <p class="heading"><b>See Also:</b></p>
+
+<P>
+<dl compact class="seerfc">
+    <dt><a href="http://www.python.org/peps/pep-0302.html"
+        title="New Import Hooks"
+        >PEP 302, <em>New Import Hooks</em></a>
+    <dd>Written by Just van&nbsp;Rossum and Paul Moore.
+Implemented by Just van&nbsp;Rossum.
+
+  </dl>
+
+<P>
+</div>
+
+<P>
+
+<DIV CLASS="navigation">
+<p><hr>
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td><a rel="prev" title="11 PEP 301: Package" 
+  rel="prev" title="11 PEP 301: Package" 
+  href="section-pep301.html"><img src='../icons/previous.gif'
+  border='0' height='32'  alt='Previous Page' width='32'></A></td>
+<td><a rel="parent" title="What's New in Python" 
+  rel="parent" title="What's New in Python" 
+  HREF="whatsnew23.html"><img src='../icons/up.gif'
+  border='0' height='32'  alt='Up One Level' width='32'></A></td>
+<td><a rel="next" title="13 PEP 305: Comma-separated" 
+  rel="next" title="13 PEP 305: Comma-separated" 
+  HREF="node14.html"><img src='../icons/next.gif'
+  border='0' height='32'  alt='Next Page' width='32'></A></td>
+<td align="center" width="100%">What's New in Python 2.3</td>
+<td><a rel="contents" title="Table of Contents" 
+  rel="contents" title="Table of Contents" 
+  href="contents.html"><img src='../icons/contents.gif'
+  border='0' height='32'  alt='Contents' width='32'></A></td>
+<td><img src='../icons/blank.gif'
+  border='0' height='32'  alt='' width='32'></td>
+</tr></table>
+<b class="navlabel">Previous:</b>
+<a class="sectref" rel="prev" href="section-pep301.html">11 PEP 301: Package</A>
+<b class="navlabel">Up:</b>
+<a class="sectref" rel="parent" HREF="whatsnew23.html">What's New in Python</A>
+<b class="navlabel">Next:</b>
+<a class="sectref" rel="next" HREF="node14.html">13 PEP 305: Comma-separated</A>
+<hr>
+<span class="release-info">Release 1.00.</span>
+</DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+See <i><a href="about.html">About this document...</a></i> for information on suggesting changes.
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,190 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso8859_1" />
+    
+    <title>Floating Point Objects</title>
+    <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="copyright" title="Copyright" href="../copyright.html" />
+    <link rel="top" title="Python v3.3.2 documentation" href="../index.html" />
+    <link rel="up" title="Concrete Objects Layer" href="concrete.html" />
+    <link rel="next" title="Complex Number Objects" href="complex.html" />
+    <link rel="prev" title="Boolean Objects" href="bool.html" />
+    <link rel="shortcut icon" type="image/png" href="../_static/py.png" />
+    
+    
+    
+ 
+
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="complex.html" title="Complex Number Objects"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="bool.html" title="Boolean Objects"
+             accesskey="P">previous</a> |</li>
+        <li><img src="../_static/py.png" alt=""
+                 style="vertical-align: middle; margin-top: -1px"/></li>
+        <li><a href="http://www.python.org/">Python</a> &raquo;</li>
+        <li>
+          <a href="../index.html">3.3.2 Documentation</a> &raquo;
+        </li>
+
+          <li><a href="index.html" >Python/C API Reference Manual</a> &raquo;</li>
+          <li><a href="concrete.html" accesskey="U">Concrete Objects Layer</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body">
+            
+  <div class="section" id="floating-point-objects">
+<span id="floatobjects"></span><h1>Floating Point Objects</h1>
+<span class="target" id="index-0"></span><dl class="type">
+<dt id="PyFloatObject">
+<tt class="descname">PyFloatObject</tt></dt>
+<dd><p>This subtype of <a class="reference internal" href="structures.html#PyObject" title="PyObject"><tt class="xref c c-type docutils literal"><span class="pre">PyObject</span></tt></a> represents a Python floating point object.</p>
+</dd></dl>
+
+<dl class="var">
+<dt id="PyFloat_Type">
+<a class="reference internal" href="type.html#PyTypeObject" title="PyTypeObject">PyTypeObject</a> <tt class="descname">PyFloat_Type</tt></dt>
+<dd><p>This instance of <a class="reference internal" href="type.html#PyTypeObject" title="PyTypeObject"><tt class="xref c c-type docutils literal"><span class="pre">PyTypeObject</span></tt></a> represents the Python floating point
+type.  This is the same object as <a class="reference internal" href="../library/functions.html#float" title="float"><tt class="xref py py-class docutils literal"><span class="pre">float</span></tt></a> in the Python layer.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="PyFloat_Check">
+int <tt class="descname">PyFloat_Check</tt><big>(</big><a class="reference internal" href="structures.html#PyObject" title="PyObject">PyObject</a><em>&nbsp;*p</em><big>)</big></dt>
+<dd><p>Return true if its argument is a <a class="reference internal" href="#PyFloatObject" title="PyFloatObject"><tt class="xref c c-type docutils literal"><span class="pre">PyFloatObject</span></tt></a> or a subtype of
+<a class="reference internal" href="#PyFloatObject" title="PyFloatObject"><tt class="xref c c-type docutils literal"><span class="pre">PyFloatObject</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="PyFloat_CheckExact">
+int <tt class="descname">PyFloat_CheckExact</tt><big>(</big><a class="reference internal" href="structures.html#PyObject" title="PyObject">PyObject</a><em>&nbsp;*p</em><big>)</big></dt>
+<dd><p>Return true if its argument is a <a class="reference internal" href="#PyFloatObject" title="PyFloatObject"><tt class="xref c c-type docutils literal"><span class="pre">PyFloatObject</span></tt></a>, but not a subtype of
+<a class="reference internal" href="#PyFloatObject" title="PyFloatObject"><tt class="xref c c-type docutils literal"><span class="pre">PyFloatObject</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="PyFloat_FromString">
+<a class="reference internal" href="structures.html#PyObject" title="PyObject">PyObject</a>* <tt class="descname">PyFloat_FromString</tt><big>(</big><a class="reference internal" href="structures.html#PyObject" title="PyObject">PyObject</a><em>&nbsp;*str</em><big>)</big></dt>
+<dd><em class="refcount">Return value: New reference.</em><p>Create a <a class="reference internal" href="#PyFloatObject" title="PyFloatObject"><tt class="xref c c-type docutils literal"><span class="pre">PyFloatObject</span></tt></a> object based on the string value in <em>str</em>, or
+<em>NULL</em> on failure.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="PyFloat_FromDouble">
+<a class="reference internal" href="structures.html#PyObject" title="PyObject">PyObject</a>* <tt class="descname">PyFloat_FromDouble</tt><big>(</big>double<em>&nbsp;v</em><big>)</big></dt>
+<dd><em class="refcount">Return value: New reference.</em><p>Create a <a class="reference internal" href="#PyFloatObject" title="PyFloatObject"><tt class="xref c c-type docutils literal"><span class="pre">PyFloatObject</span></tt></a> object from <em>v</em>, or <em>NULL</em> on failure.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="PyFloat_AsDouble">
+double <tt class="descname">PyFloat_AsDouble</tt><big>(</big><a class="reference internal" href="structures.html#PyObject" title="PyObject">PyObject</a><em>&nbsp;*pyfloat</em><big>)</big></dt>
+<dd><p>Return a C <tt class="xref c c-type docutils literal"><span class="pre">double</span></tt> representation of the contents of <em>pyfloat</em>.  If
+<em>pyfloat</em> is not a Python floating point object but has a <a class="reference internal" href="../reference/datamodel.html#object.__float__" title="object.__float__"><tt class="xref py py-meth docutils literal"><span class="pre">__float__()</span></tt></a>
+method, this method will first be called to convert <em>pyfloat</em> into a float.
+This method returns <tt class="docutils literal"><span class="pre">-1.0</span></tt> upon failure, so one should call
+<a class="reference internal" href="exceptions.html#PyErr_Occurred" title="PyErr_Occurred"><tt class="xref c c-func docutils literal"><span class="pre">PyErr_Occurred()</span></tt></a> to check for errors.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="PyFloat_AS_DOUBLE">
+double <tt class="descname">PyFloat_AS_DOUBLE</tt><big>(</big><a class="reference internal" href="structures.html#PyObject" title="PyObject">PyObject</a><em>&nbsp;*pyfloat</em><big>)</big></dt>
+<dd><p>Return a C <tt class="xref c c-type docutils literal"><span class="pre">double</span></tt> representation of the contents of <em>pyfloat</em>, but
+without error checking.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="PyFloat_GetInfo">
+<a class="reference internal" href="structures.html#PyObject" title="PyObject">PyObject</a>* <tt class="descname">PyFloat_GetInfo</tt><big>(</big>void<big>)</big></dt>
+<dd><p>Return a structseq instance which contains information about the
+precision, minimum and maximum values of a float. It&#8217;s a thin wrapper
+around the header file <tt class="file docutils literal"><span class="pre">float.h</span></tt>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="PyFloat_GetMax">
+double <tt class="descname">PyFloat_GetMax</tt><big>(</big><big>)</big></dt>
+<dd><p>Return the maximum representable finite float <em>DBL_MAX</em> as C <tt class="xref c c-type docutils literal"><span class="pre">double</span></tt>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="PyFloat_GetMin">
+double <tt class="descname">PyFloat_GetMin</tt><big>(</big><big>)</big></dt>
+<dd><p>Return the minimum normalized positive float <em>DBL_MIN</em> as C <tt class="xref c c-type docutils literal"><span class="pre">double</span></tt>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="PyFloat_ClearFreeList">
+int <tt class="descname">PyFloat_ClearFreeList</tt><big>(</big><big>)</big></dt>
+<dd><p>Clear the float free list. Return the number of items that could not
+be freed.</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="complex.html" title="Complex Number Objects"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="bool.html" title="Boolean Objects"
+             >previous</a> |</li>
+        <li><img src="../_static/py.png" alt=""
+                 style="vertical-align: middle; margin-top: -1px"/></li>
+        <li><a href="http://www.python.org/">Python</a> &raquo;</li>
+        <li>
+          <a href="../index.html">3.3.2 Documentation</a> &raquo;
+        </li>
+
+          <li><a href="index.html" >Python/C API Reference Manual</a> &raquo;</li>
+          <li><a href="concrete.html" >Concrete Objects Layer</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+    &copy; <a href="../copyright.html">Copyright</a> 1990-2013, Python Software Foundation.
+    <br />
+    The Python Software Foundation is a non-profit corporation.
+    <a href="http://www.python.org/psf/donations/">Please donate.</a>
+    <br />
+    Last updated on Aug 23, 2013.
+    <a href="../bugs.html">Found a bug</a>?
+    <br />
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+
+  </body>
+</html>

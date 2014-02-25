@@ -1,0 +1,52 @@
+body                   { margin: 0px;
+                         padding: 0px; }
+.navigation            { width: 100%;
+                         background: #99ccff; }
+.navigation .navicon   { width: 150px;
+                         height: 35; }
+.navigation .textlinks { padding-left: 1em;
+                         text-align: left; }
+
+.header                { margin-top: 0.5em; }
+.header, .content      { margin-left: 1em;
+                         margin-right: 1em; }
+
+.header table td       { text-align: left; }
+.header table th       { text-align: right;
+                         font-family: sans-serif;
+                         padding-right: 0.5em; }
+
+h3                     { font-family: sans-serif; }
+
+
+/* ActivePython changes */
+table td
+    {
+    font-size: 70%;
+    }
+table th
+    {
+    font-size: 70%;
+    }
+body
+    {
+    background: #FFFFFF;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-weight: normal;
+    font-size: 90%;
+    }
+a:link
+       {
+       color: #0066CC;
+       text-decoration: none;
+       }
+a:visited
+       {
+       color: #0066CC;
+       text-decoration: none;
+       }
+a:hover
+       {
+       color: #0066CC;
+       text-decoration: underline;
+       }
