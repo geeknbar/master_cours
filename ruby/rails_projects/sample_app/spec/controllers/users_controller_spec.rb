@@ -71,6 +71,11 @@ describe UsersController do
       get 'new'
       response.should have_selector("input[name='user[cvpdf]'][type='file']")
     end
+
+    it "devrait avoir un bouton d'inscription" do
+      get 'new'
+      response.should have_selector("input[name='commit'][type='submit']")
+    end
   end
 
   describe "GET 'sportif'" do
