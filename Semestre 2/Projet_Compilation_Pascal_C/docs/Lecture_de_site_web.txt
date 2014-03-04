@@ -1,7 +1,13 @@
-Très bon cours sur Flex et Bison
-
 http://www.enib.fr/~harrouet/Data/Courses/Flex_Bison.pdf
+
+Très bon cours sur Flex et Bison
 
 Slide 30-31 : implication Flex/Bison sur un exemple de reconnaissance de variable
 
 Slide 40-42 : comment reconnaître des expressions arthiméthiques.
+
+################################
+
+https://code.google.com/p/toypasc/source/browse/?r=49#svn%2Ftrunk
+
+Projet de pascal to C on peut peut être s'en servir à voir.

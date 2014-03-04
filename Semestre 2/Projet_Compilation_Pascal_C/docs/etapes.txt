@@ -1,7 +1,7 @@
-- Découper le code Pascam en plusieurs sous problème :
+- Découper le code Pascam en plusieurs sous problèmes, réaliser une grammaire au fur et à mesure et un automate :
 
 	Pour chaque problème 
-		- Définir une grammaire pour l'ensemble de l'exemple donné par le prof 
+		- Définir une grammaire + automate pour l'ensemble de l'exemple donné par le prof 
 
 		- transformer la grammaire en code Flex/Bison
 
