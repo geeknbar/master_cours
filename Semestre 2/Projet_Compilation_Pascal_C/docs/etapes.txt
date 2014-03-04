@@ -1,0 +1,8 @@
+- Découper le code Pascam en plusieurs sous problème :
+
+	Pour chaque problème 
+		- Définir une grammaire pour l'ensemble de l'exemple donné par le prof 
+
+		- transformer la grammaire en code Flex/Bison
+
+- Faire la transition Pascal => C

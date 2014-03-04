@@ -99,7 +99,7 @@ def visualize(options={})
     options.each do |table|
       if table_name == table
         puts "\n" + table_name
-        ActiveRecord::Base.connection.columns(table_name).each do |c| 
+        ActiveRecord::Base.connection.columns(table_name).each do |c|
           puts "- " + c.name + ": " + c.type.to_s + " " + c.limit.to_s
         end
       end

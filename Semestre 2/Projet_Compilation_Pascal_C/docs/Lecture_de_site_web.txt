@@ -1,0 +1,7 @@
+Très bon cours sur Flex et Bison
+
+http://www.enib.fr/~harrouet/Data/Courses/Flex_Bison.pdf
+
+Slide 30-31 : implication Flex/Bison sur un exemple de reconnaissance de variable
+
+Slide 40-42 : comment reconnaître des expressions arthiméthiques.
