@@ -1,0 +1,51 @@
+<script src="http://code.highcharts.com/highcharts-more.js"></script>
+<div id="container" style="height: 400px; margin: auto; min-width: 310px; max-width: 600px"></div>
+<%=
+puts "#{@user_statistics.poids_ac_plot}"
+puts "#{@user_statistics.poids_id_plot}"
+%>
+<script type="text/javascript">
+$(function () {
+    $('#container').highcharts({
+
+	    chart: {
+	        type: 'boxplot'
+	    },
+	    
+	    title: {
+	        text: 'Box plot poids actuels et poids ideals'
+	    },
+	    
+	    legend: {
+	        enabled: false
+	    },
+	
+	    xAxis: {
+	        categories: ['Poids Actuel', 'Poids Ideal'],
+	        title: {
+	            text: 'Experiment No.'
+	        }
+	    },
+	    yAxis: {
+				tickInterval: 10,
+				min: 0,
+				max: 200,
+			        title: {
+			            text: 'Valeur'
+			        },  
+	    },
+	    series: [{
+	        name: 'Observations',
+	        data: [
+
+	            <%=@user_statistics.poids_id_plot%>,
+	            <%=@user_statistics.poids_ac_plot%>
+	        ],
+	        tooltip: {
+	            headerFormat: '<em>Experiment No {point.key}</em><br/>'
+	        }
+	    }]
+	
+	});
+});
+</script>
