@@ -10,6 +10,12 @@ class UserStatistics
 		@poids_id_plot = Array.new
 		@poids_id = Array.new		
 		@datas = Array.new
+
+		poids_ac_users
+		poids_id_users
+		poids_ac_plot_user
+		poids_id_plot_user
+		repartition_imc
   end
 
   #pour tous les utilisateurs on va chercher les poids actuels
@@ -30,25 +36,27 @@ class UserStatistics
 		@poids_id
   end
 
-  def poids_ac_plot
-  	user_ordinate = poids_ac_users.sort
+  def poids_ac_plot_user
+  	user_ordinate = @poids_ac.sort
 
-  	@poids_ac_plot << user_ordinate.last
+  	
 		@poids_ac_plot << user_ordinate.first
 		@poids_ac_plot << user_ordinate[user_ordinate.length/4]
 		@poids_ac_plot << median(user_ordinate)
 		@poids_ac_plot << user_ordinate[(user_ordinate.length*3)/4]
+		@poids_ac_plot << user_ordinate.last
 
   end
 
-  def poids_id_plot
-  	user_ordinate = poids_id_users.sort
+  def poids_id_plot_user
+  	user_ordinate = @poids_id.sort
 
-  	@poids_id_plot << user_ordinate.last
+  	
 		@poids_id_plot << user_ordinate.first
 		@poids_id_plot << user_ordinate[user_ordinate.length/4]
 		@poids_id_plot << median(user_ordinate)
 		@poids_id_plot << user_ordinate[(user_ordinate.length*3)/4]
+		@poids_id_plot << user_ordinate.last
 		
   end
 

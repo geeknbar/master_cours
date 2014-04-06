@@ -15,8 +15,7 @@ class UsersController < ApplicationController
   def index
     @titre = "Liste des utilisateurs"
     @users = User.all
-    @user_statistics = UserStatistics.new(@users)
-
+    
     respond_to do |format|
       format.html
       format.pdf
@@ -36,7 +35,6 @@ class UsersController < ApplicationController
 
   def nonsportif
     @users = User.where(estSportif: false, souhaitePratiquerSport: true)
-    @user_statistics = UserStatistics.new(@users)
     @titre = "Liste des utilisateurs non sportif"
     render 'index'
   end

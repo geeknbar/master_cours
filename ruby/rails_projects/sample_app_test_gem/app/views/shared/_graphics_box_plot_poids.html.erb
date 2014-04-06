@@ -1,19 +1,16 @@
 <script src="http://code.highcharts.com/highcharts-more.js"></script>
-<div id="container" style="height: 400px; margin: auto; min-width: 310px; max-width: 600px"></div>
-<%=
-puts "#{@user_statistics.poids_ac_plot}"
-puts "#{@user_statistics.poids_id_plot}"
-%>
+<div id="graphique_box_plot_poids" style="height: 400px; margin: auto; min-width: 310px; max-width: 600px"></div>
+
 <script type="text/javascript">
 $(function () {
-    $('#container').highcharts({
+    $('#graphique_box_plot_poids').highcharts({
 
 	    chart: {
 	        type: 'boxplot'
 	    },
 	    
 	    title: {
-	        text: 'Box plot poids actuels et poids ideals'
+	        text: 'Répartition des poids actuels et idéals'
 	    },
 	    
 	    legend: {
@@ -21,28 +18,35 @@ $(function () {
 	    },
 	
 	    xAxis: {
-	        categories: ['Poids Actuel', 'Poids Ideal'],
-	        title: {
-	            text: 'Experiment No.'
-	        }
+	        categories: ['Poids Actuels', 'Poids Ideals']
 	    },
+	    
 	    yAxis: {
-				tickInterval: 10,
-				min: 0,
-				max: 200,
-			        title: {
-			            text: 'Valeur'
-			        },  
+	        title: {
+	            text: 'Kilogrammes'
+	        },
+	        plotLines: [{
+	            value: 932,
+	            color: 'red',
+	            width: 1,
+	            label: {
+	                text: 'Theoretical mean: 932',
+	                align: 'center',
+	                style: {
+	                    color: 'gray'
+	                }
+	            }
+	        }]  
 	    },
+	
 	    series: [{
 	        name: 'Observations',
 	        data: [
-
-	            <%=@user_statistics.poids_id_plot%>,
-	            <%=@user_statistics.poids_ac_plot%>
+	            <%=@user_statistics.poids_ac_plot.as_json%>,
+	            <%=@user_statistics.poids_id_plot.as_json%>
 	        ],
 	        tooltip: {
-	            headerFormat: '<em>Experiment No {point.key}</em><br/>'
+	            headerFormat: '<em>{point.key}</em><br/>'
 	        }
 	    }]
 	

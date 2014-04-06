@@ -1,9 +1,9 @@
-<div id="graphique2" style="width:100%; height:400px;"></div>
+<div id="graphique_repartition_imc" style="width:100%; height:400px;"></div>
 
 <script type="text/javascript"> 
 
     $(function () {
-        $('#graphique2').highcharts({
+        $('#graphique_repartition_imc').highcharts({
             chart: {
                 plotBackgroundColor: null,
                 plotBorderWidth: null,
@@ -18,7 +18,7 @@
             series: [{
                 type: 'pie',
                 name: 'Browser share',
-                data: <%= raw @user_statistics.repartition_imc.as_json %>
+                data: <%= raw @user_statistics.datas.as_json %>
             }]
         });
     });

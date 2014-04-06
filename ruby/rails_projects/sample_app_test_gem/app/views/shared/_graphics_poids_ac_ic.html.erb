@@ -1,8 +1,8 @@
-<div id="graphique1" style="width:100%; height:400px;"></div>
+<div id="graphique_repartition_poids_ac_ic" style="width:100%; height:400px;"></div>
 
 <script type="text/javascript"> 
     $(function () { 
-        $('#graphique1').highcharts({
+        $('#graphique_repartition_poids_ac_ic').highcharts({
             chart: {
                 type: 'line'
             },
@@ -16,10 +16,10 @@
             },
             series: [{
                 name: 'Poids Actuels',
-                data: <%=@user_statistics.poids_ac_users%>
+                data: <%=@user_statistics.poids_ac%>
             }, {
                 name: 'Poids Idéaux',
-                data: <%=@user_statistics.poids_id_users%>
+                data: <%=@user_statistics.poids_id%>
             }]
         });
     });

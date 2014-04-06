@@ -88,16 +88,6 @@ describe UsersController do
       get 'nonsportif'
       response.should have_selector("title", :content => "Liste des utilisateurs non sportif")
     end
-
-    it "devrait avoir le graphique poids ac/id" do
-      get 'nonsportif'
-      response.should have_selector("div", :id => "graphique1")
-    end
-
-    it "devrait avoir le graphique repartition imc" do
-      get 'nonsportif'
-      response.should have_selector("div", :id => "graphique2")
-    end
   end
 
   describe "GET 'index'" do
@@ -140,16 +130,6 @@ describe UsersController do
         response.should have_selector("td", :content => "Download") if user.cvpdf.size
 
       end
-    end
-
-    it "devrait avoir le graphique poids ac/id" do
-      get :index
-      response.should have_selector("div", :id => "graphique1")
-    end
-
-    it "devrait avoir le graphique repartition imc" do
-      get :index
-      response.should have_selector("div", :id => "graphique2")
     end
   end
 
